@@ -26,6 +26,7 @@ import "./theme/tailwind.css";
 import Index from "./pages/Index";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import About from "./pages/About";
 
 setupIonicReact();
 
@@ -38,6 +39,9 @@ const App: React.FC = () => {
           <IonContent>
             <Route path="/" exact={true}>
               <Index />
+            </Route>
+            <Route path="/about-us" exact={true}>
+              <About />
             </Route>
             <Footer />
           </IonContent>
