@@ -27,6 +27,7 @@ import Index from "./pages/Index";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import About from "./pages/About";
+import Feed from "./pages/Feed";
 
 setupIonicReact();
 
@@ -42,6 +43,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/about-us" exact={true}>
               <About />
+            </Route>
+            <Route path="/feed" exact={true}>
+              <Feed />
             </Route>
             <Footer />
           </IonContent>
