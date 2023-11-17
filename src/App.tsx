@@ -1,8 +1,6 @@
-import { IonApp, IonContent, IonRouterOutlet, IonSplitPane, setupIonicReact } from "@ionic/react";
+import { IonApp, IonContent, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { Redirect, Route } from "react-router-dom";
-import Menu from "./components/Menu";
-import Page from "./pages/Page";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -28,6 +26,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import About from "./pages/About";
 import Feed from "./pages/Feed";
+import Resource from "./pages/Resource";
 
 setupIonicReact();
 
@@ -46,6 +45,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/feed" exact={true}>
               <Feed />
+            </Route>
+            <Route path="/resource" exact={true}>
+              <Resource />
             </Route>
             <Footer />
           </IonContent>
