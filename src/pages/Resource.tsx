@@ -21,7 +21,7 @@ const Resource: React.FC = () => {
                   {articles.map((article) => (
                     <a
                       href={`resource#${generateTitleId(article.title)}`}
-                      className="text-gray-700 block px-4 py-3 text-sm hover:bg-gray-50"
+                      className="text-gray-700 block px-4 py-2 text-md hover:bg-gray-50"
                     >
                       {article.title}
                     </a>
