@@ -26,6 +26,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import About from "./pages/About";
 import Feed from "./pages/Feed";
+import Discover from "./pages/Discover";
+
 import Resource from "./pages/Resource";
 
 setupIonicReact();
@@ -46,6 +48,8 @@ const App: React.FC = () => {
             <Route path="/feed" exact={true}>
               <Feed />
             </Route>
+            <Route path="/discover" exact={true}>
+              <Discover />
             <Route path="/resource" exact={true}>
               <Resource />
             </Route>

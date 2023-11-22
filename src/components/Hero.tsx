@@ -1,8 +1,11 @@
+import { useHistory } from "react-router";
+
 interface Props {
   heading: string;
 }
 
 const Hero = ({ heading }: Props) => {
+  const history = useHistory();
   return (
     <div className="flex items-center justify-center h-screen mb-16 bg-fixed bg-center bg-cover custom-img">
       {/* Overlay */}
@@ -13,7 +16,9 @@ const Hero = ({ heading }: Props) => {
           <p className="text-xl mt-6 md:text-2xl">
             Discover a wealth of articles, tools, and support for teenage mental health.
           </p>
-          <button className="px-8 py-2 border border mt-12">Discover Content</button>
+          <button className="px-8 py-2 border border mt-12" onClick={()=>{
+            history.push("/discover");
+          }}>Discover Content</button>
         </div>
       </div>
     </div>
