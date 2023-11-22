@@ -243,3 +243,7 @@ html {
 .custom-img {
   background-image: url("../public/cycm.jpg");
 }
+
+.markdown > * {
+  all: revert;
+}
