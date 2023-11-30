@@ -247,3 +247,48 @@ html {
 .markdown > * {
   all: revert;
 }
+
+section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 400px;
+  padding-top: 100px;
+  /* background: #3c31dd; */
+  background: #1A97F1;
+  /* background: linear-gradient(90deg, rgb(74 31 85) 40%, rgb(221, 175, 49) 100%); */
+}
+
+.curve {
+  position: absolute;
+  height: 220px;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+}
+
+.curve::before {
+  content: '';
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 55%;
+  height: 100%;
+  transform: translate(85%, 60%);
+  background-color: #121212;
+}
+
+.curve::after {
+  content: '';
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 55%;
+  height: 100%;
+  /* background-color: #3c31dd; */
+  background: #1A97F1;
+  transform: translate(-4%, 40%);
+  z-index: -1;
+}
+

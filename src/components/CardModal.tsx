@@ -12,8 +12,11 @@ import {
   IonFab,
   IonFabButton,
   IonText,
+  IonToggle,
+  IonItem,
+  IonLabel,
 } from '@ionic/react';
-
+import { Share } from '@capacitor/share';
 import { share, shareOutline, playCircle, add, closeCircle, pauseCircle } from 'ionicons/icons';
 
 
@@ -35,6 +38,8 @@ const CardModal: React.FC<Props> = ({ title, sentences, id, voiceId, manual_id }
   const containerRef = useRef(null);
   const [audioLoading, setAudioLoading] = useState<boolean>(false);
   const [hasFetchedAudios, setHasFetchedAudios] = useState(false);
+  const sentenceRefs = useRef<(HTMLIonTextElement | null)[]>([]);
+  const [displayVideo, setDisplayVideo] = useState<boolean>(true);
 
   // const fetchAudio = async (sentence: string) => {
   //   // ... existing fetchAudio code ...
@@ -74,7 +79,9 @@ const CardModal: React.FC<Props> = ({ title, sentences, id, voiceId, manual_id }
 
       const blob = await response.blob();
       const url = URL.createObjectURL(blob);
-      return new Audio(url);
+      const audio = new Audio(url);
+      audio.playbackRate = 1.25;
+      return audio;
     } catch (error) {
       console.error('Error occurred while making request:', error);
       return null;
@@ -138,23 +145,28 @@ const CardModal: React.FC<Props> = ({ title, sentences, id, voiceId, manual_id }
     }
   }, [isPlaying, currentIndex, sentences.length, audios]);
 
+  // useEffect(() => {
+  //   if (currentIndex > 0) {
+  //     const container: any = containerRef.current;
+  //     setTimeout(() => {
+  //       const highlightedElement = container.querySelector('.highlight');
+  //       if (highlightedElement) {
+  //         const containerHeight = container.clientHeight;
+  //         const highlightedTop = highlightedElement.offsetTop;
+  //         const highlightedHeight = highlightedElement.offsetHeight;
+  //         const scrollTo = highlightedTop - containerHeight / 2 + highlightedHeight / 2;
+  //         container.scrollTo({
+  //           top: scrollTo,
+  //           behavior: 'smooth',
+  //         });
+  //       }
+  //     }, 0);
+  //   }
+  // }, [currentIndex]);
+
   useEffect(() => {
-    if (currentIndex > 0) {
-      const container: any = containerRef.current;
-      setTimeout(() => {
-        const highlightedElement = container.querySelector('.highlight');
-        if (highlightedElement) {
-          const containerHeight = container.clientHeight;
-          const highlightedTop = highlightedElement.offsetTop;
-          const highlightedHeight = highlightedElement.offsetHeight;
-          const scrollTo = highlightedTop - containerHeight / 2 + highlightedHeight / 2;
-          container.scrollTo({
-            top: scrollTo,
-            behavior: 'smooth',
-          });
-        }
-      }, 0);
-    }
+    const currentSentenceRef = sentenceRefs.current[currentIndex];
+    currentSentenceRef?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, [currentIndex]);
 
 
@@ -166,19 +178,19 @@ const CardModal: React.FC<Props> = ({ title, sentences, id, voiceId, manual_id }
     modal.current?.dismiss(input.current?.value, 'confirm');
   }
 
-  function onWillDismiss(ev: CustomEvent<any>) {
-    if (ev.detail.role === 'confirm') {
-      setMessage(`Hello, ${ev.detail.data}!`);
-    }
+  async function shareUrl() {
+    // get current url
+    const url = window.location.href;
+
+    await Share.share({
+      url: url,
+    });
   }
-  const toggleModal = () => {
-    setModalOpen(!modalOpen);
-  };
 
   return (
     <>
-      <IonButton id={`${id}open-modal`} expand="block" fill='outline'>
-        Open Fullscreen
+      <IonButton id={`${id}open-modal`} fill='outline' shape='round' color='success'>
+        Play Article
       </IonButton>
       <IonModal keepContentsMounted={true} ref={modal} trigger={`${id}open-modal`} color={'dark'}>
         <IonHeader translucent={true}>
@@ -204,21 +216,91 @@ const CardModal: React.FC<Props> = ({ title, sentences, id, voiceId, manual_id }
             </IonButtons>
             <IonTitle>{title}</IonTitle>
             <IonButtons slot="end">
-              <IonButton strong={true} onClick={confirm}>
+              <IonButton strong={true} onClick={shareUrl}>
                 <IonIcon icon={shareOutline}></IonIcon>
               </IonButton>
             </IonButtons>
           </IonToolbar>
         </IonHeader>
-        <IonContent className="ion-padding" color={'dark'}>
-          <div ref={containerRef} style={{
+        <IonHeader>
+          <IonToolbar>
+            <IonItem slot='end'>
+              <IonLabel>Display Video</IonLabel>
+            <IonToggle checked={displayVideo} onIonChange={(e:any) => setDisplayVideo(e.detail.checked)} />
+            </IonItem>
+          </IonToolbar>
+        </IonHeader>
+        <IonContent color={'dark'}>
+          {/* <div ref={containerRef} style={{
             maxHeight: '100vh',
           }}>
+            <video src='./calm-video1.mp4' autoPlay loop muted />
             {sentences.map((sentence, index) => (
-              <IonText className={index == currentIndex ? 'highlight' : ''} color={index <= currentIndex ? "success" : "medium"} key={index}>
-                <h3>{sentence}</h3>
+              <IonText style={{
+                display: 'block',
+                padding: '1rem',
+                fontSize: '1.5rem',
+                lineHeight: '2rem',
+              }} className={index == currentIndex ? 'highlight' : ''} color={index <= currentIndex ? "success" : "medium"} key={index}>
+                <h3>{sentence}.</h3>
               </IonText>
             ))}
+            
+          </div> */}
+          <div ref={containerRef} style={{
+            position: 'relative',
+            height: '100vh',
+            width: '100%',
+            overflow: 'hidden',
+          }}>
+            {displayVideo && <video src='./calm-video1.mp4' autoPlay loop muted style={{
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }} />}
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              color: 'white',
+              textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+              padding: '1rem',
+              paddingTop: '3rem', // Add some padding to the top
+              boxSizing: 'border-box',
+              overflowY: 'auto',
+              backgroundColor: 'rgba(0, 0, 0, 0.5)', // Add semi-transparent background
+            }}>
+              {sentences.map((sentence, index) => (
+                <IonText style={{
+                  display: 'block',
+                  padding: '1rem',
+                  fontSize: '1.5rem',
+                  lineHeight: '2rem',
+                  fontWeight: 'bold',
+                }} 
+                onClick={() => {
+                  if (currentIndex < audios.length) {
+                    const currentAudio = audios[currentIndex];
+                    if (currentAudio) {
+                      currentAudio.pause();
+                      currentAudio.currentTime = 0; // Reset audio to start
+                    }
+                  }
+                  setCurrentIndex(index);
+                  setIsPlaying(true);
+                }}
+                ref={el => sentenceRefs.current[index] = el}
+                className={index == currentIndex ? 'highlight' : ''} color={index <= currentIndex ? "success" : "medium"} key={index}>
+                  <h3>{sentence}.</h3>
+                </IonText>
+              ))}
+            </div>
           </div>
         </IonContent>
         <IonFab horizontal='end' vertical='bottom'>
