@@ -15,7 +15,9 @@ const Resource: React.FC = () => {
         <div className="p-8 max-w-7xl grid gap-8 md:gap-16 md:grid-cols-3 md:p-12">
           <div className="col-span-1 flex flex-col items-start">
             <div className="sticky top-[20%]">
-              <h4 className="text-4xl font-bold font-sans mb-4 md:mb-6 md:text-3xl">Table of Content</h4>
+              <h4 className="text-4xl font-bold font-sans mb-4 md:mb-6 md:text-3xl">
+                Table of Content
+              </h4>
               <div className="mt-2 bg-white focus:outline-none">
                 <div className="py-1" role="none">
                   {articles.map((article) => (
@@ -40,7 +42,9 @@ const Resource: React.FC = () => {
                   >
                     {article.title}
                   </h3>
-                  <ReactMarkdown className="markdown">{article.markdown}</ReactMarkdown>
+                  <ReactMarkdown className="markdown">
+                    {article.markdown}
+                  </ReactMarkdown>
                 </div>
               ))}
             </div>

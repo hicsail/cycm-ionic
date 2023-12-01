@@ -6,11 +6,15 @@ const Feed: React.FC = () => {
       <div className="flex justify-center mt-28 mb-16">
         <div className="p-8 max-w-7xl grid gap-8 md:gap-16 md:grid-cols-3 md:p-12">
           <div className="col-span-2 flex flex-col items-start justify-center">
-            <span className="text-lg font-bold font-sans mb-2 md:mb-4">Tagline</span>
-            <h5 className="text-4xl font-bold font-sans mb-4 md:mb-6 md:text-5xl">Short Heading Here</h5>
+            <span className="text-lg font-bold font-sans mb-2 md:mb-4">
+              Tagline
+            </span>
+            <h5 className="text-4xl font-bold font-sans mb-4 md:mb-6 md:text-5xl">
+              Short Heading Here
+            </h5>
             <p className="text-md font-sans mb-4 md:mb-6 md:text-lg">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum
-              tristique.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse varius enim in eros elementum tristique.
             </p>
             <div>
               <button
@@ -32,12 +36,16 @@ const Feed: React.FC = () => {
       <div className="flex justify-center my-16">
         <div className="p-8 max-w-7xl md:p-12 w-full">
           <div className="flex flex-col items-start justify-center">
-            <span className="text-lg font-bold font-sans mb-4 md:mb-6">Blog</span>
-            <h5 className="font-bold font-sans mb-6 text-4xl md:text-4xl">Short Heading Gose Here</h5>
+            <span className="text-lg font-bold font-sans mb-4 md:mb-6">
+              Blog
+            </span>
+            <h5 className="font-bold font-sans mb-6 text-4xl md:text-4xl">
+              Short Heading Gose Here
+            </h5>
           </div>
           <p className="text-md font-sans mb-4 md:mb-6 md:text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum
-            tristique.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique.
           </p>
           {/* Card Goes Here */}
         </div>

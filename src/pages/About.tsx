@@ -7,7 +7,8 @@ const About: React.FC = () => {
     {
       name: "John Doe",
       title: "Mental Health Specialist",
-      description: "John is a licensed therapist with over 10 years of experience in helping teens.",
+      description:
+        "John is a licensed therapist with over 10 years of experience in helping teens.",
       socials: [
         { name: "linkedin", link: "#" },
         { name: "twitter", link: "#" },
@@ -26,7 +27,8 @@ const About: React.FC = () => {
     {
       name: "Michael Johnson",
       title: "Psychiatrist",
-      description: "Michael specializes in diagnosing and treating mental health disorders in adolescents",
+      description:
+        "Michael specializes in diagnosing and treating mental health disorders in adolescents",
       socials: [
         { name: "linkedin", link: "#" },
         { name: "twitter", link: "#" },
@@ -35,7 +37,8 @@ const About: React.FC = () => {
     {
       name: "Emily Davis",
       title: "Social Worker",
-      description: "Emily is passionate about advocating for the mental well-being of teenagers.",
+      description:
+        "Emily is passionate about advocating for the mental well-being of teenagers.",
       socials: [
         { name: "linkedin", link: "#" },
         { name: "twitter", link: "#" },
@@ -44,7 +47,8 @@ const About: React.FC = () => {
     {
       name: "David Thompson",
       title: "School Counselor",
-      description: "David provides guidance and support to students dealing with mental health issue.",
+      description:
+        "David provides guidance and support to students dealing with mental health issue.",
       socials: [
         { name: "linkedin", link: "#" },
         { name: "twitter", link: "#" },
@@ -53,7 +57,8 @@ const About: React.FC = () => {
     {
       name: "Sarah Miller",
       title: "Peer Support Specialist",
-      description: "Sarah uses her own experiences to connect with and empower teens on their mental health journey.",
+      description:
+        "Sarah uses her own experiences to connect with and empower teens on their mental health journey.",
       socials: [
         { name: "linkedin", link: "#" },
         { name: "twitter", link: "#" },
@@ -84,8 +89,12 @@ const About: React.FC = () => {
       <div className="flex justify-center my-16">
         <div className="p-8 max-w-7xl md:p-12 w-full">
           <div className="flex flex-col items-start justify-center">
-            <span className="text-lg font-bold font-sans mb-2 md:mb-4">Empowering</span>
-            <h5 className="font-bold font-sans mb-6 text-4xl md:text-5xl">Meet Our Team</h5>
+            <span className="text-lg font-bold font-sans mb-2 md:mb-4">
+              Empowering
+            </span>
+            <h5 className="font-bold font-sans mb-6 text-4xl md:text-5xl">
+              Meet Our Team
+            </h5>
           </div>
           <p className="text-md font-sans mb-4 md:mb-6 md:text-lg">
             get to know the experts behind our mental health resources

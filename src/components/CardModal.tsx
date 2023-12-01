@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 import {
   IonButtons,
   IonButton,
@@ -15,9 +15,16 @@ import {
   IonToggle,
   IonItem,
   IonLabel,
-} from '@ionic/react';
-import { Share } from '@capacitor/share';
-import { share, shareOutline, playCircle, add, closeCircle, pauseCircle } from 'ionicons/icons';
+} from "@ionic/react";
+import { Share } from "@capacitor/share";
+import {
+  share,
+  shareOutline,
+  playCircle,
+  add,
+  closeCircle,
+  pauseCircle,
+} from "ionicons/icons";
 
 interface Props {
   title: string;
@@ -27,8 +34,13 @@ interface Props {
   manual_id: string;
 }
 
-const CardModal: React.FC<Props> = ({ title, sentences, id, voiceId, manual_id }) => {
-
+const CardModal: React.FC<Props> = ({
+  title,
+  sentences,
+  id,
+  voiceId,
+  manual_id,
+}) => {
   const modal = useRef<any>(null);
   const input = useRef<any>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -41,11 +53,15 @@ const CardModal: React.FC<Props> = ({ title, sentences, id, voiceId, manual_id }
 
   const fetchAudio = async (index: number) => {
     try {
-      const response = await fetch(`https://cycm.s3.amazonaws.com/article_audios/article_${manual_id}/${voiceId}/audio_${index + 1}.mp3`);
+      const response = await fetch(
+        `https://cycm.s3.amazonaws.com/article_audios/article_${manual_id}/${voiceId}/audio_${
+          index + 1
+        }.mp3`
+      );
 
       if (!response.ok) {
         const errorData = await response.text();
-        console.error('Error response from server:', errorData);
+        console.error("Error response from server:", errorData);
         return null;
       }
 
@@ -55,7 +71,7 @@ const CardModal: React.FC<Props> = ({ title, sentences, id, voiceId, manual_id }
       audio.playbackRate = 1.25;
       return audio;
     } catch (error) {
-      console.error('Error occurred while making request:', error);
+      console.error("Error occurred while making request:", error);
       return null;
     }
   };
@@ -87,7 +103,7 @@ const CardModal: React.FC<Props> = ({ title, sentences, id, voiceId, manual_id }
       const currentAudio = audios[currentIndex];
       if (currentAudio) {
         currentAudio.onended = () => {
-          setCurrentIndex(prevIndex => prevIndex + 1);
+          setCurrentIndex((prevIndex) => prevIndex + 1);
         };
         currentAudio.play();
       }
@@ -103,16 +119,15 @@ const CardModal: React.FC<Props> = ({ title, sentences, id, voiceId, manual_id }
 
   useEffect(() => {
     const currentSentenceRef = sentenceRefs.current[currentIndex];
-    currentSentenceRef?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    currentSentenceRef?.scrollIntoView({ behavior: "smooth", block: "center" });
   }, [currentIndex]);
 
-
   const [message, setMessage] = useState(
-    'This modal example uses triggers to automatically open a modal when the button is clicked.'
+    "This modal example uses triggers to automatically open a modal when the button is clicked."
   );
 
   function confirm() {
-    modal.current?.dismiss(input.current?.value, 'confirm');
+    modal.current?.dismiss(input.current?.value, "confirm");
   }
 
   async function shareUrl() {
@@ -126,29 +141,40 @@ const CardModal: React.FC<Props> = ({ title, sentences, id, voiceId, manual_id }
 
   return (
     <>
-      <IonButton id={`${id}open-modal`} fill='outline' shape='round' color='success'>
+      <IonButton
+        id={`${id}open-modal`}
+        fill="outline"
+        shape="round"
+        color="success"
+      >
         Play Article
       </IonButton>
-      <IonModal keepContentsMounted={true} ref={modal} trigger={`${id}open-modal`} color={'dark'}>
+      <IonModal
+        keepContentsMounted={true}
+        ref={modal}
+        trigger={`${id}open-modal`}
+        color={"dark"}
+      >
         <IonHeader translucent={true}>
           <IonToolbar>
             <IonButtons slot="start">
-              <IonButton onClick={() => {
-
-                if (currentIndex < audios.length) {
-                  const currentAudio = audios[currentIndex];
-                  if (currentAudio) {
-                    currentAudio.pause();
-                    currentAudio.currentTime = 0; // Reset audio to start
+              <IonButton
+                onClick={() => {
+                  if (currentIndex < audios.length) {
+                    const currentAudio = audios[currentIndex];
+                    if (currentAudio) {
+                      currentAudio.pause();
+                      currentAudio.currentTime = 0; // Reset audio to start
+                    }
                   }
-                }
-                setCurrentIndex(0);
-                setIsPlaying(false);
-                setHasFetchedAudios(false);
-                setAudios([]);
-                modal.current?.dismiss()
-              }}>
-                <IonIcon icon={closeCircle} ></IonIcon>
+                  setCurrentIndex(0);
+                  setIsPlaying(false);
+                  setHasFetchedAudios(false);
+                  setAudios([]);
+                  modal.current?.dismiss();
+                }}
+              >
+                <IonIcon icon={closeCircle}></IonIcon>
               </IonButton>
             </IonButtons>
             <IonTitle>{title}</IonTitle>
@@ -161,80 +187,105 @@ const CardModal: React.FC<Props> = ({ title, sentences, id, voiceId, manual_id }
         </IonHeader>
         <IonHeader>
           <IonToolbar>
-            <IonItem slot='end'>
+            <IonItem slot="end">
               <IonLabel>Display Video</IonLabel>
-            <IonToggle checked={displayVideo} onIonChange={(e:any) => setDisplayVideo(e.detail.checked)} />
+              <IonToggle
+                checked={displayVideo}
+                onIonChange={(e: any) => setDisplayVideo(e.detail.checked)}
+              />
             </IonItem>
           </IonToolbar>
         </IonHeader>
-        <IonContent color={'dark'}>
-          <div ref={containerRef} style={{
-            position: 'relative',
-            height: '100vh',
-            width: '100%',
-            overflow: 'hidden',
-          }}>
-            {displayVideo && <video src='./calm-video1.mp4' autoPlay loop muted style={{
-              position: 'absolute',
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-            }} />}
-            <div style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              color: 'white',
-              textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
-              padding: '1rem',
-              paddingTop: '3rem', // Add some padding to the top
-              boxSizing: 'border-box',
-              overflowY: 'auto',
-              backgroundColor: 'rgba(0, 0, 0, 0.5)', // Add semi-transparent background
-            }}>
-              {sentences.map((sentence, index) => (
-                <IonText style={{
-                  display: 'block',
-                  padding: '1rem',
-                  fontSize: '1.5rem',
-                  lineHeight: '2rem',
-                  fontWeight: 'bold',
-                }} 
-                onClick={() => {
-                  if (currentIndex < audios.length) {
-                    const currentAudio = audios[currentIndex];
-                    if (currentAudio) {
-                      currentAudio.pause();
-                      currentAudio.currentTime = 0; // Reset audio to start
-                    }
-                  }
-                  setCurrentIndex(index);
-                  setIsPlaying(true);
+        <IonContent color={"dark"}>
+          <div
+            ref={containerRef}
+            style={{
+              position: "relative",
+              height: "100vh",
+              width: "100%",
+              overflow: "hidden",
+            }}
+          >
+            {displayVideo && (
+              <video
+                src="./calm-video1.mp4"
+                autoPlay
+                loop
+                muted
+                style={{
+                  position: "absolute",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
                 }}
-                ref={el => sentenceRefs.current[index] = el}
-                className={index == currentIndex ? 'highlight' : ''} color={index <= currentIndex ? "success" : "medium"} key={index}>
+              />
+            )}
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                color: "white",
+                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                padding: "1rem",
+                paddingTop: "3rem", // Add some padding to the top
+                boxSizing: "border-box",
+                overflowY: "auto",
+                backgroundColor: "rgba(0, 0, 0, 0.5)", // Add semi-transparent background
+              }}
+            >
+              {sentences.map((sentence, index) => (
+                <IonText
+                  style={{
+                    display: "block",
+                    padding: "1rem",
+                    fontSize: "1.5rem",
+                    lineHeight: "2rem",
+                    fontWeight: "bold",
+                  }}
+                  onClick={() => {
+                    if (currentIndex < audios.length) {
+                      const currentAudio = audios[currentIndex];
+                      if (currentAudio) {
+                        currentAudio.pause();
+                        currentAudio.currentTime = 0; // Reset audio to start
+                      }
+                    }
+                    setCurrentIndex(index);
+                    setIsPlaying(true);
+                  }}
+                  ref={(el) => (sentenceRefs.current[index] = el)}
+                  className={index == currentIndex ? "highlight" : ""}
+                  color={index <= currentIndex ? "success" : "medium"}
+                  key={index}
+                >
                   <h3>{sentence}.</h3>
                 </IonText>
               ))}
             </div>
           </div>
         </IonContent>
-        <IonFab horizontal='end' vertical='bottom'>
-          <IonFabButton onClick={() => {
-            setIsPlaying(prev => !prev)
-          }}>
-            {audioLoading ? <IonSpinner name="crescent" /> :
-              <IonIcon icon={isPlaying ? pauseCircle : playCircle}></IonIcon>}
+        <IonFab horizontal="end" vertical="bottom">
+          <IonFabButton
+            onClick={() => {
+              setIsPlaying((prev) => !prev);
+            }}
+          >
+            {audioLoading ? (
+              <IonSpinner name="crescent" />
+            ) : (
+              <IonIcon icon={isPlaying ? pauseCircle : playCircle}></IonIcon>
+            )}
           </IonFabButton>
         </IonFab>
       </IonModal>
     </>
-  )
-}
+  );
+};
 
-export default CardModal
+export default CardModal;

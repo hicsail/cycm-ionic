@@ -6,14 +6,28 @@ interface DualColumnImageTextProps {
   actions?: { text: string; link: string }[];
 }
 
-const DualColumnImageText = ({ tagline, title, description, image, actions = [] }: DualColumnImageTextProps) => {
+const DualColumnImageText = ({
+  tagline,
+  title,
+  description,
+  image,
+  actions = [],
+}: DualColumnImageTextProps) => {
   return (
     <div className="flex justify-center my-16">
       <div className="p-8 max-w-7xl grid gap-8 md:gap-16 md:grid-cols-2 md:p-12">
         <div className="flex flex-col items-start justify-center">
-          {tagline && <span className="text-lg font-bold font-sans mb-2 md:mb-4">{tagline}</span>}
-          <h5 className="text-4xl font-bold font-sans mb-4 md:mb-6 md:text-5xl">{title}</h5>
-          <p className="text-md font-sans mb-4 md:mb-6 md:text-lg">{description}</p>
+          {tagline && (
+            <span className="text-lg font-bold font-sans mb-2 md:mb-4">
+              {tagline}
+            </span>
+          )}
+          <h5 className="text-4xl font-bold font-sans mb-4 md:mb-6 md:text-5xl">
+            {title}
+          </h5>
+          <p className="text-md font-sans mb-4 md:mb-6 md:text-lg">
+            {description}
+          </p>
           <div>
             {actions.length === 1 && (
               <button
