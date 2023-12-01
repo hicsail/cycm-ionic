@@ -5,16 +5,29 @@ interface DualColumnTextProps {
   actions?: { text: string; link: string }[];
 }
 
-const DualColumnText = ({ tagline, title, description, actions = [] }: DualColumnTextProps) => {
+const DualColumnText = ({
+  tagline,
+  title,
+  description,
+  actions = [],
+}: DualColumnTextProps) => {
   return (
     <div className="flex justify-center my-16">
       <div className="p-8 max-w-7xl grid md:gap-16 md:grid-cols-2 md:p-12">
         <div className="flex flex-col items-start justify-center">
-          {tagline && <span className="text-lg font-bold font-sans mb-2 md:mb-4">{tagline}</span>}
-          <h5 className="text-4xl font-bold font-sans mb-4 md:mb-6 md:text-5xl">{title}</h5>
+          {tagline && (
+            <span className="text-lg font-bold font-sans mb-2 md:mb-4">
+              {tagline}
+            </span>
+          )}
+          <h5 className="text-4xl font-bold font-sans mb-4 md:mb-6 md:text-5xl">
+            {title}
+          </h5>
         </div>
         <div>
-          <p className="text-md font-sans mb-4 md:mb-6 md:text-lg">{description}</p>
+          <p className="text-md font-sans mb-4 md:mb-6 md:text-lg">
+            {description}
+          </p>
           <div>
             {actions.length === 1 && (
               <button

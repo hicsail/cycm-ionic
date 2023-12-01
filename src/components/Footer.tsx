@@ -5,7 +5,8 @@ const Footer = () => {
         <div className="flex flex-col items-start justify-center">
           <h5 className="text-4xl font-bold mb-4 font-sans">CYCM</h5>
           <p className="text-md font-sans mb-4 md:mb-6 md:text-lg">
-            Sign up for our newsletter to stay informed about new features and releases.
+            Sign up for our newsletter to stay informed about new features and
+            releases.
           </p>
           <div className="flex grid gap-4 w-full mb-2 md:grid-cols-4 md:gap-8">
             <input
@@ -31,13 +32,19 @@ const Footer = () => {
         </div>
         <div className="flex flex-col md:flex-row gap-32">
           <div>
-            <h5 className="text-xl font-bold font-sans items-start justify-items-start mb-2">Column 1</h5>
+            <h5 className="text-xl font-bold font-sans items-start justify-items-start mb-2">
+              Column 1
+            </h5>
           </div>
           <div>
-            <h5 className="text-xl font-bold font-sans items-start justify-items-start mb-2">Column 2</h5>
+            <h5 className="text-xl font-bold font-sans items-start justify-items-start mb-2">
+              Column 2
+            </h5>
           </div>
           <div>
-            <h5 className="text-xl font-bold font-sans items-start justify-items-start mb-2">Follow us</h5>
+            <h5 className="text-xl font-bold font-sans items-start justify-items-start mb-2">
+              Follow us
+            </h5>
             <div>
               <a className="flex font-medium items-center" href="#">
                 <svg

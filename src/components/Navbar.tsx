@@ -22,7 +22,11 @@ const Navbar = () => {
 
   useEffect(() => {
     const closeDropdown = (e: MouseEvent) => {
-      if (open && !document.querySelector("#navbar-dropdown")?.contains(e.target as Node)) setOpen(false);
+      if (
+        open &&
+        !document.querySelector("#navbar-dropdown")?.contains(e.target as Node)
+      )
+        setOpen(false);
     };
 
     document.addEventListener("mousedown", closeDropdown);
@@ -73,7 +77,10 @@ const Navbar = () => {
             )}
           </svg>
         </button>
-        <div className={`w-full md:block md:w-auto ${!mobileOpen && "hidden"}`} id="navbar-dropdown">
+        <div
+          className={`w-full md:block md:w-auto ${!mobileOpen && "hidden"}`}
+          id="navbar-dropdown"
+        >
           <ul className="flex flex-col font-medium mt-4 md:items-center md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
             {navigation.map((item) => (
               <li key={item.name}>
@@ -121,12 +128,20 @@ const Navbar = () => {
                     aria-labelledby="menu-button"
                   >
                     <div className="py-1" role="none">
-                      <a href="#" className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem">
+                      <a
+                        href="#"
+                        className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100"
+                        role="menuitem"
+                      >
                         item 0
                       </a>
                     </div>
                     <div className="py-1" role="none">
-                      <a href="#" className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem">
+                      <a
+                        href="#"
+                        className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100"
+                        role="menuitem"
+                      >
                         item 1
                       </a>
                     </div>
