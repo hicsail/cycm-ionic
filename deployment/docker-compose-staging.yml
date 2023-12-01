@@ -2,7 +2,7 @@ version: "3"
 
 services:
   cycm-ionic:
-    image: hicsail/cycm-ionic:prod
+    image: hicsail/cycm-ionic:staging
     restart: always
     ports:
       - 3015:80
