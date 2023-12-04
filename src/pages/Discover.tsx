@@ -87,7 +87,6 @@ const Discover: React.FC = () => {
   };
   return (
     <IonContent>
-
       <div className="">
         <div>
           <section className="">
