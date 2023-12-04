@@ -57,6 +57,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/s')
         with:
           context: .
+          push: true
           tags: hicsail/cycm-ionic:staging
           build-args: |
             VITE_ELEVEN_LABS_API_KEY=${{ secrets.VITE_ELEVEN_LABS_API_KEY }}
@@ -77,6 +78,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/v')
         with:
           context: .
+          push: true
           tags: hicsail/cycm-ionic:prod
           build-args: |
             VITE_ELEVEN_LABS_API_KEY=${{ secrets.VITE_ELEVEN_LABS_API_KEY_PROD }}
