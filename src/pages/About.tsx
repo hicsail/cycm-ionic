@@ -68,6 +68,7 @@ const About: React.FC = () => {
 
   return (
     <div className="pt-12">
+      <section className="">
       <DualColumnText
         tagline="Empowering"
         title="Supporting Teen Mental Health"
@@ -77,6 +78,8 @@ const About: React.FC = () => {
           { text: "Sign Up", link: "#" },
         ]}
       />
+      <div className="curve" />
+      </section>
       <DualColumnImageText
         title="Our Mission, Vision, and Values"
         description="We are dedicated to providing resources and articles for teens to support their mental health. Our Mission is to create a safe and inclusive space where young people can find information, guidance, and support, We believe in the power of education and awareness to break the stigma surrounding mental health and empower teens to prioritize their well-being."
@@ -86,6 +89,7 @@ const About: React.FC = () => {
           { text: "Sign Up", link: "#" },
         ]}
       />
+
       <div className="flex justify-center my-16">
         <div className="p-8 max-w-7xl md:p-12 w-full">
           <div className="flex flex-col items-start justify-center">
