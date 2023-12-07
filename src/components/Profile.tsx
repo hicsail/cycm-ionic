@@ -1,3 +1,5 @@
+import { IonCard, IonCardContent } from "@ionic/react";
+
 interface ProfileProps {
   avatar?: string;
   name: string;
@@ -21,33 +23,38 @@ const Profile = ({
   };
 
   return (
-    <div className="flex flex-col">
-      <img
-        className="w-16 h-16 rounded-full mb-2"
-        src={avatar ?? "/avatars/placeholder.gif"}
-      />
-      <span className="text-lg font-bold font-sans">{name}</span>
-      <span className="text-md font-sans mb-2">{title}</span>
-      <p className="text-md font-sans mb-2 md:text-sm">{description}</p>
-      <div className="flex">
-        {socials.map((social) => (
-          <a
-            key={social.name}
-            className="flex font-medium items-center"
-            href={social.link}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 mx-2 my-2"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d={icons[social.name as keyof typeof icons]} />
-            </svg>
-          </a>
-        ))}
-      </div>
-    </div>
+    <IonCard color={'warning'}>
+      <IonCardContent>
+        <div className="flex flex-col">
+          <img
+            className="w-32 h-32 rounded-full mb-2 mx-auto"
+            src={avatar ?? "/avatars/placeholder.gif"}
+          />
+          <span className="text-lg font-bold font-sans">{name}</span>
+          <span className="text-md font-sans mb-2">{title}</span>
+          {/* <p className="text-md font-sans mb-2 md:text-sm">{description}</p> */}
+        </div>
+      </IonCardContent>
+      <div className="h-12" />
+      <div className="flex bottom-5 absolute left-5">
+            {socials.map((social) => (
+              <a
+                key={social.name}
+                className="flex font-medium items-center"
+                href={social.link}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4 mx-2 my-2"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d={icons[social.name as keyof typeof icons]} />
+                </svg>
+              </a>
+            ))}
+          </div>
+    </IonCard>
   );
 };
 

@@ -5,64 +5,59 @@ import Profile from "../components/Profile";
 const About: React.FC = () => {
   const profiles = [
     {
-      name: "John Doe",
-      title: "Mental Health Specialist",
+      name: "Christine Crawford, MD, MPH",
+      title: "Adult and Child Psychiatrist | Associate Medical Director (NAMI) | Assistant Professor (BUSM)",
       description:
         "John is a licensed therapist with over 10 years of experience in helping teens.",
       socials: [
-        { name: "linkedin", link: "#" },
-        { name: "twitter", link: "#" },
+        { name: "linkedin", link: "https://www.linkedin.com/in/christine-crawford-md-mph-a08ab923a/" },
+        { name: "twitter", link: "https://twitter.com/DrChrissyC" },
       ],
+      avatar: "https://media.licdn.com/dms/image/C4E03AQEt0LWDFL79JQ/profile-displayphoto-shrink_400_400/0/1653902467974?e=1707350400&v=beta&t=RScF5gUex87VL2wWCME2hZEZ-M1QCbzYk5lF_avxgnc"
     },
     {
-      name: "Jane Smith",
-      title: "Youth Counselor",
+      name: "Hannah Tremont, MPH",
+      title: "Content Writer & Editor at CRICO | Health Literacy and Communications Specialist",
       description:
-        "Jane is dedicated to providing support and guidance to young individuals facing mental health challenges.",
+        "I am a public health professional working at the intersection of data analysis, health policy, and health communication. With an MPH from The Boston University School of Public Health, I combine my expertise in epidemiology, biostatistics, and U.S.",
       socials: [
-        { name: "linkedin", link: "#" },
-        { name: "twitter", link: "#" },
+        { name: "linkedin", link: "https://www.linkedin.com/in/hannahtremont/" },
+        { name: "twitter", link: "https://twitter.com/hannah_tremont" },
       ],
+      avatar: "https://media.licdn.com/dms/image/D4E03AQEOzpghH-ZW5A/profile-displayphoto-shrink_400_400/0/1701740146145?e=1707350400&v=beta&t=M2Kehl7loetnoPuShFjwtngumB8FCSj7ti6f166u_Y0"
     },
     {
-      name: "Michael Johnson",
-      title: "Psychiatrist",
+      name: "Daisy Perez, MPH",
+      title: "Senior Research Manager at Boston Medical Center (BMC)",
       description:
         "Michael specializes in diagnosing and treating mental health disorders in adolescents",
       socials: [
         { name: "linkedin", link: "#" },
         { name: "twitter", link: "#" },
       ],
+      avatar: "https://media.licdn.com/dms/image/D4E03AQHE7IaJYKf0uQ/profile-displayphoto-shrink_400_400/0/1693359355504?e=1707350400&v=beta&t=adgipKKAo26Ypz1tXCiSqMhajDzzay1L-LBnWrjOs1U"
     },
     {
-      name: "Emily Davis",
-      title: "Social Worker",
+      name: "Ufuoma Barbara Akpotair",
+      title: "Director of Grants and Contracts at Boston Medical Center (BMC)",
       description:
         "Emily is passionate about advocating for the mental well-being of teenagers.",
       socials: [
-        { name: "linkedin", link: "#" },
+        { name: "linkedin", link: "https://www.linkedin.com/in/akpotaire/" },
         { name: "twitter", link: "#" },
       ],
+      avatar: "https://media.licdn.com/dms/image/C4D03AQHBAzAa_voAKw/profile-displayphoto-shrink_400_400/0/1516495384605?e=1707350400&v=beta&t=nuooGetT-8AbW9XLzj07M2kPGnkcD97MAKITbd-8RQw"
     },
     {
-      name: "David Thompson",
-      title: "School Counselor",
+      name: "Larysa Malinouskaya, MS, CRA",
+      title: "Director of Grants and Contracts",
       description:
         "David provides guidance and support to students dealing with mental health issue.",
       socials: [
         { name: "linkedin", link: "#" },
         { name: "twitter", link: "#" },
       ],
-    },
-    {
-      name: "Sarah Miller",
-      title: "Peer Support Specialist",
-      description:
-        "Sarah uses her own experiences to connect with and empower teens on their mental health journey.",
-      socials: [
-        { name: "linkedin", link: "#" },
-        { name: "twitter", link: "#" },
-      ],
+      avatar: "https://www.bumc.bu.edu/psychiatry/files/2021/04/photo-225x300.jpg"
     },
   ];
 
@@ -111,16 +106,17 @@ const About: React.FC = () => {
                 title={profile.title}
                 description={profile.description}
                 socials={profile.socials}
-              />
+                avatar={profile.avatar}
+                />
             ))}
           </div>
         </div>
       </div>
-      <DualColumnText
+      {/* <DualColumnText
         title="Explore Our Mental Health Resources"
         description="Discover a wealth of resources and articles on mental specifically curated for teans."
         actions={[{ text: "Learn More", link: "#" }]}
-      />
+      /> */}
     </div>
   );
 };
