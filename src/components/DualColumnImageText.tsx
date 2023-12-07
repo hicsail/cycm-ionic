@@ -54,7 +54,7 @@ const DualColumnImageText = ({
           </div>
         </div>
         <div className={image.position === "left" ? "md:order-first" : ""}>
-          <img src={image.source} alt="CYCM Circle" width={800} height={600} />
+          <img src={image.source} alt="CYCM Circle" width={220} height={140} />
         </div>
       </div>
     </div>
