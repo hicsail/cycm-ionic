@@ -256,7 +256,7 @@ section {
   min-height: 400px;
   padding-top: 100px;
   /* background: #3c31dd; */
-  background: #1A97F1;
+  background: #1a97f1;
   /* background: linear-gradient(90deg, rgb(74 31 85) 40%, rgb(221, 175, 49) 100%); */
 }
 
@@ -269,7 +269,7 @@ section {
 }
 
 .curve::before {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   border-radius: 100% 50%;
@@ -280,15 +280,14 @@ section {
 }
 
 .curve::after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   border-radius: 100% 50%;
   width: 55%;
   height: 100%;
   /* background-color: #3c31dd; */
-  background: #1A97F1;
+  background: #1a97f1;
   transform: translate(-4%, 40%);
   z-index: -1;
 }
-
