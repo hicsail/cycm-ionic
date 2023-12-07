@@ -62,7 +62,7 @@ const About: React.FC = () => {
   ];
 
   return (
-    <div className="pt-12 divide-y divide-red-400 hover:divide-y-4">
+    <div className="pt-12">
       <div>
       <section className="">
         <DualColumnText
