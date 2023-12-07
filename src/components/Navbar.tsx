@@ -16,17 +16,17 @@ const Navbar = () => {
     },
     {
       name: "Contact Us",
-      href: "#",
+      href: "#footer",
+    },
+    {
+      name: "Resources",
+      href: "resources",
     },
   ];
 
   useEffect(() => {
     const closeDropdown = (e: MouseEvent) => {
-      if (
-        open &&
-        !document.querySelector("#navbar-dropdown")?.contains(e.target as Node)
-      )
-        setOpen(false);
+      if (open && !document.querySelector("#navbar-dropdown")?.contains(e.target as Node)) setOpen(false);
     };
 
     document.addEventListener("mousedown", closeDropdown);
@@ -77,10 +77,7 @@ const Navbar = () => {
             )}
           </svg>
         </button>
-        <div
-          className={`w-full md:block md:w-auto ${!mobileOpen && "hidden"}`}
-          id="navbar-dropdown"
-        >
+        <div className={`w-full md:block md:w-auto ${!mobileOpen && "hidden"}`} id="navbar-dropdown">
           <ul className="flex flex-col font-medium mt-4 md:items-center md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
             {navigation.map((item) => (
               <li key={item.name}>
@@ -92,71 +89,6 @@ const Navbar = () => {
                 </a>
               </li>
             ))}
-            <li>
-              <div className="relative inline-block text-left w-full">
-                <div>
-                  <button
-                    type="button"
-                    onClick={() => setOpen(!open)}
-                    data-dropdown-toggle="dropdownNavbar"
-                    className="flex items-center justify-between w-full py-4 px-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto"
-                  >
-                    Resources
-                    <svg
-                      className="w-2.5 h-2.5 ml-2.5"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 10 6"
-                    >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="m1 1 4 4 4-4"
-                      />
-                    </svg>
-                  </button>
-                </div>
-                {open && (
-                  <div
-                    id="dropdownNavbar"
-                    className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-                    role="menu"
-                    aria-orientation="vertical"
-                    aria-labelledby="menu-button"
-                  >
-                    <div className="py-1" role="none">
-                      <a
-                        href="#"
-                        className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100"
-                        role="menuitem"
-                      >
-                        item 0
-                      </a>
-                    </div>
-                    <div className="py-1" role="none">
-                      <a
-                        href="#"
-                        className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100"
-                        role="menuitem"
-                      >
-                        item 1
-                      </a>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </li>
-            <li>
-              <button
-                type="button"
-                className="w-full text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-sm text-sm px-5 py-3 text-center"
-              >
-                Learn
-              </button>
-            </li>
           </ul>
         </div>
       </div>
