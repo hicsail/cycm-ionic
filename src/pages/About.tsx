@@ -6,25 +6,35 @@ const About: React.FC = () => {
   const profiles = [
     {
       name: "Christine Crawford, MD, MPH",
-      title: "Adult and Child Psychiatrist | Associate Medical Director (NAMI) | Assistant Professor (BUSM)",
+      title:
+        "Adult and Child Psychiatrist | Associate Medical Director (NAMI) | Assistant Professor (BUSM)",
       description:
         "John is a licensed therapist with over 10 years of experience in helping teens.",
       socials: [
-        { name: "linkedin", link: "https://www.linkedin.com/in/christine-crawford-md-mph-a08ab923a/" },
+        {
+          name: "linkedin",
+          link: "https://www.linkedin.com/in/christine-crawford-md-mph-a08ab923a/",
+        },
         { name: "twitter", link: "https://twitter.com/DrChrissyC" },
       ],
-      avatar: "https://media.licdn.com/dms/image/C4E03AQEt0LWDFL79JQ/profile-displayphoto-shrink_400_400/0/1653902467974?e=1707350400&v=beta&t=RScF5gUex87VL2wWCME2hZEZ-M1QCbzYk5lF_avxgnc"
+      avatar:
+        "https://media.licdn.com/dms/image/C4E03AQEt0LWDFL79JQ/profile-displayphoto-shrink_400_400/0/1653902467974?e=1707350400&v=beta&t=RScF5gUex87VL2wWCME2hZEZ-M1QCbzYk5lF_avxgnc",
     },
     {
       name: "Hannah Tremont, MPH",
-      title: "Content Writer & Editor at CRICO | Health Literacy and Communications Specialist",
+      title:
+        "Content Writer & Editor at CRICO | Health Literacy and Communications Specialist",
       description:
         "I am a public health professional working at the intersection of data analysis, health policy, and health communication. With an MPH from The Boston University School of Public Health, I combine my expertise in epidemiology, biostatistics, and U.S.",
       socials: [
-        { name: "linkedin", link: "https://www.linkedin.com/in/hannahtremont/" },
+        {
+          name: "linkedin",
+          link: "https://www.linkedin.com/in/hannahtremont/",
+        },
         { name: "twitter", link: "https://twitter.com/hannah_tremont" },
       ],
-      avatar: "https://media.licdn.com/dms/image/D4E03AQEOzpghH-ZW5A/profile-displayphoto-shrink_400_400/0/1701740146145?e=1707350400&v=beta&t=M2Kehl7loetnoPuShFjwtngumB8FCSj7ti6f166u_Y0"
+      avatar:
+        "https://media.licdn.com/dms/image/D4E03AQEOzpghH-ZW5A/profile-displayphoto-shrink_400_400/0/1701740146145?e=1707350400&v=beta&t=M2Kehl7loetnoPuShFjwtngumB8FCSj7ti6f166u_Y0",
     },
     {
       name: "Daisy Perez, MPH",
@@ -35,7 +45,8 @@ const About: React.FC = () => {
         { name: "linkedin", link: "#" },
         { name: "twitter", link: "#" },
       ],
-      avatar: "https://media.licdn.com/dms/image/D4E03AQHE7IaJYKf0uQ/profile-displayphoto-shrink_400_400/0/1693359355504?e=1707350400&v=beta&t=adgipKKAo26Ypz1tXCiSqMhajDzzay1L-LBnWrjOs1U"
+      avatar:
+        "https://media.licdn.com/dms/image/D4E03AQHE7IaJYKf0uQ/profile-displayphoto-shrink_400_400/0/1693359355504?e=1707350400&v=beta&t=adgipKKAo26Ypz1tXCiSqMhajDzzay1L-LBnWrjOs1U",
     },
     {
       name: "Ufuoma Barbara Akpotair",
@@ -46,7 +57,8 @@ const About: React.FC = () => {
         { name: "linkedin", link: "https://www.linkedin.com/in/akpotaire/" },
         { name: "twitter", link: "#" },
       ],
-      avatar: "https://media.licdn.com/dms/image/C4D03AQHBAzAa_voAKw/profile-displayphoto-shrink_400_400/0/1516495384605?e=1707350400&v=beta&t=nuooGetT-8AbW9XLzj07M2kPGnkcD97MAKITbd-8RQw"
+      avatar:
+        "https://media.licdn.com/dms/image/C4D03AQHBAzAa_voAKw/profile-displayphoto-shrink_400_400/0/1516495384605?e=1707350400&v=beta&t=nuooGetT-8AbW9XLzj07M2kPGnkcD97MAKITbd-8RQw",
     },
     {
       name: "Larysa Malinouskaya, MS, CRA",
@@ -57,35 +69,38 @@ const About: React.FC = () => {
         { name: "linkedin", link: "#" },
         { name: "twitter", link: "#" },
       ],
-      avatar: "https://www.bumc.bu.edu/psychiatry/files/2021/04/photo-225x300.jpg"
+      avatar:
+        "https://www.bumc.bu.edu/psychiatry/files/2021/04/photo-225x300.jpg",
     },
   ];
 
   return (
     <div className="pt-12">
       <div>
-      <section className="">
-        <DualColumnText
-          tagline="Empowering"
-          title="Supporting Teen Mental Health"
-          description="Welcome to our website dedicated to providing resources and articles for teens about mental health. We believe in the importance of supporting and empowering teenagers in their mental well-being journey. Explore our content to find valuable information, tips, and advice on various mental health topics."
-          // actions={[
-          //   { text: "Learn More", link: "#" },
-          //   { text: "Sign Up", link: "#" },
-          // ]}
+        <section className="">
+          <DualColumnText
+            tagline="Empowering"
+            title="Supporting Teen Mental Health"
+            description="Welcome to our website dedicated to providing resources and articles for teens about mental health. We believe in the importance of supporting and empowering teenagers in their mental well-being journey. Explore our content to find valuable information, tips, and advice on various mental health topics."
+            // actions={[
+            //   { text: "Learn More", link: "#" },
+            //   { text: "Sign Up", link: "#" },
+            // ]}
+          />
+          <div className="curve" />
+        </section>
+        <div className="h-12" />
+        <DualColumnImageText
+          title="Our Mission, Vision, and Values"
+          description="We are dedicated to providing resources and articles for teens to support their mental health. Our Mission is to create a safe and inclusive space where young people can find information, guidance, and support, We believe in the power of education and awareness to break the stigma surrounding mental health and empower teens to prioritize their well-being."
+          image={{ source: "/cycm-mission.png", position: "left" }}
+          actions={
+            [
+              // { text: "Learn More", link: "#" },
+              // { text: "Sign Up", link: "#" },
+            ]
+          }
         />
-        <div className="curve" />
-      </section>
-      <div className="h-12" />
-      <DualColumnImageText
-        title="Our Mission, Vision, and Values"
-        description="We are dedicated to providing resources and articles for teens to support their mental health. Our Mission is to create a safe and inclusive space where young people can find information, guidance, and support, We believe in the power of education and awareness to break the stigma surrounding mental health and empower teens to prioritize their well-being."
-        image={{ source: "/cycm-mission.png", position: "left" }}
-        actions={[
-          // { text: "Learn More", link: "#" },
-          // { text: "Sign Up", link: "#" },
-        ]}
-      />
       </div>
       <div className="flex justify-center my-16">
         <div className="p-8 max-w-7xl md:p-12 w-full">

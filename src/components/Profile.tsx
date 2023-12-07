@@ -23,7 +23,7 @@ const Profile = ({
   };
 
   return (
-    <IonCard color={'warning'}>
+    <IonCard color={"warning"}>
       <IonCardContent>
         <div className="flex flex-col">
           <img
@@ -37,23 +37,23 @@ const Profile = ({
       </IonCardContent>
       <div className="h-12" />
       <div className="flex bottom-5 absolute left-5">
-            {socials.map((social) => (
-              <a
-                key={social.name}
-                className="flex font-medium items-center"
-                href={social.link}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 mx-2 my-2"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d={icons[social.name as keyof typeof icons]} />
-                </svg>
-              </a>
-            ))}
-          </div>
+        {socials.map((social) => (
+          <a
+            key={social.name}
+            className="flex font-medium items-center"
+            href={social.link}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4 mx-2 my-2"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d={icons[social.name as keyof typeof icons]} />
+            </svg>
+          </a>
+        ))}
+      </div>
     </IonCard>
   );
 };
