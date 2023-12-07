@@ -10,6 +10,7 @@ interface ResourceCardProps {
   description: string;
   image: string;
   action: { text: string; link: string };
+  color?: string;
 }
 
 const ResourceCard = ({
@@ -17,9 +18,10 @@ const ResourceCard = ({
   description,
   image,
   action,
+  color
 }: ResourceCardProps) => {
   return (
-    <IonCard>
+    <IonCard color={color}>
       <img src={image} alt="CYCM Circle" />
       <IonCardHeader className="text-center">
         <IonCardTitle className="text-2xl">{title}</IonCardTitle>
