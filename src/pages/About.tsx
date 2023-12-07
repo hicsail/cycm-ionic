@@ -60,9 +60,9 @@ const About: React.FC = () => {
       avatar: "https://www.bumc.bu.edu/psychiatry/files/2021/04/photo-225x300.jpg"
     },
   ];
-  // tailwind for separator: divide-y divide-red-400 hover:divide-y-4
+
   return (
-    <div className="pt-12">
+    <div className="pt-12 divide-y divide-red-400 hover:divide-y-4">
       <div>
       <section className="">
         <DualColumnText
