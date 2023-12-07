@@ -62,17 +62,17 @@ const About: React.FC = () => {
   ];
 
   return (
-    <div className="pt-12 divide-y divide-red-400 hover:divide-y-8">
+    <div className="pt-12 divide-y divide-red-400 hover:divide-y-4">
       <div>
       <section className="">
         <DualColumnText
           tagline="Empowering"
           title="Supporting Teen Mental Health"
           description="Welcome to our website dedicated to providing resources and articles for teens about mental health. We believe in the importance of supporting and empowering teenagers in their mental well-being journey. Explore our content to find valuable information, tips, and advice on various mental health topics."
-          actions={[
-            { text: "Learn More", link: "#" },
-            { text: "Sign Up", link: "#" },
-          ]}
+          // actions={[
+          //   { text: "Learn More", link: "#" },
+          //   { text: "Sign Up", link: "#" },
+          // ]}
         />
         <div className="curve" />
       </section>
@@ -82,8 +82,8 @@ const About: React.FC = () => {
         description="We are dedicated to providing resources and articles for teens to support their mental health. Our Mission is to create a safe and inclusive space where young people can find information, guidance, and support, We believe in the power of education and awareness to break the stigma surrounding mental health and empower teens to prioritize their well-being."
         image={{ source: "/cycm-mission.png", position: "left" }}
         actions={[
-          { text: "Learn More", link: "#" },
-          { text: "Sign Up", link: "#" },
+          // { text: "Learn More", link: "#" },
+          // { text: "Sign Up", link: "#" },
         ]}
       />
       </div>
