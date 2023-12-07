@@ -62,18 +62,19 @@ const About: React.FC = () => {
   ];
 
   return (
-    <div className="pt-12">
+    <div className="pt-12 divide-y divide-red-400 hover:divide-y-8">
+      <div>
       <section className="">
-      <DualColumnText
-        tagline="Empowering"
-        title="Supporting Teen Mental Health"
-        description="Welcome to our website dedicated to providing resources and articles for teens about mental health. We believe in the importance of supporting and empowering teenagers in their mental well-being journey. Explore our content to find valuable information, tips, and advice on various mental health topics."
-        actions={[
-          { text: "Learn More", link: "#" },
-          { text: "Sign Up", link: "#" },
-        ]}
-      />
-      <div className="curve" />
+        <DualColumnText
+          tagline="Empowering"
+          title="Supporting Teen Mental Health"
+          description="Welcome to our website dedicated to providing resources and articles for teens about mental health. We believe in the importance of supporting and empowering teenagers in their mental well-being journey. Explore our content to find valuable information, tips, and advice on various mental health topics."
+          actions={[
+            { text: "Learn More", link: "#" },
+            { text: "Sign Up", link: "#" },
+          ]}
+        />
+        <div className="curve" />
       </section>
       <div className="h-12" />
       <DualColumnImageText
@@ -85,6 +86,7 @@ const About: React.FC = () => {
           { text: "Sign Up", link: "#" },
         ]}
       />
+      </div>
       <div className="flex justify-center my-16">
         <div className="p-8 max-w-7xl md:p-12 w-full">
           <div className="flex flex-col items-start justify-center">
@@ -98,6 +100,7 @@ const About: React.FC = () => {
           <p className="text-md font-sans mb-4 md:mb-6 md:text-lg">
             get to know the experts behind our mental health resources
           </p>
+          <div className="grid grid-cols-1 divide-y bg-white"></div>
           <div className="grid gap-8 md:grid-cols-4 md:mb-16">
             {profiles.map((profile, idx) => (
               <Profile
@@ -107,7 +110,7 @@ const About: React.FC = () => {
                 description={profile.description}
                 socials={profile.socials}
                 avatar={profile.avatar}
-                />
+              />
             ))}
           </div>
         </div>
