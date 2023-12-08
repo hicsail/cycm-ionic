@@ -1,9 +1,4 @@
-import {
-  IonApp,
-  IonContent,
-  IonRouterOutlet,
-  setupIonicReact,
-} from "@ionic/react";
+import { IonApp, IonContent, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { Redirect, Route } from "react-router-dom";
 
@@ -55,7 +50,7 @@ const App: React.FC = () => {
             <Route path="/discover" exact={true}>
               <Discover />
             </Route>
-            <Route path="/resource" exact={true}>
+            <Route path="/resources" exact={true}>
               <Resource />
             </Route>
             <Footer />

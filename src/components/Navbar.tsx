@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
 
   const navigation = [
     {
@@ -16,7 +17,7 @@ const Navbar = () => {
     },
     {
       name: "Contact Us",
-      href: "#footer",
+      href: location.pathname + "#footer",
     },
     {
       name: "Resources",
