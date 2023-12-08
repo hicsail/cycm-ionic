@@ -10,13 +10,13 @@ const resources = [
   {
     title: "Understood",
     description: "We are the lifelong guide for those who learn and think differently. In the past year, we’ve helped more than 20 million people discover their potentials, take control of their lives, and stay on positive paths.",
-    image: "/cycm-card00.png",
+    image: "/understood.png",
     action: { text: "Visit", link: "https://www.understood.org/" },
   },
   {
     title: "The Trevor Project",
     description: "The Trevor Project is an American nonprofit organization founded in 1998. Focused on suicide prevention efforts among lesbian, gay, bisexual, transgender, queer, and questioning youth, they offer a toll-free telephone number where confidential assistance is provided by trained counselors.",
-    image: "/cycm-card01.png",
+    image: "/trevor1.png",
     action: { text: "Visit", link: "https://www.thetrevorproject.org/" },
   },
 ];
