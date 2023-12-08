@@ -9,7 +9,7 @@ interface ResourceCardProps {
 
 const ResourceCard = ({ title, description, image, action }: ResourceCardProps) => {
   return (
-    <IonCard>
+    <IonCard color="warning">
       <img src={image} alt="CYCM Circle" />
       <IonCardHeader className="text-center">
         <IonCardTitle className="text-2xl">{title}</IonCardTitle>
