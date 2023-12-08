@@ -55,7 +55,7 @@ const App: React.FC = () => {
             <Route path="/discover" exact={true}>
               <Discover />
             </Route>
-            <Route path="/resource" exact={true}>
+            <Route path="/resources" exact={true}>
               <Resource />
             </Route>
             <Footer />

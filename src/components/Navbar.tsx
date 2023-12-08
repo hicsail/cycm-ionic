@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
 
   const navigation = [
     {
@@ -16,7 +17,11 @@ const Navbar = () => {
     },
     {
       name: "Contact Us",
-      href: "#",
+      href: location.pathname + "#footer",
+    },
+    {
+      name: "Resources",
+      href: "resources",
     },
   ];
 
@@ -40,7 +45,7 @@ const Navbar = () => {
     <nav className="fixed bg-white shadow-md border-gray-200 top-0 w-full z-10">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/">
-          <h1 className="font-bold text-4xl">CYCM</h1>
+          <h1 className="font-bold text-4xl dark:text-gray-800">CYCM</h1>
         </Link>
         <button
           data-collapse-toggle="navbar-dropdown"
@@ -92,71 +97,6 @@ const Navbar = () => {
                 </a>
               </li>
             ))}
-            <li>
-              <div className="relative inline-block text-left w-full">
-                <div>
-                  <button
-                    type="button"
-                    onClick={() => setOpen(!open)}
-                    data-dropdown-toggle="dropdownNavbar"
-                    className="flex items-center justify-between w-full py-4 px-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto"
-                  >
-                    Resources
-                    <svg
-                      className="w-2.5 h-2.5 ml-2.5"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 10 6"
-                    >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="m1 1 4 4 4-4"
-                      />
-                    </svg>
-                  </button>
-                </div>
-                {open && (
-                  <div
-                    id="dropdownNavbar"
-                    className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-                    role="menu"
-                    aria-orientation="vertical"
-                    aria-labelledby="menu-button"
-                  >
-                    <div className="py-1" role="none">
-                      <a
-                        href="#"
-                        className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100"
-                        role="menuitem"
-                      >
-                        item 0
-                      </a>
-                    </div>
-                    <div className="py-1" role="none">
-                      <a
-                        href="#"
-                        className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100"
-                        role="menuitem"
-                      >
-                        item 1
-                      </a>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </li>
-            <li>
-              <button
-                type="button"
-                className="w-full text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-sm text-sm px-5 py-3 text-center"
-              >
-                Learn
-              </button>
-            </li>
           </ul>
         </div>
       </div>
