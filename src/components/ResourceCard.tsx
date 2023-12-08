@@ -1,4 +1,9 @@
-import { IonCard, IonCardContent, IonCardHeader, IonCardTitle } from "@ionic/react";
+import {
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardTitle,
+} from "@ionic/react";
 
 interface ResourceCardProps {
   title: string;
@@ -7,7 +12,12 @@ interface ResourceCardProps {
   action: { text: string; link: string };
 }
 
-const ResourceCard = ({ title, description, image, action }: ResourceCardProps) => {
+const ResourceCard = ({
+  title,
+  description,
+  image,
+  action,
+}: ResourceCardProps) => {
   return (
     <IonCard color="warning">
       <img src={image} alt="CYCM Circle" />
