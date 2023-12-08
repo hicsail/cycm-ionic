@@ -8,7 +8,7 @@ interface EmpowerProps {
 const Empower = ({ title, description, image }: EmpowerProps) => {
   return (
     <div className="flex justify-center my-16">
-      <div className="p-8 max-w-7xl grid gap-8 md:gap-16 md:grid-cols-2 md:p-12">
+      <div className="p-30 max-w-7xl grid gap-8 md:gap-16 md:grid-cols-2 md:p-12 bg-sky-600 rounded-2xl">
         <div className="flex flex-col items-start justify-center">
           <span className="text-lg font-bold font-sans mb-2 md:mb-4">
             Empower
