@@ -19,7 +19,8 @@ const Index: React.FC = () => {
     },
     {
       title: "Access a Variety of Mental Health Resources",
-      description: "Find articles, videos, and tools to support your mental well-being.",
+      description:
+        "Find articles, videos, and tools to support your mental well-being.",
       image: "/cycm-card02.png",
       action: { text: "Get Started", link: "" },
     },
