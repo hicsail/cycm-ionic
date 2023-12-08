@@ -5,7 +5,8 @@ const Footer = () => {
         <div className="items-start justify-center md:w-[60%]">
           <img src="/cycm-logo.png" alt="..." className="h-20 mb-4" />
           <p className="text-md font-sans mb-4 md:mb-6 md:text-lg">
-            Sign up for our newsletter to stay informed about new features and releases.
+            Sign up for our newsletter to stay informed about new features and
+            releases.
           </p>
           <div className="flex grid gap-4 w-full mb-2 md:grid-cols-4 md:gap-8">
             <input
@@ -32,7 +33,9 @@ const Footer = () => {
         <div className="md:ml-auto md:w-[20%]">
           <div className="flex flex-col md:flex-row gap-32">
             <div>
-              <h5 className="text-xl font-bold font-sans items-start justify-items-start mb-2">Follow us</h5>
+              <h5 className="text-xl font-bold font-sans items-start justify-items-start mb-2">
+                Follow us
+              </h5>
               <div>
                 <a className="flex font-medium items-center" href="#">
                   <svg
