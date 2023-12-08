@@ -83,7 +83,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <hr className="border-gray-800 w-[90%] my-4" />
+      <hr className="border-gray-800 w-[90%] my-4 dark:border-white" />
       <div className="flex flex-col mb-16 w-[90%] md:flex-row-reverse">
         <div className="flex flex-col md:ml-auto md:flex-row">
           <a className="mb-5 hover:underline md:mx-5 md:mb-0" href="#">
