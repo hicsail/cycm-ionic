@@ -102,7 +102,7 @@ const Discover: React.FC = () => {
   };
   return (
     <IonContent>
-      <div className="">
+      <div className="pt-12">
         <div>
           <section className="">
             <div>

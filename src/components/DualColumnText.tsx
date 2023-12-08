@@ -12,7 +12,7 @@ const DualColumnText = ({
   actions = [],
 }: DualColumnTextProps) => {
   return (
-    <div className="flex justify-center my-16">
+    <div className="flex justify-center my-12">
       <div className="p-8 max-w-7xl grid md:gap-16 md:grid-cols-2 md:p-12">
         <div className="flex flex-col items-start justify-center">
           {tagline && (
