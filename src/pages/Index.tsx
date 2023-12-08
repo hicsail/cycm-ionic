@@ -19,8 +19,7 @@ const Index: React.FC = () => {
     },
     {
       title: "Access a Variety of Mental Health Resources",
-      description:
-        "Find articles, videos, and tools to support your mental well-being.",
+      description: "Find articles, videos, and tools to support your mental well-being.",
       image: "/cycm-card02.png",
       action: { text: "Get Started", link: "" },
     },
@@ -29,15 +28,13 @@ const Index: React.FC = () => {
   return (
     <div>
       <Hero heading="Empowering Teens with Mental Health Resources" />
-      <section>
-        <Empower
-          title="Supporting Teens Through Mental Health Awareness"
-          description="Discover helpful resources and articles to promote mental health awareness and support for teens. Together, we can create a safe and nurturing environment for their well-being."
-          source=""
-          image="/cycm-empower.png"
-        />
-        <div className="curve" />
-      </section>
+
+      <Empower
+        title="Supporting Teens Through Mental Health Awareness"
+        description="Discover helpful resources and articles to promote mental health awareness and support for teens. Together, we can create a safe and nurturing environment for their well-being."
+        source=""
+        image="/cycm-empower.png"
+      />
       <div className="flex flex-col items-center my-16">
         <h5 className="text-center font-bold font-sans mb-12 max-w-7xl px-8 text-4xl md:px-12 md:text-5xl z-[0]">
           Discover Mental Health Resources for Teens
