@@ -28,30 +28,34 @@ const Index: React.FC = () => {
   return (
     <div>
       <Hero heading="Empowering Teens with Mental Health Resources" />
-
-      <Empower
-        title="Supporting Teens Through Mental Health Awareness"
-        description="Discover helpful resources and articles to promote mental health awareness and support for teens. Together, we can create a safe and nurturing environment for their well-being."
-        source=""
-        image="/cycm-empower.png"
-      />
-      <div className="flex flex-col items-center my-16">
-        <h5 className="text-center font-bold font-sans mb-12 max-w-7xl px-8 text-4xl md:px-12 md:text-5xl z-[0]">
-          Discover Mental Health Resources for Teens
-        </h5>
-        <div className="flex max-w-7xl px-8 flex-col md:px-12 md:flex-row">
-          {resources.map((resource) => (
-            <ResourceCard
-              key={resource.title}
-              title={resource.title}
-              description={resource.description}
-              image={resource.image}
-              action={resource.action}
-            />
-          ))}
+      <section>
+        <Empower
+          title="Supporting Teens Through Mental Health Awareness"
+          description="Discover helpful resources and articles to promote mental health awareness and support for teens. Together, we can create a safe and nurturing environment for their well-being."
+          source=""
+          image="/cycm-empower.png"
+        />
+        <div className="flex flex-col items-center my-16">
+          <h5 className="text-center font-bold font-sans mb-12 max-w-7xl px-8 text-4xl md:px-12 md:text-5xl z-[0]">
+            Discover Mental Health Resources for Teens
+          </h5>
+          <div className="flex max-w-7xl px-8 flex-col md:px-12 md:flex-row z-[1]">
+            {resources.map((resource) => (
+              <ResourceCard
+                key={resource.title}
+                title={resource.title}
+                description={resource.description}
+                image={resource.image}
+                action={resource.action}
+              />
+            ))}
+          </div>
         </div>
+        <div className="curve" />
+      </section>
+      <div className="mt-32">
+        <Discover />
       </div>
-      <Discover />
     </div>
   );
 };
