@@ -18,7 +18,7 @@ const ResourceCard = ({
   description,
   image,
   action,
-  color
+  color,
 }: ResourceCardProps) => {
   return (
     <IonCard color={color}>

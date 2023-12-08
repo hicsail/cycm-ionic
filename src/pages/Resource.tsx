@@ -9,13 +9,15 @@ import { IonText } from "@ionic/react";
 const resources = [
   {
     title: "Understood",
-    description: "We are the lifelong guide for those who learn and think differently. In the past year, we’ve helped more than 20 million people discover their potentials, take control of their lives, and stay on positive paths.",
+    description:
+      "We are the lifelong guide for those who learn and think differently. In the past year, we’ve helped more than 20 million people discover their potentials, take control of their lives, and stay on positive paths.",
     image: "/understood.png",
     action: { text: "Visit", link: "https://www.understood.org/" },
   },
   {
     title: "The Trevor Project",
-    description: "The Trevor Project is an American nonprofit organization founded in 1998. Focused on suicide prevention efforts among lesbian, gay, bisexual, transgender, queer, and questioning youth, they offer a toll-free telephone number where confidential assistance is provided by trained counselors.",
+    description:
+      "The Trevor Project is an American nonprofit organization founded in 1998. Focused on suicide prevention efforts among lesbian, gay, bisexual, transgender, queer, and questioning youth, they offer a toll-free telephone number where confidential assistance is provided by trained counselors.",
     image: "/trevor1.png",
     action: { text: "Visit", link: "https://www.thetrevorproject.org/" },
   },
@@ -29,13 +31,11 @@ const Resource: React.FC = () => {
           <DualColumnText
             title="Resources and Initiatives for Mental Health"
             description="There are many resources available for mental health. Here are some of the resources that we know to be helpful."
-
           />
-          <div className="curve "/>
+          <div className="curve " />
         </section>
       </div>
       <div className="z-40 flex justify-center">
-      
         <div className="flex justify-center">
           {/*   <div className="p-8 max-w-7xl grid gap-8 md:gap-16 md:grid-cols-3 md:p-12">
           <div className="col-span-1 flex flex-col items-start">
