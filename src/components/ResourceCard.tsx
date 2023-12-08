@@ -24,10 +24,6 @@ const ResourceCard = ({
   return (
     <IonCard color="warning">
       <img src={image} alt="CYCM Circle" className="mx-auto mt-6" width={250} />
-
-    <IonCard color={color}>
-      <img src={image} alt="CYCM Circle" />
-
       <IonCardHeader className="text-center">
         <IonCardTitle className="text-2xl">{title}</IonCardTitle>
       </IonCardHeader>
