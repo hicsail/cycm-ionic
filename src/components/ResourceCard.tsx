@@ -10,6 +10,7 @@ interface ResourceCardProps {
   description: string;
   image: string;
   action: { text: string; link: string };
+  color?: string;
 }
 
 const ResourceCard = ({
@@ -17,9 +18,10 @@ const ResourceCard = ({
   description,
   image,
   action,
+  color,
 }: ResourceCardProps) => {
   return (
-    <IonCard>
+    <IonCard color={color}>
       <img src={image} alt="CYCM Circle" />
       <IonCardHeader className="text-center">
         <IonCardTitle className="text-2xl">{title}</IonCardTitle>
@@ -29,6 +31,7 @@ const ResourceCard = ({
         <button
           type="button"
           className="mt-auto text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-md text-md px-5 py-2 text-center my-2"
+          onClick={() => window.open(action.link, "_blank")}
         >
           {action.text}
         </button>
