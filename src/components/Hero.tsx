@@ -9,9 +9,9 @@ const Hero = ({ heading }: Props) => {
   return (
     <div className="flex items-center justify-center h-screen mb-16 bg-fixed bg-center bg-cover custom-img">
       {/* Overlay */}
-      <div className="flex items-center w-full h-screen bg-black/50 z-[2]">
+      <div className="flex items-center w-full h-screen bg-black/20 z-[2]">
         {/* Content */}
-        <div className="p-5 text-white z[2] max-w-2xl md:ml-[10%]">
+        <div className="p-5 text-white z[2] max-w-2xl md:ml-[10%] bg-red-800">
           <h1 className="text-5xl font-sans font-bold md:text-7xl">
             {heading}
           </h1>
