@@ -1,5 +1,4 @@
 import {
-  IonButton,
   IonCard,
   IonCardContent,
   IonCardHeader,
@@ -22,8 +21,10 @@ const ResourceCard = ({
   color,
 }: ResourceCardProps) => {
   return (
-    <IonCard color="warning">
+    <IonCard color="tertiary">
       <img src={image} alt="CYCM Circle" className="mx-auto mt-6" width={250} />
+
+
       <IonCardHeader className="text-center">
         <IonCardTitle className="text-2xl">{title}</IonCardTitle>
       </IonCardHeader>
@@ -40,6 +41,6 @@ const ResourceCard = ({
       </IonCardContent>
     </IonCard>
   );
-};
+}
 
 export default ResourceCard;

@@ -45,9 +45,10 @@ export default function IonicCard({
     <div>
       <IonCard
         color={"tertiary"}
+        
         style={{
           height: 375,
-          width: 400,
+          maxWidth: 400,
           borderRadius: 20,
         }}
       >
@@ -56,7 +57,7 @@ export default function IonicCard({
             style={{
               // font color
               color: "orange",
-              fontSize: 24,
+              fontSize: 18,
               fontWeight: "bold",
             }}
           >

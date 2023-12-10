@@ -9,7 +9,9 @@ const Hero = ({ heading }: Props) => {
   return (
     <div className="flex items-center justify-center h-screen bg-fixed bg-center bg-cover custom-img">
       {/* Overlay */}
-      <div className="flex items-center w-full h-screen bg-black/50 z-[2]">
+      <div className="flex items-center w-full h-screen z-[2]" style={{
+        background: "rgb(193 46 46 / 50%)"
+      }}>
         {/* Content */}
         <div className="p-5 text-white z[2] max-w-2xl md:ml-[10%]">
           <h1 className="text-5xl font-sans font-bold md:text-7xl">
@@ -20,7 +22,7 @@ const Hero = ({ heading }: Props) => {
             health.
           </p>
           <button
-            className="px-8 py-2 border border mt-12"
+            className="text-white border border-gray-800 bg-blue-950 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-md text-md px-5 py-2.5 text-center mr-2 mt-6"
             onClick={() => {
               history.push("/discover");
             }}

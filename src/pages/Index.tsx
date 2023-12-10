@@ -37,9 +37,14 @@ const Index: React.FC = () => {
           image="/cycm-empower.png"
         />
         <div className="flex flex-col items-center my-16">
-          <h5 className="text-center font-bold font-sans mb-12 max-w-7xl px-8 text-4xl md:px-12 md:text-5xl z-[0]">
-            Discover Mental Health Resources for Teens
-          </h5>
+          <div className="max-w-lg">
+            <h5 className="text-center font-bold font-sans mb-12 max-w-7xl px-8 text-4xl md:px-12 md:text-5xl z-[0]">
+              Discover Mental Health Resources for Teens
+            </h5>
+            <p className="text-center font-sans mb-12 max-w-7xl px-8 text-md md:px-12 md:text-lg z-[0]">
+              A multifaceted approach to address the growing mental health crisis among youth of color and LGBTQ youth
+            </p>
+          </div>
           <div className="flex max-w-7xl px-8 flex-col md:px-12 md:flex-row z-[1]">
             {resources.map((resource) => (
               <ResourceCard

@@ -13,7 +13,7 @@ const Navbar = () => {
     },
     {
       name: "Our Feed",
-      href: "feed",
+      href: "discover",
     },
     {
       name: "Contact Us",
