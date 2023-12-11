@@ -42,7 +42,8 @@ const Index: React.FC = () => {
               Discover Mental Health Resources for Teens
             </h5>
             <p className="text-center font-sans mb-12 max-w-7xl px-8 text-md md:px-12 md:text-lg z-[0]">
-              A multifaceted approach to address the growing mental health crisis among youth of color and LGBTQ youth
+              A multifaceted approach to address the growing mental health
+              crisis among youth of color and LGBTQ youth
             </p>
           </div>
           <div className="flex max-w-7xl px-8 flex-col md:px-12 md:flex-row z-[1]">

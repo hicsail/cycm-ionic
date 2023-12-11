@@ -9,9 +9,12 @@ const Hero = ({ heading }: Props) => {
   return (
     <div className="flex items-center justify-center h-screen bg-fixed bg-center bg-cover custom-img">
       {/* Overlay */}
-      <div className="flex items-center w-full h-screen z-[2]" style={{
-        background: "rgb(193 46 46 / 50%)"
-      }}>
+      <div
+        className="flex items-center w-full h-screen z-[2]"
+        style={{
+          background: "rgb(193 46 46 / 50%)",
+        }}
+      >
         {/* Content */}
         <div className="p-5 text-white z[2] max-w-2xl md:ml-[10%]">
           <h1 className="text-5xl font-sans font-bold md:text-7xl">

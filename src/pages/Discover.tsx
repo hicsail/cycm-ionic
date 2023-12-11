@@ -155,28 +155,27 @@ const Discover: React.FC = () => {
                   </IonCardHeader>
                 </div>
                 <IonCardContent>
-                  <IonChip outline={false} color={'light'}>
+                  <IonChip outline={false} color={"light"}>
                     <IonLabel>Articles</IonLabel>
                   </IonChip>
-                  <IonChip outline={false} color={'light'}>
+                  <IonChip outline={false} color={"light"}>
                     <IonLabel>TikToks</IonLabel>
                   </IonChip>
-                  <IonChip outline={false} color={'light'}>
+                  <IonChip outline={false} color={"light"}>
                     <IonLabel>Short Facts</IonLabel>
                   </IonChip>
-                  <IonChip outline={false} color={'light'}>
+                  <IonChip outline={false} color={"light"}>
                     <IonLabel>Instagram Posts</IonLabel>
                   </IonChip>
-                  <IonChip outline={false} color={'light'}>
+                  <IonChip outline={false} color={"light"}>
                     <IonLabel>Articles</IonLabel>
                   </IonChip>
-                  <IonChip outline={false} color={'light'}>
+                  <IonChip outline={false} color={"light"}>
                     <IonLabel>TikToks</IonLabel>
                   </IonChip>
-                  <IonChip outline={false} color={'light'}>
+                  <IonChip outline={false} color={"light"}>
                     <IonLabel>Short Facts</IonLabel>
                   </IonChip>
-                  
                 </IonCardContent>
               </IonCard>
               <div className="h-6" />
@@ -204,10 +203,7 @@ const Discover: React.FC = () => {
                   maxWidth: 1000,
                 }}
               >
-                <IonText
-                >
-                  Select your reading voice
-                </IonText>
+                <IonText>Select your reading voice</IonText>
                 <IonButton size="small" color="warning" shape="round">
                   <IonIcon icon={informationCircleOutline} />
                 </IonButton>

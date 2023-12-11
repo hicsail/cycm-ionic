@@ -20,7 +20,6 @@ const ResourceCard = ({
   action,
   color,
 }: ResourceCardProps) => {
-  
   return (
     <IonCard color="tertiary">
       <img src={image} alt="CYCM Circle" className="mx-auto mt-6" width={250} />
@@ -40,6 +39,6 @@ const ResourceCard = ({
       </IonCardContent>
     </IonCard>
   );
-}
+};
 
 export default ResourceCard;

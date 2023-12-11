@@ -45,7 +45,6 @@ export default function IonicCard({
     <div>
       <IonCard
         color={"tertiary"}
-        
         style={{
           height: 375,
           maxWidth: 400,
