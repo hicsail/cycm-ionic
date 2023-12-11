@@ -50,7 +50,7 @@ const Navbar = () => {
         <button
           data-collapse-toggle="navbar-dropdown"
           type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden"
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-gray-300"
           aria-controls="navbar-dropdown"
           aria-expanded="false"
           onClick={() => setMobileOpen(!mobileOpen)}

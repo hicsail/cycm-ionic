@@ -268,13 +268,13 @@ section {
 }
 @media (prefers-color-scheme: light) {
   section {
-    background: #c5dded;
+    background: #d2e8f8;
   }
   .curve::before {
     background: #ffffff;
   }
   .curve::after {
-    background: #c5dded;;
+    background: #d2e8f8;
   }
 }
 
