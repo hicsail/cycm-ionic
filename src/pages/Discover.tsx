@@ -19,15 +19,10 @@ const token = import.meta.env.VITE_STRAPY_TOKEN;
 const apiKey = import.meta.env.VITE_ELEVEN_LABS_API_KEY;
 
 const Discover: React.FC = () => {
-  const [selectedVoiceId, setSelectedVoiceId] = useState(
-    "21m00Tcm4TlvDq8ikWAM"
-  );
+  const [selectedVoiceId, setSelectedVoiceId] = useState("21m00Tcm4TlvDq8ikWAM");
   const [isExpandedArray, setIsExpandedArray] = useState<any>([]);
   const [articles, setArticles] = useState<any>([]);
-  const [usedVoiceIds, setUsedVoicesIds] = useState<any>([
-    "D38z5RcWu1voky8WS1ja",
-    "21m00Tcm4TlvDq8ikWAM",
-  ]);
+  const [usedVoiceIds, setUsedVoicesIds] = useState<any>(["D38z5RcWu1voky8WS1ja", "21m00Tcm4TlvDq8ikWAM"]);
   const [usedVoices, setUsedVoices] = useState<any>([]);
   const [filteredArticles, setFilteredArticles] = useState<any>([]);
   const [searchText, setSearchText] = useState("");
@@ -59,9 +54,7 @@ const Discover: React.FC = () => {
     })
       .then((res) => res.json())
       .then((resp) => {
-        const filteredVoices = resp.voices.filter((voice: any) =>
-          usedVoiceIds.includes(voice.voice_id)
-        );
+        const filteredVoices = resp.voices.filter((voice: any) => usedVoiceIds.includes(voice.voice_id));
         setUsedVoices(filteredVoices);
         console.log(filteredVoices);
       });
@@ -84,9 +77,7 @@ const Discover: React.FC = () => {
   };
 
   const handlePlayPreview = () => {
-    const selectedVoice = usedVoices.find(
-      (voice: any) => voice.voice_id === selectedVoiceId
-    );
+    const selectedVoice = usedVoices.find((voice: any) => voice.voice_id === selectedVoiceId);
     if (selectedVoice) {
       const audio = new Audio(selectedVoice.preview_url);
       audio.play();
@@ -101,7 +92,7 @@ const Discover: React.FC = () => {
     });
   };
   return (
-    <IonContent>
+    <>
       <div className="pt-12">
         <div>
           <section className="z-[-1]">
@@ -109,9 +100,7 @@ const Discover: React.FC = () => {
               <div className="pt-24">
                 <div className="p-12 z-50">
                   <IonText color="dark">
-                    <h1 className="text-3xl font-bold font-sans mb-4 md:mb-6 md:text-4xl">
-                      Informative Mental Health
-                    </h1>
+                    <h1 className="text-3xl font-bold font-sans mb-4 md:mb-6 md:text-4xl">Informative Mental Health</h1>
                   </IonText>
                   <div className="max-w-lg">
                     <IonText
@@ -121,9 +110,8 @@ const Discover: React.FC = () => {
                         fontWeight: 500,
                       }}
                     >
-                      Explore our collection of informative mental health
-                      resources designed to help teens navigate their emotional
-                      well-being and find support.
+                      Explore our collection of informative mental health resources designed to help teens navigate
+                      their emotional well-being and find support.
                     </IonText>
                   </div>
                 </div>
@@ -207,12 +195,7 @@ const Discover: React.FC = () => {
                 <IonButton size="small" color="warning" shape="round">
                   <IonIcon icon={informationCircleOutline} />
                 </IonButton>
-                <IonButton
-                  size="small"
-                  color="success"
-                  shape="round"
-                  onClick={handlePlayPreview}
-                >
+                <IonButton size="small" color="success" shape="round" onClick={handlePlayPreview}>
                   <IonIcon icon={play} />
                 </IonButton>
                 <select
@@ -258,7 +241,7 @@ const Discover: React.FC = () => {
           />
         </div>
       </div>
-    </IonContent>
+    </>
   );
 };
 
