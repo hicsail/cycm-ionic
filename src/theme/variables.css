@@ -241,7 +241,7 @@ html {
 }
 
 .custom-img {
-  background-image: url("../public/cycm.jpg");
+  background-image: url("../public/cycm.png");
 }
 
 .markdown > * {
@@ -286,7 +286,7 @@ section {
     background: #121212;
   }
   .curve::after {
-    background: #0f5583;;
+    background: #0f5583;
   }
 }
 .curve::before {
@@ -297,7 +297,6 @@ section {
   width: 55%;
   height: 100%;
   transform: translate(85%, 60%);
-  
 }
 
 .curve::after {
