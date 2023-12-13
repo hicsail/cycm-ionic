@@ -104,10 +104,10 @@ const Discover: React.FC = () => {
     <IonContent>
       <div className="pt-12">
         <div>
-          <section className="">
+          <section className="z-[-1]">
             <div>
-              <div className="pt-8">
-                <div>
+              <div className="pt-24">
+                <div className="p-12 z-50">
                   <IonText color="dark">
                     <h1 className="text-3xl font-bold font-sans mb-4 md:mb-6 md:text-4xl">
                       Informative Mental Health
@@ -129,7 +129,7 @@ const Discover: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="curve" />
+            <div className="curve z-[-1]" />
           </section>
           <div className="md:ml-24 my-4">
             <div
@@ -155,53 +155,26 @@ const Discover: React.FC = () => {
                   </IonCardHeader>
                 </div>
                 <IonCardContent>
-                  <IonChip outline={false}>
+                  <IonChip outline={false} color={"light"}>
                     <IonLabel>Articles</IonLabel>
                   </IonChip>
-                  <IonChip outline={false}>
+                  <IonChip outline={false} color={"light"}>
                     <IonLabel>TikToks</IonLabel>
                   </IonChip>
-                  <IonChip outline={false}>
+                  <IonChip outline={false} color={"light"}>
                     <IonLabel>Short Facts</IonLabel>
                   </IonChip>
-                  <IonChip outline={false}>
+                  <IonChip outline={false} color={"light"}>
                     <IonLabel>Instagram Posts</IonLabel>
                   </IonChip>
-                  <IonChip outline={false}>
+                  <IonChip outline={false} color={"light"}>
                     <IonLabel>Articles</IonLabel>
                   </IonChip>
-                  <IonChip outline={false}>
+                  <IonChip outline={false} color={"light"}>
                     <IonLabel>TikToks</IonLabel>
                   </IonChip>
-                  <IonChip outline={false}>
+                  <IonChip outline={false} color={"light"}>
                     <IonLabel>Short Facts</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false}>
-                    <IonLabel>Instagram Posts</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false}>
-                    <IonLabel>Articles</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false}>
-                    <IonLabel>TikToks</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false}>
-                    <IonLabel>Short Facts</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false}>
-                    <IonLabel>Instagram Posts</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false}>
-                    <IonLabel>Articles</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false}>
-                    <IonLabel>TikToks</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false}>
-                    <IonLabel>Short Facts</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false}>
-                    <IonLabel>Instagram Posts</IonLabel>
                   </IonChip>
                 </IonCardContent>
               </IonCard>
@@ -222,20 +195,15 @@ const Discover: React.FC = () => {
                 }}
               ></IonSearchbar>
             </div>
-            <div className="mt-12">
+            <div className="mt-12 text-center">
               <div
-                className="my-12 flex"
+                className="my-12 flex justify-center md:justify-start"
                 style={{
                   margin: "auto",
                   maxWidth: 1000,
                 }}
               >
-                <label
-                  htmlFor="countries"
-                  className="block text-sm font-medium text-yellow-200 mx-2"
-                >
-                  Select your reading voice
-                </label>
+                <IonText>Select your reading voice</IonText>
                 <IonButton size="small" color="warning" shape="round">
                   <IonIcon icon={informationCircleOutline} />
                 </IonButton>
@@ -262,7 +230,7 @@ const Discover: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-wrap justify-center">
+          <div className="flex flex-wrap justify-center p-4">
             {filteredArticles &&
               filteredArticles.length > 0 &&
               filteredArticles.map((article: any, index: number) => (

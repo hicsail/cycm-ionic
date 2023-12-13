@@ -1,5 +1,4 @@
 import {
-  IonButton,
   IonCard,
   IonCardContent,
   IonCardHeader,
@@ -22,22 +21,22 @@ const ResourceCard = ({
   color,
 }: ResourceCardProps) => {
   return (
-    <IonCard color="warning">
+    <IonCard color="tertiary" className="flex flex-col justify-between">
       <img src={image} alt="CYCM Circle" className="mx-auto mt-6" width={250} />
       <IonCardHeader className="text-center">
         <IonCardTitle className="text-2xl">{title}</IonCardTitle>
       </IonCardHeader>
-      <IonCardContent className="text-center">
-        <div style={{ height: "100%" }}>
-          <p className="text-md font-sans h-12">{description}</p>
-          <button
-            type="button"
-            className="text-gray-900 hover:text-white bg-gray-200 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-md text-md px-5 py-2 text-center my-2"
-          >
-            {action.text}
-          </button>
-        </div>
+      <IonCardContent className="text-center flex-grow">
+        <p className="text-md font-sans">{description}</p>
       </IonCardContent>
+      <div className="text-center mb-4">
+        <button
+          type="button"
+          className="text-gray-900 hover:text-white bg-gray-200 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-md text-md px-5 py-2 text-center my-2"
+        >
+          {action.text}
+        </button>
+      </div>
     </IonCard>
   );
 };

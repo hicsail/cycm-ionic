@@ -34,7 +34,7 @@ const About: React.FC = () => {
         { name: "twitter", link: "https://twitter.com/hannah_tremont" },
       ],
       avatar:
-        "https://media.licdn.com/dms/image/D4E03AQEOzpghH-ZW5A/profile-displayphoto-shrink_400_400/0/1701740146145?e=1707350400&v=beta&t=M2Kehl7loetnoPuShFjwtngumB8FCSj7ti6f166u_Y0",
+        "https://media.licdn.com/dms/image/D4E03AQHa-x1eXJTodg/profile-displayphoto-shrink_200_200/0/1701996140440?e=2147483647&v=beta&t=fOJvV-Pu-bo6FRDq6un6-zn-7Dt0-IjwUoaVN0ThWFQ",
     },
     {
       name: "Daisy Perez, MPH",

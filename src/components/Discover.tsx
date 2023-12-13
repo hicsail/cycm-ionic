@@ -9,7 +9,7 @@ const Discover = () => {
           <h5 className="text-4xl font-bold font-sans mb-4 md:mb-6 md:text-5xl">
             Discover Mental Health Resources for Teens
           </h5>
-          <p className="text:md font-sans mb-4 md:mb-6 md:text-lg">
+          <p className="text:md font-sans mb-4 md:mb-6 md:text-lg italic">
             Explore our wide range of articles and resources for teens.
           </p>
         </div>
