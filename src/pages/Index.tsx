@@ -1,7 +1,51 @@
+import CenterDescriptionCards from "../components/CenterDescriptionCards";
 import Discover from "../components/Discover";
 import Empower from "../components/Empower";
 import Hero from "../components/Hero";
 import ResourceCard from "../components/ResourceCard";
+import HomeCloud from "../components/HomeCloud";
+import { IonIcon } from "@ionic/react";
+import BlueGraphic from "../components/BlueGraphic";
+import RedGraphic from "../components/RedGraphic";
+import PinkGraphic from "../components/PinkGraphic";
+import HelpInfographics from "../components/HelpInfographics";
+import NewHero from "../components/NewHero";
+import SocialInfographics from "../components/SocialInfographics";
+
+// .blue-texts {
+//   height: 271px;
+//   position: relative;
+//   width: 523px;
+// }
+
+// .blue-texts .high-school-students {
+//   color: #101066;
+//   font-family: "Montserrat-SemiBold", Helvetica;
+//   font-size: 22px;
+//   font-weight: 600;
+//   left: 8px;
+//   letter-spacing: 0.84px;
+//   line-height: 28.6px;
+//   position: absolute;
+//   top: 153px;
+//   width: 449px;
+// }
+
+// .blue-texts .text-wrapper {
+//   color: #101066;
+//   font-family: "Montserrat-SemiBold", Helvetica;
+//   font-size: 100px;
+//   font-weight: 600;
+//   left: 0;
+//   letter-spacing: -10px;
+//   line-height: 151px;
+//   position: absolute;
+//   top: 26px;
+//   white-space: nowrap;
+//   width: 523px;
+// }
+
+
 
 const Index: React.FC = () => {
   const resources = [
@@ -28,15 +72,40 @@ const Index: React.FC = () => {
 
   return (
     <div>
-      <Hero heading="Empowering Teens with Mental Health Resources" />
-      <section>
+      <NewHero />
+
+      <div style={{
+        background: 'rgba(255, 226, 226, 1)'
+      }}>
+        <div style={{
+          height: '271px',
+        }} />
+        <CenterDescriptionCards />
+        <div className="w-[1436px] h-[464px]">
+          <div className="relative h-[484px]">
+            <img className="absolute w-[1344px] h-[449px] top-[35px] left-[47px]" alt="Vector" src="vector.svg" />
+            <div className="absolute w-[1436px] h-[464px] top-0 left-0">
+              <p className="absolute w-[1144px] top-[180px] left-[146px] [font-family:'Montserrat-Bold',Helvetica] font-bold text-[#101066] text-[64px] text-center tracking-[0.84px] leading-[69.1px]">
+                TEENS NEED <br />
+                MENTAL HEALTH SUPPORT
+              </p>
+            </div>
+          </div>
+        </div>
+        <HelpInfographics />
         <Empower
           title="Supporting Teens Through Mental Health Awareness"
           description="Discover helpful resources and articles to promote mental health awareness and support for teens. Together, we can create a safe and nurturing environment for their well-being."
           source=""
           image="/cycm-empower.png"
         />
-        <div className="flex flex-col items-center my-16">
+      </div>
+
+      <section style={{
+        background: 'linear-gradient(180deg, #FB4B45 0%, #FFABE1 66.34%)'
+      }}>
+        <div>
+          {/* <div className="flex flex-col items-center my-16">
           <div className="max-w-lg">
             <h5 className="text-center font-bold font-sans mb-12 max-w-7xl px-8 text-4xl md:px-12 md:text-5xl z-[0]">
               Discover Mental Health Resources for Teens
@@ -57,12 +126,13 @@ const Index: React.FC = () => {
               />
             ))}
           </div>
+        </div> */}
+          <SocialInfographics />
         </div>
-        <div className="curve" />
       </section>
-      <div className="mt-32">
+      {/* <div className="mt-32">
         <Discover />
-      </div>
+      </div> */}
     </div>
   );
 };

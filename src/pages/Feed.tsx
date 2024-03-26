@@ -40,7 +40,7 @@ const Feed: React.FC = () => {
               Blog
             </span>
             <h5 className="font-bold font-sans mb-6 text-4xl md:text-4xl">
-              Short Heading Gose Here
+              Demo test for vim
             </h5>
           </div>
           <p className="text-md font-sans mb-4 md:mb-6 md:text-lg">

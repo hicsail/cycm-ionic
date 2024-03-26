@@ -45,7 +45,13 @@ const Navbar = () => {
     <nav className="fixed bg-white shadow-md border-gray-200 top-0 w-full z-10">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/">
-          <h1 className="font-bold text-4xl dark:text-gray-800">CYCM</h1>
+          {/* <h1 className="font-bold text-4xl dark:text-gray-800">CYCM</h1> */}
+          <img
+            src="/logo-cycm.png"
+            alt="CYCM"
+            className="h-12 w-auto"
+            loading="lazy"
+          />
         </Link>
         <button
           data-collapse-toggle="navbar-dropdown"
@@ -91,7 +97,7 @@ const Navbar = () => {
               <li key={item.name}>
                 <a
                   href={item.href}
-                  className="block py-4 px-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+                  className="block py-4 px-4 text-gray-200 bg-orange-600 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
                 >
                   {item.name}
                 </a>
