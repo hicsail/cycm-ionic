@@ -69,18 +69,17 @@ const Index: React.FC = () => {
           }}
         />
         <CenterDescriptionCards />
-        <div className="w-[1436px] h-[464px]">
-          <div className="relative h-[484px]">
-            <img className="absolute w-[1344px] h-[449px] top-[35px] left-[47px]" alt="Vector" src="vector.svg" />
-            <div className="absolute w-[1436px] h-[464px] top-0 left-0">
-              <p className="absolute w-[1144px] top-[180px] left-[146px] [font-family:'Montserrat-Bold',Helvetica] font-bold text-[#101066] text-[64px] text-center tracking-[0.84px] leading-[69.1px]">
-                TEENS NEED <br />
-                MENTAL HEALTH SUPPORT
-              </p>
-            </div>
+
+        <div className="relative max-w-7xl mx-auto my-16">
+          <img className="w-full h-auto" alt="Vector" src="vector.svg" />
+          <div className="absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <h1 className="[font-family:'Montserrat-Bold',Helvetica] font-bold text-[#101066] text-[22px] md:text-[48px] lg:text-[64px] text-center">
+              TEENS NEED
+              <br />
+              MENTAL HEALTH SUPPORT
+            </h1>
           </div>
         </div>
-        <HelpInfographics />
         <Empower
           title="Supporting Teens Through Mental Health Awareness"
           description="Discover helpful resources and articles to promote mental health awareness and support for teens. Together, we can create a safe and nurturing environment for their well-being."
