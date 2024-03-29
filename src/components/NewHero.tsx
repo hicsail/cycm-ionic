@@ -21,7 +21,7 @@ export default function NewHero() {
           DISCOVER A WEALTH OF ARTICLES, TOOLS, AND SUPPORT <br /> FOR TEENAGE MENTAL HEALTH.
         </p>
       </div>
-      <div className="flex relative w-full max-w-7xl md:left-[10rem] left-[5rem] md:top-[-10rem] top-[-8rem]">
+      <div className="flex relative w-full max-w-7xl lg:left-[15rem] md:left-[8rem] left-[5rem] md:top-[-10rem] top-[-8rem]">
         <img
           src="pic1.png"
           className="absolute md:w-auto w-[15rem] h-auto z-0 md:top-[9rem] top-[7rem]"
