@@ -1,13 +1,5 @@
 import CenterDescriptionCards from "../components/CenterDescriptionCards";
-import Discover from "../components/Discover";
 import Empower from "../components/Empower";
-import Hero from "../components/Hero";
-import ResourceCard from "../components/ResourceCard";
-import HomeCloud from "../components/HomeCloud";
-import { IonIcon } from "@ionic/react";
-import BlueGraphic from "../components/BlueGraphic";
-import RedGraphic from "../components/RedGraphic";
-import PinkGraphic from "../components/PinkGraphic";
 import HelpInfographics from "../components/HelpInfographics";
 import NewHero from "../components/NewHero";
 import SocialInfographics from "../components/SocialInfographics";
@@ -45,8 +37,6 @@ import SocialInfographics from "../components/SocialInfographics";
 //   width: 523px;
 // }
 
-
-
 const Index: React.FC = () => {
   const resources = [
     {
@@ -63,8 +53,7 @@ const Index: React.FC = () => {
     },
     {
       title: "Access a Variety of Mental Health Resources",
-      description:
-        "Find articles, videos, and tools to support your mental well-being.",
+      description: "Find articles, videos, and tools to support your mental well-being.",
       image: "/cycm-card02.png",
       action: { text: "Get Started", link: "" },
     },
@@ -73,13 +62,12 @@ const Index: React.FC = () => {
   return (
     <div>
       <NewHero />
-
-      <div style={{
-        background: 'rgba(255, 226, 226, 1)'
-      }}>
-        <div style={{
-          height: '271px',
-        }} />
+      <div className="bg-gradient-to-b from-[#FFE2E2] to-[#FFFFFF]">
+        <div
+          style={{
+            height: "271px",
+          }}
+        />
         <CenterDescriptionCards />
         <div className="w-[1436px] h-[464px]">
           <div className="relative h-[484px]">
@@ -101,9 +89,11 @@ const Index: React.FC = () => {
         />
       </div>
 
-      <section style={{
-        background: 'linear-gradient(180deg, #FB4B45 0%, #FFABE1 66.34%)'
-      }}>
+      <section
+        style={{
+          background: "linear-gradient(180deg, #FB4B45 0%, #FFABE1 66.34%)",
+        }}
+      >
         <div>
           {/* <div className="flex flex-col items-center my-16">
           <div className="max-w-lg">
