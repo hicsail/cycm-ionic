@@ -1,19 +1,17 @@
-import React from 'react'
-
 export default function RedGraphic() {
   return (
-    <div className="w-full flex flex-col items-center md:flex-row md:justify-around">
-    <img src="/pie-graphic.svg" className="w-1/4 md:w-auto mb-4 md:mb-0" />
-    <div className="w-full md:w-[517px]">
-      <div className="text-[#101066] font-semibold text-left">
-        <div className="text-2xl md:text-[100px] leading-tight md:leading-[151.0px] tracking-tighter md:tracking-[-10.00px] mb-2 md:mb-0">
-          1 / 3
-        </div>
-        <p className="text-sm md:text-[22px] tracking-tight md:tracking-[0.84px] leading-tight md:leading-[28.6px]">
-          of higher schoolers have <br className="hidden md:inline" /> experienced poor mental health
+    <div className="flex flex-col md:flex-row justify-center items-center max-w-7xl mx-auto">
+      <div className="w-full md:w-1/2 mb-4 md:mb-0">
+        <img src="/pie-graphic.svg" className="w-1/2 md:w-auto mx-auto" />
+      </div>
+      <div className="text-[#101066] font-semibold text-center md:text-left pl-16">
+        <h1 className="text-6xl md:text-[100px] leading-tight tracking-tighter mb-2 md:mb-0">1 / 3</h1>
+        <p className="text-xl md:text-[22px] tracking-tight leading-tight">
+          of higher schoolers have
+          <br />
+          experienced poor mental health
         </p>
       </div>
     </div>
-  </div>
-  )
+  );
 }
