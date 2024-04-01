@@ -27,7 +27,11 @@ const Navbar = () => {
 
   useEffect(() => {
     const closeDropdown = (e: MouseEvent) => {
-      if (open && !document.querySelector("#navbar-dropdown")?.contains(e.target as Node)) setOpen(false);
+      if (
+        open &&
+        !document.querySelector("#navbar-dropdown")?.contains(e.target as Node)
+      )
+        setOpen(false);
     };
 
     document.addEventListener("mousedown", closeDropdown);
@@ -42,7 +46,12 @@ const Navbar = () => {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/">
           {/* <h1 className="font-bold text-4xl dark:text-gray-800">CYCM</h1> */}
-          <img src="/cycm-logo.svg" alt="CYCM" className="h-12 w-auto px-4 py-2" loading="lazy" />
+          <img
+            src="/cycm-logo.svg"
+            alt="CYCM"
+            className="h-12 w-auto px-4 py-2"
+            loading="lazy"
+          />
         </Link>
         <button
           data-collapse-toggle="navbar-dropdown"
@@ -79,7 +88,10 @@ const Navbar = () => {
             )}
           </svg>
         </button>
-        <div className={`w-full md:block md:w-auto ${!mobileOpen && "hidden"}`} id="navbar-dropdown">
+        <div
+          className={`w-full md:block md:w-auto ${!mobileOpen && "hidden"}`}
+          id="navbar-dropdown"
+        >
           <ul className="flex flex-col font-medium mt-4 md:items-center md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
             {navigation.map((item) => (
               <li key={item.name}>

@@ -4,7 +4,9 @@ interface ResourceCardProps {
   description: string;
 }
 
-export default function CenterDescriptionCard({ description }: ResourceCardProps) {
+export default function CenterDescriptionCard({
+  description,
+}: ResourceCardProps) {
   return (
     <div>
       <IonCard

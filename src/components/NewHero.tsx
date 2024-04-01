@@ -18,7 +18,8 @@ export default function NewHero() {
           RESOURCES
         </h1>
         <p className="text-[#101066] font-semibold text-base sm:text-lg md:text-xl lg:text-2xl tracking-tight leading-tight mb-8">
-          DISCOVER A WEALTH OF ARTICLES, TOOLS, AND SUPPORT <br /> FOR TEENAGE MENTAL HEALTH.
+          DISCOVER A WEALTH OF ARTICLES, TOOLS, AND SUPPORT <br /> FOR TEENAGE
+          MENTAL HEALTH.
         </p>
       </div>
       <div className="flex relative w-full max-w-7xl lg:left-[15rem] md:left-[8rem] left-[5rem] md:top-[-10rem] top-[-8rem]">
