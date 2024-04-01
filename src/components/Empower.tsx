@@ -1,36 +1,28 @@
-import { useHistory } from "react-router";
-
 interface EmpowerProps {
-  title: string;
-  description: string;
-  source: string;
-  image: string;
+  title?: string;
+  description?: string;
+  bgColor?: string;
+  btnElement?: JSX.Element;
 }
 
-const Empower = ({ title, description, image }: EmpowerProps) => {
-  const history = useHistory();
+const Empower = ({ title, description, bgColor, btnElement }: EmpowerProps) => {
   return (
-    <div className="flex justify-center my-16">
+    <div className="flex justify-center">
       <div
-        className="p-8 max-w-3xl md:px-20 md:py-16"
-        style={{ backgroundColor: "#f76a51", borderRadius: 40 }}
+        className="max-w-xl md:max-w-3xl md:px-20 md:py-8 px-8 py-4 "
+        style={{
+          backgroundColor: bgColor ? bgColor : "#fff",
+          borderRadius: 40,
+        }}
       >
         <div className="flex flex-col items-start justify-center my-4">
-          <h5 className="text-4xl font-bold font-sans mb-4 md:mb-6 md:text-5xl">
+          <h1 className="text-4xl font-bold font-sans md:text-4xl mb-4">
             {title}
-          </h5>
-          <p className="text-md font-sans mb-4 md:mb-10 md:text-lg">
+          </h1>
+          <p className="text-md font-sans font-semibold text-center md:text-lg mb-4 text-white">
             {description}
           </p>
-          <button
-            type="button"
-            className="text-white border border-gray-800 bg-blue-950 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-md text-md px-5 py-2.5 text-center mr-2"
-            onClick={() => {
-              history.push("/about-us");
-            }}
-          >
-            Learn More about the Team
-          </button>
+          <div className="flex mx-auto">{btnElement}</div>
         </div>
       </div>
     </div>

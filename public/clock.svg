@@ -1,0 +1,19 @@
+<svg width="380" height="380" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" fill="none">
+ <g class="layer">
+  <title>Layer 1</title>
+  <circle cx="190.25" cy="188.75" id="svg_2" r="183.75" stroke="white" stroke-width="9"/>
+  <line id="svg_3" stroke="white" stroke-width="9" x1="194.31" x2="194.31" y1="0.5" y2="20.08"/>
+  <line id="svg_4" stroke="white" stroke-width="9" x1="378.5" x2="358.92" y1="189.24" y2="189.24"/>
+  <line id="svg_5" stroke="white" stroke-width="9" x1="337.98" x2="354.94" y1="107.86" y2="98.07"/>
+  <line id="svg_6" stroke="white" stroke-width="9" transform="matrix(0.866025 0.5 0.5 -0.866025 340.227 265.741)" x2="19.58" y1="-4.5" y2="-4.5"/>
+  <line id="svg_7" stroke="white" stroke-width="9" transform="matrix(-0.866025 -0.5 -0.5 0.866025 40.3201 111.759)" x2="19.58" y1="-4.5" y2="-4.5"/>
+  <line id="svg_8" stroke="white" stroke-width="9" x1="42.57" x2="25.61" y1="268.75" y2="278.54"/>
+  <line id="svg_9" stroke="white" stroke-width="9" x1="279.46" x2="289.97" y1="45.77" y2="29.24"/>
+  <line id="svg_10" stroke="white" stroke-width="9" transform="matrix(0.536341 0.844002 0.844002 -0.536341 283.262 329.321)" x2="19.58" y1="-4.5" y2="-4.5"/>
+  <line id="svg_11" stroke="white" stroke-width="9" transform="matrix(-0.536341 -0.844002 -0.844002 0.536341 96.3944 49.9602)" x2="19.58" y1="-4.5" y2="-4.5"/>
+  <line id="svg_12" stroke="white" stroke-width="9" x1="99.3" x2="88.8" y1="329.95" y2="346.48"/>
+  <line id="svg_13" stroke="white" stroke-width="9" x1="21.58" x2="2" y1="189.24" y2="189.24"/>
+  <line id="svg_14" stroke="white" stroke-width="9" x1="194.31" x2="194.31" y1="357.42" y2="377"/>
+  <path d="m190.25,188.31l180.68,50.28c9.8,-19.13 19.43,-111.33 -39.6,-174c-57.86,-61.42 -120.16,-64.09 -141.08,-64.09l0,187.81z" fill="white" id="svg_15"/>
+ </g>
+</svg>

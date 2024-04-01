@@ -255,6 +255,7 @@ section {
   align-items: center;
   min-height: 400px;
   padding-top: 0px;
+  padding-bottom: 200px;
   /* background: #3c31dd; */
   /* background: linear-gradient(90deg, rgb(74 31 85) 40%, rgb(221, 175, 49) 100%); */
 }
@@ -268,10 +269,10 @@ section {
 }
 @media (prefers-color-scheme: light) {
   section {
-    background: #d2e8f8;
+    /* background: #d2e8f8; */
   }
   .curve::before {
-    background: #ffffff;
+    background: #d2e8f8;
   }
   .curve::after {
     background: #d2e8f8;
@@ -280,7 +281,7 @@ section {
 
 @media (prefers-color-scheme: dark) {
   section {
-    background: #0f5583;
+    /* background: #0f5583; */
   }
   .curve::before {
     background: #121212;

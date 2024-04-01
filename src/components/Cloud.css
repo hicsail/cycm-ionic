@@ -1,0 +1,74 @@
+.cloud {
+  height: 464px;
+  width: 1436px;
+}
+
+.cloud .overlap-group {
+  height: 464px;
+  position: relative;
+}
+
+.cloud .vector {
+  height: 389px;
+  left: 76px;
+  position: absolute;
+  top: 61px;
+  width: 1284px;
+}
+
+.cloud .teens-need-header {
+  height: 464px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1436px;
+}
+
+.cloud .teens-need-mental {
+  color: #101066;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 64px;
+  font-weight: 700;
+  left: 146px;
+  letter-spacing: 0.84px;
+  line-height: 69.1px;
+  position: absolute;
+  text-align: center;
+  top: 180px;
+  width: 1144px;
+}
+
+.cloud .img {
+  height: 72px;
+  left: 801px;
+  position: absolute;
+  top: 266px;
+  width: 79px;
+}
+
+.cloud .vector-2 {
+  height: 88px;
+  left: 939px;
+  position: absolute;
+  top: 162px;
+  width: 91px;
+}
+
+.cloud .vector-3 {
+  height: 85px;
+  left: 397px;
+  position: absolute;
+  top: 153px;
+  width: 84px;
+}
+
+:root {
+  --grey: rgba(204, 204, 204, 1);
+  --variable-collection-light-grey: rgba(225, 225, 225, 1);
+  --variable-collection-light-grey1: rgba(240, 240, 240, 1);
+  --x-1: rgba(191, 250, 1, 1);
+  --x-2: rgba(15, 91, 40, 1);
+  --x-3: rgba(194, 203, 231, 1);
+  --x-4: rgba(123, 108, 246, 1);
+  --x-5: rgba(227, 215, 252, 1);
+}

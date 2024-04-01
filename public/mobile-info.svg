@@ -1,0 +1,8 @@
+<svg width="568" height="1097" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" fill="none">
+ <g class="layer">
+  <title>Layer 1</title>
+  <rect height="1080" id="svg_2" rx="21.5" stroke="white" stroke-width="17" width="547" x="8.5" y="8.5"/>
+  <rect fill="white" height="51" id="svg_3" rx="9" width="224" x="170" y="4"/>
+  <path clip-rule="evenodd" d="m551,956l-536,0l0,132l536,0l0,-132zm-268.5,115c24.02,0 43.5,-19.03 43.5,-42.5c0,-23.47 -19.48,-42.5 -43.5,-42.5c-24.02,0 -43.5,19.03 -43.5,42.5c0,23.47 19.48,42.5 43.5,42.5z" fill="white" fill-rule="evenodd" id="svg_4" transform="matrix(1 0 0 1 0 0)"/>
+ </g>
+</svg>
