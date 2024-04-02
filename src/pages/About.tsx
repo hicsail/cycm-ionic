@@ -1,3 +1,4 @@
+import { IonCard, IonCardHeader } from "@ionic/react";
 import DualColumnImageText from "../components/DualColumnImageText";
 import DualColumnText from "../components/DualColumnText";
 import Profile from "../components/Profile";
@@ -18,7 +19,7 @@ const About: React.FC = () => {
         { name: "twitter", link: "https://twitter.com/DrChrissyC" },
       ],
       avatar:
-        "https://media.licdn.com/dms/image/C4E03AQEt0LWDFL79JQ/profile-displayphoto-shrink_400_400/0/1653902467974?e=1707350400&v=beta&t=RScF5gUex87VL2wWCME2hZEZ-M1QCbzYk5lF_avxgnc",
+        "c-crawford.png",
     },
     {
       name: "Hannah Tremont, MPH",
@@ -34,7 +35,7 @@ const About: React.FC = () => {
         { name: "twitter", link: "https://twitter.com/hannah_tremont" },
       ],
       avatar:
-        "https://media.licdn.com/dms/image/D4E03AQHa-x1eXJTodg/profile-displayphoto-shrink_200_200/0/1701996140440?e=2147483647&v=beta&t=fOJvV-Pu-bo6FRDq6un6-zn-7Dt0-IjwUoaVN0ThWFQ",
+        "h-tremont.png",
     },
     {
       name: "Daisy Perez, MPH",
@@ -46,7 +47,7 @@ const About: React.FC = () => {
         { name: "twitter", link: "#" },
       ],
       avatar:
-        "https://media.licdn.com/dms/image/D4E03AQHE7IaJYKf0uQ/profile-displayphoto-shrink_400_400/0/1693359355504?e=1707350400&v=beta&t=adgipKKAo26Ypz1tXCiSqMhajDzzay1L-LBnWrjOs1U",
+        "d-perez.png",
     },
     {
       name: "Ufuoma Barbara Akpotair",
@@ -58,7 +59,7 @@ const About: React.FC = () => {
         { name: "twitter", link: "#" },
       ],
       avatar:
-        "https://media.licdn.com/dms/image/C4D03AQHBAzAa_voAKw/profile-displayphoto-shrink_400_400/0/1516495384605?e=1707350400&v=beta&t=nuooGetT-8AbW9XLzj07M2kPGnkcD97MAKITbd-8RQw",
+        "u-barbara.png",
     },
     {
       name: "Larysa Malinouskaya, MS, CRA",
@@ -70,51 +71,86 @@ const About: React.FC = () => {
         { name: "twitter", link: "#" },
       ],
       avatar:
-        "https://www.bumc.bu.edu/psychiatry/files/2021/04/photo-225x300.jpg",
+        "l-malin.png",
     },
   ];
 
+
   return (
-    <div className="pt-12">
-      <div>
-        <section className="">
-          <DualColumnText
-            tagline="Empowering"
-            title="Supporting Teen Mental Health"
-            description="Welcome to our website dedicated to providing resources and articles for teens about mental health. We believe in the importance of supporting and empowering teenagers in their mental well-being journey. Explore our content to find valuable information, tips, and advice on various mental health topics."
-            // actions={[
-            //   { text: "Learn More", link: "#" },
-            //   { text: "Sign Up", link: "#" },
-            // ]}
-          />
-          <div className="curve" />
-        </section>
-        <div className="h-12" />
-        <DualColumnImageText
-          title="Our Mission, Vision, and Values"
-          description="We are dedicated to providing resources and articles for teens to support their mental health. Our Mission is to create a safe and inclusive space where young people can find information, guidance, and support, We believe in the power of education and awareness to break the stigma surrounding mental health and empower teens to prioritize their well-being."
-          image={{ source: "/cycm-mission.png", position: "left" }}
-          actions={
-            [
-              // { text: "Learn More", link: "#" },
-              // { text: "Sign Up", link: "#" },
-            ]
-          }
-        />
-      </div>
-      <div className="flex justify-center my-16">
-        <div className="p-8 max-w-7xl md:p-12 w-full">
-          <div className="flex flex-col items-start justify-center">
-            <span className="text-lg font-bold font-sans mb-2 md:mb-4">
-              Empowering
-            </span>
-            <h5 className="font-bold font-sans mb-6 text-4xl md:text-5xl">
-              Meet Our Team
-            </h5>
-          </div>
-          <p className="text-md font-sans mb-4 md:mb-6 md:text-lg">
-            get to know the experts behind our mental health resources
+    <div className="pt-12 mb-48">
+      <div className="flex flex-col justify-center items-center min-h-screen px-12 md:px-0">
+        <div className="p-4 max-w-4xl w-full">
+          <h1 className="text-[#101066] font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-none mb-4">
+            Supporting Teen Mental Health
+          </h1>
+          <br />
+          <p className="text-[#101066] font-semibold text-base sm:text-lg md:text-xl lg:text-xl tracking-tight leading-tight mb-8">
+            The Center for Young Colorful Minds at Boston Medical Center grew from a generous donation to provide mental health support for girls of color in Boston. Guided by this mission, CYCM expanded to support mental health and outreach efforts for youth inclusive of all backgrounds and experiences.
           </p>
+          <p className="text-[#101066] font-semibold text-base sm:text-lg md:text-xl lg:text-xl tracking-tight leading-tight mb-8">
+            We are a team comprised of licensed clinicians, public health experts, and community youth. Harnessing our various areas of expertise, we design engaging content and programs to help teens and young adults navigate common mental health struggles.
+          </p>
+          <p className="text-[#101066] font-semibold text-base sm:text-lg md:text-xl lg:text-xl tracking-tight leading-tight mb-8">
+            We're not just here to share information; we're here to build meaningful connections. We center youth engagement and feedback when designing our content to make effective and accurate content without sounding like a textbook or a pamphlet. By partnering with existing community programs, we're turning up the volume on accurate mental health info, ensuring it reaches every corner of our vibrant communities.
+          </p>
+        </div>
+      </div>
+      <div className="flex flex-col justify-center items-center bg-[#FFE2E2] min-h-screen px-12 md:px-0">
+        {/* <img className="w-full h-auto z-[10]" alt="union-1" src="red-union.svg" /> */}
+        <div className="p-4 max-w-4xl w-full my-24">
+          <h1 className="text-[#101066] font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-none mb-4">
+            Mission Statement
+          </h1>
+          <br />
+          <p className="text-[#101066] font-semibold text-base sm:text-lg md:text-xl lg:text-xl tracking-tight leading-tight mb-8">
+            At the Center for Young Colorful Minds, we're on a mission to revolutionize how teens access accurate mental health information and to empower teens with resources needed to advocate for their mental health. In a world where mental health content and discussions are gaining momentum, our primary goal is to offer teens and young adults reliable and relatable mental health resources, especially for youth who scroll through social media seeking guidance.
+          </p>
+          <p className="text-[#101066] font-semibold text-base sm:text-lg md:text-xl lg:text-xl tracking-tight leading-tight mb-8">
+            Join us at the Center for Young Colorful Minds where we're not just changing the conversation, but we are driving the conversation for how to break down stigma and build resilient communities.
+          </p>
+          <br />
+          <div className="flex flex-col max-w-7xl items-center mt-8 mx-auto">
+            <div className="flex gap-4 px-8 flex-col lg:flex-row z-[1]">
+              <IonCard>
+                <img src="trusted-info.svg" />
+                <IonCardHeader className="justify-center items-center">
+                  <h4 className="text-[#101066] font-semibold">
+                    Trusted Information
+                  </h4>
+                </IonCardHeader>
+              </IonCard>
+              <IonCard>
+                <img src="collaboration.svg" />
+                <IonCardHeader className="justify-center items-center">
+                  <h4 className="text-[#101066] font-semibold">
+                    Collaboration
+                  </h4>
+                </IonCardHeader>
+              </IonCard>
+              <IonCard>
+                <img src="youth-empowerment.svg" />
+                <IonCardHeader className="justify-center items-center">
+                  <h4 className="text-[#101066] font-semibold">
+                    Youth Empowerment
+                  </h4>
+                </IonCardHeader>
+              </IonCard>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col justify-center items-center min-h-screen px-12 md:px-0">
+        {/* <img className="w-full h-auto z-[10]" alt="union-1" src="red-union.svg" /> */}
+        <div className="p-4 max-w-6xl w-full pt-36">
+          <div className="flex flex-col items-start justify-center">
+            <h1 className="text-[#101066] font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-none mb-4">
+              Meet our team
+            </h1>
+          </div>
+          <p className="text-[#101066] font-semibold text-base sm:text-lg md:text-xl lg:text-xl tracking-tight leading-tight mb-8">
+            The experts behind our mental health resources
+          </p>
+          <br />
           <div className="grid grid-cols-1 divide-y bg-white"></div>
           <div className="grid gap-8 md:grid-cols-4 md:mb-16">
             {profiles.map((profile, idx) => (
