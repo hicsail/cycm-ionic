@@ -5,6 +5,7 @@ import Profile from "../components/Profile";
 import PaddedHeaderText from "../components/PaddedHeaderText";
 import AboutMissionSection from "../components/AboutMissionSection";
 import AboutTeamProfiles from "../components/AboutTeamProfiles";
+import AboutFutureVisionSections from "../components/AboutFutureVisionSections";
 
 const About: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const About: React.FC = () => {
       <PaddedHeaderText />
       <AboutMissionSection />
       <AboutTeamProfiles />
+      <AboutFutureVisionSections />
     </div>
   );
 };
