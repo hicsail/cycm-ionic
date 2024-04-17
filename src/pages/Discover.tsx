@@ -102,35 +102,23 @@ const Discover: React.FC = () => {
   };
   return (
     <>
-      <div className="pt-12">
-        <div>
-          <section className="z-[-1]">
-            <div>
-              <div className="pt-24">
-                <div className="p-12 z-50">
-                  <IonText color="dark">
-                    <h1 className="text-3xl font-bold font-sans mb-4 md:mb-6 md:text-4xl">
-                      Informative Mental Health
-                    </h1>
-                  </IonText>
-                  <div className="max-w-lg">
-                    <IonText
-                      color="dark"
-                      style={{
-                        fontSize: 18,
-                        fontWeight: 500,
-                      }}
-                    >
-                      Explore our collection of informative mental health
-                      resources designed to help teens navigate their emotional
-                      well-being and find support.
-                    </IonText>
-                  </div>
-                </div>
-              </div>
+      <div className="pt-48" style={{
+        background: "linear-gradient(180deg, #FFF 26.5%, #FD9390 87.5%, #FB4B45 100%)"
+      }}>
+        <div >
+          <div className="flex flex-col justify-center items-center  px-12 md:px-0">
+            <div className="p-4 max-w-4xl w-full">
+              <h1 className="text-[#101066] font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-none mb-4">
+                Informative Mental Health
+              </h1>
+              <br />
+              <p className="text-[#101066] font-semibold text-base sm:text-lg md:text-xl lg:text-xl tracking-tight leading-tight mb-8">
+                Explore our collection of informative mental health resources designed to help teens navigate their emotional well-being and find support.
+              </p>
             </div>
-            <div className="curve z-[-1]" />
-          </section>
+          </div>
+          <div className="curve z-[-1]" />
+
           <div className="md:ml-24 my-4">
             <div
               style={{
@@ -178,8 +166,8 @@ const Discover: React.FC = () => {
                   </IonChip>
                 </IonCardContent>
               </IonCard>
-              <div className="h-6" />
-              <IonSearchbar
+              {/* <div className="h-6" /> */}
+              {/* <IonSearchbar
                 onInput={(event: any) => {
                   console.log(event.target.value);
                   setSearchText(event.target.value);
@@ -193,7 +181,7 @@ const Discover: React.FC = () => {
                   maxWidth: 600,
                   margin: "auto",
                 }}
-              ></IonSearchbar>
+              ></IonSearchbar> */}
             </div>
             <div className="mt-12 text-center">
               <div
@@ -203,7 +191,7 @@ const Discover: React.FC = () => {
                   maxWidth: 1000,
                 }}
               >
-                <IonText>Select your reading voice</IonText>
+                <IonText>Select your voice</IonText>
                 <IonButton size="small" color="warning" shape="round">
                   <IonIcon icon={informationCircleOutline} />
                 </IonButton>
