@@ -27,11 +27,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const closeDropdown = (e: MouseEvent) => {
-      if (
-        open &&
-        !document.querySelector("#navbar-dropdown")?.contains(e.target as Node)
-      )
-        setOpen(false);
+      if (open && !document.querySelector("#navbar-dropdown")?.contains(e.target as Node)) setOpen(false);
     };
 
     document.addEventListener("mousedown", closeDropdown);
@@ -46,12 +42,7 @@ const Navbar = () => {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/">
           {/* <h1 className="font-bold text-4xl dark:text-gray-800">CYCM</h1> */}
-          <img
-            src="/cycm-logo.svg"
-            alt="CYCM"
-            className="h-12 w-auto px-4 py-2"
-            loading="lazy"
-          />
+          <img src="/cycm-logo.svg" alt="CYCM" className="h-12 w-auto px-4 py-2" loading="lazy" />
         </Link>
         <button
           data-collapse-toggle="navbar-dropdown"
@@ -88,21 +79,22 @@ const Navbar = () => {
             )}
           </svg>
         </button>
-        <div
-          className={`w-full md:block md:w-auto ${!mobileOpen && "hidden"}`}
-          id="navbar-dropdown"
-        >
+        <div className={`w-full md:block md:w-auto ${!mobileOpen && "hidden"}`} id="navbar-dropdown">
           <ul className="flex flex-col font-medium mt-4 md:items-center md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
-            {navigation.map((item) => (
-              <li key={item.name}>
-                <a
-                  href={item.href}
-                  className="block py-1 px-4 text-gray-200 bg-orange-600 rounded-full hover:bg-orange-400 md:border-0"
-                >
-                  {item.name}
-                </a>
-              </li>
-            ))}
+            {navigation.map((item) => {
+              const color = location.pathname.includes(item.href) ? "bg-orange-400" : "bg-orange-600";
+
+              return (
+                <li key={item.name}>
+                  <a
+                    href={item.href}
+                    className={`block py-1 px-4 text-white rounded-full hover:bg-orange-500 md:border-0 ${color}`}
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
