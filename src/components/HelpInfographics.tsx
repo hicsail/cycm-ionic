@@ -4,7 +4,7 @@ import RedGraphic from "./RedGraphic";
 
 export default function HelpInfographics() {
   return (
-    <div className="mt-28">
+    <div className="mt-28 mx-8">
       <div className="w-full mb-36">
         <BlueGraphic />
       </div>

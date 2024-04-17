@@ -3,16 +3,18 @@ interface EmpowerProps {
   description?: string;
   bgColor?: string;
   btnElement?: JSX.Element;
+  rounded?: boolean;
 }
 
-const Empower = ({ title, description, bgColor, btnElement }: EmpowerProps) => {
+const Empower = ({ title, description, bgColor, btnElement, rounded = false }: EmpowerProps) => {
   return (
     <div className="flex justify-center p-8">
       <div
-        className="max-w-xs sm:max-w-lg md:max-w-3xl md:px-20 md:py-8 px-8 py-4 "
+        className={`max-w-xs sm:max-w-lg md:max-w-3xl md:px-20 md:py-8 px-8 py-4 ${
+          rounded ? "rounded-full" : "rounded-3xl"
+        }`}
         style={{
           backgroundColor: bgColor ? bgColor : "#fff",
-          borderRadius: 40,
         }}
       >
         <div className="flex flex-col items-start justify-center my-4">

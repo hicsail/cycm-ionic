@@ -51,6 +51,7 @@ const Index: React.FC = () => {
         <Empower
           description="Discover helpful resources and articles to promote mental health awareness and support for teens. Together, we can create a safe and nurturing environment for their well-being."
           bgColor="#FF6565"
+          rounded
           btnElement={
             <button
               type="button"
