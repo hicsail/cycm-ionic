@@ -4,18 +4,10 @@ interface ResourceCardProps {
   description: string;
 }
 
-export default function CenterDescriptionCard({
-  description,
-}: ResourceCardProps) {
+export default function CenterDescriptionCard({ description }: ResourceCardProps) {
   return (
     <div>
-      <IonCard
-        className="bg-gradient-to-t from-[#FB4B45] to-[#FC8D3D] rounded-[12px]"
-        style={{
-          width: 370,
-          height: 370,
-        }}
-      >
+      <IonCard className="bg-gradient-to-t from-[#FB4B45] to-[#FC8D3D] rounded-[12px] md:w-[22rem] w-[18rem] h-[24rem]">
         <IonCardContent className="align-middle py-8 px-6">
           <IonCardSubtitle
             style={{
@@ -28,21 +20,11 @@ export default function CenterDescriptionCard({
             {description}
           </IonCardSubtitle>
         </IonCardContent>
-        <div
-          style={{
-            bottom: 0,
-          }}
-        >
+        <div>
           <svg
-            width={213}
-            height={181}
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            style={{
-              bottom: 0,
-              position: "absolute",
-              right: 0,
-            }}
+            className="absolute md:bottom-[-9rem] bottom-[-3rem] md:right-[-7rem] right-[-1rem] md:w-[20rem] w-[14rem] md:h-[20rem] h-[14rem]"
           >
             <path
               fillRule="evenodd"
