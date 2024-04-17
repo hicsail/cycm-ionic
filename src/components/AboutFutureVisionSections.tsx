@@ -25,7 +25,7 @@ export default function AboutFutureVisionSections() {
                 </h2>
               </IonCardHeader>
               <br />
-              <IonCardContent>
+              <IonCardContent className='font-bold'>
                 <ul>
                   <li>Opportunities for trainees in all disciplines to collaborate</li>
                   <br />
@@ -43,7 +43,7 @@ export default function AboutFutureVisionSections() {
                 </h3>
               </IonCardHeader>
               <br />
-              <IonCardContent>
+              <IonCardContent className='font-bold'>
                 <ul>
                   <li>Design training toolkits to be used at schools and community-based organizations</li>
                   <br />
@@ -61,7 +61,7 @@ export default function AboutFutureVisionSections() {
                 </h3>
               </IonCardHeader>
               <br />
-              <IonCardContent>
+              <IonCardContent className='font-bold'>
                 BMC Department of Psychiatry: National “go-to” resource for mental health in diverse teens
               </IonCardContent>
             </IonCard>
