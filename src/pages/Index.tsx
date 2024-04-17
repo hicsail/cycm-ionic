@@ -18,10 +18,10 @@ const Index: React.FC = () => {
           }}
         />
         <CenterDescriptionCards />
-        <div className="relative max-w-7xl mx-auto my-16">
+        <div className="relative max-w-5xl mx-auto my-16">
           <img className="w-full h-auto" alt="Vector" src="vector.svg" />
           <div className="absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <h1 className="[font-family:'Montserrat-Bold',Helvetica] font-bold text-[#101066] text-[22px] md:text-[48px] lg:text-[64px] text-center">
+            <h1 className="[font-family:'Montserrat-Bold',Helvetica] font-bold text-[#101066] text-[calc(5vw)] lg:text-[56px] text-center">
               TEENS NEED
               <br />
               MENTAL HEALTH SUPPORT
