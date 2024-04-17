@@ -6,7 +6,13 @@ interface EmpowerProps {
   rounded?: boolean;
 }
 
-const Empower = ({ title, description, bgColor, btnElement, rounded = false }: EmpowerProps) => {
+const Empower = ({
+  title,
+  description,
+  bgColor,
+  btnElement,
+  rounded = false,
+}: EmpowerProps) => {
   return (
     <div className="flex justify-center p-8">
       <div
@@ -18,8 +24,12 @@ const Empower = ({ title, description, bgColor, btnElement, rounded = false }: E
         }}
       >
         <div className="flex flex-col items-start justify-center my-4">
-          <h1 className="text-4xl font-bold font-sans md:text-4xl mb-4">{title}</h1>
-          <p className="text-md font-sans font-semibold text-center md:text-lg mb-4 text-white">{description}</p>
+          <h1 className="text-4xl font-bold font-sans md:text-4xl mb-4">
+            {title}
+          </h1>
+          <p className="text-md font-sans font-semibold text-center md:text-lg mb-4 text-white">
+            {description}
+          </p>
           <div className="flex mx-auto">{btnElement}</div>
         </div>
       </div>
