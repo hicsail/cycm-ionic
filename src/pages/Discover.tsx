@@ -102,10 +102,14 @@ const Discover: React.FC = () => {
   };
   return (
     <>
-      <div className="pt-48" style={{
-        background: "linear-gradient(180deg, #FFF 26.5%, #FD9390 87.5%, #FB4B45 100%)"
-      }}>
-        <div >
+      <div
+        className="pt-48"
+        style={{
+          background:
+            "linear-gradient(180deg, #FFF 26.5%, #FD9390 87.5%, #FB4B45 100%)",
+        }}
+      >
+        <div>
           <div className="flex flex-col justify-center items-center  px-12 md:px-0">
             <div className="p-4 max-w-4xl w-full">
               <h1 className="text-[#101066] font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-none mb-4">
@@ -113,7 +117,9 @@ const Discover: React.FC = () => {
               </h1>
               <br />
               <p className="text-[#101066] font-semibold text-base sm:text-lg md:text-xl lg:text-xl tracking-tight leading-tight mb-8">
-                Explore our collection of informative mental health resources designed to help teens navigate their emotional well-being and find support.
+                Explore our collection of informative mental health resources
+                designed to help teens navigate their emotional well-being and
+                find support.
               </p>
             </div>
           </div>
