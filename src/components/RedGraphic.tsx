@@ -4,7 +4,7 @@ export default function RedGraphic() {
       <div className="w-full md:w-1/2 mb-4 md:mb-0">
         <img src="/pie-graphic.svg" className="w-1/2 md:w-auto mx-auto" />
       </div>
-      <div className="text-[#101066] font-semibold text-center md:text-left pl-16">
+      <div className="text-[#101066] font-semibold text-center md:text-left md:pl-16">
         <h1 className="text-6xl md:text-[100px] leading-tight tracking-tighter mb-2 md:mb-0">
           1 / 3
         </h1>

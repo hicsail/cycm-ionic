@@ -93,16 +93,22 @@ const Navbar = () => {
           id="navbar-dropdown"
         >
           <ul className="flex flex-col font-medium mt-4 md:items-center md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
-            {navigation.map((item) => (
-              <li key={item.name}>
-                <a
-                  href={item.href}
-                  className="block py-1 px-4 text-gray-200 bg-orange-600 rounded-full hover:bg-orange-400 md:border-0"
-                >
-                  {item.name}
-                </a>
-              </li>
-            ))}
+            {navigation.map((item) => {
+              const color = location.pathname.includes(item.href)
+                ? "bg-orange-400"
+                : "bg-orange-600";
+
+              return (
+                <li key={item.name}>
+                  <a
+                    href={item.href}
+                    className={`block py-1 px-4 text-white rounded-full hover:bg-orange-500 md:border-0 ${color}`}
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

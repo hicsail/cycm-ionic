@@ -4,14 +4,20 @@ import { articles } from "../dummyArticles";
 import { generateTitleId } from "../utils";
 import DualColumnText from "../components/DualColumnText";
 import ResourceCard from "../components/ResourceCard";
-import { IonText } from "@ionic/react";
+import {
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardTitle,
+  IonText,
+} from "@ionic/react";
 
 const resources = [
   {
-    title: "Understood",
+    title: "NAMI",
     description:
-      "We are the lifelong guide for those who learn and think differently. In the past year, we’ve helped more than 20 million people discover their potentials, take control of their lives, and stay on positive paths.",
-    image: "/understood.png",
+      "The National Alliance on Mental Illness is a United States-based nonprofit organization originally founded as a grassroots group by family members of people diagnosed with mental illness.",
+    image: "/nami.png",
     action: { text: "Visit", link: "https://www.understood.org/" },
   },
   {
@@ -21,81 +27,67 @@ const resources = [
     image: "/trevor1.png",
     action: { text: "Visit", link: "https://www.thetrevorproject.org/" },
   },
+  {
+    title: "Boys & Girls Clubs of Boston",
+    description:
+      "We provides a pipeline for young people to explore their passions, find their purpose, and prepare for a life of success and impact.",
+    image: "/boysandgirls.png",
+    action: null,
+  },
+  {
+    title: "Boston Public Schools",
+    description:
+      "Boston Public Schools (BPS) educates over 2,800 K1 students in over 130 classrooms across the District.",
+    image: "/bps.png",
+    action: null,
+  },
+  {
+    title: "Jed Foundation",
+    description:
+      "The Jed Foundation is a non-profit organization that protects emotional health and prevents suicide for teens and young adults in the United States.",
+    image: "/jed.png",
+    action: null,
+  },
+  {
+    title: "AFSP",
+    description:
+      "The American Foundation for Suicide Prevention is a voluntary health organization that advocates for research and education around suicide.",
+    image: "/asp.png",
+    action: null,
+  },
 ];
 
 const Resource: React.FC = () => {
   return (
-    <div className="pt-12">
-      <div className="z-10">
-        <section>
-          <DualColumnText
-            title="Resources and Initiatives for Mental Health"
-            description="There are many resources available for mental health. Here are some of the resources that we know to be helpful."
-          />
-          <div className="curve " />
-        </section>
-      </div>
-      <div className="z-40 flex justify-center">
-        <div className="flex justify-center">
-          {/*   <div className="p-8 max-w-7xl grid gap-8 md:gap-16 md:grid-cols-3 md:p-12">
-          <div className="col-span-1 flex flex-col items-start">
-            <div className="sticky top-[20%]">
-              <h4 className="text-4xl font-bold font-sans mb-4 md:mb-6 md:text-3xl">
-                Table of Content
-              </h4>
-              <div className="mt-2 bg-white focus:outline-none">
-                <div className="py-1" role="none">
-                  {articles.map((article) => (
-                    <a
-                      href={`resource#${generateTitleId(article.title)}`}
-                      className="text-gray-700 block px-4 py-2 text-md hover:bg-gray-50"
-                    >
-                      {article.title}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-span-2 flex flex-col items-start justify-center">
-            <div className="grid gap-14">
-              {articles.map((article) => (
-                <div key={generateTitleId(article.title)}>
-                  <h3
-                    id={generateTitleId(article.title)}
-                    className="text-4xl font-bold font-sans mb-4 md:mb-6 md:text-4xl"
-                  >
-                    {article.title}
-                  </h3>
-                  <ReactMarkdown className="markdown">
-                    {article.markdown}
-                  </ReactMarkdown>
-                </div>
-              ))}
-            </div>
-          </div>
+    <div className="">
+      <div className="pt-36 flex flex-col justify-center items-center bg-[#FFE2E2] min-h-screen px-12 md:px-0">
+        {/* <img className="w-full h-auto z-[10]" alt="union-1" src="red-union.svg" /> */}
+        <div className="p-4 max-w-4xl w-full my-24">
+          <h1 className="text-[#101066] font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-none mb-4">
+            Mental Health Resources for Teenagers
+          </h1>
+          <br />
+          <p className="text-[#101066] font-semibold text-base sm:text-lg md:text-xl lg:text-xl tracking-tight leading-tight mb-8">
+            Here at the Center of Young Colorful Minds, we are dedicated to
+            supporting the mental well-being of teenagers. Below, you'll find a
+            curated list of resources designed to help you navigate the
+            challenges of adolescence and prioritize your mental health.
+          </p>
         </div>
-      </div> */}
-          {/* <DualColumnImageText
-        title="Medium Length Heading Goes Here"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
-        image={{ source: "/cycm-article-resource.png", position: "right" }}
-        actions={[
-          { text: "Button 1", link: "#" },
-          { text: "Button 2", link: "#" },
-        ]}
-      />
-      */}
-          <div className="flex max-w-7xl px-8 flex-col md:px-12 md:flex-row">
+        <div className="max-w-6xl mx-auto mb-24">
+          <div className="grid gap-8 md:grid-cols-3 md:mb-16">
             {resources.map((resource) => (
-              <ResourceCard
-                key={resource.title}
-                title={resource.title}
-                description={resource.description}
-                image={resource.image}
-                action={resource.action}
-                color="dark"
-              />
+              <IonCard style={{}}>
+                <img
+                  src={resource.image}
+                  alt={resource.title}
+                  className="mx-auto md:w-full"
+                />
+                <IonCardHeader>
+                  <IonCardTitle>{resource.title}</IonCardTitle>
+                </IonCardHeader>
+                <IonCardContent>{resource.description}</IonCardContent>
+              </IonCard>
             ))}
           </div>
         </div>

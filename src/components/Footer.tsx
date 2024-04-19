@@ -1,6 +1,21 @@
+import { useLocation } from "react-router";
+
 const Footer = () => {
+  const route = useLocation();
+
+  const bgColorMap = {};
+
+  const bgColor =
+    route.pathname in bgColorMap
+      ? bgColorMap[route.pathname as keyof typeof bgColorMap]
+      : "#E55342";
+
   return (
-    <div id="footer" className="flex flex-col items-center bg-[#FFABE1]">
+    <div
+      id="footer"
+      className="flex flex-col items-center"
+      style={{ background: bgColor }}
+    >
       <div className="p-8 max-w-7xl md:flex md:p-12 md:w-[100%]">
         <div className="flex items-start justify-start md:w-[60%]">
           <img src="/cycm-logo-white.svg" alt="..." className="h-20 mt-2" />
