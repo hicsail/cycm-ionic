@@ -4,7 +4,13 @@ import { articles } from "../dummyArticles";
 import { generateTitleId } from "../utils";
 import DualColumnText from "../components/DualColumnText";
 import ResourceCard from "../components/ResourceCard";
-import { IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonText } from "@ionic/react";
+import {
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardTitle,
+  IonText,
+} from "@ionic/react";
 
 const resources = [
   {
@@ -23,31 +29,33 @@ const resources = [
   },
   {
     title: "Boys & Girls Clubs of Boston",
-    description: "We provides a pipeline for young people to explore their passions, find their purpose, and prepare for a life of success and impact.",
+    description:
+      "We provides a pipeline for young people to explore their passions, find their purpose, and prepare for a life of success and impact.",
     image: "/boysandgirls.png",
-    action: null
+    action: null,
   },
   {
     title: "Boston Public Schools",
-    description: "Boston Public Schools (BPS) educates over 2,800 K1 students in over 130 classrooms across the District.",
+    description:
+      "Boston Public Schools (BPS) educates over 2,800 K1 students in over 130 classrooms across the District.",
     image: "/bps.png",
-    action: null
+    action: null,
   },
   {
     title: "Jed Foundation",
-    description: "The Jed Foundation is a non-profit organization that protects emotional health and prevents suicide for teens and young adults in the United States.",
+    description:
+      "The Jed Foundation is a non-profit organization that protects emotional health and prevents suicide for teens and young adults in the United States.",
     image: "/jed.png",
-    action: null
+    action: null,
   },
   {
     title: "AFSP",
-    description: "The American Foundation for Suicide Prevention is a voluntary health organization that advocates for research and education around suicide.",
+    description:
+      "The American Foundation for Suicide Prevention is a voluntary health organization that advocates for research and education around suicide.",
     image: "/asp.png",
-    action: null
-  }
+    action: null,
+  },
 ];
-
-
 
 const Resource: React.FC = () => {
   return (
@@ -60,24 +68,25 @@ const Resource: React.FC = () => {
           </h1>
           <br />
           <p className="text-[#101066] font-semibold text-base sm:text-lg md:text-xl lg:text-xl tracking-tight leading-tight mb-8">
-            Here at the Center of Young Colorful Minds, we are dedicated to supporting the mental well-being of teenagers. Below, you'll find a curated list of resources designed to help you navigate the challenges of adolescence and prioritize your mental health.
+            Here at the Center of Young Colorful Minds, we are dedicated to
+            supporting the mental well-being of teenagers. Below, you'll find a
+            curated list of resources designed to help you navigate the
+            challenges of adolescence and prioritize your mental health.
           </p>
         </div>
         <div className="max-w-6xl mx-auto mb-24">
           <div className="grid gap-8 md:grid-cols-3 md:mb-16">
             {resources.map((resource) => (
-              <IonCard style={{
-
-              }}>
-                <img src={resource.image} alt={resource.title} className="mx-auto md:w-full"/>
+              <IonCard style={{}}>
+                <img
+                  src={resource.image}
+                  alt={resource.title}
+                  className="mx-auto md:w-full"
+                />
                 <IonCardHeader>
-                  <IonCardTitle>
-                    {resource.title}
-                  </IonCardTitle>
+                  <IonCardTitle>{resource.title}</IonCardTitle>
                 </IonCardHeader>
-                <IonCardContent>
-                  {resource.description}
-                </IonCardContent>
+                <IonCardContent>{resource.description}</IonCardContent>
               </IonCard>
             ))}
           </div>
