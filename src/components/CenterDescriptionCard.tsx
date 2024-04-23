@@ -7,7 +7,7 @@ interface ResourceCardProps {
 export default function CenterDescriptionCard({ description }: ResourceCardProps) {
   return (
     <div>
-      <IonCard className="bg-gradient-to-t from-[#FB4B45] to-[#FC8D3D] rounded-[12px] w-[18rem] h-[24rem]">
+      <IonCard className="bg-gradient-to-t from-[#FB4B45] to-[#FC8D3D] rounded-[12px] w-[18rem] h-[20rem]">
         <IonCardContent className="align-middle py-8 px-6">
           <IonCardSubtitle
             style={{
