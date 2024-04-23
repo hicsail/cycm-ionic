@@ -4,7 +4,9 @@ interface ResourceCardProps {
   description: string;
 }
 
-export default function CenterDescriptionCard({ description }: ResourceCardProps) {
+export default function CenterDescriptionCard({
+  description,
+}: ResourceCardProps) {
   return (
     <div>
       <IonCard className="bg-gradient-to-t from-[#FB4B45] to-[#FC8D3D] rounded-[12px] w-[18rem] h-[20rem]">
