@@ -4,16 +4,10 @@ import RedGraphic from "./RedGraphic";
 
 export default function HelpInfographics() {
   return (
-    <div className="mt-28 mx-8">
-      <div className="w-full mb-36">
-        <BlueGraphic />
-      </div>
-      <div className="w-full mb-36">
-        <PinkGraphic />
-      </div>
-      <div className="w-full mb-36">
-        <RedGraphic />
-      </div>
+    <div className="flex flex-col md:flex-row w-full max-w-7xl px-8 my-28 mx-auto gap-16">
+      <BlueGraphic />
+      <PinkGraphic />
+      <RedGraphic />
     </div>
   );
 }
