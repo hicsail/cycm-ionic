@@ -32,7 +32,6 @@ const Resource: React.FC = () => {
     })
       .then((res) => res.json())
       .then((resp) => {
-        console.log(resp);
         setResources(resp.data);
       });
   }, []);
@@ -56,7 +55,11 @@ const Resource: React.FC = () => {
         <div className="max-w-6xl mx-auto mb-24">
           <div className="grid gap-8 md:grid-cols-3 md:mb-16">
             {resources.map((resource: any) => (
-              <IonCard style={{}}>
+              <IonCard button={true} onClick={
+                () => {
+                  window.open(resource.attributes.link, "_blank");
+                }
+              }>
                 <img
                   src={`${import.meta.env.VITE_STRAPI_URL}${resource.attributes.image.data.attributes.url}`}
                   alt={resource.attributes.title}
