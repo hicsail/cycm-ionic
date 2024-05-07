@@ -4,11 +4,9 @@ import Profile from "./Profile";
 const token = import.meta.env.VITE_STRAPY_TOKEN;
 
 export default function AboutTeamProfiles() {
-
   const [profiles, setProfiles] = useState<any>([]);
 
   useEffect(() => {
-    // fetch from localhost:1337/api/articles
     fetch(`${import.meta.env.VITE_STRAPI_URL}/api/people?populate=*`, {
       method: "GET",
       headers: {
@@ -23,7 +21,6 @@ export default function AboutTeamProfiles() {
       });
   }, []);
 
-  
   return (
     <div>
       <div className="flex flex-col justify-center items-center min-h-screen px-12 md:px-0">
@@ -47,7 +44,9 @@ export default function AboutTeamProfiles() {
                 title={profile.attributes.title}
                 description={profile.attributes.description}
                 socials={profile.attributes.socials}
-                avatar={`${import.meta.env.VITE_STRAPI_URL}${profile.attributes.avatar.data.attributes.url}`}
+                avatar={`${import.meta.env.VITE_STRAPI_URL}${
+                  profile.attributes.avatar.data.attributes.url
+                }`}
               />
             ))}
           </div>
