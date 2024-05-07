@@ -11,6 +11,7 @@ import {
   IonCardTitle,
   IonText,
 } from "@ionic/react";
+import { useEffect } from "react";
 
 const resources = [
   {
@@ -57,7 +58,27 @@ const resources = [
   },
 ];
 
+const token = import.meta.env.VITE_STRAPY_TOKEN;
+
+//const [resources, setResources] = useState<any>([]);
+
 const Resource: React.FC = () => {
+
+  useEffect(() => {
+    // fetch from localhost:1337/api/articles
+    fetch(`${import.meta.env.VITE_STRAPI_URL}/api/articles?populate=*`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((resp) => {
+        setResources(resp.data);
+      });
+  }, []);
+
   return (
     <div className="">
       <div className="pt-36 flex flex-col justify-center items-center bg-[#FFE2E2] min-h-screen px-12 md:px-0">
