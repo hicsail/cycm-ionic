@@ -13,12 +13,9 @@ import {
 } from "@ionic/react";
 import { useEffect, useState } from "react";
 
-
-
 const token = import.meta.env.VITE_STRAPY_TOKEN;
 
 const Resource: React.FC = () => {
-
   const [resources, setResources] = useState<any>([]);
 
   useEffect(() => {
@@ -55,20 +52,25 @@ const Resource: React.FC = () => {
         <div className="max-w-6xl mx-auto mb-24">
           <div className="grid gap-8 md:grid-cols-3 md:mb-16">
             {resources.map((resource: any) => (
-              <IonCard button={true} onClick={
-                () => {
+              <IonCard
+                button={true}
+                onClick={() => {
                   window.open(resource.attributes.link, "_blank");
-                }
-              }>
+                }}
+              >
                 <img
-                  src={`${import.meta.env.VITE_STRAPI_URL}${resource.attributes.image.data.attributes.url}`}
+                  src={`${import.meta.env.VITE_STRAPI_URL}${
+                    resource.attributes.image.data.attributes.url
+                  }`}
                   alt={resource.attributes.title}
                   className="mx-auto md:w-full"
                 />
                 <IonCardHeader>
                   <IonCardTitle>{resource.attributes.name}</IonCardTitle>
                 </IonCardHeader>
-                <IonCardContent>{resource.attributes.description}</IonCardContent>
+                <IonCardContent>
+                  {resource.attributes.description}
+                </IonCardContent>
               </IonCard>
             ))}
           </div>
