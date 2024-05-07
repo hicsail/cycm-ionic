@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Profile from "./Profile";
 const profiles = [
   {
@@ -70,6 +70,8 @@ const token = import.meta.env.VITE_STRAPY_TOKEN;
 
 export default function AboutTeamProfiles() {
 
+  const [profiles, setProfiles] = useState([]);
+
   useEffect(() => {
     // fetch from localhost:1337/api/articles
     fetch(`${import.meta.env.VITE_STRAPI_URL}/api/people?populate=*`, {
@@ -82,6 +84,7 @@ export default function AboutTeamProfiles() {
       .then((res) => res.json())
       .then((resp) => {
         console.log(resp);
+        setProfiles(resp.data);
       });
   }, []);
 
@@ -105,11 +108,11 @@ export default function AboutTeamProfiles() {
             {profiles.map((profile, idx) => (
               <Profile
                 key={idx}
-                name={profile.name}
-                title={profile.title}
-                description={profile.description}
-                socials={profile.socials}
-                avatar={profile.avatar}
+                name={profile.attributes.name}
+                title={profile.attributes.title}
+                description={profile.attributes.description}
+                socials={profile.attributes.socials}
+                avatar={`${import.meta.env.VITE_STRAPI_URL}${profile.attributes.avatar.data.attributes.url}`}
               />
             ))}
           </div>
