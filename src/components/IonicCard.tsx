@@ -46,17 +46,19 @@ export default function IonicCard({
       <IonCard
         color={"tertiary"}
         style={{
-          height: 375,
-          maxWidth: 400,
+          height: 500,
+          maxWidth: 350,
           borderRadius: 20,
+          padding: 20,
         }}
       >
+        {/* <img alt="Silhouette of mountains" height={200} src="https://ionicframework.com/docs/img/demos/card-media.png" /> */}
         <IonCardHeader>
           <IonCardTitle
             style={{
               // font color
               color: "orange",
-              fontSize: 18,
+              fontSize: "1.6rem",
               fontWeight: "bold",
             }}
           >
@@ -69,17 +71,20 @@ export default function IonicCard({
               }
             }
           >
-            {author && `By ${author}`}
+            {/* {author && `By ${author}`} */}
           </IonCardSubtitle>
-          {tag && (
+          {/* {tag && (
             <>
               <IonChip color="warning">{tag}</IonChip>
             </>
-          )}
+          )} */}
         </IonCardHeader>
-        <IonCardContent>
-          {summary.length > 400
-            ? `${summary.substring(0, 400)}...`
+        <IonCardContent style={{
+          fontSize: "1.2rem",
+          lineHeight: "1.75rem"
+        }}>
+          {summary.length > 120
+            ? `${summary.substring(0, 120)}...`
             : `${summary}.`}
         </IonCardContent>
         {/* have card modal button at bottom */}
