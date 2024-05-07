@@ -79,10 +79,12 @@ export default function IonicCard({
             </>
           )} */}
         </IonCardHeader>
-        <IonCardContent style={{
-          fontSize: "1.2rem",
-          lineHeight: "1.75rem"
-        }}>
+        <IonCardContent
+          style={{
+            fontSize: "1.2rem",
+            lineHeight: "1.75rem",
+          }}
+        >
           {summary.length > 120
             ? `${summary.substring(0, 120)}...`
             : `${summary}.`}
