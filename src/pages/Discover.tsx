@@ -46,6 +46,7 @@ const Discover: React.FC = () => {
         setArticles(resp.data);
         setFilteredArticles(resp.data);
         setIsExpandedArray(new Array(resp.data.length).fill(false));
+        console.log(resp.data);
       });
   }, []);
 
