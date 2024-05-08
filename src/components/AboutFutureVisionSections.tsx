@@ -16,7 +16,7 @@ export default function AboutFutureVisionSections() {
         <div className="flex flex-col max-w-7xl items-center mt-8 mx-auto">
           <div className="flex gap-4 px-8 flex-col lg:flex-row z-[1]">
             <IonCard
-              color="danger"
+              color="light"
               style={{
                 width: 300,
                 height: 300,
@@ -28,7 +28,7 @@ export default function AboutFutureVisionSections() {
                 </h2>
               </IonCardHeader>
               <br />
-              <IonCardContent className="font-bold">
+              <IonCardContent className="font-bold text-[#101066]">
                 <ul>
                   <li>
                     Opportunities for trainees in all disciplines to collaborate
@@ -39,7 +39,7 @@ export default function AboutFutureVisionSections() {
               </IonCardContent>
             </IonCard>
             <IonCard
-              color="danger"
+              color="light"
               style={{
                 width: 300,
                 height: 300,
@@ -51,7 +51,7 @@ export default function AboutFutureVisionSections() {
                 </h3>
               </IonCardHeader>
               <br />
-              <IonCardContent className="font-bold">
+              <IonCardContent className="font-bold text-[#101066]">
                 <ul>
                   <li>
                     Design training toolkits to be used at schools and
@@ -66,7 +66,7 @@ export default function AboutFutureVisionSections() {
               </IonCardContent>
             </IonCard>
             <IonCard
-              color="danger"
+              color="light"
               style={{
                 width: 300,
                 height: 300,
@@ -76,7 +76,7 @@ export default function AboutFutureVisionSections() {
                 <h3 className="text-[#101066]">National Leadership</h3>
               </IonCardHeader>
               <br />
-              <IonCardContent className="font-bold">
+              <IonCardContent className="font-bold text-[#101066]">
                 BMC Department of Psychiatry: National “go-to” resource for
                 mental health in diverse teens
               </IonCardContent>
