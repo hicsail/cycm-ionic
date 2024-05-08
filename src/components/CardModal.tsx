@@ -146,8 +146,9 @@ const CardModal: React.FC<Props> = ({
         fill="outline"
         shape="round"
         color="success"
+        size="small"
       >
-        Play Article
+        Listen
       </IonButton>
       <IonModal
         keepContentsMounted={true}

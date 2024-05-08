@@ -11,53 +11,28 @@ import {
   IonCardTitle,
   IonText,
 } from "@ionic/react";
+import { useEffect, useState } from "react";
 
-const resources = [
-  {
-    title: "NAMI",
-    description:
-      "The National Alliance on Mental Illness is a United States-based nonprofit organization originally founded as a grassroots group by family members of people diagnosed with mental illness.",
-    image: "/nami.png",
-    action: { text: "Visit", link: "https://www.understood.org/" },
-  },
-  {
-    title: "The Trevor Project",
-    description:
-      "The Trevor Project is an American nonprofit organization founded in 1998. Focused on suicide prevention efforts among lesbian, gay, bisexual, transgender, queer, and questioning youth, they offer a toll-free telephone number where confidential assistance is provided by trained counselors.",
-    image: "/trevor1.png",
-    action: { text: "Visit", link: "https://www.thetrevorproject.org/" },
-  },
-  {
-    title: "Boys & Girls Clubs of Boston",
-    description:
-      "We provides a pipeline for young people to explore their passions, find their purpose, and prepare for a life of success and impact.",
-    image: "/boysandgirls.png",
-    action: null,
-  },
-  {
-    title: "Boston Public Schools",
-    description:
-      "Boston Public Schools (BPS) educates over 2,800 K1 students in over 130 classrooms across the District.",
-    image: "/bps.png",
-    action: null,
-  },
-  {
-    title: "Jed Foundation",
-    description:
-      "The Jed Foundation is a non-profit organization that protects emotional health and prevents suicide for teens and young adults in the United States.",
-    image: "/jed.png",
-    action: null,
-  },
-  {
-    title: "AFSP",
-    description:
-      "The American Foundation for Suicide Prevention is a voluntary health organization that advocates for research and education around suicide.",
-    image: "/asp.png",
-    action: null,
-  },
-];
+const token = import.meta.env.VITE_STRAPY_TOKEN;
 
 const Resource: React.FC = () => {
+  const [resources, setResources] = useState<any>([]);
+
+  useEffect(() => {
+    // fetch from localhost:1337/api/articles
+    fetch(`${import.meta.env.VITE_STRAPI_URL}/api/resources?populate=*`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((resp) => {
+        setResources(resp.data);
+      });
+  }, []);
+
   return (
     <div className="">
       <div className="pt-36 flex flex-col justify-center items-center bg-[#FFE2E2] min-h-screen px-12 md:px-0">
@@ -76,17 +51,26 @@ const Resource: React.FC = () => {
         </div>
         <div className="max-w-6xl mx-auto mb-24">
           <div className="grid gap-8 md:grid-cols-3 md:mb-16">
-            {resources.map((resource) => (
-              <IonCard style={{}}>
+            {resources.map((resource: any) => (
+              <IonCard
+                button={true}
+                onClick={() => {
+                  window.open(resource.attributes.link, "_blank");
+                }}
+              >
                 <img
-                  src={resource.image}
-                  alt={resource.title}
+                  src={`${import.meta.env.VITE_STRAPI_URL}${
+                    resource.attributes.image.data.attributes.url
+                  }`}
+                  alt={resource.attributes.title}
                   className="mx-auto md:w-full"
                 />
                 <IonCardHeader>
-                  <IonCardTitle>{resource.title}</IonCardTitle>
+                  <IonCardTitle>{resource.attributes.name}</IonCardTitle>
                 </IonCardHeader>
-                <IonCardContent>{resource.description}</IonCardContent>
+                <IonCardContent>
+                  {resource.attributes.description}
+                </IonCardContent>
               </IonCard>
             ))}
           </div>

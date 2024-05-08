@@ -137,8 +137,6 @@ const Discover: React.FC = () => {
                 color={"danger"}
                 style={{
                   borderRadius: 40,
-                  // width: 600,
-                  // margin: 'auto'
                 }}
               >
                 <div className="flex justify-center">
