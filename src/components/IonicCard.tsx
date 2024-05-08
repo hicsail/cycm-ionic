@@ -52,8 +52,8 @@ export default function IonicCard({
           padding: 20,
         }}
         button
-        onClick={()=>{
-          window.location.href = `/post/${id}`
+        onClick={() => {
+          window.location.href = `/post/${id}`;
         }}
       >
         {/* <img alt="Silhouette of mountains" height={200} src="https://ionicframework.com/docs/img/demos/card-media.png" /> */}
