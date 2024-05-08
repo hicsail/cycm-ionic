@@ -3,12 +3,19 @@ import { useLocation } from "react-router";
 const Footer = () => {
   const route = useLocation();
 
-  const bgColorMap = {};
+  const bgColorMap = {
+    "/post/*": "#FD9390",
+  };
 
-  const bgColor =
-    route.pathname in bgColorMap
-      ? bgColorMap[route.pathname as keyof typeof bgColorMap]
-      : "#E55342";
+  const bgColor = Object.keys(bgColorMap).find((key) =>
+    new RegExp(key).test(route.pathname)
+  )
+    ? bgColorMap[
+        Object.keys(bgColorMap).find((key) =>
+          new RegExp(key).test(route.pathname)
+        ) as keyof typeof bgColorMap
+      ]
+    : "#E55342";
 
   return (
     <div
