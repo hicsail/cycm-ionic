@@ -1,9 +1,4 @@
-import {
-  IonApp,
-  IonContent,
-  IonRouterOutlet,
-  setupIonicReact,
-} from "@ionic/react";
+import { IonApp, IonContent, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { Redirect, Route } from "react-router-dom";
 
@@ -32,6 +27,7 @@ import Footer from "./components/Footer";
 import About from "./pages/About";
 import Discover from "./pages/Discover";
 import Resource from "./pages/Resource";
+import Post from "./pages/Post";
 
 setupIonicReact();
 
@@ -53,6 +49,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/resources" exact={true}>
               <Resource />
+            </Route>
+            <Route path="/post/:id" exact={true}>
+              <Post />
             </Route>
             <Footer />
           </IonContent>
