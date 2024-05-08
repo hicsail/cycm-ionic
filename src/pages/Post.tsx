@@ -45,7 +45,7 @@ const Post: React.FC = () => {
                   viewBox="0 0 16 16"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
                   />
                 </svg>
@@ -60,17 +60,10 @@ const Post: React.FC = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true"
               >
-                <path
-                  d="M6 13L10 3"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                ></path>
+                <path d="M6 13L10 3" stroke="currentColor" strokeLinecap="round"></path>
               </svg>
             </li>
-            <li
-              className="inline-flex items-center text-sm font-semibold text-gray-800 truncate"
-              aria-current="page"
-            >
+            <li className="inline-flex items-center text-sm font-semibold text-gray-800 truncate" aria-current="page">
               Article
             </li>
           </ol>
@@ -83,17 +76,13 @@ const Post: React.FC = () => {
             {/* <p>{article?.description}</p> */}
             {/* place holder text */}
             <p className="text-md tracking-wider text-[#101066]">
-              Explore our collection of informative mental health resources
-              designed to help teens navigate their emotional well-being and
-              find support.
+              Explore our collection of informative mental health resources designed to help teens navigate their
+              emotional well-being and find support.
             </p>
             {/* <span>{article?.attributes.author}</span> */}
             <div className="flex text-md tracking-wider align-middle text-[#101066]">
               <div className="flex pr-4 gap-3">
-                <TwitterShareButton
-                  url={window.location.href}
-                  title={article?.attributes.title}
-                >
+                <TwitterShareButton url={window.location.href} title={article?.attributes.title}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     x="0px"
@@ -106,10 +95,7 @@ const Post: React.FC = () => {
                     <path d="M26.37,26l-8.795-12.822l0.015,0.012L25.52,4h-2.65l-6.46,7.48L11.28,4H4.33l8.211,11.971L12.54,15.97L3.88,26h2.65 l7.182-8.322L19.42,26H26.37z M10.23,6l12.34,18h-2.1L8.12,6H10.23z"></path>
                   </svg>
                 </TwitterShareButton>
-                <FacebookShareButton
-                  url={window.location.href}
-                  title={article?.attributes.title}
-                >
+                <FacebookShareButton url={window.location.href} title={article?.attributes.title}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     x="0px"
@@ -126,9 +112,7 @@ const Post: React.FC = () => {
               <div>{article?.attributes.author ?? "CYCM Team"}</div>
               <div className="px-2">&#183;</div>
               <div>
-                {new Date(
-                  article?.attributes.published_date
-                ).toLocaleDateString("en-US", {
+                {new Date(article?.attributes.published_date).toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
@@ -158,7 +142,7 @@ const Post: React.FC = () => {
             viewBox="0 0 16 16"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
             />
           </svg>
