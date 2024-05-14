@@ -1,6 +1,17 @@
-import { IonAvatar, IonButton, IonButtons, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonModal, IonToolbar } from "@ionic/react";
+import {
+  IonAvatar,
+  IonButton,
+  IonButtons,
+  IonCard,
+  IonCardContent,
+  IonContent,
+  IonHeader,
+  IonIcon,
+  IonModal,
+  IonToolbar,
+} from "@ionic/react";
 import ProfileModal from "./ProfileModal";
-import { OverlayEventDetail } from '@ionic/core/components';
+import { OverlayEventDetail } from "@ionic/core/components";
 import { useRef, useState } from "react";
 import { closeOutline } from "ionicons/icons";
 
@@ -19,7 +30,7 @@ const Profile = ({
   title,
   description,
   socials,
-  biography
+  biography,
 }: ProfileProps) => {
   const icons = {
     linkedin:
@@ -32,25 +43,30 @@ const Profile = ({
   const input = useRef<HTMLIonInputElement>(null);
 
   const [message, setMessage] = useState(
-    'This modal example uses triggers to automatically open a modal when the button is clicked.'
+    "This modal example uses triggers to automatically open a modal when the button is clicked."
   );
 
   function confirm() {
-    modal.current?.dismiss(input.current?.value, 'confirm');
+    modal.current?.dismiss(input.current?.value, "confirm");
   }
 
   function onWillDismiss(ev: CustomEvent<OverlayEventDetail>) {
-    if (ev.detail.role === 'confirm') {
+    if (ev.detail.role === "confirm") {
       setMessage(`Hello, ${ev.detail.data}!`);
     }
   }
 
   return (
     <div>
-      <IonCard color={"warning"} button id={`open-modal${name.substring(0, 2)}`} style={{
-        width: 240,
-        height: 360
-      }}>
+      <IonCard
+        color={"warning"}
+        button
+        id={`open-modal${name.substring(0, 2)}`}
+        style={{
+          width: 240,
+          height: 360,
+        }}
+      >
         <IonCardContent>
           <div className="flex flex-col">
             <img
@@ -63,9 +79,12 @@ const Profile = ({
           </div>
         </IonCardContent>
         <div className="h-12" />
-        <div className="flex bottom-5 absolute left-5" onClick={(e) => {
-          e.stopPropagation();
-        }}>
+        <div
+          className="flex bottom-5 absolute left-5"
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+        >
           {socials.map((social) => (
             <a
               key={social.name}
@@ -73,7 +92,7 @@ const Profile = ({
               // href={social.link}
               onClick={(e) => {
                 e.stopPropagation();
-                window.open(social.link)
+                window.open(social.link);
               }}
             >
               <svg
@@ -88,7 +107,11 @@ const Profile = ({
           ))}
         </div>
       </IonCard>
-      <IonModal ref={modal} trigger={`open-modal${name.substring(0, 2)}`} onWillDismiss={(ev) => onWillDismiss(ev)}>
+      <IonModal
+        ref={modal}
+        trigger={`open-modal${name.substring(0, 2)}`}
+        onWillDismiss={(ev) => onWillDismiss(ev)}
+      >
         <IonHeader>
           <IonToolbar>
             <IonButtons slot="end">
@@ -99,24 +122,24 @@ const Profile = ({
           </IonToolbar>
         </IonHeader>
         <IonContent className="ion-padding">
-          <h2 className="text-[#101066] font-bold text-xl">
-            {name}
-          </h2>
-          <div style={{
-            height: 20
-          }} />
-          <h4 className="text-[#101066] font-bold">
-            {
-              title
-            }
-          </h4>
-          <div style={{
-            height: 10
-          }} />
-          <div className="flex" onClick={(e) => {
-
-            e.stopPropagation();
-          }}>
+          <h2 className="text-[#101066] font-bold text-xl">{name}</h2>
+          <div
+            style={{
+              height: 20,
+            }}
+          />
+          <h4 className="text-[#101066] font-bold">{title}</h4>
+          <div
+            style={{
+              height: 10,
+            }}
+          />
+          <div
+            className="flex"
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
             {socials.map((social) => (
               <a
                 key={social.name}
@@ -134,24 +157,31 @@ const Profile = ({
               </a>
             ))}
           </div>
-          <div style={{
-            height: 20
-          }} />
-          <IonAvatar style={{
-            width: 200,
-            height: 200
-          }}>
-            <img src={avatar} style={{
+          <div
+            style={{
+              height: 20,
+            }}
+          />
+          <IonAvatar
+            style={{
               width: 200,
-              height: 200
-            }} />
+              height: 200,
+            }}
+          >
+            <img
+              src={avatar}
+              style={{
+                width: 200,
+                height: 200,
+              }}
+            />
           </IonAvatar>
-          <div style={{
-            height: 20
-          }} />
-          <p className="text-[#101066]">
-            {biography}
-          </p>
+          <div
+            style={{
+              height: 20,
+            }}
+          />
+          <p className="text-[#101066]">{biography}</p>
         </IonContent>
       </IonModal>
     </div>
