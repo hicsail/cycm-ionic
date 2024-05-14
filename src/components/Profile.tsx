@@ -10,7 +10,6 @@ import {
   IonModal,
   IonToolbar,
 } from "@ionic/react";
-import ProfileModal from "./ProfileModal";
 import { OverlayEventDetail } from "@ionic/core/components";
 import { useRef, useState } from "react";
 import { closeOutline } from "ionicons/icons";
