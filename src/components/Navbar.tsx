@@ -92,7 +92,10 @@ const Navbar = () => {
           className={`w-full md:block md:w-auto ${!mobileOpen && "hidden"}`}
           id="navbar-dropdown"
         >
-          <ul className="flex flex-col font-medium mt-4 md:items-center md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
+          <ul
+            className="flex flex-col font-medium mt-4 md:items-center md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white"
+            style={{ listStyle: "none", margin: 0, padding: 0 }}
+          >
             {navigation.map((item) => {
               const color = location.pathname.includes(item.href)
                 ? "bg-orange-400"

@@ -30,7 +30,7 @@ const Post: React.FC = () => {
     <div className="flex items-center justify-center mt-28 mb-16 w-full">
       <div className="max-w-7xl">
         <div className="mb-4">
-          <ol className="flex items-center whitespace-nowrap">
+          <ol className="flex items-center whitespace-nowrap p-0">
             <li className="inline-flex items-center">
               <a
                 className="flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600"
@@ -45,7 +45,7 @@ const Post: React.FC = () => {
                   viewBox="0 0 16 16"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
                   />
                 </svg>
@@ -158,7 +158,7 @@ const Post: React.FC = () => {
             viewBox="0 0 16 16"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
             />
           </svg>
