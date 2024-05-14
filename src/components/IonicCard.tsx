@@ -52,7 +52,8 @@ export default function IonicCard({
           padding: 20,
         }}
         button
-        onClick={() => {
+        onClick={(e) => {
+          e.preventDefault();
           window.location.href = `/post/${id}`;
         }}
       >
@@ -100,6 +101,11 @@ export default function IonicCard({
             bottom: 20,
             left: 20,
             width: "100%",
+          }}
+          onClick={(e) => {
+            // prevent routing to post page
+            e.stopPropagation();
+            e.preventDefault();
           }}
         >
           <CardModal
