@@ -27,13 +27,13 @@ const Post: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center mt-28 mb-16 w-full">
+    <div className="flex items-center justify-center mt-28 mb-16 w-full md:px-12">
       <div className="max-w-7xl">
         <div className="mb-4">
-          <ol className="flex items-center whitespace-nowrap p-0">
+          <ol className="flex justify-start items-center whitespace-nowrap px-4 md:px-0 mb-16 md:mb-0">
             <li className="inline-flex items-center">
               <a
-                className="flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600"
+                className="flex items-center gap-2 text-lg md:text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600"
                 href="/discover"
               >
                 <svg
@@ -68,27 +68,27 @@ const Post: React.FC = () => {
               </svg>
             </li>
             <li
-              className="inline-flex items-center text-sm font-semibold text-gray-800 truncate"
+              className="inline-flex items-center text-lg md:text-sm font-semibold text-gray-800 truncate"
               aria-current="page"
             >
               Article
             </li>
           </ol>
         </div>
-        <div className="grid grid-cols-2 gap-8 mb-8">
-          <div className="flex flex-col justify-center gap-6">
-            <h2 className="text-2xl font-semibold font-sans mb-2 md:mb-1 md:text-4xl text-[#101066]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 justify-items-center">
+          <div className="flex flex-col justify-center gap-4 w-[90%] md:w-full">
+            <h2 className="text-4xl md:text-3xl text-center md:text-left font-semibold font-sans text-[#101066]">
               {article?.attributes.title}
             </h2>
             {/* <p>{article?.description}</p> */}
             {/* place holder text */}
-            <p className="text-md tracking-wider text-[#101066]">
+            <p className="text-md text-center md:text-left tracking-wider text-[#101066]">
               Explore our collection of informative mental health resources
               designed to help teens navigate their emotional well-being and
               find support.
             </p>
             {/* <span>{article?.attributes.author}</span> */}
-            <div className="flex text-md tracking-wider align-middle text-[#101066]">
+            <div className="flex text-sm md:text-md tracking-wider align-middle text-[#101066]">
               <div className="flex pr-4 gap-3">
                 <TwitterShareButton
                   url={window.location.href}
@@ -137,7 +137,7 @@ const Post: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center px-4 md:px-0">
             {/* random image as placeholder */}
             <img src="https://picsum.photos/400/300" alt="random" />
             {/* <img src={article?.image} alt={article?.title} /> */}
@@ -163,7 +163,7 @@ const Post: React.FC = () => {
             />
           </svg>
         </div>
-        <div className="w-2/3 text-md tracking-wider text-[#101066] mb-16">
+        <div className="md:w-2/3 px-10 md:px-0 text-sm md:text-md tracking-wide md:tracking-wider text-[#101066] mb-16">
           <ReactMarkdown>{article?.attributes.body_markdown}</ReactMarkdown>
         </div>
       </div>
