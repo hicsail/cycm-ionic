@@ -147,6 +147,10 @@ const CardModal: React.FC<Props> = ({
         shape="round"
         color="success"
         size="small"
+        onClick={(e) => {
+          e.preventDefault();
+          //modal.current?.present();
+        }}
       >
         Listen
       </IonButton>

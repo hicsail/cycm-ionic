@@ -44,6 +44,7 @@ export default function AboutTeamProfiles() {
                 title={profile.attributes.title}
                 description={profile.attributes.description}
                 socials={profile.attributes.socials}
+                biography={profile.attributes.bio}
                 avatar={`${import.meta.env.VITE_STRAPI_URL}${
                   profile.attributes.avatar.data.attributes.url
                 }`}

@@ -1,10 +1,25 @@
-import { IonCard, IonCardContent } from "@ionic/react";
+import {
+  IonAvatar,
+  IonButton,
+  IonButtons,
+  IonCard,
+  IonCardContent,
+  IonContent,
+  IonHeader,
+  IonIcon,
+  IonModal,
+  IonToolbar,
+} from "@ionic/react";
+import { OverlayEventDetail } from "@ionic/core/components";
+import { useRef, useState } from "react";
+import { closeOutline } from "ionicons/icons";
 
 interface ProfileProps {
   avatar?: string;
   name: string;
   title: string;
   description: string;
+  biography: string;
   socials: { name: string; link: string }[];
 }
 
@@ -14,6 +29,7 @@ const Profile = ({
   title,
   description,
   socials,
+  biography,
 }: ProfileProps) => {
   const icons = {
     linkedin:
@@ -22,39 +38,152 @@ const Profile = ({
       "M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z",
   };
 
+  const modal = useRef<HTMLIonModalElement>(null);
+  const input = useRef<HTMLIonInputElement>(null);
+
+  const [message, setMessage] = useState(
+    "This modal example uses triggers to automatically open a modal when the button is clicked."
+  );
+
+  function confirm() {
+    modal.current?.dismiss(input.current?.value, "confirm");
+  }
+
+  function onWillDismiss(ev: CustomEvent<OverlayEventDetail>) {
+    if (ev.detail.role === "confirm") {
+      setMessage(`Hello, ${ev.detail.data}!`);
+    }
+  }
+
   return (
-    <IonCard color={"warning"}>
-      <IonCardContent>
-        <div className="flex flex-col">
-          <img
-            className="w-32 h-32 rounded-full mb-2 mx-auto"
-            src={avatar ?? "/avatars/placeholder.gif"}
-          />
-          <span className="text-lg font-bold font-sans">{name}</span>
-          <span className="text-md font-sans mb-2">{title}</span>
-          {/* <p className="text-md font-sans mb-2 md:text-sm">{description}</p> */}
-        </div>
-      </IonCardContent>
-      <div className="h-12" />
-      <div className="flex bottom-5 absolute left-5">
-        {socials.map((social) => (
-          <a
-            key={social.name}
-            className="flex font-medium items-center"
-            href={social.link}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 mx-2 my-2"
-              fill="currentColor"
-              viewBox="0 0 24 24"
+    <div>
+      <IonCard
+        color={"warning"}
+        button
+        id={`open-modal${name.substring(0, 2)}`}
+        style={{
+          width: 240,
+          height: 360,
+        }}
+      >
+        <IonCardContent>
+          <div className="flex flex-col">
+            <img
+              className="w-32 h-32 rounded-full mb-2 mx-auto"
+              src={avatar ?? "/avatars/placeholder.gif"}
+            />
+            <span className="text-lg font-bold font-sans">{name}</span>
+            <span className="text-md font-sans mb-2">{title}</span>
+            {/* <p className="text-md font-sans mb-2 md:text-sm">{description}</p> */}
+          </div>
+        </IonCardContent>
+        <div className="h-12" />
+        <div
+          className="flex bottom-5 absolute left-5"
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+        >
+          {socials.map((social) => (
+            <a
+              key={social.name}
+              className="flex font-medium items-center"
+              // href={social.link}
+              onClick={(e) => {
+                e.stopPropagation();
+                window.open(social.link);
+              }}
             >
-              <path d={icons[social.name as keyof typeof icons]} />
-            </svg>
-          </a>
-        ))}
-      </div>
-    </IonCard>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4 mx-2 my-2"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d={icons[social.name as keyof typeof icons]} />
+              </svg>
+            </a>
+          ))}
+        </div>
+      </IonCard>
+      <IonModal
+        ref={modal}
+        trigger={`open-modal${name.substring(0, 2)}`}
+        onWillDismiss={(ev) => onWillDismiss(ev)}
+      >
+        <IonHeader>
+          <IonToolbar>
+            <IonButtons slot="end">
+              <IonButton onClick={() => modal.current?.dismiss()}>
+                <IonIcon icon={closeOutline} />
+              </IonButton>
+            </IonButtons>
+          </IonToolbar>
+        </IonHeader>
+        <IonContent className="ion-padding">
+          <h2 className="text-[#101066] font-bold text-xl">{name}</h2>
+          <div
+            style={{
+              height: 20,
+            }}
+          />
+          <h4 className="text-[#101066] font-bold">{title}</h4>
+          <div
+            style={{
+              height: 10,
+            }}
+          />
+          <div
+            className="flex"
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            {socials.map((social) => (
+              <a
+                key={social.name}
+                className="flex font-medium items-center"
+                href={social.link}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4 mx-2 my-2"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d={icons[social.name as keyof typeof icons]} />
+                </svg>
+              </a>
+            ))}
+          </div>
+          <div
+            style={{
+              height: 20,
+            }}
+          />
+          <IonAvatar
+            style={{
+              width: 200,
+              height: 200,
+            }}
+          >
+            <img
+              src={avatar}
+              style={{
+                width: 200,
+                height: 200,
+              }}
+            />
+          </IonAvatar>
+          <div
+            style={{
+              height: 20,
+            }}
+          />
+          <p className="text-[#101066]">{biography}</p>
+        </IonContent>
+      </IonModal>
+    </div>
   );
 };
 
