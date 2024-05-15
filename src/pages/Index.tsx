@@ -37,7 +37,7 @@ const Index: React.FC = () => {
               type="button"
               className={`text-white border border-gray-800 bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-full text-md px-5 py-2.5`}
               onClick={() => {
-                history.push("/about-us");
+                history.push("/discover");
               }}
             >
               Read More
@@ -49,7 +49,7 @@ const Index: React.FC = () => {
         <img className="w-full h-auto z-[10]" alt="union-1" src="union-1.png" />
         <SocialInfographics />
         <Empower
-          description="Discover helpful resources and articles to promote mental health awareness and support for teens. Together, we can create a safe and nurturing environment for their well-being."
+          description="Learn more about the Center for Young Colorful Minds and efforts being undertaken to address the teen mental health crisis."
           bgColor="#FF6565"
           rounded
           btnElement={
