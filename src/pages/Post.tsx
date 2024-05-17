@@ -83,9 +83,9 @@ const Post: React.FC = () => {
             {/* <p>{article?.description}</p> */}
             {/* place holder text */}
             <p className="text-md text-center md:text-left tracking-wider text-[#101066]">
-              Explore our collection of informative mental health resources
-              designed to help teens navigate their emotional well-being and
-              find support.
+              {
+                article?.attributes.teasers
+              }
             </p>
             {/* <span>{article?.attributes.author}</span> */}
             <div className="flex text-sm md:text-md tracking-wider align-middle text-[#101066]">
