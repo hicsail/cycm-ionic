@@ -240,6 +240,7 @@ const Discover: React.FC = () => {
                     setIsExpandedArray={() => handleExpandCard(index)}
                     index={index}
                     manual_id={article.attributes.manual_id}
+                    teaser={article.attributes.teasers}
                   />
                 </div>
               ))}
