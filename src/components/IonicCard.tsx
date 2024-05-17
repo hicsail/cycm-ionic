@@ -38,7 +38,7 @@ export default function IonicCard({
   manual_id,
   author,
   tag,
-  teaser
+  teaser,
 }: CardProps) {
   const [summary, setSummary] = useState<string>(body.split(".")[0]);
   const [sentences, setSentences] = useState<string[]>(body.split("."));
@@ -92,9 +92,7 @@ export default function IonicCard({
             lineHeight: "1.75rem",
           }}
         >
-          {teaser.length > 200
-            ? `${teaser.substring(0, 200)}...`
-            : `${teaser}`}
+          {teaser.length > 200 ? `${teaser.substring(0, 200)}...` : `${teaser}`}
         </IonCardContent>
         {/* have card modal button at bottom */}
         <div
