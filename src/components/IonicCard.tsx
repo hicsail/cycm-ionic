@@ -23,6 +23,7 @@ interface CardProps {
   manual_id: string;
   author: string;
   tag: string;
+  teaser: string;
 }
 
 export default function IonicCard({
@@ -37,6 +38,7 @@ export default function IonicCard({
   manual_id,
   author,
   tag,
+  teaser,
 }: CardProps) {
   const [summary, setSummary] = useState<string>(body.split(".")[0]);
   const [sentences, setSentences] = useState<string[]>(body.split("."));
@@ -90,9 +92,7 @@ export default function IonicCard({
             lineHeight: "1.75rem",
           }}
         >
-          {summary.length > 120
-            ? `${summary.substring(0, 120)}...`
-            : `${summary}.`}
+          {teaser.length > 200 ? `${teaser.substring(0, 200)}...` : `${teaser}`}
         </IonCardContent>
         {/* have card modal button at bottom */}
         <div

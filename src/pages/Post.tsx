@@ -83,9 +83,7 @@ const Post: React.FC = () => {
             {/* <p>{article?.description}</p> */}
             {/* place holder text */}
             <p className="text-md text-center md:text-left tracking-wider text-[#101066]">
-              Explore our collection of informative mental health resources
-              designed to help teens navigate their emotional well-being and
-              find support.
+              {article?.attributes.teasers}
             </p>
             {/* <span>{article?.attributes.author}</span> */}
             <div className="flex text-sm md:text-md tracking-wider align-middle text-[#101066]">
@@ -143,7 +141,7 @@ const Post: React.FC = () => {
             {/* <img src={article?.image} alt={article?.title} /> */}
           </div>
         </div>
-        <div
+        {/* <div
           ref={ref}
           className="flex justify-center align-center my-12"
           onClick={() => ref.current?.scrollIntoView({ behavior: "smooth" })}
@@ -162,7 +160,8 @@ const Post: React.FC = () => {
               d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
             />
           </svg>
-        </div>
+        </div> */}
+        <div className="my-12" />
         <div className="md:w-2/3 px-10 md:px-0 text-sm md:text-md tracking-wide md:tracking-wider text-[#101066] mb-16">
           <ReactMarkdown>{article?.attributes.body_markdown}</ReactMarkdown>
         </div>
