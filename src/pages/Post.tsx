@@ -143,7 +143,7 @@ const Post: React.FC = () => {
             {/* <img src={article?.image} alt={article?.title} /> */}
           </div>
         </div>
-        <div
+        {/* <div
           ref={ref}
           className="flex justify-center align-center my-12"
           onClick={() => ref.current?.scrollIntoView({ behavior: "smooth" })}
@@ -162,7 +162,8 @@ const Post: React.FC = () => {
               d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
             />
           </svg>
-        </div>
+        </div> */}
+        <div className="my-12" />
         <div className="md:w-2/3 px-10 md:px-0 text-sm md:text-md tracking-wide md:tracking-wider text-[#101066] mb-16">
           <ReactMarkdown>{article?.attributes.body_markdown}</ReactMarkdown>
         </div>
