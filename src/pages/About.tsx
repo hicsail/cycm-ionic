@@ -9,7 +9,7 @@ import AboutFutureVisionSections from "../components/AboutFutureVisionSections";
 
 const About: React.FC = () => {
   return (
-    <div className="pt-12 mb-48">
+    <div className="pt-36 md:pt-12 mb-48">
       <PaddedHeaderText />
       <AboutMissionSection />
       <AboutTeamProfiles />
