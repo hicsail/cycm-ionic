@@ -17,7 +17,7 @@ const Index: React.FC = () => {
         <div className="relative max-w-5xl mx-auto my-16">
           <img className="w-full h-auto" alt="Vector" src="vector.svg" />
           <div className="absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <h1 className="font-sans text-[#101066] text-[calc(4vw)] lg:text-[42px] text-center font-[600] tracking-wide">
+            <h1 className="font-sans text-[#101066] text-[calc(6vw)] lg:text-[42px] text-center font-[600] tracking-wide">
               Teens need
               <br />
               mental health support
