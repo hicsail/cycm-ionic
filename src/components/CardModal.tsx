@@ -68,7 +68,7 @@ const CardModal: React.FC<Props> = ({
       const blob = await response.blob();
       const url = URL.createObjectURL(blob);
       const audio = new Audio(url);
-      audio.playbackRate = 1.25;
+      audio.playbackRate = 1.05;
       return audio;
     } catch (error) {
       console.error("Error occurred while making request:", error);
