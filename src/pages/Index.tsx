@@ -12,7 +12,7 @@ const Index: React.FC = () => {
     <div>
       <NewHero />
       <div className="bg-gradient-to-b from-[#FFE2E2] to-[#FFFFFF]">
-        <div className="h-12 md:h-64"/>
+        <div className="h-12 md:h-64" />
         <CenterDescriptionCards />
         <div className="relative max-w-5xl mx-auto my-16">
           <img className="w-full h-auto" alt="Vector" src="vector.svg" />
