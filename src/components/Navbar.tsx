@@ -105,7 +105,7 @@ const Navbar = () => {
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className={`block py-1 px-4 text-white rounded-full hover:bg-orange-500 md:border-0 ${color}`}
+                    className={`my-2 block py-1 px-4 text-white rounded-full hover:bg-orange-500 md:border-0 ${color}`}
                   >
                     {item.name}
                   </a>
