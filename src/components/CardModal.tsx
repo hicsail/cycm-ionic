@@ -49,7 +49,7 @@ const CardModal: React.FC<Props> = ({
   const [audioLoading, setAudioLoading] = useState<boolean>(false);
   const [hasFetchedAudios, setHasFetchedAudios] = useState(false);
   const sentenceRefs = useRef<(HTMLIonTextElement | null)[]>([]);
-  const [displayVideo, setDisplayVideo] = useState<boolean>(true);
+  const [displayVideo, setDisplayVideo] = useState<boolean>(false);
 
   const fetchAudio = async (index: number) => {
     try {

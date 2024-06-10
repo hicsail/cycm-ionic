@@ -143,11 +143,11 @@ const Discover: React.FC = () => {
                 <div className="flex justify-center">
                   <IonCardHeader>
                     <IonCardTitle className="text-2xl font-bold font-sans mb-2 md:mb-1 md:text-4xl">
-                      Explore what we have
+                      Explore the articles we have
                     </IonCardTitle>
                   </IonCardHeader>
                 </div>
-                <IonCardContent>
+                {/* <IonCardContent>
                   <IonChip outline={false} color={"light"}>
                     <IonLabel>Articles</IonLabel>
                   </IonChip>
@@ -169,7 +169,7 @@ const Discover: React.FC = () => {
                   <IonChip outline={false} color={"light"}>
                     <IonLabel>Short Facts</IonLabel>
                   </IonChip>
-                </IonCardContent>
+                </IonCardContent> */}
               </IonCard>
               {/* <div className="h-6" /> */}
               {/* <IonSearchbar
@@ -196,10 +196,10 @@ const Discover: React.FC = () => {
                   maxWidth: 1000,
                 }}
               >
-                <IonText>Select your voice</IonText>
-                <IonButton size="small" color="warning" shape="round">
+                <IonText className="mx-2">Select your voice</IonText>
+                {/* <IonButton size="small" color="warning" shape="round">
                   <IonIcon icon={informationCircleOutline} />
-                </IonButton>
+                </IonButton> */}
                 <IonButton
                   size="small"
                   color="success"
