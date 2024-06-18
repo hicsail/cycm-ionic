@@ -104,19 +104,27 @@ export default function IonicCard({
             e.preventDefault();
           }}
         >
-          <IonButton fill="outline" shape="round" size="small" color={'warning'} onClick={(e) => {
-            e.preventDefault();
-            window.location.href = `/post/${id}`;
-          }}>
+          <IonButton
+            fill="outline"
+            shape="round"
+            size="small"
+            color={"warning"}
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = `/post/${id}`;
+            }}
+          >
             Read
           </IonButton>
-          {speech_generated === 1 && <CardModal
-            title={title}
-            sentences={sentences}
-            id={id}
-            voiceId={voiceId}
-            manual_id={manual_id}
-          />}
+          {speech_generated === 1 && (
+            <CardModal
+              title={title}
+              sentences={sentences}
+              id={id}
+              voiceId={voiceId}
+              manual_id={manual_id}
+            />
+          )}
         </div>
       </IonCard>
     </div>
