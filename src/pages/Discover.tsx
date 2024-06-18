@@ -241,6 +241,7 @@ const Discover: React.FC = () => {
                     index={index}
                     manual_id={article.attributes.manual_id}
                     teaser={article.attributes.teasers}
+                    speech_generated={article.attributes.speech_generated}
                   />
                 </div>
               ))}

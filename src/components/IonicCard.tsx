@@ -24,21 +24,17 @@ interface CardProps {
   author: string;
   tag: string;
   teaser: string;
+  speech_generated: number;
 }
 
 export default function IonicCard({
   id,
   title,
   body,
-  image,
   voiceId,
-  isExpanded,
-  setIsExpandedArray,
-  index,
   manual_id,
-  author,
-  tag,
   teaser,
+  speech_generated,
 }: CardProps) {
   const [summary, setSummary] = useState<string>(body.split(".")[0]);
   const [sentences, setSentences] = useState<string[]>(body.split("."));
@@ -108,13 +104,19 @@ export default function IonicCard({
             e.preventDefault();
           }}
         >
-          <CardModal
+          <IonButton fill="outline" shape="round" size="small" color={'warning'} onClick={(e) => {
+            e.preventDefault();
+            window.location.href = `/post/${id}`;
+          }}>
+            Read
+          </IonButton>
+          {speech_generated === 1 && <CardModal
             title={title}
             sentences={sentences}
             id={id}
             voiceId={voiceId}
             manual_id={manual_id}
-          />
+          />}
         </div>
       </IonCard>
     </div>
