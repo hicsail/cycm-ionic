@@ -1,4 +1,6 @@
 import { useLocation } from "react-router";
+import { IonAlert, IonButton } from '@ionic/react';
+import { useState } from "react";
 
 const Footer = () => {
   const route = useLocation();
@@ -17,12 +19,21 @@ const Footer = () => {
       ]
     : "#E55342";
 
+
+  
+
   return (
+    <>
     <div
       id="footer"
       className="flex flex-col items-center"
       style={{ background: bgColor }}
     >
+      <IonAlert
+        trigger="present-alert"
+        header="CYCM Socials coming soon!"
+        buttons={['OK']}
+      ></IonAlert>
       <div className="p-8 max-w-7xl md:flex md:p-12 md:w-[100%]">
         <div className="flex items-start justify-start md:w-[60%]">
           <img src="/cycm-logo-white.svg" alt="..." className="h-20 mt-2" />
@@ -32,7 +43,7 @@ const Footer = () => {
             YOUNG COLORFUL MINDS
           </h3>
         </div>
-        <div className="md:ml-auto md:w-[20%]">
+        <div id="present-alert" className="md:ml-auto md:w-[20%]">
           <div className="flex flex-col md:flex-row gap-32">
             <div>
               <h5 className="text-xl font-bold font-sans items-start justify-items-start mb-2 text-white">
@@ -122,6 +133,7 @@ const Footer = () => {
         <h2 className="text-left text-white">© 2023 All rights reserved</h2>
       </div>
     </div>
+    </>
   );
 };
 
