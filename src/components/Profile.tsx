@@ -85,7 +85,7 @@ const Profile = ({
           }}
         >
           {socials.map((social) => (
-            <a
+            social.link !== '#' && <a
               key={social.name}
               className="flex font-medium items-center"
               // href={social.link}
@@ -140,7 +140,7 @@ const Profile = ({
             }}
           >
             {socials.map((social) => (
-              <a
+              social.link !== '#' && <a
                 key={social.name}
                 className="flex font-medium items-center"
                 href={social.link}
