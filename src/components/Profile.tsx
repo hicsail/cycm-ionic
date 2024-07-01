@@ -56,7 +56,7 @@ const Profile = ({
   }
 
   return (
-    <div>
+    <div className="flex justify-center">
       <IonCard
         color={"warning"}
         button

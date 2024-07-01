@@ -38,6 +38,7 @@ export default function AboutTeamProfiles() {
           <div className="grid grid-cols-1 divide-y bg-white"></div>
           <div className="grid gap-8 md:grid-cols-4 md:mb-16">
             {profiles.map((profile: any, idx: any) => (
+              <div key={idx}>
               <Profile
                 key={idx}
                 name={profile.attributes.name}
@@ -49,6 +50,7 @@ export default function AboutTeamProfiles() {
                   profile.attributes.avatar.data.attributes.url
                 }`}
               />
+              </div>
             ))}
           </div>
         </div>

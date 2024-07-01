@@ -110,7 +110,7 @@ const Footer = () => {
       </div>
       <hr className="border-white w-[90%] my-4" />
       <div className="flex flex-col mb-16 w-[90%] md:flex-row-reverse">
-        <div className="flex flex-col md:ml-auto md:flex-row">
+        {/* <div className="flex flex-col md:ml-auto md:flex-row">
           <a
             className="mb-5 hover:underline md:mx-5 md:mb-0 text-white"
             href="#"
@@ -129,7 +129,7 @@ const Footer = () => {
           >
             Cookies Settings
           </a>
-        </div>
+        </div> */}
         <h2 className="text-left text-white">© 2023 All rights reserved</h2>
       </div>
     </div>
