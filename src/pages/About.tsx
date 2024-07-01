@@ -1,4 +1,4 @@
-import { IonCard, IonCardHeader } from "@ionic/react";
+import { IonCard, IonCardHeader, IonContent, IonPage } from "@ionic/react";
 import DualColumnImageText from "../components/DualColumnImageText";
 import DualColumnText from "../components/DualColumnText";
 import Profile from "../components/Profile";
@@ -9,12 +9,16 @@ import AboutFutureVisionSections from "../components/AboutFutureVisionSections";
 
 const About: React.FC = () => {
   return (
-    <div className="pt-36 md:pt-12 mb-48">
-      <PaddedHeaderText />
-      <AboutMissionSection />
-      <AboutTeamProfiles />
-      <AboutFutureVisionSections />
-    </div>
+    <IonPage>
+      <IonContent>
+        <div className="pt-36 md:pt-12 mb-48">
+          <PaddedHeaderText />
+          <AboutMissionSection />
+          <AboutTeamProfiles />
+          <AboutFutureVisionSections />
+        </div>
+      </IonContent>
+    </IonPage>
   );
 };
 
