@@ -6,6 +6,7 @@ import PaddedHeaderText from "../components/PaddedHeaderText";
 import AboutMissionSection from "../components/AboutMissionSection";
 import AboutTeamProfiles from "../components/AboutTeamProfiles";
 import AboutFutureVisionSections from "../components/AboutFutureVisionSections";
+import Footer from "../components/Footer";
 
 const About: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const About: React.FC = () => {
           <AboutTeamProfiles />
           <AboutFutureVisionSections />
         </div>
+        <Footer />
       </IonContent>
     </IonPage>
   );

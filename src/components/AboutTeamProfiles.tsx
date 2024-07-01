@@ -1,7 +1,22 @@
 import React, { useEffect, useState } from "react";
 import Profile from "./Profile";
+import { Link } from "react-router-dom";
 
 const token = import.meta.env.VITE_STRAPY_TOKEN;
+
+const ButtonMailto = ({ mailto, label }: any) => {
+  return (
+      <Link
+          to='#'
+          onClick={(e) => {
+              window.location.href = mailto;
+              e.preventDefault();
+          }}
+      >
+          {label}
+      </Link>
+  );
+};
 
 export default function AboutTeamProfiles() {
   const [profiles, setProfiles] = useState<any>([]);
@@ -34,22 +49,25 @@ export default function AboutTeamProfiles() {
           <p className="text-[#101066] font-semibold text-base sm:text-lg md:text-xl lg:text-xl tracking-tight leading-tight mb-8">
             The experts behind our mental health resources
           </p>
+          <p className="text-[#101066] font-semibold text-base sm:text-lg md:text-xl lg:text-xl tracking-tight leading-tight mb-8">
+            Reach out to us through <a href="mailto:contact@cycminds.org">email</a>
+          </p>
+      
           <br />
           <div className="grid grid-cols-1 divide-y bg-white"></div>
           <div className="grid gap-8 md:grid-cols-4 md:mb-16">
             {profiles.map((profile: any, idx: any) => (
               <div key={idx}>
-              <Profile
-                key={idx}
-                name={profile.attributes.name}
-                title={profile.attributes.title}
-                description={profile.attributes.description}
-                socials={profile.attributes.socials}
-                biography={profile.attributes.bio}
-                avatar={`${import.meta.env.VITE_STRAPI_URL}${
-                  profile.attributes.avatar.data.attributes.url
-                }`}
-              />
+                <Profile
+                  key={idx}
+                  name={profile.attributes.name}
+                  title={profile.attributes.title}
+                  description={profile.attributes.description}
+                  socials={profile.attributes.socials}
+                  biography={profile.attributes.bio}
+                  avatar={`${import.meta.env.VITE_STRAPI_URL}${profile.attributes.avatar.data.attributes.url
+                    }`}
+                />
               </div>
             ))}
           </div>
