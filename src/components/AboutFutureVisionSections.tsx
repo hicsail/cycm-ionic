@@ -29,7 +29,7 @@ export default function AboutFutureVisionSections() {
             >
               <div className="flex justify-center">
                 <img
-                  src="./public/undraw_development_re_g5hq.svg"
+                  src="/undraw_development_re_g5hq.svg"
                   style={{
                     width: 300,
                     height: 300,
@@ -53,7 +53,7 @@ export default function AboutFutureVisionSections() {
             >
               <div className="flex justify-center">
                 <img
-                  src="./public/undraw_real_time_collaboration_c62i (1).svg"
+                  src="/undraw_real_time_collaboration_c62i (1).svg"
                   style={{
                     width: 300,
                     height: 300,
@@ -78,7 +78,7 @@ export default function AboutFutureVisionSections() {
             >
               <div className="flex justify-center">
                 <img
-                  src="public/undraw_gravitas_d-3-ep (1).svg"
+                  src="/undraw_gravitas_d-3-ep (1).svg"
                   style={{
                     width: 300,
                     height: 300,
