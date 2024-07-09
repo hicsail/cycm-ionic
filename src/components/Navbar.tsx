@@ -19,10 +19,10 @@ const Navbar = () => {
       name: "RESOURCES",
       href: "resources",
     },
-    {
-      name: "CONTACT",
-      href: location.pathname + "#footer",
-    },
+    // {
+    //   name: "CONTACT",
+    //   href: location.pathname + "#footer",
+    // },
   ];
 
   useEffect(() => {

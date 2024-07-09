@@ -1,4 +1,9 @@
-import { IonCard, IonCardContent, IonCardHeader } from "@ionic/react";
+import {
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardTitle,
+} from "@ionic/react";
 import React from "react";
 
 export default function AboutFutureVisionSections() {
@@ -18,65 +23,72 @@ export default function AboutFutureVisionSections() {
             <IonCard
               color="light"
               style={{
-                width: 300,
-                height: 300,
+                width: 380,
               }}
+              className="ion-padding"
             >
-              <IonCardHeader className="justify-center items-center text-xl">
-                <h2 className="text-[#101066] font-bold">
-                  Collaborative Creation
-                </h2>
+              <div className="flex justify-center">
+                <img
+                  src="./public/undraw_development_re_g5hq.svg"
+                  style={{
+                    width: 300,
+                    height: 300,
+                  }}
+                />
+              </div>
+              <IonCardHeader className="text-2xl text-[#101066] font-bold">
+                Collaborative Creation
               </IonCardHeader>
-              <br />
-              <IonCardContent className="font-bold text-[#101066]">
-                <ul>
-                  <li>
-                    Opportunities for trainees in all disciplines to collaborate
-                  </li>
-                  <br />
-                  <li>Create content for website and social media</li>
-                </ul>
+              <IonCardContent className="text-[#101066]">
+                Opportunities for trainees in all disciplines to collaborate and
+                to create content for website and social media
               </IonCardContent>
             </IonCard>
             <IonCard
               color="light"
               style={{
-                width: 300,
-                height: 300,
+                width: 380,
               }}
+              className="ion-padding"
             >
-              <IonCardHeader className="justify-center items-center text-xl">
-                <h3 className="text-[#101066] font-bold">
-                  Community Engagement
-                </h3>
+              <div className="flex justify-center">
+                <img
+                  src="./public/undraw_real_time_collaboration_c62i (1).svg"
+                  style={{
+                    width: 300,
+                    height: 300,
+                  }}
+                />
+              </div>
+              <IonCardHeader className="text-2xl text-[#101066] font-bold">
+                Community Engagement
               </IonCardHeader>
-              <br />
-              <IonCardContent className="font-bold text-[#101066]">
-                <ul>
-                  <li>
-                    Design training toolkits to be used at schools and
-                    community-based organizations
-                  </li>
-                  <br />
-                  <li>
-                    Engage with youth outside of the clinical setting and in the
-                    community
-                  </li>
-                </ul>
+              <IonCardContent className="text-[#101066]">
+                Design training toolkits to be used at schools and
+                community-based organizations and engage with youth outside of
+                the clinical setting and in the community.
               </IonCardContent>
             </IonCard>
             <IonCard
               color="light"
               style={{
-                width: 300,
-                height: 300,
+                width: 380,
               }}
+              className="ion-padding"
             >
-              <IonCardHeader className="justify-center items-center text-xl font-bold">
-                <h3 className="text-[#101066]">National Leadership</h3>
+              <div className="flex justify-center">
+                <img
+                  src="public/undraw_gravitas_d-3-ep (1).svg"
+                  style={{
+                    width: 300,
+                    height: 300,
+                  }}
+                />
+              </div>
+              <IonCardHeader className="text-2xl text-[#101066] font-bold">
+                National Leadership
               </IonCardHeader>
-              <br />
-              <IonCardContent className="font-bold text-[#101066]">
+              <IonCardContent className="text-[#101066]">
                 BMC Department of Psychiatry: National “go-to” resource for
                 mental health in diverse teens
               </IonCardContent>

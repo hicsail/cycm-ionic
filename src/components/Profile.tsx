@@ -56,7 +56,7 @@ const Profile = ({
   }
 
   return (
-    <div>
+    <div className="flex justify-center">
       <IonCard
         color={"warning"}
         button
@@ -84,26 +84,29 @@ const Profile = ({
             e.stopPropagation();
           }}
         >
-          {socials.map((social) => (
-            <a
-              key={social.name}
-              className="flex font-medium items-center"
-              // href={social.link}
-              onClick={(e) => {
-                e.stopPropagation();
-                window.open(social.link);
-              }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 mx-2 my-2"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d={icons[social.name as keyof typeof icons]} />
-              </svg>
-            </a>
-          ))}
+          {socials.map(
+            (social) =>
+              social.link !== "#" && (
+                <a
+                  key={social.name}
+                  className="flex font-medium items-center"
+                  // href={social.link}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    window.open(social.link);
+                  }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 mx-2 my-2"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d={icons[social.name as keyof typeof icons]} />
+                  </svg>
+                </a>
+              )
+          )}
         </div>
       </IonCard>
       <IonModal
@@ -139,22 +142,25 @@ const Profile = ({
               e.stopPropagation();
             }}
           >
-            {socials.map((social) => (
-              <a
-                key={social.name}
-                className="flex font-medium items-center"
-                href={social.link}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 mx-2 my-2"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d={icons[social.name as keyof typeof icons]} />
-                </svg>
-              </a>
-            ))}
+            {socials.map(
+              (social) =>
+                social.link !== "#" && (
+                  <a
+                    key={social.name}
+                    className="flex font-medium items-center"
+                    href={social.link}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 mx-2 my-2"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d={icons[social.name as keyof typeof icons]} />
+                    </svg>
+                  </a>
+                )
+            )}
           </div>
           <div
             style={{
