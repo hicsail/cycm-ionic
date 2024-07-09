@@ -6,15 +6,15 @@ const token = import.meta.env.VITE_STRAPY_TOKEN;
 
 const ButtonMailto = ({ mailto, label }: any) => {
   return (
-      <Link
-          to='#'
-          onClick={(e) => {
-              window.location.href = mailto;
-              e.preventDefault();
-          }}
-      >
-          {label}
-      </Link>
+    <Link
+      to="#"
+      onClick={(e) => {
+        window.location.href = mailto;
+        e.preventDefault();
+      }}
+    >
+      {label}
+    </Link>
   );
 };
 
@@ -50,9 +50,10 @@ export default function AboutTeamProfiles() {
             The experts behind our mental health resources
           </p>
           <p className="text-[#101066] font-semibold text-base sm:text-lg md:text-xl lg:text-xl tracking-tight leading-tight mb-8">
-            Reach out to us through <a href="mailto:contact@cycminds.org">email</a>
+            Email us at{" "}
+            <a href="mailto:contact@cycminds.org">contact@cycminds.org</a>
           </p>
-      
+
           <br />
           <div className="grid grid-cols-1 divide-y bg-white"></div>
           <div className="grid gap-8 md:grid-cols-4 md:mb-16">
@@ -65,8 +66,9 @@ export default function AboutTeamProfiles() {
                   description={profile.attributes.description}
                   socials={profile.attributes.socials}
                   biography={profile.attributes.bio}
-                  avatar={`${import.meta.env.VITE_STRAPI_URL}${profile.attributes.avatar.data.attributes.url
-                    }`}
+                  avatar={`${import.meta.env.VITE_STRAPI_URL}${
+                    profile.attributes.avatar.data.attributes.url
+                  }`}
                 />
               </div>
             ))}
