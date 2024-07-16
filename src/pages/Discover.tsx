@@ -14,16 +14,30 @@ import {
   IonSearchbar,
   IonText,
 } from "@ionic/react";
-import { informationCircleOutline, play } from "ionicons/icons";
+import { flag, informationCircleOutline, play } from "ionicons/icons";
 const token = import.meta.env.VITE_STRAPY_TOKEN;
 const apiKey = import.meta.env.VITE_ELEVEN_LABS_API_KEY;
+
+type ArticleComponent = {
+  id: string;
+  video: boolean;
+  title: string;
+  teaser: string;
+  link: string;
+  imageURL?: string;
+  speech_generated?: string;
+  tag: string;
+  author: string;
+  manual_id: string;
+  body?: string;
+}
 
 const Discover: React.FC = () => {
   const [selectedVoiceId, setSelectedVoiceId] = useState(
     "21m00Tcm4TlvDq8ikWAM"
   );
   const [isExpandedArray, setIsExpandedArray] = useState<any>([]);
-  const [articles, setArticles] = useState<any>([]);
+  const [articles, setArticles] = useState<ArticleComponent[]>([]);
   const [usedVoiceIds, setUsedVoicesIds] = useState<any>([
     "D38z5RcWu1voky8WS1ja",
     "21m00Tcm4TlvDq8ikWAM",
@@ -43,10 +57,59 @@ const Discover: React.FC = () => {
     })
       .then((res) => res.json())
       .then((resp) => {
-        setArticles(resp.data);
-        setFilteredArticles(resp.data);
-        setIsExpandedArray(new Array(resp.data.length).fill(false));
-        console.log(resp.data);
+        const data = resp.data;
+       let resources: ArticleComponent[] = (data.map((resource: any) => {
+        return {
+          video: false,
+          title: resource.attributes.title,
+          teaser: resource.attributes.teasers,
+          link: resource.attributes.link,
+          imageURL: null,
+          tag: "article",
+          speech_generated: resource.attributes.speech_generated,
+          body: resource.attributes.body,
+        };
+      }));
+      fetch(`${import.meta.env.VITE_STRAPI_URL}/api/videos?populate=*`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }).then((res) => res.json())
+      .then((response) => {
+        const videoData = response.data;
+        videoData.map((videoURL: any) => {
+          const videoID = videoURL.attributes.url.split("v=")[1];
+          fetch(`https://www.googleapis.com/youtube/v3/videos?id=${videoID}&key=AIzaSyAi1dPx0fqC8EP9YoaNo1WPsykq_yVczCY&part=snippet,contentDetails,statistics,status&regionCode=us`, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }).then((res) => res.json())
+          .then((resp) => {
+            const videoTitle = resp.items[0].snippet.title;
+            const videoDescription = resp.items[0].snippet.description.split(".").splice(0, 2).join(".");
+            resources.push({
+              id: videoID,
+              video: true,
+              title: videoTitle,
+              teaser: videoDescription,
+              link: videoURL.attributes.url,
+              tag: "video",
+              speech_generated: videoDescription,
+              author: resp.items[0].snippet.channelID,
+              imageURL: resp.items[0].snippet.thumbnails.high.url,
+              manual_id: "0",
+            });
+            resources = resources.sort((a, b) => a.title.localeCompare(b.title));
+            setArticles(resources);
+            console.log(articles)
+            setFilteredArticles(resources);
+            setIsExpandedArray(new Array(resources.length).fill(false));
+        })
+      })
+      });
       });
   }, []);
 
@@ -223,25 +286,26 @@ const Discover: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-wrap justify-center p-4">
+          <div className="container mx-auto grid gap-3 auto-cols-min sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr items-stretch justify-center p-4">
             {filteredArticles &&
               filteredArticles.length > 0 &&
               filteredArticles.map((article: any, index: number) => (
                 <div key={index}>
                   <IonicCard
                     id={article.id}
-                    title={article.attributes.title}
-                    body={article.attributes.body}
-                    author={article.attributes.author}
-                    tag={article.attributes.tag}
-                    image={""}
+                    title={article.title}
+                    body={article.video? " ": article.body}
+                    author={article.author}
+                    tag={article.tag}
+                    image={article.imageURL}
                     voiceId={selectedVoiceId}
                     isExpanded={isExpandedArray[index]}
                     setIsExpandedArray={() => handleExpandCard(index)}
                     index={index}
-                    manual_id={article.attributes.manual_id}
-                    teaser={article.attributes.teasers}
-                    speech_generated={article.attributes.speech_generated}
+                    manual_id={article.manual_id}
+                    teaser={article.teaser}
+                    speech_generated={article.speech_generated}
+                    video={article.video}
                   />
                 </div>
               ))}

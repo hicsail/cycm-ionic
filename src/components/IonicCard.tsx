@@ -25,6 +25,7 @@ interface CardProps {
   tag: string;
   teaser: string;
   speech_generated: number;
+  video: boolean;
 }
 
 export default function IonicCard({
@@ -35,27 +36,28 @@ export default function IonicCard({
   manual_id,
   teaser,
   speech_generated,
+  video,
+  image,
 }: CardProps) {
   const [summary, setSummary] = useState<string>(body.split(".")[0]);
   const [sentences, setSentences] = useState<string[]>(body.split("."));
 
   return (
-    <div>
+    <div style = {{minHeight:"100%", display: "flex", alignItems: "stretch", margin: "auto"}}>
       <IonCard
         color={"tertiary"}
         style={{
-          height: 500,
-          maxWidth: 350,
           borderRadius: 20,
-          padding: 20,
         }}
+        className = "hoverCard"
         button
         onClick={(e) => {
           e.preventDefault();
-          window.location.href = `/post/${id}`;
+          window.location.href = video ? `https://www.youtube.com/watch?v=${id}` : `/post/${id}`;
         }}
       >
         {/* <img alt="Silhouette of mountains" height={200} src="https://ionicframework.com/docs/img/demos/card-media.png" /> */}
+        { image!== null ?  <img style = {{height: "15rem", objectFit: "cover"}} width="100%" height="100%" src={image} title="Article image" ></img> : <div></div>}
         <IonCardHeader>
           <IonCardTitle
             style={{
@@ -63,6 +65,9 @@ export default function IonicCard({
               color: "orange",
               fontSize: "1.6rem",
               fontWeight: "bold",
+              paddingLeft: 20,
+              paddingRight:20,
+              marginTop: video ? "0rem" : "2rem",
             }}
           >
             {title}
@@ -86,6 +91,8 @@ export default function IonicCard({
           style={{
             fontSize: "1.2rem",
             lineHeight: "1.75rem",
+            paddingLeft: 40,
+            paddingRight:40,
           }}
         >
           {teaser.length > 200 ? `${teaser.substring(0, 200)}...` : `${teaser}`}
@@ -93,10 +100,13 @@ export default function IonicCard({
         {/* have card modal button at bottom */}
         <div
           style={{
-            position: "absolute",
+            position: "relative",
             bottom: 20,
             left: 20,
             width: "100%",
+            marginTop: "1rem",
+            marginLeft:20,
+            alignSelf: "flex-end"
           }}
           onClick={(e) => {
             // prevent routing to post page
@@ -109,12 +119,13 @@ export default function IonicCard({
             shape="round"
             size="small"
             color={"warning"}
+            className="hoverButton"
             onClick={(e) => {
               e.preventDefault();
-              window.location.href = `/post/${id}`;
+              window.location.href = video ? `https://www.youtube.com/watch?v=${id}` : `/post/${id}`;
             }}
           >
-            Read
+            {video? "Watch": "Read"}
           </IonButton>
           {speech_generated === 1 && (
             <CardModal
