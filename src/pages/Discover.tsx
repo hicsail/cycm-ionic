@@ -61,6 +61,7 @@ const Discover: React.FC = () => {
         const data = resp.data;
        let resources: ArticleComponent[] = (data.map((resource: any) => {
         return {
+          id: resource.id,
           video: false,
           title: resource.attributes.title,
           teaser: resource.attributes.teasers,
