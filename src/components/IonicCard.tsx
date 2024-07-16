@@ -119,7 +119,7 @@ export default function IonicCard({
             fill= { hover ? "outline": "solid"}
             shape="round"
             size="small"
-            color={"light"}
+            color={"secondary"}
             className="hoverButton"
             onClick={(e) => {
               e.preventDefault();
