@@ -6,10 +6,12 @@ import {
   IonCardSubtitle,
   IonCardTitle,
   IonChip,
+  IonIcon,
   IonLabel,
 } from "@ionic/react";
 import React, { useState } from "react";
 import CardModal from "./CardModal";
+import { playCircle, playCircleOutline } from "ionicons/icons";
 
 interface CardProps {
   id: string;
@@ -54,11 +56,11 @@ export default function IonicCard({
         button
         onClick={(e) => {
           e.preventDefault();
-          window.location.href = video ? `https://www.youtube.com/watch?v=${id}` : `/post/${id}`;
+          window.open( video ? `https://www.youtube.com/watch?v=${id}` : `/post/${id}`, '_blank');
         }}
       >
         {/* <img alt="Silhouette of mountains" height={200} src="https://ionicframework.com/docs/img/demos/card-media.png" /> */}
-        { image!== null ?  <img style = {{height: "15rem", objectFit: "cover"}} width="100%" height="100%" src={image} title="Article image" ></img> : <div></div>}
+        { image!== null ?  <div><img style = {{height: "15rem", objectFit: "cover"}} width="100%" height="100%" src={image} title="Article image" /><img src = {playCircle} style = {{filter: "invert(0.9)", position: "absolute", top: "17.5%", left: "42.5%", height:"3rem"}}/></div> : <div></div>}
         <IonCardHeader>
           <IonCardTitle
             style={{
