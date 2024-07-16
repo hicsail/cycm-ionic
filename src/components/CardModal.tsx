@@ -147,7 +147,7 @@ const CardModal: React.FC<Props> = ({
         id={`${id}open-modal`}
         fill= { hover ? "outline": "solid"}
         shape="round"
-        color="success"
+        color="secondary"
         size="small"
         onClick={(e) => {
           e.preventDefault();

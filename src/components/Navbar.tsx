@@ -98,14 +98,14 @@ const Navbar = () => {
           >
             {navigation.map((item) => {
               const color = location.pathname.includes(item.href)
-                ? "bg-orange-400"
-                : "bg-orange-600";
+                ? "text-orange-600"
+                : "text-orange-400";
 
               return (
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className={`my-2 block py-1 px-4 text-white rounded-full hover:bg-orange-500 md:border-0 ${color}`}
+                    className={`my-2 block py-1 px-4 rounded-full hover:opacity-75 md:border-0 font-bold ${color}`}
                   >
                     {item.name}
                   </a>

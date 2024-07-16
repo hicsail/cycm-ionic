@@ -46,7 +46,7 @@ export default function IonicCard({
   return (
     <div style = {{minHeight:"100%", display: "flex", alignItems: "stretch", margin: "auto"}}>
       <IonCard
-        color={"tertiary"}
+        color={"primary"}
         style={{
           borderRadius: 20,
         }}
@@ -63,7 +63,7 @@ export default function IonicCard({
           <IonCardTitle
             style={{
               // font color
-              color: "orange",
+              color: "pink",
               fontSize: "1.6rem",
               fontWeight: "bold",
               paddingLeft: 20,
@@ -119,7 +119,7 @@ export default function IonicCard({
             fill= { hover ? "outline": "solid"}
             shape="round"
             size="small"
-            color={"warning"}
+            color={"light"}
             className="hoverButton"
             onClick={(e) => {
               e.preventDefault();
