@@ -14,7 +14,7 @@ import {
   IonSearchbar,
   IonText,
 } from "@ionic/react";
-import { flag, informationCircleOutline, play } from "ionicons/icons";
+import { closeOutline, flag, informationCircleOutline, play } from "ionicons/icons";
 const token = import.meta.env.VITE_STRAPY_TOKEN;
 const apiKey = import.meta.env.VITE_ELEVEN_LABS_API_KEY;
 
@@ -38,6 +38,7 @@ const Discover: React.FC = () => {
   );
   const [isExpandedArray, setIsExpandedArray] = useState<any>([]);
   const [articles, setArticles] = useState<ArticleComponent[]>([]);
+  const [filters, setFilters] = useState<String[]>([]);
   const [usedVoiceIds, setUsedVoicesIds] = useState<any>([
     "D38z5RcWu1voky8WS1ja",
     "21m00Tcm4TlvDq8ikWAM",
@@ -104,7 +105,6 @@ const Discover: React.FC = () => {
             });
             resources = resources.sort((a, b) => a.title.localeCompare(b.title));
             setArticles(resources);
-            console.log(articles)
             setFilteredArticles(resources);
             setIsExpandedArray(new Array(resources.length).fill(false));
         })
@@ -142,6 +142,18 @@ const Discover: React.FC = () => {
     setFilteredArticles(filteredArticles);
     console.log(filteredArticles);
   }, [searchText]);
+
+  useEffect(() => {
+    if(filters.length !== 0) {
+      let filteredArticles = articles
+      filters.forEach((filter) => {
+        filteredArticles = filteredArticles.filter((article: any) => article.tag === filter);
+      })
+      setFilteredArticles(filteredArticles);
+    } else {
+      setFilteredArticles(articles);
+    }
+  }, [filters]);
 
   const handleVoiceChange = (event: any) => {
     setSelectedVoiceId(event.target.value);
@@ -189,67 +201,27 @@ const Discover: React.FC = () => {
           </div>
           <div className="curve z-[-1]" />
 
-          <div className="md:ml-24 my-4">
+          <div className="md:ml-24 my-1">
             <div
               style={{
-                maxWidth: 800,
-                borderRadius: 20,
                 margin: "auto",
               }}
             >
-              <IonCard
-                color={"danger"}
-                style={{
-                  borderRadius: 40,
-                }}
-              >
-                <div className="flex justify-center">
-                  <IonCardHeader>
-                    <IonCardTitle className="text-2xl font-bold font-sans mb-2 md:mb-1 md:text-4xl">
-                      Explore the articles we have
-                    </IonCardTitle>
-                  </IonCardHeader>
+              <div style = {{maxWidth: "fit-content", margin: "auto"}} >
+                  <IonChip outline={false} color={filters.includes("article") ? "tertiary" : "medium"} onClick = {() => !filters.includes("article") ? setFilters(filters.concat(["article"])) : setFilters(filters.filter(filter => filter !== 'article'))}>
+                    {filters.includes("article") ? <IonIcon icon={closeOutline} /> : <div />}
+                    <IonLabel>Articles</IonLabel>
+                  </IonChip>
+                  <IonChip outline={false} color={filters.includes("video") ? "tertiary" : "medium"} onClick = {() => !filters.includes("video") ? setFilters(filters.concat(["video"])) : setFilters(filters.filter(filter => filter !== 'video'))}>
+                    {filters.includes("video") ? <IonIcon icon={closeOutline} /> : <div />}
+                    <IonLabel>Videos</IonLabel>
+                  </IonChip>
+                  <IonChip outline={false} color={filters.includes("audio") ? "tertiary" : "medium"} onClick = {() => !filters.includes("audio") ? setFilters(filters.concat(["audio"])) : setFilters(filters.filter(filter => filter !== 'audio'))}>
+                    {filters.includes("audio") ? <IonIcon icon={closeOutline} /> : <div />}
+                    <IonLabel>Audio Available</IonLabel>
+                  </IonChip>
                 </div>
-                {/* <IonCardContent>
-                  <IonChip outline={false} color={"light"}>
-                    <IonLabel>Articles</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false} color={"light"}>
-                    <IonLabel>TikToks</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false} color={"light"}>
-                    <IonLabel>Short Facts</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false} color={"light"}>
-                    <IonLabel>Instagram Posts</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false} color={"light"}>
-                    <IonLabel>Articles</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false} color={"light"}>
-                    <IonLabel>TikToks</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false} color={"light"}>
-                    <IonLabel>Short Facts</IonLabel>
-                  </IonChip>
-                </IonCardContent> */}
-              </IonCard>
-              {/* <div className="h-6" /> */}
-              {/* <IonSearchbar
-                onInput={(event: any) => {
-                  console.log(event.target.value);
-                  setSearchText(event.target.value);
-                }}
-                mode="ios"
-                animated={true}
-                placeholder="Search for what you are looking for..."
-                color={"warning"}
-                style={{
-                  borderRadius: 40,
-                  maxWidth: 600,
-                  margin: "auto",
-                }}
-              ></IonSearchbar> */}
+              <div className="h-6" /> 
             </div>
             <div className="mt-12 text-center">
               <div
@@ -260,9 +232,6 @@ const Discover: React.FC = () => {
                 }}
               >
                 <IonText className="mx-2">Select your voice</IonText>
-                {/* <IonButton size="small" color="warning" shape="round">
-                  <IonIcon icon={informationCircleOutline} />
-                </IonButton> */}
                 <IonButton
                   size="small"
                   color="success"
@@ -286,7 +255,7 @@ const Discover: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="container mx-auto grid gap-3 auto-cols-min sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr items-stretch justify-center p-4">
+          <div className="container mx-auto grid gap-5 auto-cols-min sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr items-stretch justify-center p-4 center">
             {filteredArticles &&
               filteredArticles.length > 0 &&
               filteredArticles.map((article: any, index: number) => (

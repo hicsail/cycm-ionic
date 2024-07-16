@@ -41,6 +41,7 @@ export default function IonicCard({
 }: CardProps) {
   const [summary, setSummary] = useState<string>(body.split(".")[0]);
   const [sentences, setSentences] = useState<string[]>(body.split("."));
+  const [hover, setHover] = useState(false);
 
   return (
     <div style = {{minHeight:"100%", display: "flex", alignItems: "stretch", margin: "auto"}}>
@@ -115,7 +116,7 @@ export default function IonicCard({
           }}
         >
           <IonButton
-            fill="outline"
+            fill= { hover ? "outline": "solid"}
             shape="round"
             size="small"
             color={"warning"}
@@ -124,6 +125,8 @@ export default function IonicCard({
               e.preventDefault();
               window.location.href = video ? `https://www.youtube.com/watch?v=${id}` : `/post/${id}`;
             }}
+            onMouseEnter = {() => setHover(true)}
+            onMouseLeave = {() => setHover(false)}
           >
             {video? "Watch": "Read"}
           </IonButton>

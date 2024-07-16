@@ -18,8 +18,4 @@
   .hoverCard:hover {
     filter: drop-shadow(0px 0px 4px var( --ion-color-dark));
   }
-
-  .hoverButton:hover {
-    filter: drop-shadow(0px 0px 1px var(--ion-color-medium-contrast));
-  }
 }

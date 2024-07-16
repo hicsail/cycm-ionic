@@ -126,6 +126,8 @@ const CardModal: React.FC<Props> = ({
     "This modal example uses triggers to automatically open a modal when the button is clicked."
   );
 
+  const [hover, setHover] = useState(false);
+
   function confirm() {
     modal.current?.dismiss(input.current?.value, "confirm");
   }
@@ -143,7 +145,7 @@ const CardModal: React.FC<Props> = ({
     <>
       <IonButton
         id={`${id}open-modal`}
-        fill="outline"
+        fill= { hover ? "outline": "solid"}
         shape="round"
         color="success"
         size="small"
@@ -151,6 +153,8 @@ const CardModal: React.FC<Props> = ({
           e.preventDefault();
           //modal.current?.present();
         }}
+        onMouseEnter = {() => setHover(true)}
+        onMouseLeave = {() => setHover(false)}
       >
         Listen
       </IonButton>
