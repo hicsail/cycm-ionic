@@ -4,6 +4,7 @@ import DualColumnText from "../components/DualColumnText";
 import Profile from "../components/Profile";
 import PaddedHeaderText from "../components/PaddedHeaderText";
 import AboutMissionSection from "../components/AboutMissionSection";
+import SupportTab from "../components/SupportTab";
 import AboutTeamProfiles from "../components/AboutTeamProfiles";
 import AboutFutureVisionSections from "../components/AboutFutureVisionSections";
 import Footer from "../components/Footer";
@@ -15,6 +16,7 @@ const About: React.FC = () => {
         <div className="pt-36 md:pt-12 mb-48">
           <PaddedHeaderText />
           <AboutMissionSection />
+          <SupportTab/>
           <AboutTeamProfiles />
           <AboutFutureVisionSections />
         </div>
