@@ -38,7 +38,7 @@ const Index: React.FC = () => {
             >
               <Button
                 text="Read More"
-                backgroundColor="orange-600"
+                backgroundColor="orange-500"
                 size="medium"
               />
             </div>
