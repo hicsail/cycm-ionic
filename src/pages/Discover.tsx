@@ -90,6 +90,7 @@ const Discover: React.FC = () => {
           .then((response) => {
             const videoData = response.data;
             videoData.map((videoURL: any) => {
+              console.log(videoURL);
               const videoID = videoURL.attributes.url.split("v=")[1];
               fetch(
                 `https://www.googleapis.com/youtube/v3/videos?id=${videoID}&key=AIzaSyAi1dPx0fqC8EP9YoaNo1WPsykq_yVczCY&part=snippet,contentDetails,statistics,status&regionCode=us`,
@@ -111,7 +112,7 @@ const Discover: React.FC = () => {
                     id: videoID,
                     video: true,
                     title: videoTitle,
-                    teaser: videoDescription,
+                    teaser: videoURL.attributes.description === null || videoURL.attributes.description.trim() === "" ? videoDescription : videoURL.attributes.description,
                     link: videoURL.attributes.url,
                     tag: "video",
                     speech_generated: videoDescription,
