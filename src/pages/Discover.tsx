@@ -129,7 +129,7 @@ const Discover: React.FC = () => {
                     author: resp.items[0].snippet.channelID,
                     imageURL: resp.items[0].snippet.thumbnails.high.url,
                     manual_id: "0",
-                    date: new Date(resp.items[0].snippet.publishedAt),
+                    date: videoURL.attributes.site_published_date ? new Date(videoURL.attributes.site_published_date) : new Date(resp.items[0].snippet.publishedAt),
                   });
                   resources = resources.sort(
                     (a, b) =>
