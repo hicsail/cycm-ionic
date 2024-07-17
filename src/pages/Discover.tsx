@@ -72,7 +72,7 @@ const Discover: React.FC = () => {
             title: resource.attributes.title,
             teaser: resource.attributes.teasers,
             link: resource.attributes.link,
-            imageURL: null,
+            imageURL: resource.attributes.header_image.data ? resource.attributes.header_image.data[0].attributes.name : null,
             tag: "article",
             speech_generated: resource.attributes.speech_generated,
             body: resource.attributes.body,

@@ -78,7 +78,7 @@ export default function IonicCard({
             onMouseLeave={() => setPlayCircleColor("invert(1.0)")}
           >
             <img
-              style={{ height: "15rem", objectFit: "cover" }}
+              style={{ height: "17rem", objectFit: "cover"}}
               width="100%"
               height="100%"
               src={image}
@@ -107,7 +107,7 @@ export default function IonicCard({
               fontWeight: "bold",
               paddingLeft: 20,
               paddingRight: 20,
-              marginTop: video ? "0rem" : "2rem",
+              marginTop: video || image !== null ? "0rem" : "2rem",
             }}
           >
             {title}
