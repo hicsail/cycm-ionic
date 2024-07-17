@@ -146,7 +146,7 @@ const CardModal: React.FC<Props> = ({
     <>
       <Button
         id={`${id}open-modal`}
-        text={'Listen'}
+        text={"Listen"}
         backgroundColor={`salmon`}
         size={"xs"}
         px={"1em"}

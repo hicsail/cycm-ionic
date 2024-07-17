@@ -44,7 +44,11 @@ const Discover: React.FC = () => {
   );
   const [isExpandedArray, setIsExpandedArray] = useState<any>([]);
   const [articles, setArticles] = useState<ArticleComponent[]>([]);
-  const [filters, setFilters] = useState<String[]>(["article", "video", "audio"]);
+  const [filters, setFilters] = useState<String[]>([
+    "article",
+    "video",
+    "audio",
+  ]);
   const [usedVoiceIds, setUsedVoicesIds] = useState<any>([
     "D38z5RcWu1voky8WS1ja",
     "21m00Tcm4TlvDq8ikWAM",
@@ -72,7 +76,9 @@ const Discover: React.FC = () => {
             title: resource.attributes.title,
             teaser: resource.attributes.teasers,
             link: resource.attributes.link,
-            imageURL: resource.attributes.header_image.data ? resource.attributes.header_image.data[0].attributes.name : null,
+            imageURL: resource.attributes.header_image.data
+              ? resource.attributes.header_image.data[0].attributes.name
+              : null,
             tag: "article",
             speech_generated: resource.attributes.speech_generated,
             body: resource.attributes.body,
@@ -112,7 +118,11 @@ const Discover: React.FC = () => {
                     id: videoID,
                     video: true,
                     title: videoTitle,
-                    teaser: videoURL.attributes.description === null || videoURL.attributes.description.trim() === "" ? videoDescription : videoURL.attributes.description,
+                    teaser:
+                      videoURL.attributes.description === null ||
+                      videoURL.attributes.description.trim() === ""
+                        ? videoDescription
+                        : videoURL.attributes.description,
                     link: videoURL.attributes.url,
                     tag: "video",
                     speech_generated: videoDescription,
@@ -121,8 +131,10 @@ const Discover: React.FC = () => {
                     manual_id: "0",
                     date: new Date(resp.items[0].snippet.publishedAt),
                   });
-                  resources = resources.sort((a, b) =>
-                    -1 * (new Date(a.date).getTime() - new Date(b.date).getTime())
+                  resources = resources.sort(
+                    (a, b) =>
+                      -1 *
+                      (new Date(a.date).getTime() - new Date(b.date).getTime())
                   );
                   setArticles(resources);
                   setFilteredArticles(resources);
@@ -167,8 +179,10 @@ const Discover: React.FC = () => {
     if (filters.length !== 0) {
       let filteredArticles: ArticleComponent[] = [];
       filters.forEach((filter) => {
-        articles.map(
-          (article: any) => article.tag === filter && !filteredArticles.includes(article) ? filteredArticles.push(article) : null
+        articles.map((article: any) =>
+          article.tag === filter && !filteredArticles.includes(article)
+            ? filteredArticles.push(article)
+            : null
         );
       });
       setFilteredArticles(filteredArticles);

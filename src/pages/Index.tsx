@@ -32,16 +32,16 @@ const Index: React.FC = () => {
           bgColor="#FC8D3D"
           textColor="white"
           btnElement={
-              <Button
-                text="Read More"
-                backgroundColor= "orangered"
-                size= "xs"
-                px="1em"
-                py="0.5em"
-                onClick={() => {
-                  history.push("/discover");
-                }}
-              />
+            <Button
+              text="Read More"
+              backgroundColor="orangered"
+              size="xs"
+              px="1em"
+              py="0.5em"
+              onClick={() => {
+                history.push("/discover");
+              }}
+            />
           }
         />
       </div>
@@ -54,15 +54,15 @@ const Index: React.FC = () => {
           rounded
           textColor="white"
           btnElement={
-              <Button
-                text="Read More"
-                backgroundColor="darkorange"
-                px={"1em"}
-                py={"0.5em"}
-                onClick={() => {
-                  history.push("/about-us");
-                }}
-              />
+            <Button
+              text="Read More"
+              backgroundColor="darkorange"
+              px={"1em"}
+              py={"0.5em"}
+              onClick={() => {
+                history.push("/about-us");
+              }}
+            />
           }
         />
       </div>

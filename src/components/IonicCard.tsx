@@ -78,22 +78,26 @@ export default function IonicCard({
             onMouseLeave={() => setPlayCircleColor("invert(1.0)")}
           >
             <img
-              style={{ height: "17rem", objectFit: "cover"}}
+              style={{ height: "17rem", objectFit: "cover" }}
               width="100%"
               height="100%"
               src={image}
               title="Article image"
             />
-            {video === true ? <img
-              src={playCircle}
-              style={{
-                filter: playCircleColor,
-                position: "absolute",
-                top: "17.5%",
-                left: "42.5%",
-                height: "3rem",
-              }}
-            /> : <div></div>}
+            {video === true ? (
+              <img
+                src={playCircle}
+                style={{
+                  filter: playCircleColor,
+                  position: "absolute",
+                  top: "17.5%",
+                  left: "42.5%",
+                  height: "3rem",
+                }}
+              />
+            ) : (
+              <div></div>
+            )}
           </div>
         ) : (
           <div></div>

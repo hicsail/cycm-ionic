@@ -36,7 +36,7 @@ const Resource: React.FC = () => {
 
     // Attempt to play audio automatically
     if (audioRef.current) {
-      audioRef.current.play().catch(error => {
+      audioRef.current.play().catch((error) => {
         console.error("Autoplay failed:", error);
       });
     }
@@ -58,12 +58,22 @@ const Resource: React.FC = () => {
     <div className="">
       <div className="pt-36 flex flex-col justify-center items-center bg-[#FFE2E2] min-h-screen px-12 md:px-0">
         <div>
-          <audio ref={audioRef} id="ResourceAudio" src="https://soundcloud.com/claude-debussy/clair-de-lune"></audio>
+          <audio
+            ref={audioRef}
+            id="ResourceAudio"
+            src="https://soundcloud.com/claude-debussy/clair-de-lune"
+          ></audio>
         </div>
-        <button onClick={playAudio} className="bg-blue-500 text-white px-4 py-2 rounded mt-4">
+        <button
+          onClick={playAudio}
+          className="bg-blue-500 text-white px-4 py-2 rounded mt-4"
+        >
           Play Audio
         </button>
-        <button onClick={pauseAudio} className="bg-blue-500 text-white px-4 py-2 rounded mt-4">
+        <button
+          onClick={pauseAudio}
+          className="bg-blue-500 text-white px-4 py-2 rounded mt-4"
+        >
           Pause Audio
         </button>
         <div className="p-4 max-w-4xl w-full my-24">
@@ -93,7 +103,9 @@ const Resource: React.FC = () => {
                 }}
               >
                 <img
-                  src={`${import.meta.env.VITE_STRAPI_URL}${resource.attributes.image.data.attributes.url}`}
+                  src={`${import.meta.env.VITE_STRAPI_URL}${
+                    resource.attributes.image.data.attributes.url
+                  }`}
                   alt={resource.attributes.title}
                   className="mx-auto md:w-full"
                 />
