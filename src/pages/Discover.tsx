@@ -285,7 +285,7 @@ const Discover: React.FC = () => {
             </div>
             <div className="mt-12 text-center">
               <div
-                className="my-12 flex justify-center md:justify-start"
+                className="my-12 flex justify-center md:justify-start items-center"
                 style={{
                   margin: "auto",
                   maxWidth: 1000,
