@@ -137,7 +137,14 @@ const Post: React.FC = () => {
 
           <div className="flex items-center justify-center px-4 md:px-0">
             {/* random image as placeholder */}
-            <img src={article?.attributes.header_image.data ? article?.attributes.header_image.data[0].attributes.name : "https://picsum.photos/400/300"} alt="random" />
+            <img
+              src={
+                article?.attributes.header_image.data
+                  ? article?.attributes.header_image.data[0].attributes.name
+                  : "https://picsum.photos/400/300"
+              }
+              alt="random"
+            />
             {/* <img src={article?.image} alt={article?.title} /> */}
           </div>
         </div>
