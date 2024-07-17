@@ -35,6 +35,7 @@ type ArticleComponent = {
   author: string;
   manual_id: string;
   body?: string;
+  date: Date;
 };
 
 const Discover: React.FC = () => {
@@ -75,6 +76,7 @@ const Discover: React.FC = () => {
             tag: "article",
             speech_generated: resource.attributes.speech_generated,
             body: resource.attributes.body,
+            date: new Date(resource.attributes.published_date),
           };
         });
         fetch(`${import.meta.env.VITE_STRAPI_URL}/api/videos?populate=*`, {
@@ -116,9 +118,10 @@ const Discover: React.FC = () => {
                     author: resp.items[0].snippet.channelID,
                     imageURL: resp.items[0].snippet.thumbnails.high.url,
                     manual_id: "0",
+                    date: new Date(resp.items[0].snippet.publishedAt),
                   });
                   resources = resources.sort((a, b) =>
-                    a.title.localeCompare(b.title)
+                    -1 * (new Date(a.date).getTime() - new Date(b.date).getTime())
                   );
                   setArticles(resources);
                   setFilteredArticles(resources);
