@@ -13,7 +13,7 @@ const Post: React.FC = () => {
   const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_STRAPI_URL}/api/articles/${id}`, {
+    fetch(`${import.meta.env.VITE_STRAPI_URL}/api/articles?populate=*`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -22,7 +22,7 @@ const Post: React.FC = () => {
     })
       .then((res) => res.json())
       .then((resp) => {
-        setArticle(resp.data);
+        setArticle(resp.data.find((article: any) => String(article.id) === id));
       });
   }, []);
 
@@ -137,7 +137,7 @@ const Post: React.FC = () => {
 
           <div className="flex items-center justify-center px-4 md:px-0">
             {/* random image as placeholder */}
-            <img src="https://picsum.photos/400/300" alt="random" />
+            <img src={article?.attributes.header_image.data ? article?.attributes.header_image.data[0].attributes.name : "https://picsum.photos/400/300"} alt="random" />
             {/* <img src={article?.image} alt={article?.title} /> */}
           </div>
         </div>
