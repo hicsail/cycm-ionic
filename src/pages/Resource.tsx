@@ -12,12 +12,14 @@ import {
   IonCardTitle,
   IonText,
 } from "@ionic/react";
-import { useEffect, useState} from "react";
+import { useEffect, useState, useRef } from "react";
 
 const token = import.meta.env.VITE_STRAPY_TOKEN;
 
 const Resource: React.FC = () => {
   const [resources, setResources] = useState<any>([]);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
   useEffect(() => {
     // Fetch resources from API
     fetch(`${import.meta.env.VITE_STRAPI_URL}/api/resources?populate=*`, {
@@ -31,12 +33,39 @@ const Resource: React.FC = () => {
       .then((resp) => {
         setResources(resp.data);
       });
+
+    // Attempt to play audio automatically
+    if (audioRef.current) {
+      audioRef.current.play().catch(error => {
+        console.error("Autoplay failed:", error);
+      });
+    }
   }, []);
 
+  const playAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
+  };
+
+  const pauseAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+    }
+  };
 
   return (
     <div className="">
       <div className="pt-36 flex flex-col justify-center items-center bg-[#FFE2E2] min-h-screen px-12 md:px-0">
+        <div>
+          <audio ref={audioRef} id="ResourceAudio" src="https://soundcloud.com/claude-debussy/clair-de-lune"></audio>
+        </div>
+        <button onClick={playAudio} className="bg-blue-500 text-white px-4 py-2 rounded mt-4">
+          Play Audio
+        </button>
+        <button onClick={pauseAudio} className="bg-blue-500 text-white px-4 py-2 rounded mt-4">
+          Pause Audio
+        </button>
         <div className="p-4 max-w-4xl w-full my-24">
           <h1 className="text-[#101066] font-bold text-4xl text-center sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-none mb-4">
             Mental Health Resources for Teenagers
@@ -48,6 +77,11 @@ const Resource: React.FC = () => {
             curated list of resources designed to help you navigate the
             challenges of adolescence and prioritize your mental health.
           </p>
+        </div>
+        <div>
+          <video id="ResourceVideo" width="800" controls>
+            <source src="your-video-file.mp4" type="video/mp4" />
+          </video>
         </div>
         <div className="max-w-6xl mx-auto mb-24">
           <div className="grid gap-8 md:grid-cols-3 md:mb-16">
