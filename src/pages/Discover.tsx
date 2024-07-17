@@ -8,18 +8,28 @@ import {
   IonCardTitle,
   IonChip,
   IonContent,
+  IonFabButton,
   IonIcon,
+  IonInfiniteScrollContent,
   IonItemDivider,
   IonLabel,
   IonSearchbar,
+  IonSegmentButton,
   IonText,
 } from "@ionic/react";
 import {
+  arrowBack,
+  arrowForward,
+  chevronBackOutline,
+  chevronForwardOutline,
   closeOutline,
   flag,
   informationCircleOutline,
   play,
 } from "ionicons/icons";
+import ReactDOM from 'react-dom';
+import ReactPaginate from 'react-paginate';
+
 const token = import.meta.env.VITE_STRAPY_TOKEN;
 const apiKey = import.meta.env.VITE_ELEVEN_LABS_API_KEY;
 
@@ -55,10 +65,13 @@ const Discover: React.FC = () => {
   ]);
   const [usedVoices, setUsedVoices] = useState<any>([]);
   const [filteredArticles, setFilteredArticles] = useState<any>([]);
+  const [pageArticles, setPageArticles] = useState<any>([]);
   const [searchText, setSearchText] = useState("");
+  const [pages, setPages] = useState<number[]>([]);
+  const [page, setPage] = useState(0);
+  const entriesPerPage = 1;
 
   useEffect(() => {
-    // fetch from localhost:1337/api/articles
     fetch(`${import.meta.env.VITE_STRAPI_URL}/api/articles?populate=*`, {
       method: "GET",
       headers: {
@@ -173,7 +186,6 @@ const Discover: React.FC = () => {
     const filteredArticles = articles.filter((article: any) =>
       article.attributes.title.toLowerCase().includes(searchText.toLowerCase())
     );
-    setFilteredArticles(filteredArticles);
     console.log(filteredArticles);
   }, [searchText]);
 
@@ -192,6 +204,13 @@ const Discover: React.FC = () => {
       setFilteredArticles(articles);
     }
   }, [filters]);
+
+  useEffect(() => {
+    const numPages = Math.ceil(filteredArticles.length / entriesPerPage);
+    setPages([...Array(numPages).keys()]);
+    setPage(Math.max(0, Math.min(page, numPages - 1)));
+    setPageArticles(filteredArticles.slice((page) * entriesPerPage, Math.min((page) * entriesPerPage + entriesPerPage, filteredArticles.length)));
+  } , [page, filteredArticles]);
 
   const handleVoiceChange = (event: any) => {
     setSelectedVoiceId(event.target.value);
@@ -220,7 +239,7 @@ const Discover: React.FC = () => {
         className="pt-48"
         style={{
           background:
-            "linear-gradient(180deg, #FFF 26.5%, #FD9390 87.5%, #FB4B45 100%)",
+            "linear-gradient(180deg, #FFF 26.5%, #FD9390 87.5%, #FB4B45 100%)"
         }}
       >
         <div>
@@ -336,9 +355,9 @@ const Discover: React.FC = () => {
             </div>
           </div>
           <div className="container mx-auto grid gap-5 auto-cols-min sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr items-stretch justify-center p-4 center">
-            {filteredArticles &&
-              filteredArticles.length > 0 &&
-              filteredArticles.map((article: any, index: number) => (
+            {pageArticles &&
+              pageArticles.length > 0 &&
+              pageArticles.map((article: any, index: number) => (
                 <div key={index}>
                   <IonicCard
                     id={article.id}
@@ -359,11 +378,82 @@ const Discover: React.FC = () => {
                 </div>
               ))}
           </div>
-          <div
+          <div style = {{width: "fit-content", borderRadius: "2rem", margin: "auto", paddingLeft: "1rem", paddingRight:"1rem", paddingTop: "1rem"}}>
+          <div className = "container"
             style={{
-              height: 100,
+              display: "flex",
+              justifyContent: "center",
+              margin: "auto",
+              width: "fit-content",
             }}
-          />
+          >
+             <IonFabButton
+              onClick={() => {
+                setPage(0);
+              }}
+              color = "transparent"
+              size = "small"
+              style = {{ color: "white", "--box-shadow" : "none", margin: "0.2rem"}}
+            >
+              <IonIcon icon = {chevronBackOutline} style = {{marginRight:"-0.75rem"}}/><IonIcon icon = {chevronBackOutline}/>
+            </IonFabButton>
+            <IonFabButton
+              onClick={() => {
+                setPage(page - 1);
+              }}
+              color = "transparent"
+              size = "small"
+              style = {{ color: "white", "--box-shadow" : "none", margin: "0.2rem"}}
+            >
+              <IonIcon icon = {chevronBackOutline} />
+            </IonFabButton>
+            <IonButton shape = "round"
+              color = "transparent"
+              size = "small"
+              style = {{ color: "white", "--box-shadow" : "none", margin: "0.2rem"}}
+            >
+              <IonText>
+                Page {page + 1} of {pages.length}
+              </IonText>
+            </IonButton>
+            <IonFabButton
+              onClick={() => {
+                setPage(page + 1);
+              }}
+              color = "transparent"
+              size = "small"
+              style = {{ color: "white", "--box-shadow" : "none", margin: "0.2rem"}}
+            >
+              <IonIcon icon = {chevronForwardOutline}/>
+            </IonFabButton>
+            <IonFabButton
+              onClick={() => {
+                setPage(pages[pages.length - 1]);
+              }}
+              color = "transparent"
+              size = "small"
+              style = {{ color: "white", "--box-shadow" : "none", margin: "0.2rem"}}
+            >
+              <IonIcon icon = {chevronForwardOutline}/><IonIcon icon = {chevronForwardOutline} style = {{marginLeft:"-0.75rem"}}/>
+            </IonFabButton>
+          </div>
+          </div>
+          <div style = {{display: "flex", flexWrap: "wrap", justifyContent: "center", padding: "0", maxWidth: "fit-content", margin: "auto", borderRadius: "2rem"}}>
+              {pages.map((pageNumber) => (
+                <div>
+                  <IonFabButton
+                    size = "small"
+                    color = { page === pageNumber ? "light" : "transparent" }
+                    onClick={() => {
+                      setPage(pageNumber);
+                    }}
+                    style = {{ color: "white", "--box-shadow" : "none", "--border-color": "white", "--border-style":"solid", "--border-width":"1px", margin: "0.2rem"}}
+                  >
+                    {pageNumber + 1}
+                  </IonFabButton>
+                </div>
+              ))}
+            </div>
         </div>
       </div>
     </>
