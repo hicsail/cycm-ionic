@@ -47,21 +47,56 @@ export default function IonicCard({
   const [playCircleColor, setPlayCircleColor] = useState("invert(1.0)");
 
   return (
-    <div style = {{minHeight:"100%", display: "flex", alignItems: "stretch", margin: "auto"}}>
+    <div
+      style={{
+        minHeight: "100%",
+        display: "flex",
+        alignItems: "stretch",
+        margin: "auto",
+      }}
+    >
       <IonCard
         color={"primary"}
         style={{
           borderRadius: 20,
         }}
-        className = "hoverCard"
+        className="hoverCard"
         button
         onClick={(e) => {
           e.preventDefault();
-          window.open( video ? `https://www.youtube.com/watch?v=${id}` : `/post/${id}`, '_blank');
+          window.open(
+            video ? `https://www.youtube.com/watch?v=${id}` : `/post/${id}`,
+            "_blank"
+          );
         }}
       >
         {/* <img alt="Silhouette of mountains" height={200} src="https://ionicframework.com/docs/img/demos/card-media.png" /> */}
-        { image!== null ?  <div onMouseEnter = {() => setPlayCircleColor("invert(0.9)")} onMouseLeave = {() => setPlayCircleColor("invert(1.0)")}><img style = {{height: "15rem", objectFit: "cover"}} width="100%" height="100%" src={image} title="Article image" /><img src = {playCircle} style = {{filter: playCircleColor, position: "absolute", top: "17.5%", left: "42.5%", height:"3rem"}}/></div> : <div></div>}
+        {image !== null ? (
+          <div
+            onMouseEnter={() => setPlayCircleColor("invert(0.9)")}
+            onMouseLeave={() => setPlayCircleColor("invert(1.0)")}
+          >
+            <img
+              style={{ height: "15rem", objectFit: "cover" }}
+              width="100%"
+              height="100%"
+              src={image}
+              title="Article image"
+            />
+            <img
+              src={playCircle}
+              style={{
+                filter: playCircleColor,
+                position: "absolute",
+                top: "17.5%",
+                left: "42.5%",
+                height: "3rem",
+              }}
+            />
+          </div>
+        ) : (
+          <div></div>
+        )}
         <IonCardHeader>
           <IonCardTitle
             style={{
@@ -70,7 +105,7 @@ export default function IonicCard({
               fontSize: "1.6rem",
               fontWeight: "bold",
               paddingLeft: 20,
-              paddingRight:20,
+              paddingRight: 20,
               marginTop: video ? "0rem" : "2rem",
             }}
           >
@@ -96,7 +131,7 @@ export default function IonicCard({
             fontSize: "1.2rem",
             lineHeight: "1.75rem",
             paddingLeft: 40,
-            paddingRight:40,
+            paddingRight: 40,
             paddingBottom: 80,
           }}
         >
@@ -118,19 +153,21 @@ export default function IonicCard({
           }}
         >
           <IonButton
-            fill= { hover ? "outline": "solid"}
+            fill={hover ? "outline" : "solid"}
             shape="round"
             size="small"
             color={"secondary"}
             className="hoverButton"
             onClick={(e) => {
               e.preventDefault();
-              window.location.href = video ? `https://www.youtube.com/watch?v=${id}` : `/post/${id}`;
+              window.location.href = video
+                ? `https://www.youtube.com/watch?v=${id}`
+                : `/post/${id}`;
             }}
-            onMouseEnter = {() => setHover(true)}
-            onMouseLeave = {() => setHover(false)}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
           >
-            {video? "Watch": "Read"}
+            {video ? "Watch" : "Read"}
           </IonButton>
           {speech_generated === 1 && (
             <CardModal

@@ -14,7 +14,12 @@ import {
   IonSearchbar,
   IonText,
 } from "@ionic/react";
-import { closeOutline, flag, informationCircleOutline, play } from "ionicons/icons";
+import {
+  closeOutline,
+  flag,
+  informationCircleOutline,
+  play,
+} from "ionicons/icons";
 const token = import.meta.env.VITE_STRAPY_TOKEN;
 const apiKey = import.meta.env.VITE_ELEVEN_LABS_API_KEY;
 
@@ -30,7 +35,7 @@ type ArticleComponent = {
   author: string;
   manual_id: string;
   body?: string;
-}
+};
 
 const Discover: React.FC = () => {
   const [selectedVoiceId, setSelectedVoiceId] = useState(
@@ -59,58 +64,68 @@ const Discover: React.FC = () => {
       .then((res) => res.json())
       .then((resp) => {
         const data = resp.data;
-       let resources: ArticleComponent[] = (data.map((resource: any) => {
-        return {
-          id: resource.id,
-          video: false,
-          title: resource.attributes.title,
-          teaser: resource.attributes.teasers,
-          link: resource.attributes.link,
-          imageURL: null,
-          tag: "article",
-          speech_generated: resource.attributes.speech_generated,
-          body: resource.attributes.body,
-        };
-      }));
-      fetch(`${import.meta.env.VITE_STRAPI_URL}/api/videos?populate=*`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }).then((res) => res.json())
-      .then((response) => {
-        const videoData = response.data;
-        videoData.map((videoURL: any) => {
-          const videoID = videoURL.attributes.url.split("v=")[1];
-          fetch(`https://www.googleapis.com/youtube/v3/videos?id=${videoID}&key=AIzaSyAi1dPx0fqC8EP9YoaNo1WPsykq_yVczCY&part=snippet,contentDetails,statistics,status&regionCode=us`, {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }).then((res) => res.json())
-          .then((resp) => {
-            const videoTitle = resp.items[0].snippet.title;
-            const videoDescription = resp.items[0].snippet.description.split(".").splice(0, 2).join(".");
-            resources.push({
-              id: videoID,
-              video: true,
-              title: videoTitle,
-              teaser: videoDescription,
-              link: videoURL.attributes.url,
-              tag: "video",
-              speech_generated: videoDescription,
-              author: resp.items[0].snippet.channelID,
-              imageURL: resp.items[0].snippet.thumbnails.high.url,
-              manual_id: "0",
-            });
-            resources = resources.sort((a, b) => a.title.localeCompare(b.title));
-            setArticles(resources);
-            setFilteredArticles(resources);
-            setIsExpandedArray(new Array(resources.length).fill(false));
+        let resources: ArticleComponent[] = data.map((resource: any) => {
+          return {
+            id: resource.id,
+            video: false,
+            title: resource.attributes.title,
+            teaser: resource.attributes.teasers,
+            link: resource.attributes.link,
+            imageURL: null,
+            tag: "article",
+            speech_generated: resource.attributes.speech_generated,
+            body: resource.attributes.body,
+          };
+        });
+        fetch(`${import.meta.env.VITE_STRAPI_URL}/api/videos?populate=*`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
         })
-      })
-      });
+          .then((res) => res.json())
+          .then((response) => {
+            const videoData = response.data;
+            videoData.map((videoURL: any) => {
+              const videoID = videoURL.attributes.url.split("v=")[1];
+              fetch(
+                `https://www.googleapis.com/youtube/v3/videos?id=${videoID}&key=AIzaSyAi1dPx0fqC8EP9YoaNo1WPsykq_yVczCY&part=snippet,contentDetails,statistics,status&regionCode=us`,
+                {
+                  method: "GET",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                }
+              )
+                .then((res) => res.json())
+                .then((resp) => {
+                  const videoTitle = resp.items[0].snippet.title;
+                  const videoDescription = resp.items[0].snippet.description
+                    .split(".")
+                    .splice(0, 2)
+                    .join(".");
+                  resources.push({
+                    id: videoID,
+                    video: true,
+                    title: videoTitle,
+                    teaser: videoDescription,
+                    link: videoURL.attributes.url,
+                    tag: "video",
+                    speech_generated: videoDescription,
+                    author: resp.items[0].snippet.channelID,
+                    imageURL: resp.items[0].snippet.thumbnails.high.url,
+                    manual_id: "0",
+                  });
+                  resources = resources.sort((a, b) =>
+                    a.title.localeCompare(b.title)
+                  );
+                  setArticles(resources);
+                  setFilteredArticles(resources);
+                  setIsExpandedArray(new Array(resources.length).fill(false));
+                });
+            });
+          });
       });
   }, []);
 
@@ -145,11 +160,13 @@ const Discover: React.FC = () => {
   }, [searchText]);
 
   useEffect(() => {
-    if(filters.length !== 0) {
-      let filteredArticles = articles
+    if (filters.length !== 0) {
+      let filteredArticles = articles;
       filters.forEach((filter) => {
-        filteredArticles = filteredArticles.filter((article: any) => article.tag === filter);
-      })
+        filteredArticles = filteredArticles.filter(
+          (article: any) => article.tag === filter
+        );
+      });
       setFilteredArticles(filteredArticles);
     } else {
       setFilteredArticles(articles);
@@ -208,21 +225,63 @@ const Discover: React.FC = () => {
                 margin: "auto",
               }}
             >
-              <div style = {{maxWidth: "fit-content", margin: "auto"}} >
-                  <IonChip outline={false} color={filters.includes("article") ? "tertiary" : "medium"} onClick = {() => !filters.includes("article") ? setFilters(filters.concat(["article"])) : setFilters(filters.filter(filter => filter !== 'article'))}>
-                    {filters.includes("article") ? <IonIcon icon={closeOutline} /> : <div />}
-                    <IonLabel>Articles</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false} color={filters.includes("video") ? "tertiary" : "medium"} onClick = {() => !filters.includes("video") ? setFilters(filters.concat(["video"])) : setFilters(filters.filter(filter => filter !== 'video'))}>
-                    {filters.includes("video") ? <IonIcon icon={closeOutline} /> : <div />}
-                    <IonLabel>Videos</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false} color={filters.includes("audio") ? "tertiary" : "medium"} onClick = {() => !filters.includes("audio") ? setFilters(filters.concat(["audio"])) : setFilters(filters.filter(filter => filter !== 'audio'))}>
-                    {filters.includes("audio") ? <IonIcon icon={closeOutline} /> : <div />}
-                    <IonLabel>Audio Available</IonLabel>
-                  </IonChip>
-                </div>
-              <div className="h-6" /> 
+              <div style={{ maxWidth: "fit-content", margin: "auto" }}>
+                <IonChip
+                  outline={false}
+                  color={filters.includes("article") ? "tertiary" : "medium"}
+                  onClick={() =>
+                    !filters.includes("article")
+                      ? setFilters(filters.concat(["article"]))
+                      : setFilters(
+                          filters.filter((filter) => filter !== "article")
+                        )
+                  }
+                >
+                  {filters.includes("article") ? (
+                    <IonIcon icon={closeOutline} />
+                  ) : (
+                    <div />
+                  )}
+                  <IonLabel>Articles</IonLabel>
+                </IonChip>
+                <IonChip
+                  outline={false}
+                  color={filters.includes("video") ? "tertiary" : "medium"}
+                  onClick={() =>
+                    !filters.includes("video")
+                      ? setFilters(filters.concat(["video"]))
+                      : setFilters(
+                          filters.filter((filter) => filter !== "video")
+                        )
+                  }
+                >
+                  {filters.includes("video") ? (
+                    <IonIcon icon={closeOutline} />
+                  ) : (
+                    <div />
+                  )}
+                  <IonLabel>Videos</IonLabel>
+                </IonChip>
+                <IonChip
+                  outline={false}
+                  color={filters.includes("audio") ? "tertiary" : "medium"}
+                  onClick={() =>
+                    !filters.includes("audio")
+                      ? setFilters(filters.concat(["audio"]))
+                      : setFilters(
+                          filters.filter((filter) => filter !== "audio")
+                        )
+                  }
+                >
+                  {filters.includes("audio") ? (
+                    <IonIcon icon={closeOutline} />
+                  ) : (
+                    <div />
+                  )}
+                  <IonLabel>Audio Available</IonLabel>
+                </IonChip>
+              </div>
+              <div className="h-6" />
             </div>
             <div className="mt-12 text-center">
               <div
@@ -264,7 +323,7 @@ const Discover: React.FC = () => {
                   <IonicCard
                     id={article.id}
                     title={article.title}
-                    body={article.video? " ": article.body}
+                    body={article.video ? " " : article.body}
                     author={article.author}
                     tag={article.tag}
                     image={article.imageURL}

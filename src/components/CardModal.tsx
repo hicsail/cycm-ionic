@@ -145,7 +145,7 @@ const CardModal: React.FC<Props> = ({
     <>
       <IonButton
         id={`${id}open-modal`}
-        fill= { hover ? "outline": "solid"}
+        fill={hover ? "outline" : "solid"}
         shape="round"
         color="light"
         size="small"
@@ -153,8 +153,8 @@ const CardModal: React.FC<Props> = ({
           e.preventDefault();
           //modal.current?.present();
         }}
-        onMouseEnter = {() => setHover(true)}
-        onMouseLeave = {() => setHover(false)}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
       >
         Listen
       </IonButton>

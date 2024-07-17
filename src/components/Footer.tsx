@@ -2,7 +2,12 @@ import { useLocation } from "react-router";
 import { IonAlert, IonButton, IonIcon } from "@ionic/react";
 import { useState } from "react";
 import { LinkedinIcon } from "react-share";
-import { logoFacebook, logoInstagram, logoLinkedin, logoTwitter } from "ionicons/icons";
+import {
+  logoFacebook,
+  logoInstagram,
+  logoLinkedin,
+  logoTwitter,
+} from "ionicons/icons";
 
 const Footer = () => {
   const route = useLocation();
@@ -53,26 +58,26 @@ const Footer = () => {
                     className="flex font-medium items-center text-white hoverIcon"
                     href="https://www.facebook.com/"
                   >
-                    <IonIcon icon={logoFacebook} size = "large"/>
+                    <IonIcon icon={logoFacebook} size="large" />
                   </a>
                   <a
                     className="flex font-medium items-center text-white hoverIcon"
                     href="https://www.instagram.com/"
                   >
-                    <IonIcon icon={logoInstagram} size = "large"/>
+                    <IonIcon icon={logoInstagram} size="large" />
                   </a>
                   <a
                     className="flex font-medium items-center text-white hoverIcon"
                     href="https://www.twitter.com/"
                   >
-                    <IonIcon icon={logoTwitter} size = "large"/>
+                    <IonIcon icon={logoTwitter} size="large" />
                   </a>
                   <a
-                  className="flex font-medium items-center text-white hoverIcon"
-                  href="https://www.linkedin.com/"
-                >
-                  <IonIcon icon={logoLinkedin} size = "large"/>
-                </a>
+                    className="flex font-medium items-center text-white hoverIcon"
+                    href="https://www.linkedin.com/"
+                  >
+                    <IonIcon icon={logoLinkedin} size="large" />
+                  </a>
                 </div>
               </div>
               <div className="mr-4">

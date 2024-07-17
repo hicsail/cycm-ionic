@@ -16,7 +16,7 @@
   }
 
   .hoverCard:hover {
-    filter: drop-shadow(0px 0px 4px var( --ion-color-dark));
+    filter: drop-shadow(0px 0px 4px var(--ion-color-dark));
   }
 
   .hoverLink:hover {
@@ -24,6 +24,6 @@
   }
 
   .hoverIcon:hover {
-    color:var(--ion-color-primary);
+    color: var(--ion-color-primary);
   }
 }
