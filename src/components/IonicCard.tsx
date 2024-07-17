@@ -84,7 +84,7 @@ export default function IonicCard({
               src={image}
               title="Article image"
             />
-            <img
+            {video === true ? <img
               src={playCircle}
               style={{
                 filter: playCircleColor,
@@ -93,7 +93,7 @@ export default function IonicCard({
                 left: "42.5%",
                 height: "3rem",
               }}
-            />
+            /> : <div></div>}
           </div>
         ) : (
           <div></div>
@@ -142,7 +142,7 @@ export default function IonicCard({
         <div
           style={{
             position: "absolute",
-            bottom: 20,
+            bottom: 30,
             left: 20,
             width: "100%",
             marginLeft: 20,
