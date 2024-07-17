@@ -7,7 +7,7 @@ export default function AboutMissionSection() {
       <div className="flex flex-col justify-center items-center bg-[#FFE2E2] min-h-screen px-12 md:px-0">
         {/* <img className="w-full h-auto z-[10]" alt="union-1" src="red-union.svg" /> */}
         <div className="p-4 max-w-4xl w-full my-24">
-          <h1 className="text-[#101066] font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-none mb-4">
+          <h1 className="text-[#101066] font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-center leading-none mb-4">
             Mission Statement
           </h1>
           <br />

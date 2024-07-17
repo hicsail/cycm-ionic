@@ -43,7 +43,7 @@ export default function AboutTeamProfiles() {
         <div className="p-4 max-w-6xl w-full pt-36">
           <div className="flex flex-col items-start justify-center">
             <h1 className="text-[#101066] font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-none mb-4">
-              Meet our team
+               Meet Our Team
             </h1>
           </div>
           <p className="text-[#101066] font-semibold text-base sm:text-lg md:text-xl lg:text-xl tracking-tight leading-tight mb-8">
