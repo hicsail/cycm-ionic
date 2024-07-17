@@ -12,6 +12,7 @@ import {
 import React, { useState } from "react";
 import CardModal from "./CardModal";
 import { playCircle, playCircleOutline } from "ionicons/icons";
+import Button from "./Button";
 
 interface CardProps {
   id: string;
@@ -152,23 +153,19 @@ export default function IonicCard({
             e.preventDefault();
           }}
         >
-          <IonButton
-            fill={hover ? "outline" : "solid"}
-            shape="round"
-            size="small"
-            color={"secondary"}
-            className="hoverButton"
+          <Button
+            text={video ? "Watch" : "Read"}
+            backgroundColor={`deepskyblue`}
+            size={"xs"}
+            px={"1em"}
+            py={"0.25em"}
             onClick={(e) => {
               e.preventDefault();
               window.location.href = video
                 ? `https://www.youtube.com/watch?v=${id}`
                 : `/post/${id}`;
             }}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-          >
-            {video ? "Watch" : "Read"}
-          </IonButton>
+          />
           {speech_generated === 1 && (
             <CardModal
               title={title}

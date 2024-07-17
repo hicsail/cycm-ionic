@@ -31,17 +31,16 @@ const Index: React.FC = () => {
           description="Discover helpful resources and articles to promote mental health awareness and support for teens. Together, we can create a safe and nurturing environment for their well-being."
           bgColor="transparent"
           btnElement={
-            <div
-              onClick={() => {
-                history.push("/discover");
-              }}
-            >
               <Button
                 text="Read More"
-                backgroundColor="orange-500"
-                size="medium"
+                backgroundColor= "darkorange"
+                size= "xs"
+                px="1em"
+                py="0.5em"
+                onClick={() => {
+                  history.push("/discover");
+                }}
               />
-            </div>
           }
         />
       </div>
@@ -54,17 +53,15 @@ const Index: React.FC = () => {
           rounded
           textColor="white"
           btnElement={
-            <div
-              onClick={() => {
-                history.push("/about-us");
-              }}
-            >
               <Button
                 text="Read More"
-                backgroundColor="orange-500"
-                size="medium"
+                backgroundColor="darkorange"
+                px={"1em"}
+                py={"0.5em"}
+                onClick={() => {
+                  history.push("/about-us");
+                }}
               />
-            </div>
           }
         />
       </div>

@@ -25,6 +25,7 @@ import {
   closeCircle,
   pauseCircle,
 } from "ionicons/icons";
+import Button from "./Button";
 
 interface Props {
   title: string;
@@ -143,21 +144,18 @@ const CardModal: React.FC<Props> = ({
 
   return (
     <>
-      <IonButton
+      <Button
         id={`${id}open-modal`}
-        fill={hover ? "outline" : "solid"}
-        shape="round"
-        color="light"
-        size="small"
+        text={'Listen'}
+        backgroundColor={`salmon`}
+        size={"xs"}
+        px={"1em"}
+        py={"0.25em"}
         onClick={(e) => {
           e.preventDefault();
           //modal.current?.present();
         }}
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-      >
-        Listen
-      </IonButton>
+      />
       <IonModal
         keepContentsMounted={true}
         ref={modal}
