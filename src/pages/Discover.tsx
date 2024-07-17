@@ -43,7 +43,7 @@ const Discover: React.FC = () => {
   );
   const [isExpandedArray, setIsExpandedArray] = useState<any>([]);
   const [articles, setArticles] = useState<ArticleComponent[]>([]);
-  const [filters, setFilters] = useState<String[]>([]);
+  const [filters, setFilters] = useState<String[]>(["article", "video", "audio"]);
   const [usedVoiceIds, setUsedVoicesIds] = useState<any>([
     "D38z5RcWu1voky8WS1ja",
     "21m00Tcm4TlvDq8ikWAM",
@@ -161,10 +161,10 @@ const Discover: React.FC = () => {
 
   useEffect(() => {
     if (filters.length !== 0) {
-      let filteredArticles = articles;
+      let filteredArticles: ArticleComponent[] = [];
       filters.forEach((filter) => {
-        filteredArticles = filteredArticles.filter(
-          (article: any) => article.tag === filter
+        articles.map(
+          (article: any) => article.tag === filter && !filteredArticles.includes(article) ? filteredArticles.push(article) : null
         );
       });
       setFilteredArticles(filteredArticles);
