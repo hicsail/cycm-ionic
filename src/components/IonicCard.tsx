@@ -44,6 +44,7 @@ export default function IonicCard({
   const [summary, setSummary] = useState<string>(body.split(".")[0]);
   const [sentences, setSentences] = useState<string[]>(body.split("."));
   const [hover, setHover] = useState(false);
+  const [playCircleColor, setPlayCircleColor] = useState("invert(1.0)");
 
   return (
     <div style = {{minHeight:"100%", display: "flex", alignItems: "stretch", margin: "auto"}}>
@@ -60,7 +61,7 @@ export default function IonicCard({
         }}
       >
         {/* <img alt="Silhouette of mountains" height={200} src="https://ionicframework.com/docs/img/demos/card-media.png" /> */}
-        { image!== null ?  <div><img style = {{height: "15rem", objectFit: "cover"}} width="100%" height="100%" src={image} title="Article image" /><img src = {playCircle} style = {{filter: "invert(0.9)", position: "absolute", top: "17.5%", left: "42.5%", height:"3rem"}}/></div> : <div></div>}
+        { image!== null ?  <div onMouseEnter = {() => setPlayCircleColor("invert(0.9)")} onMouseLeave = {() => setPlayCircleColor("invert(1.0)")}><img style = {{height: "15rem", objectFit: "cover"}} width="100%" height="100%" src={image} title="Article image" /><img src = {playCircle} style = {{filter: playCircleColor, position: "absolute", top: "17.5%", left: "42.5%", height:"3rem"}}/></div> : <div></div>}
         <IonCardHeader>
           <IonCardTitle
             style={{
@@ -96,6 +97,7 @@ export default function IonicCard({
             lineHeight: "1.75rem",
             paddingLeft: 40,
             paddingRight:40,
+            paddingBottom: 80,
           }}
         >
           {teaser.length > 200 ? `${teaser.substring(0, 200)}...` : `${teaser}`}
@@ -103,13 +105,11 @@ export default function IonicCard({
         {/* have card modal button at bottom */}
         <div
           style={{
-            position: "relative",
+            position: "absolute",
             bottom: 20,
             left: 20,
             width: "100%",
-            marginTop: "1rem",
-            marginLeft:20,
-            alignSelf: "flex-end"
+            marginLeft: 20,
           }}
           onClick={(e) => {
             // prevent routing to post page
