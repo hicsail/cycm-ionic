@@ -29,11 +29,11 @@ const Index: React.FC = () => {
         <HelpInfographics />
         <Empower
           description="Discover helpful resources and articles to promote mental health awareness and support for teens. Together, we can create a safe and nurturing environment for their well-being."
-          bgColor="transparent"
+          bgColor="#FC8D3D"
           btnElement={
               <Button
                 text="Read More"
-                backgroundColor= "darkorange"
+                backgroundColor= "orangered"
                 size= "xs"
                 px="1em"
                 py="0.5em"
@@ -49,7 +49,7 @@ const Index: React.FC = () => {
         <SocialInfographics />
         <Empower
           description="Learn more about the Center for Young Colorful Minds and efforts being undertaken to address the teen mental health crisis."
-          bgColor="transparent"
+          bgColor="#FF6565"
           rounded
           textColor="white"
           btnElement={
