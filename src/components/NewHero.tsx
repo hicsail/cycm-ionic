@@ -31,17 +31,27 @@ export default function NewHero() {
         <div className="flex relative translate-x-[-50%] lg:left-2/3 left-[55%] lg:top-[-10rem] top-[-8rem]">
           <img
             src="pic1.png"
-            className="absolute lg:w-auto w-[45%] h-auto z-0 lg:top-[9rem] top-[7rem]"
+            className="absolute lg:w-auto w-[45%] h-auto z-0 lg:top-[5rem] top-[7rem]"
             alt="Rectangle"
           />
           <img
             src="pic2.png"
-            className="absolute lg:w-auto w-[60%] h-auto z-10 lg:left-[21rem] left-[35%] lg:top-[14rem] top-[9rem]"
+            className="absolute lg:w-auto w-[60%] h-auto z-10 lg:left-[19rem] left-[35%] lg:top-[14rem] top-[9rem]"
+            alt="Rectangle"
+          />
+          <img
+            src="pic5.png"
+            className="absolute h-auto z-10 left-[-8rem] lg:left-[-13rem] w-[40%] lg:w-[30%] top-[15rem]"
+            alt="Rectangle"
+          />
+          <img
+            src="pic4.png"
+            className="absolute lg:hidden block w-[40%] h-auto z-0 left-[50%] sm: top-[22rem]"
             alt="Rectangle"
           />
           <img
             src="pic3.png"
-            className="absolute lg:hidden block w-[40%] h-auto z-0 left-[20%] sm:top-[20rem] top-[15rem]"
+            className="absolute lg:hidden block w-[43%] h-auto z-0 sm:top-[20rem] top-[21rem]"
             alt="Rectangle"
           />
         </div>
