@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import IonicCard from "../components/IonicCard";
 import {
   IonButton,
@@ -69,7 +69,9 @@ const Discover: React.FC = () => {
   const [searchText, setSearchText] = useState("");
   const [pages, setPages] = useState<number[]>([]);
   const [page, setPage] = useState(0);
-  const entriesPerPage = 3;
+  const entriesPerPage = 6;
+  const messagesEnd = useRef(null);
+  const didMountRef = useRef(false)
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_STRAPI_URL}/api/articles?populate=*`, {
@@ -218,6 +220,16 @@ const Discover: React.FC = () => {
       )
     );
   }, [page, filteredArticles]);
+
+  const scrollToBottom = () => {
+    messagesEnd.current?.scrollIntoView({ behavior: "smooth", alignToTop: true, block: "start" });
+  }
+
+  useEffect(() => {
+    if (didMountRef.current) {
+      scrollToBottom();
+    } else didMountRef.current = true
+  });
 
   const handleVoiceChange = (event: any) => {
     setSelectedVoiceId(event.target.value);
@@ -425,6 +437,7 @@ const Discover: React.FC = () => {
               <IonFabButton
                 onClick={() => {
                   setPage(page - 1);
+                  scrollToBottom();
                 }}
                 color="transparent"
                 size="small"
@@ -519,6 +532,7 @@ const Discover: React.FC = () => {
           </div>
         </div>
       </div>
+      <div ref = {messagesEnd} > </div>
     </>
   );
 };
