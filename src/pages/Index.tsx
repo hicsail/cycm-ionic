@@ -1,9 +1,11 @@
 import CenterDescriptionCards from "../components/CenterDescriptionCards";
 import Empower from "../components/Empower";
 import HelpInfographics from "../components/HelpInfographics";
+import FeaturedVideo from "../components/FeaturedVideo"
 import NewHero from "../components/NewHero";
 import SocialInfographics from "../components/SocialInfographics";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router"; 
+import FeaturedScroll from "../components/FeaturedScroll";
 
 const Index: React.FC = () => {
   const history = useHistory();
@@ -24,6 +26,13 @@ const Index: React.FC = () => {
             </h1>
           </div>
         </div>
+        <FeaturedVideo 
+        id={"2nlSD0zD8Gk"} 
+        src={"https://www.youtube.com/embed/X2DUpDxFJyg?si=0EIgY1toYvqUAmD0"} 
+        title={"Gravity Falls - Opening Theme Song - HD"} 
+        allow={"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"} 
+        referrerPolicy={"strict-origin-when-cross-oigin"}
+        /> 
         <HelpInfographics />
         <Empower
           description="Discover helpful resources and articles to promote mental health awareness and support for teens. Together, we can create a safe and nurturing environment for their well-being."
