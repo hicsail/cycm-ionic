@@ -278,7 +278,7 @@ const CardModal: React.FC<Props> = ({
         >
           <IonButtons
             slot="end"
-            style={{ width: "10rem", display: "flex", justifyContent: "right" }}
+            style={{ width: "7rem", display: "flex", justifyContent: "right" }}
           >
             <IonButton strong={true} onClick={shareUrl}>
               <IonIcon size="small" icon={shareOutline}></IonIcon>
@@ -302,7 +302,14 @@ const CardModal: React.FC<Props> = ({
                 paddingTop: "0.2rem",
               }}
             >
-              <button style={{ color: "black" }}>
+              <button
+                style={{ color: "black" }}
+                onClick={() => {
+                  if (currentIndex > 0) {
+                    setCurrentIndex(currentIndex - 1);
+                  }
+                }}
+              >
                 <IonIcon size="large" icon={caretBackOutline}></IonIcon>
               </button>
               <button
@@ -320,17 +327,26 @@ const CardModal: React.FC<Props> = ({
                   ></IonIcon>
                 )}
               </button>
-              <button style={{ color: "black" }}>
+              <button
+                style={{ color: "black" }}
+                onClick={() => {
+                  if (currentIndex < sentenceRefs.current.length - 1) {
+                    setCurrentIndex(currentIndex + 1);
+                  }
+                }}
+              >
                 <IonIcon size="large" icon={caretForwardOutline}></IonIcon>
               </button>
             </div>
           </div>
-          <div slot="start">
-            <IonLabel>Display Video </IonLabel>
+          <div
+            slot="start"
+            style={{ display: "flex", gap: "0.25rem", alignContent: "center" }}
+          >
+            <IonLabel style={{ fontSize: "0.75rem" }}> Display Video </IonLabel>
             <IonToggle
               checked={displayVideo}
               onIonChange={(e: any) => setDisplayVideo(e.detail.checked)}
-              style={{ marginLeft: "0.5rem" }}
             />
           </div>
         </IonToolbar>
