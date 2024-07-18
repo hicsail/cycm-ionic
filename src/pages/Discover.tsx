@@ -71,7 +71,7 @@ const Discover: React.FC = () => {
   const [page, setPage] = useState(0);
   const entriesPerPage = 6;
   const messagesEnd = useRef(null);
-  const didMountRef = useRef(false)
+  const didMountRef = useRef(false);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_STRAPI_URL}/api/articles?populate=*`, {
@@ -222,13 +222,17 @@ const Discover: React.FC = () => {
   }, [page, filteredArticles]);
 
   const scrollToBottom = () => {
-    messagesEnd.current?.scrollIntoView({ behavior: "smooth", alignToTop: true, block: "start" });
-  }
+    messagesEnd.current?.scrollIntoView({
+      behavior: "smooth",
+      alignToTop: true,
+      block: "start",
+    });
+  };
 
   useEffect(() => {
     if (didMountRef.current) {
       scrollToBottom();
-    } else didMountRef.current = true
+    } else didMountRef.current = true;
   });
 
   const handleVoiceChange = (event: any) => {
@@ -532,7 +536,7 @@ const Discover: React.FC = () => {
           </div>
         </div>
       </div>
-      <div ref = {messagesEnd} > </div>
+      <div ref={messagesEnd}> </div>
     </>
   );
 };
