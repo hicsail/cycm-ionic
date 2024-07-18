@@ -69,7 +69,7 @@ const Discover: React.FC = () => {
   const [searchText, setSearchText] = useState("");
   const [pages, setPages] = useState<number[]>([]);
   const [page, setPage] = useState(0);
-  const entriesPerPage = 6;
+  const entriesPerPage = 2;
   const messagesEnd = useRef(null);
   const didMountRef = useRef(false);
   const [firstMount, setFirstMount] = useState(false);
@@ -223,11 +223,13 @@ const Discover: React.FC = () => {
   }, [page, filteredArticles]);
 
   const scrollToBottom = () => {
-    messagesEnd.current?.scrollIntoView({
-      behavior: "smooth",
-      alignToTop: true,
-      block: "start",
-    });
+    if (messagesEnd.current !== null) {
+      const html = messagesEnd.current as HTMLElement;
+      html.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      });
+    }
   };
 
   useEffect(() => {
