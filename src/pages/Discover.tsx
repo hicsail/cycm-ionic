@@ -27,8 +27,8 @@ import {
   informationCircleOutline,
   play,
 } from "ionicons/icons";
-import ReactDOM from 'react-dom';
-import ReactPaginate from 'react-paginate';
+import ReactDOM from "react-dom";
+import ReactPaginate from "react-paginate";
 
 const token = import.meta.env.VITE_STRAPY_TOKEN;
 const apiKey = import.meta.env.VITE_ELEVEN_LABS_API_KEY;
@@ -208,8 +208,16 @@ const Discover: React.FC = () => {
     const numPages = Math.ceil(filteredArticles.length / entriesPerPage);
     setPages([...Array(numPages).keys()]);
     setPage(Math.max(0, Math.min(page, numPages - 1)));
-    setPageArticles(filteredArticles.slice((page) * entriesPerPage, Math.min((page) * entriesPerPage + entriesPerPage, filteredArticles.length)));
-  } , [page, filteredArticles]);
+    setPageArticles(
+      filteredArticles.slice(
+        page * entriesPerPage,
+        Math.min(
+          page * entriesPerPage + entriesPerPage,
+          filteredArticles.length
+        )
+      )
+    );
+  }, [page, filteredArticles]);
 
   const handleVoiceChange = (event: any) => {
     setSelectedVoiceId(event.target.value);
@@ -238,7 +246,7 @@ const Discover: React.FC = () => {
         className="pt-48"
         style={{
           background:
-            "linear-gradient(180deg, #FFF 26.5%, #FD9390 87.5%, #FB4B45 100%)"
+            "linear-gradient(180deg, #FFF 26.5%, #FD9390 87.5%, #FB4B45 100%)",
         }}
       >
         <div>
@@ -377,82 +385,138 @@ const Discover: React.FC = () => {
                 </div>
               ))}
           </div>
-          <div style = {{width: "fit-content", borderRadius: "2rem", margin: "auto", paddingLeft: "1rem", paddingRight:"1rem", paddingTop: "1rem"}}>
-          <div className = "container"
+          <div
             style={{
-              display: "flex",
-              justifyContent: "center",
-              margin: "auto",
               width: "fit-content",
+              borderRadius: "2rem",
+              margin: "auto",
+              paddingLeft: "1rem",
+              paddingRight: "1rem",
+              paddingTop: "1rem",
             }}
           >
-             <IonFabButton
-              onClick={() => {
-                setPage(0);
+            <div
+              className="container"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                margin: "auto",
+                width: "fit-content",
               }}
-              color = "transparent"
-              size = "small"
-              style = {{ color: "white", "--box-shadow" : "none", margin: "0.2rem"}}
             >
-              <IonIcon icon = {chevronBackOutline} style = {{marginRight:"-0.75rem"}}/><IonIcon icon = {chevronBackOutline}/>
-            </IonFabButton>
-            <IonFabButton
-              onClick={() => {
-                setPage(page - 1);
-              }}
-              color = "transparent"
-              size = "small"
-              style = {{ color: "white", "--box-shadow" : "none", margin: "0.2rem"}}
-            >
-              <IonIcon icon = {chevronBackOutline} />
-            </IonFabButton>
-            <IonButton shape = "round"
-              color = "transparent"
-              size = "small"
-              style = {{ color: "white", "--box-shadow" : "none", margin: "0.2rem"}}
-            >
-              <IonText>
-                Page {page + 1} of {pages.length}
-              </IonText>
-            </IonButton>
-            <IonFabButton
-              onClick={() => {
-                setPage(page + 1);
-              }}
-              color = "transparent"
-              size = "small"
-              style = {{ color: "white", "--box-shadow" : "none", margin: "0.2rem"}}
-            >
-              <IonIcon icon = {chevronForwardOutline}/>
-            </IonFabButton>
-            <IonFabButton
-              onClick={() => {
-                setPage(pages[pages.length - 1]);
-              }}
-              color = "transparent"
-              size = "small"
-              style = {{ color: "white", "--box-shadow" : "none", margin: "0.2rem"}}
-            >
-              <IonIcon icon = {chevronForwardOutline}/><IonIcon icon = {chevronForwardOutline} style = {{marginLeft:"-0.75rem"}}/>
-            </IonFabButton>
-          </div>
-          </div>
-          <div style = {{display: "flex", flexWrap: "wrap", justifyContent: "center", padding: "0", maxWidth: "fit-content", margin: "auto", borderRadius: "2rem"}}>
-              {pages.map((pageNumber) => (
-                <div>
-                  <IonFabButton
-                    size = "small"
-                    color = { page === pageNumber ? "light" : "transparent" }
-                    onClick={() => {
-                      setPage(pageNumber);
-                    }}
-                    style = {{ color: "white", "--box-shadow" : "none", "--border-color": "white", "--border-style":"solid", "--border-width":"1px", margin: "0.2rem"}}
-                  >
-                    {pageNumber + 1}
-                  </IonFabButton>
-                </div>
-              ))}
+              <IonFabButton
+                onClick={() => {
+                  setPage(0);
+                }}
+                color="transparent"
+                size="small"
+                style={{
+                  color: "white",
+                  "--box-shadow": "none",
+                  margin: "0.2rem",
+                }}
+              >
+                <IonIcon
+                  icon={chevronBackOutline}
+                  style={{ marginRight: "-0.75rem" }}
+                />
+                <IonIcon icon={chevronBackOutline} />
+              </IonFabButton>
+              <IonFabButton
+                onClick={() => {
+                  setPage(page - 1);
+                }}
+                color="transparent"
+                size="small"
+                style={{
+                  color: "white",
+                  "--box-shadow": "none",
+                  margin: "0.2rem",
+                }}
+              >
+                <IonIcon icon={chevronBackOutline} />
+              </IonFabButton>
+              <IonButton
+                shape="round"
+                color="transparent"
+                size="small"
+                style={{
+                  color: "white",
+                  "--box-shadow": "none",
+                  margin: "0.2rem",
+                }}
+              >
+                <IonText>
+                  Page {page + 1} of {pages.length}
+                </IonText>
+              </IonButton>
+              <IonFabButton
+                onClick={() => {
+                  setPage(page + 1);
+                }}
+                color="transparent"
+                size="small"
+                style={{
+                  color: "white",
+                  "--box-shadow": "none",
+                  margin: "0.2rem",
+                }}
+              >
+                <IonIcon icon={chevronForwardOutline} />
+              </IonFabButton>
+              <IonFabButton
+                onClick={() => {
+                  setPage(pages[pages.length - 1]);
+                }}
+                color="transparent"
+                size="small"
+                style={{
+                  color: "white",
+                  "--box-shadow": "none",
+                  margin: "0.2rem",
+                }}
+              >
+                <IonIcon icon={chevronForwardOutline} />
+                <IonIcon
+                  icon={chevronForwardOutline}
+                  style={{ marginLeft: "-0.75rem" }}
+                />
+              </IonFabButton>
             </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              padding: "0",
+              maxWidth: "fit-content",
+              margin: "auto",
+              borderRadius: "2rem",
+            }}
+          >
+            {pages.map((pageNumber) => (
+              <div>
+                <IonFabButton
+                  size="small"
+                  color={page === pageNumber ? "light" : "transparent"}
+                  onClick={() => {
+                    setPage(pageNumber);
+                  }}
+                  style={{
+                    color: "white",
+                    "--box-shadow": "none",
+                    "--border-color": "white",
+                    "--border-style": "solid",
+                    "--border-width": "1px",
+                    margin: "0.2rem",
+                  }}
+                >
+                  {pageNumber + 1}
+                </IonFabButton>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </>
