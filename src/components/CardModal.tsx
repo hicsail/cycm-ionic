@@ -24,6 +24,14 @@ import {
   add,
   closeCircle,
   pauseCircle,
+  caretForwardCircleOutline,
+  caretBackOutline,
+  caretForwardOutline,
+  pauseOutline,
+  playOutline,
+  pauseCircleOutline,
+  playCircleOutline,
+  closeOutline,
 } from "ionicons/icons";
 import Button from "./Button";
 
@@ -50,7 +58,8 @@ const CardModal: React.FC<Props> = ({
   const [audioLoading, setAudioLoading] = useState<boolean>(false);
   const [hasFetchedAudios, setHasFetchedAudios] = useState(false);
   const sentenceRefs = useRef<(HTMLIonTextElement | null)[]>([]);
-  const [displayVideo, setDisplayVideo] = useState<boolean>(false);
+  const [displayVideo, setDisplayVideo] = useState<boolean>(true);
+  const [videoURL, setVideoURL] = useState<string>("");
 
   const fetchAudio = async (index: number) => {
     try {
@@ -123,11 +132,21 @@ const CardModal: React.FC<Props> = ({
     currentSentenceRef?.scrollIntoView({ behavior: "smooth", block: "center" });
   }, [currentIndex]);
 
+  const getURL = () => {
+    fetch(
+      `https://pixabay.com/api/videos/?key=44999838-9bd6745d743d992a9a1fa46eb&q=nature&category=nature`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        const id = Math.floor(Math.random() * data.hits.length);
+        setVideoURL(data.hits[id].videos.large.url);
+        console.log(videoURL);
+      });
+  };
+
   const [message, setMessage] = useState(
     "This modal example uses triggers to automatically open a modal when the button is clicked."
   );
-
-  const [hover, setHover] = useState(false);
 
   function confirm() {
     modal.current?.dismiss(input.current?.value, "confirm");
@@ -153,6 +172,7 @@ const CardModal: React.FC<Props> = ({
         py={"0.25em"}
         onClick={(e) => {
           e.preventDefault();
+          getURL();
           //modal.current?.present();
         }}
       />
@@ -161,61 +181,27 @@ const CardModal: React.FC<Props> = ({
         ref={modal}
         trigger={`${id}open-modal`}
         color={"dark"}
+        style={{
+          "--width": "70%",
+          "--height": "70%",
+          "--border-radius": "1rem",
+        }}
       >
-        <IonHeader translucent={true}>
-          <IonToolbar>
-            <IonButtons slot="start">
-              <IonButton
-                onClick={() => {
-                  if (currentIndex < audios.length) {
-                    const currentAudio = audios[currentIndex];
-                    if (currentAudio) {
-                      currentAudio.pause();
-                      currentAudio.currentTime = 0; // Reset audio to start
-                    }
-                  }
-                  setCurrentIndex(0);
-                  setIsPlaying(false);
-                  setHasFetchedAudios(false);
-                  setAudios([]);
-                  modal.current?.dismiss();
-                }}
-              >
-                <IonIcon icon={closeCircle}></IonIcon>
-              </IonButton>
-            </IonButtons>
-            <IonTitle>{title}</IonTitle>
-            <IonButtons slot="end">
-              <IonButton strong={true} onClick={shareUrl}>
-                <IonIcon icon={shareOutline}></IonIcon>
-              </IonButton>
-            </IonButtons>
-          </IonToolbar>
-        </IonHeader>
-        <IonHeader>
-          <IonToolbar>
-            <IonItem slot="end">
-              <IonLabel>Display Video</IonLabel>
-              <IonToggle
-                checked={displayVideo}
-                onIonChange={(e: any) => setDisplayVideo(e.detail.checked)}
-              />
-            </IonItem>
-          </IonToolbar>
-        </IonHeader>
-        <IonContent color={"dark"}>
+        <IonContent color={"dark"} style = {{
+          width: "calc(100% + 15px)",
+        }}>
           <div
             ref={containerRef}
             style={{
               position: "relative",
-              height: "100vh",
+              height: "100%",
               width: "100%",
               overflow: "hidden",
             }}
           >
             {displayVideo && (
               <video
-                src="./calm-video1.mp4"
+                src={videoURL}
                 autoPlay
                 loop
                 muted
@@ -240,7 +226,7 @@ const CardModal: React.FC<Props> = ({
                 color: "white",
                 textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
                 padding: "1rem",
-                paddingTop: "3rem", // Add some padding to the top
+                paddingTop: "1.5rem", // Add some padding to the top
                 boxSizing: "border-box",
                 overflowY: "auto",
                 backgroundColor: "rgba(0, 0, 0, 0.5)", // Add semi-transparent background
@@ -277,19 +263,86 @@ const CardModal: React.FC<Props> = ({
             </div>
           </div>
         </IonContent>
-        <IonFab horizontal="end" vertical="bottom">
-          <IonFabButton
-            onClick={() => {
-              setIsPlaying((prev) => !prev);
+        <IonToolbar
+          style={{ "--background": "white", marginBottom: "-0.1rem" }}
+        >
+          <IonButtons slot="end">
+            <IonLabel>Share Video</IonLabel>
+            <IonButton strong={true} onClick={shareUrl}>
+              <IonIcon icon={shareOutline}></IonIcon>
+            </IonButton>
+          </IonButtons>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: "1rem",
+              alignItems: "center",
             }}
           >
-            {audioLoading ? (
-              <IonSpinner name="crescent" />
-            ) : (
-              <IonIcon icon={isPlaying ? pauseCircle : playCircle}></IonIcon>
-            )}
-          </IonFabButton>
-        </IonFab>
+            <div
+              style={{
+                borderRadius: "2rem",
+                display: "flex",
+                justifyContent: "center",
+                gap: "1rem",
+                alignItems: "center",
+                paddingTop: "0.2rem",
+              }}
+            >
+              <button style={{ color: "black" }}>
+                <IonIcon size="large" icon={caretBackOutline}></IonIcon>
+              </button>
+              <button
+                onClick={() => {
+                  setIsPlaying((prev) => !prev);
+                }}
+                style={{ color: "black" }}
+              >
+                {audioLoading ? (
+                  <IonSpinner name="crescent" />
+                ) : (
+                  <IonIcon
+                    size="large"
+                    icon={isPlaying ? pauseCircleOutline : playCircleOutline}
+                  ></IonIcon>
+                )}
+              </button>
+              <button style={{ color: "black" }}>
+                <IonIcon size="large" icon={caretForwardOutline}>
+                  hi
+                </IonIcon>
+              </button>
+            </div>
+          </div>
+          <div slot="start">
+            <IonLabel>Display Video</IonLabel>
+            <IonToggle
+              checked={displayVideo}
+              onIonChange={(e: any) => setDisplayVideo(e.detail.checked)}
+            />
+          </div>
+        </IonToolbar>
+        <button
+          style={{ position: "absolute", top: "1%", right: "1%", color: "white" }}
+          onClick={() => {
+            if (currentIndex < audios.length) {
+              const currentAudio = audios[currentIndex];
+              if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0; // Reset audio to start
+              }
+            }
+            setCurrentIndex(0);
+            setIsPlaying(false);
+            setHasFetchedAudios(false);
+            setAudios([]);
+            setDisplayVideo(true);
+            modal.current?.dismiss();
+          }}
+        >
+          <IonIcon size = "large" icon={closeOutline}></IonIcon>
+        </button>
       </IonModal>
     </>
   );
