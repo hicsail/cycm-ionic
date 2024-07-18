@@ -9,15 +9,15 @@ import './Design.css';
 
 export default function AboutFutureVisionSections() {
   return (
-    <div className="future-vision-container">
+    <div className="future-vision-container text-base text-[#101066]">
       <div className="future-vision-header">
         <h1>FUTURE VISION</h1>
       </div>
       <div className="future-vision-cards">
         <IonCard className="future-vision-card">
-          <IonCardHeader>
-            <IonCardTitle className="future-vision-card-header">COLLABORATIVE CREATION</IonCardTitle>
-          </IonCardHeader>
+          
+            <IonCardTitle className="text-[#101066] font-semibold text-base sm:text-lg md:text-xl lg:text-xl tracking-tight leading-tight mb-8">COLLABORATIVE CREATION</IonCardTitle>
+          
           <IonCardContent>
             <ul>
               <li>Opportunities for trainees in all disciplines to collaborate</li>

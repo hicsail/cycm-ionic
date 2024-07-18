@@ -6,7 +6,7 @@ body, html {
 }
 
 .Meet-Our-Team-Container {
-  background: linear-gradient(180deg, #fdfdfd, #ec9898);
+  background: linear-gradient(180deg, #ffffff, #ec9898);
 }
 
 .future-vision-container {
@@ -24,9 +24,6 @@ body, html {
 .future-vision-header h1 {
   font-size: 3em;
   font-weight: bold;
-  font-family: 'Helvetica', 'Arial', sans-serif;  color: #100f66;
-
-;
   margin-bottom: 30px;
 }
 
@@ -48,7 +45,6 @@ body, html {
   flex: 1;
   background: white;
   color: #100f66;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   border-radius: 15px; 
   padding: 20px;
   box-shadow: 5px 5px 10px rgba(4, 4, 4, 0.1); 
