@@ -5,7 +5,7 @@ import {
   IonCardTitle,
 } from "@ionic/react";
 import React from "react";
-import './AboutFutureVisionSections.css'; // Ensure you have a CSS file for styling
+import "./AboutFutureVisionSections.css"; // Ensure you have a CSS file for styling
 
 export default function AboutFutureVisionSections() {
   return (
@@ -20,7 +20,9 @@ export default function AboutFutureVisionSections() {
           </IonCardHeader>
           <IonCardContent>
             <ul>
-              <li>Opportunities for trainees in all disciplines to collaborate</li>
+              <li>
+                Opportunities for trainees in all disciplines to collaborate
+              </li>
               <li>Create content for website and social media</li>
             </ul>
           </IonCardContent>
@@ -31,8 +33,14 @@ export default function AboutFutureVisionSections() {
           </IonCardHeader>
           <IonCardContent>
             <ul>
-              <li>Design training toolkits to be used at schools and community-based organizations</li>
-              <li>Engage with youth outside of the clinical setting and in the community</li>
+              <li>
+                Design training toolkits to be used at schools and
+                community-based organizations
+              </li>
+              <li>
+                Engage with youth outside of the clinical setting and in the
+                community
+              </li>
             </ul>
           </IonCardContent>
         </IonCard>
@@ -42,7 +50,10 @@ export default function AboutFutureVisionSections() {
           </IonCardHeader>
           <IonCardContent>
             <ul>
-              <li>BMC Department of Psychiatry: National "go-to" resource for mental health in diverse teens</li>
+              <li>
+                BMC Department of Psychiatry: National "go-to" resource for
+                mental health in diverse teens
+              </li>
             </ul>
           </IonCardContent>
         </IonCard>
