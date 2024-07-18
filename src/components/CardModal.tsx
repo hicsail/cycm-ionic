@@ -32,6 +32,8 @@ import {
   pauseCircleOutline,
   playCircleOutline,
   closeOutline,
+  eyeOutline,
+  eyeOffOutline,
 } from "ionicons/icons";
 import Button from "./Button";
 
@@ -187,9 +189,12 @@ const CardModal: React.FC<Props> = ({
           "--border-radius": "1rem",
         }}
       >
-        <IonContent color={"dark"} style = {{
-          width: "calc(100% + 15px)",
-        }}>
+        <IonContent
+          color={"dark"}
+          style={{
+            width: "calc(100% + 15px)",
+          }}
+        >
           <div
             ref={containerRef}
             style={{
@@ -264,12 +269,19 @@ const CardModal: React.FC<Props> = ({
           </div>
         </IonContent>
         <IonToolbar
-          style={{ "--background": "white", marginBottom: "-0.1rem" }}
+          style={{
+            "--background": "white",
+            marginBottom: "-0.1rem",
+            paddingLeft: "0.7rem",
+            paddingRight: "0.5rem",
+          }}
         >
-          <IonButtons slot="end">
-            <IonLabel>Share Video</IonLabel>
+          <IonButtons
+            slot="end"
+            style={{ width: "10rem", display: "flex", justifyContent: "right" }}
+          >
             <IonButton strong={true} onClick={shareUrl}>
-              <IonIcon icon={shareOutline}></IonIcon>
+              <IonIcon size="small" icon={shareOutline}></IonIcon>
             </IonButton>
           </IonButtons>
           <div
@@ -309,22 +321,26 @@ const CardModal: React.FC<Props> = ({
                 )}
               </button>
               <button style={{ color: "black" }}>
-                <IonIcon size="large" icon={caretForwardOutline}>
-                  hi
-                </IonIcon>
+                <IonIcon size="large" icon={caretForwardOutline}></IonIcon>
               </button>
             </div>
           </div>
           <div slot="start">
-            <IonLabel>Display Video</IonLabel>
+            <IonLabel>Display Video </IonLabel>
             <IonToggle
               checked={displayVideo}
               onIonChange={(e: any) => setDisplayVideo(e.detail.checked)}
+              style={{ marginLeft: "0.5rem" }}
             />
           </div>
         </IonToolbar>
         <button
-          style={{ position: "absolute", top: "1%", right: "1%", color: "white" }}
+          style={{
+            position: "absolute",
+            top: "1%",
+            right: "1%",
+            color: "white",
+          }}
           onClick={() => {
             if (currentIndex < audios.length) {
               const currentAudio = audios[currentIndex];
@@ -341,7 +357,7 @@ const CardModal: React.FC<Props> = ({
             modal.current?.dismiss();
           }}
         >
-          <IonIcon size = "large" icon={closeOutline}></IonIcon>
+          <IonIcon size="large" icon={closeOutline}></IonIcon>
         </button>
       </IonModal>
     </>
