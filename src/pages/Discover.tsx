@@ -69,7 +69,7 @@ const Discover: React.FC = () => {
   const [searchText, setSearchText] = useState("");
   const [pages, setPages] = useState<number[]>([]);
   const [page, setPage] = useState(0);
-  const entriesPerPage = 1;
+  const entriesPerPage = 3;
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_STRAPI_URL}/api/articles?populate=*`, {
@@ -140,8 +140,8 @@ const Discover: React.FC = () => {
                     tag: "video",
                     speech_generated: videoDescription,
                     author: resp.items[0].snippet.channelID,
+                    manual_id: videoURL.id,
                     imageURL: resp.items[0].snippet.thumbnails.high.url,
-                    manual_id: "0",
                     date: videoURL.attributes.site_published_date
                       ? new Date(videoURL.attributes.site_published_date)
                       : new Date(resp.items[0].snippet.publishedAt),
@@ -186,24 +186,23 @@ const Discover: React.FC = () => {
     const filteredArticles = articles.filter((article: any) =>
       article.attributes.title.toLowerCase().includes(searchText.toLowerCase())
     );
-    console.log(filteredArticles);
   }, [searchText]);
 
   useEffect(() => {
     if (filters.length !== 0) {
-      let filteredArticles: ArticleComponent[] = [];
+      let filtered: ArticleComponent[] = [];
       filters.forEach((filter) => {
         articles.map((article: any) =>
-          article.tag === filter && !filteredArticles.includes(article)
-            ? filteredArticles.push(article)
+          article.tag === filter && !filtered.includes(article)
+            ? filtered.push(article)
             : null
         );
       });
-      setFilteredArticles(filteredArticles);
+      setFilteredArticles(filtered);
     } else {
       setFilteredArticles(articles);
     }
-  }, [filters]);
+  }, [articles, isExpandedArray, filters]);
 
   useEffect(() => {
     const numPages = Math.ceil(filteredArticles.length / entriesPerPage);
