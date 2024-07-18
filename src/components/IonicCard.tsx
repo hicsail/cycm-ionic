@@ -29,6 +29,7 @@ interface CardProps {
   teaser: string;
   speech_generated: number;
   video: boolean;
+  backgroundVideo: string;
 }
 
 export default function IonicCard({
@@ -41,6 +42,7 @@ export default function IonicCard({
   speech_generated,
   video,
   image,
+  backgroundVideo,
 }: CardProps) {
   const [summary, setSummary] = useState<string>(body.split(".")[0]);
   const [sentences, setSentences] = useState<string[]>(body.split("."));
@@ -177,6 +179,7 @@ export default function IonicCard({
               title={title}
               sentences={sentences}
               id={id}
+              backgroundVideo={backgroundVideo}
               voiceId={voiceId}
               manual_id={manual_id}
             />

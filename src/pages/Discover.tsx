@@ -46,6 +46,7 @@ type ArticleComponent = {
   manual_id: string;
   body?: string;
   date: Date;
+  backgroundVideo?: string;
 };
 
 const Discover: React.FC = () => {
@@ -95,6 +96,7 @@ const Discover: React.FC = () => {
             imageURL: resource.attributes.header_image.data
               ? resource.attributes.header_image.data[0].attributes.name
               : null,
+            backgroundVideo: resource.attributes.background_video ? resource.attributes.background_video : null,  
             tag: "article",
             speech_generated: resource.attributes.speech_generated,
             body: resource.attributes.body,
@@ -401,6 +403,7 @@ const Discover: React.FC = () => {
                     manual_id={article.manual_id}
                     teaser={article.teaser}
                     speech_generated={article.speech_generated}
+                    backgroundVideo={article.backgroundVideo}
                     video={article.video}
                   />
                 </div>

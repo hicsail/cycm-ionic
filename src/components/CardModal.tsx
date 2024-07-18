@@ -43,6 +43,7 @@ interface Props {
   id: string;
   voiceId: string;
   manual_id: string;
+  backgroundVideo: string | null;
 }
 
 const CardModal: React.FC<Props> = ({
@@ -51,6 +52,7 @@ const CardModal: React.FC<Props> = ({
   id,
   voiceId,
   manual_id,
+  backgroundVideo,
 }) => {
   const modal = useRef<any>(null);
   const input = useRef<any>(null);
@@ -62,6 +64,7 @@ const CardModal: React.FC<Props> = ({
   const sentenceRefs = useRef<(HTMLIonTextElement | null)[]>([]);
   const [displayVideo, setDisplayVideo] = useState<boolean>(true);
   const [videoURL, setVideoURL] = useState<string>("");
+  const [urlProvided, setURLProvided] = useState<boolean>(false);
 
   const fetchAudio = async (index: number) => {
     try {
@@ -135,15 +138,22 @@ const CardModal: React.FC<Props> = ({
   }, [currentIndex]);
 
   const getURL = () => {
-    fetch(
-      `https://pixabay.com/api/videos/?key=44999838-9bd6745d743d992a9a1fa46eb&q=nature&category=nature`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        const id = Math.floor(Math.random() * data.hits.length);
-        setVideoURL(data.hits[id].videos.large.url);
-        console.log(videoURL);
-      });
+    if(backgroundVideo === null) {
+      fetch(
+        `https://pixabay.com/api/videos/?key=44999838-9bd6745d743d992a9a1fa46eb&q=nature&category=nature`
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          const id = Math.floor(Math.random() * data.hits.length);
+          setVideoURL(data.hits[id].videos.large.url);
+          console.log(data.hits[id].videos.large.url);
+        });
+    } else {
+      console.log(backgroundVideo)
+      setVideoURL( backgroundVideo.replace("watch?v=", "embed/").concat("?autohide=1&autoplay=1&showinfo=0=1&iv_load_policy=2&controls=0&mute=1") );
+      setURLProvided(true);
+      console.log(backgroundVideo.replace("watch?v=", "embed/"))
+    }
   };
 
   const [message, setMessage] = useState(
@@ -205,7 +215,7 @@ const CardModal: React.FC<Props> = ({
             }}
           >
             {displayVideo && (
-              <video
+              urlProvided ? <div className = "video-embed-object-fit-cover"><iframe src = {videoURL} allow="autoplay;"></iframe></div> : <video
                 src={videoURL}
                 autoPlay
                 loop
