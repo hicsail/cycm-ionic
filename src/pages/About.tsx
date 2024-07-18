@@ -15,9 +15,9 @@ const About: React.FC = () => {
         <div className="pt-36 md:pt-12 mb-48">
           <PaddedHeaderText />
           <AboutMissionSection />
-          <AboutTeamProfiles />
-          <AboutFutureVisionSections />
         </div>
+        <AboutTeamProfiles />
+        <AboutFutureVisionSections />
         <Footer />
       </IonContent>
     </IonPage>

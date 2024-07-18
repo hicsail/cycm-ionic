@@ -1,3 +1,11 @@
+/* AboutFutureVisionSections.css */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 .Meet-Our-Team-Container {
   display: flex;
   flex-direction: column;
@@ -15,8 +23,9 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background: linear-gradient(180deg, #ec9898, #f85151);
-  height: 100vh;
+  background: linear-gradient(180deg, #ec9898, #e45341);
+  min-height: 100vh; 
+  box-sizing: border-box;
   text-align: center;
 }
 
@@ -31,6 +40,7 @@
   flex-direction: column;
   gap: 20px;
   width: 80%;
+  box-sizing: border-box;
 }
 
 @media (min-width: 768px) {
@@ -46,7 +56,7 @@
   border-radius: 15px; 
   padding: 20px;
   box-shadow: 5px 5px 10px rgba(4, 4, 4, 0.1); 
-
+  margin-bottom: 20px;
 }
 
 .future-vision-card ul {
