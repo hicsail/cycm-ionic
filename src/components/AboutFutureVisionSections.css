@@ -1,0 +1,45 @@
+.future-vision-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(180deg, #FFD6D6, #FF8888);
+    height: 100vh;
+    text-align: center;
+  }
+  
+  .future-vision-header h1 {
+    font-size: 2.5em;
+    color: #1A1A1A;
+    margin-bottom: 30px;
+  }
+  
+  .future-vision-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 80%;
+  }
+  
+  @media (min-width: 768px) {
+    .future-vision-cards {
+      flex-direction: row;
+    }
+  }
+  
+  .future-vision-card {
+    flex: 1;
+    background: white;
+    color: #1A1A1A;
+  }
+  
+  .future-vision-card ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .future-vision-card li {
+    margin: 10px 0;
+  }
+  
