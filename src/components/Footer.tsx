@@ -14,6 +14,7 @@ const Footer = () => {
 
   const bgColorMap = {
     "/post/*": "#FD9390",
+    "/discover": "#FB4B45",
   };
 
   const bgColor = Object.keys(bgColorMap).find((key) =>
