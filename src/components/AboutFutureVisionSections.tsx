@@ -5,7 +5,6 @@ import {
   IonCardTitle,
 } from "@ionic/react";
 import React from "react";
-import './AboutFutureVisionSections.css'; // Ensure you have a CSS file for styling
 
 export default function AboutFutureVisionSections() {
   return (
