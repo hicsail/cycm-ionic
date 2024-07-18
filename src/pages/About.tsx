@@ -7,15 +7,14 @@ import AboutMissionSection from "../components/AboutMissionSection";
 import AboutTeamProfiles from "../components/AboutTeamProfiles";
 import AboutFutureVisionSections from "../components/AboutFutureVisionSections";
 import Footer from "../components/Footer";
+import SupportTab from "../components/SupportTab";
 
 const About: React.FC = () => {
   return (
     <IonPage>
       <IonContent>
-        <div className="pt-36 md:pt-12 mb-48">
-          <PaddedHeaderText />
-          <AboutMissionSection />
-        </div>
+        <PaddedHeaderText />
+        <AboutMissionSection />
         <AboutTeamProfiles />
         <AboutFutureVisionSections />
         <Footer />
