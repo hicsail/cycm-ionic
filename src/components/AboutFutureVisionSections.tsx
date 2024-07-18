@@ -5,19 +5,17 @@ import {
   IonCardTitle,
 } from "@ionic/react";
 import React from "react";
-import './Design.css';
+
 
 export default function AboutFutureVisionSections() {
   return (
-    <div className="future-vision-container text-base text-[#101066]">
-      <div className="future-vision-header">
+    <div className="flex flex-col items-center justify-center p-5 bg-gradient-to-b from-[#ec9898] to-[#e45341] min-h-screen box-border text-center text-base text-[#101066]">
+      <div className="text-4xl font-bold mb-8">
         <h1>FUTURE VISION</h1>
       </div>
-      <div className="future-vision-cards">
-        <IonCard className="future-vision-card">
-          
-            <IonCardTitle className="text-[#101066] font-semibold text-base sm:text-lg md:text-xl lg:text-xl tracking-tight leading-tight mb-8">COLLABORATIVE CREATION</IonCardTitle>
-          
+      <div className="flex flex-col gap-5 w-4/5 box-border md:flex-row">
+        <IonCard className="flex-1 bg-white text-[#100f66] rounded-lg p-5 shadow-md mb-5">
+            <IonCardTitle className="text-[#100f66] font-bold">COLLABORATIVE CREATION</IonCardTitle>
           <IonCardContent>
             <ul>
               <li>Opportunities for trainees in all disciplines to collaborate</li>
@@ -25,9 +23,9 @@ export default function AboutFutureVisionSections() {
             </ul>
           </IonCardContent>
         </IonCard>
-        <IonCard className="future-vision-card">
+        <IonCard className="flex-1 bg-white text-[#100f66] rounded-lg p-5 shadow-md mb-5">
           <IonCardHeader >
-            <IonCardTitle className="future-vision-card-header">COMMUNITY ENGAGEMENT</IonCardTitle>
+            <IonCardTitle className="text-[#100f66] font-bold">COMMUNITY ENGAGEMENT</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
             <ul>
@@ -36,9 +34,9 @@ export default function AboutFutureVisionSections() {
             </ul>
           </IonCardContent>
         </IonCard>
-        <IonCard className="future-vision-card">
+        <IonCard className="flex-1 bg-white text-[#100f66] rounded-lg p-5 shadow-md mb-5">
           <IonCardHeader>
-            <IonCardTitle className="future-vision-card-header">NATIONAL LEADERSHIP</IonCardTitle>
+            <IonCardTitle className="text-[#100f66] font-bold">NATIONAL LEADERSHIP</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
             <ul>
