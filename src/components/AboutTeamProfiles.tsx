@@ -37,7 +37,7 @@ export default function AboutTeamProfiles() {
   }, []);
 
   return (
-    <div className="bg-gradient-to-b from-[#ffffff] to-[#ec9898]">
+    <div >
       <div className="flex flex-col justify-center items-center min-h-screen px-12 md:px-0">
         {/* <img className="w-full h-auto z-[10]" alt="union-1" src="red-union.svg" /> */}
         <div className="p-4 max-w-6xl w-full pt-36">

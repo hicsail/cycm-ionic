@@ -9,7 +9,7 @@ import React from "react";
 
 export default function AboutFutureVisionSections() {
   return (
-    <div className="flex flex-col items-center justify-center p-5 bg-gradient-to-b from-[#ec9898] to-[#e45341] min-h-screen box-border text-center text-base text-[#101066]">
+    <div className="flex flex-col items-center justify-center p-5 ] bg-[#FFE2E2] min-h-screen box-border text-center text-base text-[#101066]">
       <div className="text-4xl font-bold mb-8">
         <h1>FUTURE VISION</h1>
       </div>
