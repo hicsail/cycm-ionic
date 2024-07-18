@@ -72,6 +72,7 @@ const Discover: React.FC = () => {
   const entriesPerPage = 6;
   const messagesEnd = useRef(null);
   const didMountRef = useRef(false);
+  const [firstMount, setFirstMount] = useState(false);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_STRAPI_URL}/api/articles?populate=*`, {
@@ -230,10 +231,12 @@ const Discover: React.FC = () => {
   };
 
   useEffect(() => {
-    if (didMountRef.current) {
+    if (didMountRef.current && firstMount) {
       scrollToBottom();
-    } else didMountRef.current = true;
-  });
+    } else {
+      didMountRef.current = true;
+    }
+  }, [pageArticles]);
 
   const handleVoiceChange = (event: any) => {
     setSelectedVoiceId(event.target.value);
@@ -423,6 +426,7 @@ const Discover: React.FC = () => {
               <IonFabButton
                 onClick={() => {
                   setPage(0);
+                  setFirstMount(true);
                 }}
                 color="transparent"
                 size="small"
@@ -441,7 +445,7 @@ const Discover: React.FC = () => {
               <IonFabButton
                 onClick={() => {
                   setPage(page - 1);
-                  scrollToBottom();
+                  setFirstMount(true);
                 }}
                 color="transparent"
                 size="small"
@@ -470,6 +474,7 @@ const Discover: React.FC = () => {
               <IonFabButton
                 onClick={() => {
                   setPage(page + 1);
+                  setFirstMount(true);
                 }}
                 color="transparent"
                 size="small"
@@ -484,6 +489,7 @@ const Discover: React.FC = () => {
               <IonFabButton
                 onClick={() => {
                   setPage(pages[pages.length - 1]);
+                  setFirstMount(true);
                 }}
                 color="transparent"
                 size="small"
@@ -519,6 +525,7 @@ const Discover: React.FC = () => {
                   color={page === pageNumber ? "light" : "transparent"}
                   onClick={() => {
                     setPage(pageNumber);
+                    setFirstMount(true);
                   }}
                   style={{
                     color: "white",
