@@ -373,7 +373,7 @@ const Discover: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="container mx-auto grid gap-5 auto-cols-min sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr items-stretch justify-center p-4 center">
+          <div className="container mx-auto grid gap-5 auto-cols-fr sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr items-stretch justify-center p-4 center">
             {pageArticles &&
               pageArticles.length > 0 &&
               pageArticles.map((article: any, index: number) => (

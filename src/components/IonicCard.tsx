@@ -53,6 +53,7 @@ export default function IonicCard({
         minHeight: "100%",
         display: "flex",
         alignItems: "stretch",
+        width: "100%",
         margin: "auto",
       }}
     >
@@ -60,6 +61,7 @@ export default function IonicCard({
         color={"primary"}
         style={{
           borderRadius: 20,
+          width: "100%",
         }}
         className="hoverCard"
         button
