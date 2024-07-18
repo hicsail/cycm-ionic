@@ -1,4 +1,3 @@
-/* AboutFutureVisionSections.css */
 
 body, html {
   margin: 0;
@@ -7,14 +6,7 @@ body, html {
 }
 
 .Meet-Our-Team-Container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
   background: linear-gradient(180deg, #fdfdfd, #ec9898);
-  height: 100vh;
-  text-align: center;
 }
 
 .future-vision-container {
@@ -30,8 +22,11 @@ body, html {
 }
 
 .future-vision-header h1 {
-  font-size: 2.5em;
-  color: #1A1A1A;
+  font-size: 3em;
+  font-weight: bold;
+  font-family: 'Helvetica', 'Arial', sans-serif;  color: #100f66;
+
+;
   margin-bottom: 30px;
 }
 
@@ -52,13 +47,17 @@ body, html {
 .future-vision-card {
   flex: 1;
   background: white;
-  color: #1A1A1A;
+  color: #100f66;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   border-radius: 15px; 
   padding: 20px;
   box-shadow: 5px 5px 10px rgba(4, 4, 4, 0.1); 
   margin-bottom: 20px;
 }
-
+.future-vision-card-header {
+ color: #100f66;
+ font-weight: bold;
+}
 .future-vision-card ul {
   list-style-type: none;
   padding: 0;

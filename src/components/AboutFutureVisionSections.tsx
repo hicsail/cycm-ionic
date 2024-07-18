@@ -16,7 +16,7 @@ export default function AboutFutureVisionSections() {
       <div className="future-vision-cards">
         <IonCard className="future-vision-card">
           <IonCardHeader>
-            <IonCardTitle>COLLABORATIVE CREATION</IonCardTitle>
+            <IonCardTitle className="future-vision-card-header">COLLABORATIVE CREATION</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
             <ul>
@@ -26,8 +26,8 @@ export default function AboutFutureVisionSections() {
           </IonCardContent>
         </IonCard>
         <IonCard className="future-vision-card">
-          <IonCardHeader>
-            <IonCardTitle>COMMUNITY ENGAGEMENT</IonCardTitle>
+          <IonCardHeader >
+            <IonCardTitle className="future-vision-card-header">COMMUNITY ENGAGEMENT</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
             <ul>
@@ -38,7 +38,7 @@ export default function AboutFutureVisionSections() {
         </IonCard>
         <IonCard className="future-vision-card">
           <IonCardHeader>
-            <IonCardTitle>NATIONAL LEADERSHIP</IonCardTitle>
+            <IonCardTitle className="future-vision-card-header">NATIONAL LEADERSHIP</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
             <ul>
