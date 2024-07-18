@@ -5,7 +5,7 @@ export default function PaddedHeaderText() {
     <div>
       <div className="flex flex-col justify-center items-center min-h-screen px-12 md:px-0">
         <div className="p-4 max-w-4xl w-full">
-          <h1 className="margin-left: 0 text-[#101066] font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-none mb-4 text-center margin-left: 0">
+          <h1 className="text-[#101066] font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-none mb-4 ">
             Supporting Teen Mental Health
           </h1>
           <br />

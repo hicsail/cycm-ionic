@@ -67,7 +67,7 @@ const Resource: React.FC = () => {
           Pause Audio
         </button>
         <div className="p-4 max-w-4xl w-full my-24">
-          <h1 className="text-[#101066] font-bold text-4xl text-center sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-none mb-4">
+          <h1 className="text-[#101066] font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-none mb-4">
             Mental Health Resources for Teenagers
           </h1>
           <br />
