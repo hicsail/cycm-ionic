@@ -131,7 +131,7 @@ const Post: React.FC = () => {
                   month: "long",
                   day: "numeric",
                 })}
-              </div> 
+              </div>
             </div>
           </div>
 
