@@ -397,9 +397,9 @@ const Discover: React.FC = () => {
             </div>
           </div>
           <div className="container mx-auto grid gap-5 auto-cols-fr sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr items-stretch justify-center p-4 center">
-            {filteredArticles &&
-              filteredArticles.length > 0 &&
-              filteredArticles.map((article: any, index: number) => (
+            {pageArticles &&
+              pageArticles.length > 0 &&
+              pageArticles.map((article: any, index: number) => (
                 <div key={index}>
                   <IonicCard
                     id={article.id}
