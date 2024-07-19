@@ -244,7 +244,7 @@ const Discover: React.FC = () => {
   }, [pageArticles]);
 
   useEffect(() => {
-    fetch("https://picsum.photos/v2/list?page=2&limit=500", {
+    fetch(`https://picsum.photos/v2/list?page=2&limit=${articles.length}`, {
       method: "GET",
     })
       .then((res) => res.json())
@@ -407,7 +407,7 @@ const Discover: React.FC = () => {
                     body={article.video ? " " : article.body}
                     author={article.author}
                     tag={article.tag}
-                    image={article.imageURL !== null ? article.imageURL : images[page * entriesPerPage + index]}
+                    image={article.imageURL !== null ? article.imageURL : images[article.id]}
                     voiceId={selectedVoiceId}
                     isExpanded={isExpandedArray[index]}
                     setIsExpandedArray={() => handleExpandCard(index)}
