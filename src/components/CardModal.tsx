@@ -138,7 +138,7 @@ const CardModal: React.FC<Props> = ({
   }, [currentIndex]);
 
   const getURL = () => {
-    if(backgroundVideo === null) {
+    if (backgroundVideo === null) {
       fetch(
         `https://pixabay.com/api/videos/?key=44999838-9bd6745d743d992a9a1fa46eb&q=nature&category=nature`
       )
@@ -149,10 +149,16 @@ const CardModal: React.FC<Props> = ({
           console.log(data.hits[id].videos.large.url);
         });
     } else {
-      console.log(backgroundVideo)
-      setVideoURL( backgroundVideo.replace("watch?v=", "embed/").concat("?autohide=1&autoplay=1&showinfo=0=1&iv_load_policy=2&controls=0&mute=1") );
+      console.log(backgroundVideo);
+      setVideoURL(
+        backgroundVideo
+          .replace("watch?v=", "embed/")
+          .concat(
+            "?autohide=1&autoplay=1&showinfo=0=1&iv_load_policy=2&controls=0&mute=1"
+          )
+      );
       setURLProvided(true);
-      console.log(backgroundVideo.replace("watch?v=", "embed/"))
+      console.log(backgroundVideo.replace("watch?v=", "embed/"));
     }
   };
 
@@ -214,20 +220,25 @@ const CardModal: React.FC<Props> = ({
               overflow: "hidden",
             }}
           >
-            {displayVideo && (
-              urlProvided ? <div className = "video-embed-object-fit-cover"><iframe src = {videoURL} allow="autoplay;"></iframe></div> : <video
-                src={videoURL}
-                autoPlay
-                loop
-                muted
-                style={{
-                  position: "absolute",
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                }}
-              />
-            )}
+            {displayVideo &&
+              (urlProvided ? (
+                <div className="video-embed-object-fit-cover">
+                  <iframe src={videoURL} allow="autoplay;"></iframe>
+                </div>
+              ) : (
+                <video
+                  src={videoURL}
+                  autoPlay
+                  loop
+                  muted
+                  style={{
+                    position: "absolute",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                />
+              ))}
             <div
               style={{
                 position: "absolute",

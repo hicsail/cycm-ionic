@@ -97,8 +97,12 @@ const Discover: React.FC = () => {
             imageURL: resource.attributes.header_image.data
               ? resource.attributes.header_image.data[0].attributes.name
               : null,
-            backgroundVideo: resource.attributes.background_video ? resource.attributes.background_video : null,  
-            tag: "article".concat(resource.attributes.speech_generated === 1 ? " audio" : ""),
+            backgroundVideo: resource.attributes.background_video
+              ? resource.attributes.background_video
+              : null,
+            tag: "article".concat(
+              resource.attributes.speech_generated === 1 ? " audio" : ""
+            ),
             speech_generated: resource.attributes.speech_generated,
             body: resource.attributes.body,
             date: new Date(resource.attributes.published_date),
@@ -407,7 +411,11 @@ const Discover: React.FC = () => {
                     body={article.video ? " " : article.body}
                     author={article.author}
                     tag={article.tag}
-                    image={article.imageURL !== null ? article.imageURL : images[article.id]}
+                    image={
+                      article.imageURL !== null
+                        ? article.imageURL
+                        : images[article.id]
+                    }
                     voiceId={selectedVoiceId}
                     isExpanded={isExpandedArray[index]}
                     setIsExpandedArray={() => handleExpandCard(index)}
