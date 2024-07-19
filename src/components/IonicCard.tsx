@@ -42,11 +42,11 @@ export default function IonicCard({
   return (
     <div>
       <IonCard
-        color={"tertiary"}
+        // color={"light"}
         style={{
           height: 500,
           maxWidth: 350,
-          borderRadius: 20,
+          // borderRadius: 20,
           padding: 20,
         }}
         button
