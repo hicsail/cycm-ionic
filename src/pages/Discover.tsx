@@ -8,28 +8,18 @@ import {
   IonCardTitle,
   IonChip,
   IonContent,
-  IonFabButton,
   IonIcon,
-  IonInfiniteScrollContent,
   IonItemDivider,
   IonLabel,
   IonSearchbar,
-  IonSegmentButton,
   IonText,
 } from "@ionic/react";
 import {
-  arrowBack,
-  arrowForward,
-  chevronBackOutline,
-  chevronForwardOutline,
   closeOutline,
   flag,
   informationCircleOutline,
   play,
 } from "ionicons/icons";
-import ReactDOM from "react-dom";
-import ReactPaginate from "react-paginate";
-
 const token = import.meta.env.VITE_STRAPY_TOKEN;
 const apiKey = import.meta.env.VITE_ELEVEN_LABS_API_KEY;
 
@@ -66,7 +56,6 @@ const Discover: React.FC = () => {
   ]);
   const [usedVoices, setUsedVoices] = useState<any>([]);
   const [filteredArticles, setFilteredArticles] = useState<any>([]);
-  const [pageArticles, setPageArticles] = useState<any>([]);
   const [searchText, setSearchText] = useState("");
   const [pages, setPages] = useState<number[]>([]);
   const [page, setPage] = useState(0);
@@ -77,6 +66,7 @@ const Discover: React.FC = () => {
   const [images, setImages] = useState<String[]>([]);
 
   useEffect(() => {
+    // fetch from localhost:1337/api/articles
     fetch(`${import.meta.env.VITE_STRAPI_URL}/api/articles?populate=*`, {
       method: "GET",
       headers: {
@@ -196,6 +186,7 @@ const Discover: React.FC = () => {
     const filteredArticles = articles.filter((article: any) =>
       article.attributes.title.toLowerCase().includes(searchText.toLowerCase())
     );
+    setFilteredArticles(filteredArticles);
   }, [searchText]);
 
   useEffect(() => {
@@ -401,9 +392,9 @@ const Discover: React.FC = () => {
             </div>
           </div>
           <div className="container mx-auto grid gap-5 auto-cols-fr sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr items-stretch justify-center p-4 center">
-            {pageArticles &&
-              pageArticles.length > 0 &&
-              pageArticles.map((article: any, index: number) => (
+            {filteredArticles &&
+              filteredArticles.length > 0 &&
+              filteredArticles.map((article: any, index: number) => (
                 <div key={index}>
                   <IonicCard
                     id={article.id}
