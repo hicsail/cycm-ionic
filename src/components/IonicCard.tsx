@@ -140,6 +140,7 @@ export default function IonicCard({
           )} */}
         </IonCardHeader>
         <IonCardContent
+          className = "h-48 sm:h-56 md:h-56 lg:h-72 xl:h-56"
           style={{
             fontSize: "1.2rem",
             lineHeight: "1.75rem",
@@ -147,8 +148,9 @@ export default function IonicCard({
             paddingRight: 40,
             paddingBottom: 80,
           }}
-        >
-          {teaser.length > 200 ? `${teaser.substring(0, 200)}...` : `${teaser}`}
+        > <div className ="h-36 sm:h-32 md:h-36 lg:h-56 xl:h-48" style = {{
+          overflow: "hidden"}}>
+          {teaser.length > 200 ? `${teaser.substring(0, 200)}...` : `${teaser}`}</div>
         </IonCardContent>
         {/* have card modal button at bottom */}
         <div
