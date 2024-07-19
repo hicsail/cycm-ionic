@@ -39,7 +39,7 @@ type ArticleComponent = {
   manual_id: string;
   body?: string;
   date: Date;
-  backgroundVideo?: string;
+  backgroundVideo: string | null;
 };
 
 const Discover: React.FC = () => {
@@ -145,6 +145,7 @@ const Discover: React.FC = () => {
                     speech_generated: 0,
                     author: resp.items[0].snippet.channelID,
                     manual_id: videoURL.id,
+                    backgroundVideo: null,
                     imageURL: resp.items[0].snippet.thumbnails.high.url,
                     date: videoURL.attributes.site_published_date
                       ? new Date(videoURL.attributes.site_published_date)

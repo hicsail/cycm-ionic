@@ -29,7 +29,7 @@ interface CardProps {
   teaser: string;
   speech_generated: number;
   video: boolean;
-  backgroundVideo: string;
+  backgroundVideo: string | null;
 }
 
 export default function IonicCard({
