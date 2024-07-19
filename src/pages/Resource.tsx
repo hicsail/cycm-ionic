@@ -12,7 +12,7 @@ import {
   IonCardTitle,
   IonText,
 } from "@ionic/react";
-import { useEffect, useState,  } from "react";
+import { useEffect, useState } from "react";
 
 const token = import.meta.env.VITE_STRAPY_TOKEN;
 
@@ -32,10 +32,7 @@ const Resource: React.FC = () => {
       .then((resp) => {
         setResources(resp.data);
       });
-
-
   }, []);
-
 
   return (
     <div className="">
@@ -62,7 +59,9 @@ const Resource: React.FC = () => {
                 }}
               >
                 <img
-                  src={`${import.meta.env.VITE_STRAPI_URL}${resource.attributes.image.data.attributes.url}`}
+                  src={`${import.meta.env.VITE_STRAPI_URL}${
+                    resource.attributes.image.data.attributes.url
+                  }`}
                   alt={resource.attributes.title}
                   className="mx-auto md:w-full"
                 />
