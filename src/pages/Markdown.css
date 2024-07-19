@@ -1,0 +1,77 @@
+  .markdown {
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+  
+  @media (min-width: 1280px) {
+    .markdown {
+      width: 1280px;
+      padding: 0 10rem;
+    }
+  }
+  
+  @media (min-width: 1536px) {
+    .markdown {
+      max-width: 1536px;
+      padding: 0 10rem;
+    }
+  }
+  
+  .markdown p,
+  .markdown ul,
+  .markdown ol,
+  .markdown blockquote {
+    font-size: 1rem;
+    color: black;
+  }
+  
+  .markdown img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+    object-fit: contain;
+  }
+
+  .markdown strong {
+    color: #101077;
+  }
+  
+  .markdown h1,
+  .markdown h2 {
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: #FF5733;
+    line-height: 4rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .markdown h3 {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #FF5733;
+    line-height: 2rem;
+    margin-top: 02rem;
+    margin-bottom: 0.5rem;
+  }
+    
+  .markdown h4 {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #FF5733;
+    line-height: 2rem;
+    margin-top: 02rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .markdown a {
+    color: var(--ion-color-primary);
+  }
+  
+  .markdown a:hover {
+    color: var(--ion-color-primary);
+    text-decoration: underline;
+  }
+  
