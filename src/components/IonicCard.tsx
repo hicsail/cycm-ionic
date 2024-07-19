@@ -104,7 +104,11 @@ export default function IonicCard({
             )}
           </div>
         ) : (
-          <div></div>
+          <div><img style={{ height: "17rem", objectFit: "cover" }}
+          width="100%"
+          height="100%"
+          src = "https://picsum.photos/400/300?random=2" 
+          alt = "random"/></div>
         )}
         <IonCardHeader>
           <IonCardTitle

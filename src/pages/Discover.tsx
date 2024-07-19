@@ -70,10 +70,11 @@ const Discover: React.FC = () => {
   const [searchText, setSearchText] = useState("");
   const [pages, setPages] = useState<number[]>([]);
   const [page, setPage] = useState(0);
-  const entriesPerPage = 2;
+  const entriesPerPage = 6;
   const messagesEnd = useRef(null);
   const didMountRef = useRef(false);
   const [firstMount, setFirstMount] = useState(false);
+  const [images, setImages] = useState<String[]>([]);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_STRAPI_URL}/api/articles?populate=*`, {
@@ -242,6 +243,17 @@ const Discover: React.FC = () => {
     }
   }, [pageArticles]);
 
+  useEffect(() => {
+    fetch("https://picsum.photos/v2/list?page=2&limit=500", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((resp) => {
+        const imageUrls = resp.map((image: any) => image.download_url);
+        setImages(imageUrls);
+      });
+  }, []);
+
   const handleVoiceChange = (event: any) => {
     setSelectedVoiceId(event.target.value);
   };
@@ -395,7 +407,7 @@ const Discover: React.FC = () => {
                     body={article.video ? " " : article.body}
                     author={article.author}
                     tag={article.tag}
-                    image={article.imageURL}
+                    image={article.imageURL !== null ? article.imageURL : images[page * entriesPerPage + index]}
                     voiceId={selectedVoiceId}
                     isExpanded={isExpandedArray[index]}
                     setIsExpandedArray={() => handleExpandCard(index)}
