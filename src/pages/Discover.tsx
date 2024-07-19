@@ -40,7 +40,7 @@ type ArticleComponent = {
   teaser: string;
   link: string;
   imageURL?: string;
-  speech_generated?: string;
+  speech_generated?: number;
   tag: string;
   author: string;
   manual_id: string;
@@ -97,7 +97,7 @@ const Discover: React.FC = () => {
               ? resource.attributes.header_image.data[0].attributes.name
               : null,
             backgroundVideo: resource.attributes.background_video ? resource.attributes.background_video : null,  
-            tag: "article",
+            tag: "article".concat(resource.attributes.speech_generated === 1 ? " audio" : ""),
             speech_generated: resource.attributes.speech_generated,
             body: resource.attributes.body,
             date: new Date(resource.attributes.published_date),
@@ -143,7 +143,7 @@ const Discover: React.FC = () => {
                         : videoURL.attributes.description,
                     link: videoURL.attributes.url,
                     tag: "video",
-                    speech_generated: videoDescription,
+                    speech_generated: 0,
                     author: resp.items[0].snippet.channelID,
                     manual_id: videoURL.id,
                     imageURL: resp.items[0].snippet.thumbnails.high.url,
@@ -198,7 +198,7 @@ const Discover: React.FC = () => {
       let filtered: ArticleComponent[] = [];
       filters.forEach((filter) => {
         articles.map((article: any) =>
-          article.tag === filter && !filtered.includes(article)
+          article.tag.includes(filter) && !filtered.includes(article)
             ? filtered.push(article)
             : null
         );
