@@ -8,6 +8,7 @@ import {
   IonCardTitle,
   IonChip,
   IonContent,
+  IonFabButton,
   IonIcon,
   IonItemDivider,
   IonLabel,
@@ -15,6 +16,8 @@ import {
   IonText,
 } from "@ionic/react";
 import {
+  chevronBackOutline,
+  chevronForwardOutline,
   closeOutline,
   flag,
   informationCircleOutline,
@@ -59,6 +62,7 @@ const Discover: React.FC = () => {
   const [searchText, setSearchText] = useState("");
   const [pages, setPages] = useState<number[]>([]);
   const [page, setPage] = useState(0);
+  const [pageArticles, setPageArticles] = useState<ArticleComponent[]>([]);
   const entriesPerPage = 6;
   const messagesEnd = useRef(null);
   const didMountRef = useRef(false);
