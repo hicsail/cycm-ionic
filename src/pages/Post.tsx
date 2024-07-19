@@ -24,7 +24,7 @@ const Post: React.FC = () => {
       .then((resp) => {
         setArticle(resp.data);
       });
-  }, []); 
+  }, []);
 
   return (
     <div className="flex items-center justify-center mt-28 mb-16 w-full md:px-12">
