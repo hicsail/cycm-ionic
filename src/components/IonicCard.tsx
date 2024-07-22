@@ -57,9 +57,9 @@ export default function IonicCard({
       }}
     >
       <IonCard
-        color={"primary"}
+        // color={"light"}
         style={{
-          borderRadius: 20,
+          // borderRadius: 20,
         }}
         className="hoverCard"
         button

@@ -60,6 +60,8 @@ const CardModal: React.FC<Props> = ({
         }.mp3`
       );
 
+      console.log(response);
+
       if (!response.ok) {
         const errorData = await response.text();
         console.error("Error response from server:", errorData);
