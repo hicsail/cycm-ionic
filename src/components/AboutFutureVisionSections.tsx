@@ -17,7 +17,7 @@ export default function AboutFutureVisionSections() {
           <IonCardHeader className="text-left">
             <IonCardTitle className="text-[#100f66] font-bold text-3xl mb-4">COLLABORATIVE CREATION</IonCardTitle>
           </IonCardHeader>
-          <IonCardContent className="text-left font-bold text-2xl mb-24">
+          <IonCardContent className="text-left text-xl mb-24">
             Create opportunities for trainees in all disciplines to collaborate and develop content for the website and social media.
           </IonCardContent>
         </IonCard>
@@ -25,7 +25,7 @@ export default function AboutFutureVisionSections() {
           <IonCardHeader className="text-left">
             <IonCardTitle className="text-[#100f66] font-bold text-3xl mb-4">COMMUNITY ENGAGEMENT</IonCardTitle>
           </IonCardHeader>
-          <IonCardContent className="text-left font-bold text-2xl mb-24">
+          <IonCardContent className="text-left text-xl mb-24">
             Design training toolkits to be used at schools and community-based organizations to engage with youth outside of the clinical setting and in the community.
           </IonCardContent>
         </IonCard>
@@ -33,7 +33,7 @@ export default function AboutFutureVisionSections() {
           <IonCardHeader className="text-left">
             <IonCardTitle className="text-[#100f66] font-bold text-3xl mb-4">NATIONAL LEADERSHIP</IonCardTitle>
           </IonCardHeader>
-          <IonCardContent className="text-left font-bold text-2xl mb-24">
+          <IonCardContent className="text-left text-xl mb-24">
             BMC Department of Psychiatry: <br/>
             National "go-to" resource for<br/>
             mental health in diverse teens.<br/>
