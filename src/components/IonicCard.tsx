@@ -51,7 +51,7 @@ export default function IonicCard({
 
   useEffect(() => {
     setSentences(body.split("."));
-  } , [body]);
+  }, [body]);
 
   return (
     <div
