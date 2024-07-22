@@ -60,9 +60,9 @@ export default function IonicCard({
       }}
     >
       <IonCard
-        color={"primary"}
+        // color={"light"}
         style={{
-          borderRadius: 20,
+          // borderRadius: 20,
           width: "100%",
         }}
         className="hoverCard"
@@ -118,7 +118,7 @@ export default function IonicCard({
           <IonCardTitle
             style={{
               // font color
-              color: "pink",
+              color: "orange",
               fontSize: "1.6rem",
               fontWeight: "bold",
               paddingLeft: 20,
