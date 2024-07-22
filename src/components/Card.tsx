@@ -184,6 +184,7 @@ const Card: React.FC<CardProps> = ({
           <CardModal
             title={title}
             sentences={sentences}
+            backgroundVideo={null}
             id={id}
             voiceId={voiceId}
             manual_id={manual_id}

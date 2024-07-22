@@ -1,9 +1,11 @@
+import React from "react";
 import CenterDescriptionCards from "../components/CenterDescriptionCards";
 import Empower from "../components/Empower";
 import HelpInfographics from "../components/HelpInfographics";
 import NewHero from "../components/NewHero";
 import SocialInfographics from "../components/SocialInfographics";
 import { useHistory } from "react-router";
+import Button from "../components/Button";
 
 const Index: React.FC = () => {
   const history = useHistory();
@@ -28,16 +30,18 @@ const Index: React.FC = () => {
         <Empower
           description="Discover helpful resources and articles to promote mental health awareness and support for teens. Together, we can create a safe and nurturing environment for their well-being."
           bgColor="#FC8D3D"
+          textColor="white"
           btnElement={
-            <button
-              type="button"
-              className={`text-white border border-gray-800 bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-full text-md px-5 py-2.5`}
+            <Button
+              text="Read More"
+              backgroundColor="orangered"
+              size="xs"
+              px="1em"
+              py="0.5em"
               onClick={() => {
                 history.push("/discover");
               }}
-            >
-              Read More
-            </button>
+            />
           }
         />
       </div>
@@ -48,16 +52,17 @@ const Index: React.FC = () => {
           description="Learn more about the Center for Young Colorful Minds and efforts being undertaken to address the teen mental health crisis."
           bgColor="#FF6565"
           rounded
+          textColor="white"
           btnElement={
-            <button
-              type="button"
-              className={`text-white border border-gray-800 bg-orange-400 hover:bg-orange-300 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-full text-md px-5 py-2.5`}
+            <Button
+              text="Read More"
+              backgroundColor="darkorange"
+              px={"1em"}
+              py={"0.5em"}
               onClick={() => {
                 history.push("/about-us");
               }}
-            >
-              Read More
-            </button>
+            />
           }
         />
       </div>
