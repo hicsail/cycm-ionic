@@ -148,7 +148,9 @@ const Discover: React.FC = () => {
                     backgroundVideo: null,
                     imageURL: resp.items[0].snippet.thumbnails.high.url,
                     date: videoURL.attributes.site_published_date
+                     
                       ? new Date(videoURL.attributes.site_published_date)
+                     
                       : new Date(resp.items[0].snippet.publishedAt),
                   });
                   resources = resources.sort(
