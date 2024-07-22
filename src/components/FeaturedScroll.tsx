@@ -16,13 +16,16 @@ interface ScrollProps {
   
   export default FeaturedScroll;
 
-/* <FeaturedScroll
+/* 
+Belongs in Index
+Code for a button that takes you to another video through a popup
+<FeaturedScroll
     btnElement={
     <button
       type='button'
       className={`text-orange-600 hover:text-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-600 font-medium rounded-full text-md px-5 py-2.5`}
       onClick={() => {
-        window.open('https://www.youtube.com/embed/2nlSD0zD8Gk?si=agu4O16t3bzT7TlW', 'youtube', 'popup');
+        window.open('https://www.youtube.com/watch?v=X2DUpDxFJyg', 'youtube', 'popup');
       }}
     >
       Next Video
