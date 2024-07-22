@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FacebookShareButton, TwitterShareButton } from "react-share";
 import ReactMarkdown from "react-markdown";
+import "./Markdown.css";
 
 const token = import.meta.env.VITE_STRAPY_TOKEN;
 const url = import.meta.env.VITE_STRAPI_URL;
@@ -77,16 +78,16 @@ const Post: React.FC = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 justify-items-center">
           <div className="flex flex-col justify-center gap-4 w-[90%] md:w-full">
-            <h2 className="text-4xl md:text-3xl text-center md:text-left font-semibold font-sans text-[#101066]">
+            <h2 className="text-4xl md:text-3xl text-center md:text-left font-semibold font-sans text-[#FF5733]">
               {article?.attributes.title}
             </h2>
             {/* <p>{article?.description}</p> */}
             {/* place holder text */}
-            <p className="text-md text-center md:text-left tracking-wider text-[#101066]">
+            <p className="text-md text-center md:text-left tracking-wider text-black">
               {article?.attributes.teasers}
             </p>
             {/* <span>{article?.attributes.author}</span> */}
-            <div className="flex text-sm md:text-md tracking-wider align-middle text-[#101066]">
+            <div className="flex text-sm md:text-md tracking-wider align-middle text-black">
               <div className="flex pr-4 gap-3">
                 <TwitterShareButton
                   url={window.location.href}
@@ -99,7 +100,7 @@ const Post: React.FC = () => {
                     width="26"
                     height="26"
                     viewBox="0 0 30 30"
-                    fill="#101066"
+                    fill="var(--ion-color-primary)"
                   >
                     <path d="M26.37,26l-8.795-12.822l0.015,0.012L25.52,4h-2.65l-6.46,7.48L11.28,4H4.33l8.211,11.971L12.54,15.97L3.88,26h2.65 l7.182-8.322L19.42,26H26.37z M10.23,6l12.34,18h-2.1L8.12,6H10.23z"></path>
                   </svg>
@@ -115,7 +116,7 @@ const Post: React.FC = () => {
                     width="26"
                     height="26"
                     viewBox="0 0 30 30"
-                    fill="#101066"
+                    fill="var(--ion-color-primary)"
                   >
                     <path d="M15,3C8.373,3,3,8.373,3,15c0,6.016,4.432,10.984,10.206,11.852V18.18h-2.969v-3.154h2.969v-2.099c0-3.475,1.693-5,4.581-5 c1.383,0,2.115,0.103,2.461,0.149v2.753h-1.97c-1.226,0-1.654,1.163-1.654,2.473v1.724h3.593L19.73,18.18h-3.106v8.697 C22.481,26.083,27,21.075,27,15C27,8.373,21.627,3,15,3z"></path>
                   </svg>
@@ -131,7 +132,7 @@ const Post: React.FC = () => {
                   month: "long",
                   day: "numeric",
                 })}
-              </div> 
+              </div>
             </div>
           </div>
 
@@ -162,8 +163,10 @@ const Post: React.FC = () => {
           </svg>
         </div> */}
         <div className="my-12" />
-        <div className="md:w-2/3 px-10 md:px-0 text-sm md:text-md tracking-wide md:tracking-wider text-[#101066] mb-16">
-          <ReactMarkdown>{article?.attributes.body_markdown}</ReactMarkdown>
+        <div className="md:w-2/3 px-10 md:px-0 text-sm md:text-md tracking-wide md:tracking-wider mb-16">
+          <ReactMarkdown className="markdown">
+            {article?.attributes.body_markdown}
+          </ReactMarkdown>
         </div>
       </div>
     </div>
