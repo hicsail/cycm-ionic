@@ -152,11 +152,12 @@ const CardModal: React.FC<Props> = ({
         });
     } else {
       console.log(backgroundVideo);
+      const videoID = backgroundVideo.split("v=")[1];
       setVideoURL(
         backgroundVideo
           .replace("watch?v=", "embed/")
           .concat(
-            "?autohide=1&autoplay=1&showinfo=0=1&iv_load_policy=2&controls=0&mute=1"
+            `?autohide=1&autoplay=1&showinfo=0=1&iv_load_policy=2&controls=0&mute=1&loop=1&playlist=${videoID}`
           )
       );
       setURLProvided(true);
