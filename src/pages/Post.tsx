@@ -27,7 +27,7 @@ const Post: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center mt-28 mb-16 w-full md:px-12">
+    <div className="flex items-center justify-center mt-28 mb-16 bg-[#FCF3DF] w-full md:px-12">
       <div className="max-w-7xl">
         <div className="mb-4">
           <ol className="flex justify-start items-center whitespace-nowrap px-4 md:px-0 mb-16 md:mb-0">
