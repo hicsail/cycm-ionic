@@ -9,7 +9,7 @@ import {
   IonIcon,
   IonLabel,
 } from "@ionic/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CardModal from "./CardModal";
 import { playCircle, playCircleOutline } from "ionicons/icons";
 import Button from "./Button";
@@ -48,6 +48,10 @@ export default function IonicCard({
   const [sentences, setSentences] = useState<string[]>(body.split("."));
   const [hover, setHover] = useState(false);
   const [playCircleColor, setPlayCircleColor] = useState("invert(1.0)");
+
+  useEffect(() => {
+    setSentences(body.split("."));
+  } , [body]);
 
   return (
     <div

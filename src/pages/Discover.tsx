@@ -97,6 +97,7 @@ const Discover: React.FC = () => {
             tag: "article".concat(
               resource.attributes.speech_generated === 1 ? " audio" : ""
             ),
+            manual_id: resource.attributes.manual_id,
             speech_generated: resource.attributes.speech_generated,
             body: resource.attributes.body,
             date: new Date(resource.attributes.published_date),
@@ -144,7 +145,7 @@ const Discover: React.FC = () => {
                     tag: "video",
                     speech_generated: 0,
                     author: resp.items[0].snippet.channelID,
-                    manual_id: videoURL.id,
+                    manual_id: "10000",
                     backgroundVideo: null,
                     imageURL: resp.items[0].snippet.thumbnails.high.url,
                     date: videoURL.attributes.site_published_date
