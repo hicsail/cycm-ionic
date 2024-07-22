@@ -13,7 +13,7 @@ export default function AboutFutureVisionSections() {
         <h1>FUTURE VISION</h1>
       </div>
       <div className="container sm:px-2 md:px-12 px-36 mx-auto flex flex-col gap-5 w-19/20 box-border md:flex-row">
-        <IonCard className="flex-1 bg-white text-[#100f66]  rounded-lg shadow-md pb-5 pl-0 pr-10 mb-0 ml-0">
+        <IonCard className="flex-1 bg-white text-[#100f66] rounded-lg shadow-md pb-5 pl-0 pr-10 mb-0 ml-0">
           <IonCardHeader className="text-left">
             <IonCardTitle className="text-[#100f66] font-bold text-3xl mb-4">COLLABORATIVE CREATION</IonCardTitle>
           </IonCardHeader>
@@ -29,7 +29,7 @@ export default function AboutFutureVisionSections() {
             Design training toolkits to be used at schools and community-based organizations to engage with youth outside of the clinical setting and in the community.
           </IonCardContent>
         </IonCard>
-        <IonCard className="flex-1 bg-white text-[#100f66] rounded-lg shadow-md pb-5 pl-0 pr-10 ml-0 ">
+        <IonCard className="flex-1 bg-white text-[#100f66] rounded-lg shadow-md pb-5 pl-0 pr-10 mb-0 ml-0 ">
           <IonCardHeader className="text-left">
             <IonCardTitle className="text-[#100f66] font-bold text-3xl mb-4">NATIONAL LEADERSHIP</IonCardTitle>
           </IonCardHeader>
