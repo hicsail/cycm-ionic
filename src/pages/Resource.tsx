@@ -54,9 +54,9 @@ const Resource: React.FC = () => {
             {resources.map((resource: any) => (
               <IonCard
                 button={true}
-                style = {{
-                  "--background" : "transparent",
-                  boxShadow: "none",  
+                style={{
+                  "--background": "transparent",
+                  boxShadow: "none",
                 }}
                 onClick={() => {
                   window.open(resource.attributes.link, "_blank");
@@ -69,10 +69,25 @@ const Resource: React.FC = () => {
                   alt={resource.attributes.title}
                   className="mx-auto lg:w-full sm:w-3/4"
                 />
-                <IonCardHeader style = {{paddingTop: "0rem"}}>
-                  <IonCardTitle style = {{textAlign: "center", marginTop: "0rem", lineHeight:"1rem", paddingTop: "0rem"}}>{resource.attributes.name}</IonCardTitle>
+                <IonCardHeader style={{ paddingTop: "0rem" }}>
+                  <IonCardTitle
+                    style={{
+                      textAlign: "center",
+                      marginTop: "0rem",
+                      lineHeight: "1rem",
+                      paddingTop: "0rem",
+                    }}
+                  >
+                    {resource.attributes.name}
+                  </IonCardTitle>
                 </IonCardHeader>
-                <IonCardContent style = {{textAlign: "center", marginTop: "0rem", lineHeight:"1rem"}}>
+                <IonCardContent
+                  style={{
+                    textAlign: "center",
+                    marginTop: "0rem",
+                    lineHeight: "1rem",
+                  }}
+                >
                   {resource.attributes.description}
                 </IonCardContent>
               </IonCard>

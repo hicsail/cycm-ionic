@@ -114,8 +114,16 @@ const Profile = ({
         trigger={`open-modal${name.substring(0, 2)}`}
         onWillDismiss={(ev) => onWillDismiss(ev)}
       >
-        <IonContent className="ion-padding" style = {{width: "102.5%"}}>
-          <button onClick={() => modal.current?.dismiss()} style = {{width: "fit-content", position: "absolute", top: "2%", right: "3.5%"}}>
+        <IonContent className="ion-padding" style={{ width: "102.5%" }}>
+          <button
+            onClick={() => modal.current?.dismiss()}
+            style={{
+              width: "fit-content",
+              position: "absolute",
+              top: "2%",
+              right: "3.5%",
+            }}
+          >
             <IonIcon icon={closeOutline} />
           </button>
           <h2 className="text-[#101066] font-bold text-xl">{name}</h2>
