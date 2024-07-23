@@ -7,7 +7,6 @@ import AboutMissionSection from "../components/AboutMissionSection";
 import AboutTeamProfiles from "../components/AboutTeamProfiles";
 import AboutFutureVisionSections from "../components/AboutFutureVisionSections";
 import Footer from "../components/Footer";
-import SupportTab from "../components/SupportTab";
 
 const About: React.FC = () => {
   return (
