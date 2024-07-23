@@ -121,15 +121,19 @@ export default function IonicCard({
             />
           </div>
         )}
-        { pinned === true ? <PiPushPinFill 
+        {pinned === true ? (
+          <PiPushPinFill
             size="1.5em"
             color="white"
             style={{
-                  position: "absolute",
-                  top: "1%",
-                  right: "2.5%",
-                }}
-        /> : <div></div>}
+              position: "absolute",
+              top: "1%",
+              right: "2.5%",
+            }}
+          />
+        ) : (
+          <div></div>
+        )}
         <IonCardHeader>
           <IonCardTitle
             style={{
