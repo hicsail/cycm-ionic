@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import IonicCard from "../components/IonicCard";
 import {
   IonButton,
@@ -8,22 +8,51 @@ import {
   IonCardTitle,
   IonChip,
   IonContent,
+  IonFabButton,
   IonIcon,
   IonItemDivider,
   IonLabel,
   IonSearchbar,
   IonText,
 } from "@ionic/react";
-import { informationCircleOutline, play } from "ionicons/icons";
+import {
+  chevronBackOutline,
+  chevronForwardOutline,
+  closeOutline,
+  flag,
+  informationCircleOutline,
+  play,
+} from "ionicons/icons";
 const token = import.meta.env.VITE_STRAPY_TOKEN;
 const apiKey = import.meta.env.VITE_ELEVEN_LABS_API_KEY;
+
+type ArticleComponent = {
+  id: string;
+  video: boolean;
+  title: string;
+  teaser: string;
+  link: string;
+  imageURL?: string;
+  speech_generated?: number;
+  tag: string;
+  author: string;
+  manual_id: string;
+  body?: string;
+  date: Date;
+  backgroundVideo: string | null;
+};
 
 const Discover: React.FC = () => {
   const [selectedVoiceId, setSelectedVoiceId] = useState(
     "21m00Tcm4TlvDq8ikWAM"
   );
   const [isExpandedArray, setIsExpandedArray] = useState<any>([]);
-  const [articles, setArticles] = useState<any>([]);
+  const [articles, setArticles] = useState<ArticleComponent[]>([]);
+  const [filters, setFilters] = useState<String[]>([
+    "article",
+    "video",
+    "audio",
+  ]);
   const [usedVoiceIds, setUsedVoicesIds] = useState<any>([
     "D38z5RcWu1voky8WS1ja",
     "21m00Tcm4TlvDq8ikWAM",
@@ -31,6 +60,14 @@ const Discover: React.FC = () => {
   const [usedVoices, setUsedVoices] = useState<any>([]);
   const [filteredArticles, setFilteredArticles] = useState<any>([]);
   const [searchText, setSearchText] = useState("");
+  const [pages, setPages] = useState<number[]>([]);
+  const [page, setPage] = useState(0);
+  const [pageArticles, setPageArticles] = useState<ArticleComponent[]>([]);
+  const entriesPerPage = 6;
+  const messagesEnd = useRef(null);
+  const didMountRef = useRef(false);
+  const [firstMount, setFirstMount] = useState(false);
+  const [images, setImages] = useState<String[]>([]);
 
   useEffect(() => {
     // fetch from localhost:1337/api/articles
@@ -43,10 +80,89 @@ const Discover: React.FC = () => {
     })
       .then((res) => res.json())
       .then((resp) => {
-        setArticles(resp.data);
-        setFilteredArticles(resp.data);
-        setIsExpandedArray(new Array(resp.data.length).fill(false));
-        console.log(resp.data);
+        const data = resp.data;
+        let resources: ArticleComponent[] = data.map((resource: any) => {
+          return {
+            id: resource.id,
+            video: false,
+            title: resource.attributes.title,
+            teaser: resource.attributes.teasers,
+            link: resource.attributes.link,
+            imageURL: resource.attributes.header_image.data
+              ? resource.attributes.header_image.data[0].attributes.name
+              : null,
+            backgroundVideo: resource.attributes.background_video
+              ? resource.attributes.background_video
+              : null,
+            tag: "article".concat(
+              resource.attributes.speech_generated === 1 ? " audio" : ""
+            ),
+            manual_id: resource.attributes.manual_id,
+            speech_generated: resource.attributes.speech_generated,
+            body: resource.attributes.body,
+            date: new Date(resource.attributes.published_date),
+          };
+        });
+        fetch(`${import.meta.env.VITE_STRAPI_URL}/api/videos?populate=*`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((response) => {
+            const videoData = response.data;
+            videoData.map((videoURL: any) => {
+              console.log(videoURL);
+              const videoID = videoURL.attributes.url.split("v=")[1];
+              fetch(
+                `https://www.googleapis.com/youtube/v3/videos?id=${videoID}&key=AIzaSyAi1dPx0fqC8EP9YoaNo1WPsykq_yVczCY&part=snippet,contentDetails,statistics,status&regionCode=us`,
+                {
+                  method: "GET",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                }
+              )
+                .then((res) => res.json())
+                .then((resp) => {
+                  const videoTitle = resp.items[0].snippet.title;
+                  const videoDescription = resp.items[0].snippet.description
+                    .split(".")
+                    .splice(0, 2)
+                    .join(".");
+                  resources.push({
+                    id: videoID,
+                    video: true,
+                    title: videoTitle,
+                    teaser:
+                      videoURL.attributes.description === null ||
+                      videoURL.attributes.description.trim() === ""
+                        ? videoDescription
+                        : videoURL.attributes.description,
+                    link: videoURL.attributes.url,
+                    tag: "video",
+                    speech_generated: 0,
+                    author: resp.items[0].snippet.channelID,
+                    manual_id: "10000",
+                    backgroundVideo: null,
+                    imageURL: resp.items[0].snippet.thumbnails.high.url,
+                    date: videoURL.attributes.site_published_date
+                      ? new Date(videoURL.attributes.site_published_date)
+                      : new Date(resp.items[0].snippet.publishedAt),
+                  });
+                  resources = resources.sort(
+                    (a, b) =>
+                      -1 *
+                      (new Date(a.date).getTime() - new Date(b.date).getTime())
+                  );
+                  setArticles(resources);
+                  setFilteredArticles(resources);
+                  setIsExpandedArray(new Array(resources.length).fill(false));
+                });
+            });
+          });
       });
   }, []);
 
@@ -77,8 +193,67 @@ const Discover: React.FC = () => {
       article.attributes.title.toLowerCase().includes(searchText.toLowerCase())
     );
     setFilteredArticles(filteredArticles);
-    console.log(filteredArticles);
   }, [searchText]);
+
+  useEffect(() => {
+    if (filters.length !== 0) {
+      let filtered: ArticleComponent[] = [];
+      filters.forEach((filter) => {
+        articles.map((article: any) =>
+          article.tag.includes(filter) && !filtered.includes(article)
+            ? filtered.push(article)
+            : null
+        );
+      });
+      setFilteredArticles(filtered);
+    } else {
+      setFilteredArticles(articles);
+    }
+  }, [articles, isExpandedArray, filters]);
+
+  useEffect(() => {
+    const numPages = Math.ceil(filteredArticles.length / entriesPerPage);
+    setPages([...Array(numPages).keys()]);
+    setPage(Math.max(0, Math.min(page, numPages - 1)));
+    setPageArticles(
+      filteredArticles.slice(
+        page * entriesPerPage,
+        Math.min(
+          page * entriesPerPage + entriesPerPage,
+          filteredArticles.length
+        )
+      )
+    );
+  }, [page, filteredArticles]);
+
+  const scrollToBottom = () => {
+    if (messagesEnd.current !== null) {
+      const html = messagesEnd.current as HTMLElement;
+      html.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (didMountRef.current && firstMount) {
+      scrollToBottom();
+    } else {
+      didMountRef.current = true;
+    }
+  }, [pageArticles]);
+
+  useEffect(() => {
+    fetch(`https://picsum.photos/v2/list?page=2&limit=${articles.length}`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((resp) => {
+        const imageUrls = resp.map((image: any) => image.download_url);
+        setImages(imageUrls);
+      });
+  }, []);
 
   const handleVoiceChange = (event: any) => {
     setSelectedVoiceId(event.target.value);
@@ -126,80 +301,79 @@ const Discover: React.FC = () => {
           </div>
           <div className="curve z-[-1]" />
 
-          <div className="md:ml-24 my-4">
+          <div className="md:ml-24 my-1">
             <div
               style={{
-                maxWidth: 800,
-                borderRadius: 20,
                 margin: "auto",
               }}
             >
-              <IonCard
-                color={"danger"}
-                style={{
-                  borderRadius: 40,
-                }}
-              >
-                <div className="flex justify-center">
-                  <IonCardHeader>
-                    <IonCardTitle className="text-2xl font-bold font-sans mb-2 md:mb-1 md:text-4xl">
-                      Explore the articles we have
-                    </IonCardTitle>
-                  </IonCardHeader>
-                </div>
-                {/* <IonCardContent>
-                  <IonChip outline={false} color={"light"}>
-                    <IonLabel>Articles</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false} color={"light"}>
-                    <IonLabel>TikToks</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false} color={"light"}>
-                    <IonLabel>Short Facts</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false} color={"light"}>
-                    <IonLabel>Instagram Posts</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false} color={"light"}>
-                    <IonLabel>Articles</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false} color={"light"}>
-                    <IonLabel>TikToks</IonLabel>
-                  </IonChip>
-                  <IonChip outline={false} color={"light"}>
-                    <IonLabel>Short Facts</IonLabel>
-                  </IonChip>
-                </IonCardContent> */}
-              </IonCard>
-              {/* <div className="h-6" /> */}
-              {/* <IonSearchbar
-                onInput={(event: any) => {
-                  console.log(event.target.value);
-                  setSearchText(event.target.value);
-                }}
-                mode="ios"
-                animated={true}
-                placeholder="Search for what you are looking for..."
-                color={"warning"}
-                style={{
-                  borderRadius: 40,
-                  maxWidth: 600,
-                  margin: "auto",
-                }}
-              ></IonSearchbar> */}
+              <div style={{ maxWidth: "fit-content", margin: "auto" }}>
+                <IonChip
+                  outline={false}
+                  color={filters.includes("article") ? "tertiary" : "medium"}
+                  onClick={() =>
+                    !filters.includes("article")
+                      ? setFilters(filters.concat(["article"]))
+                      : setFilters(
+                          filters.filter((filter) => filter !== "article")
+                        )
+                  }
+                >
+                  {filters.includes("article") ? (
+                    <IonIcon icon={closeOutline} />
+                  ) : (
+                    <div />
+                  )}
+                  <IonLabel>Articles</IonLabel>
+                </IonChip>
+                <IonChip
+                  outline={false}
+                  color={filters.includes("video") ? "tertiary" : "medium"}
+                  onClick={() =>
+                    !filters.includes("video")
+                      ? setFilters(filters.concat(["video"]))
+                      : setFilters(
+                          filters.filter((filter) => filter !== "video")
+                        )
+                  }
+                >
+                  {filters.includes("video") ? (
+                    <IonIcon icon={closeOutline} />
+                  ) : (
+                    <div />
+                  )}
+                  <IonLabel>Videos</IonLabel>
+                </IonChip>
+                <IonChip
+                  outline={false}
+                  color={filters.includes("audio") ? "tertiary" : "medium"}
+                  onClick={() =>
+                    !filters.includes("audio")
+                      ? setFilters(filters.concat(["audio"]))
+                      : setFilters(
+                          filters.filter((filter) => filter !== "audio")
+                        )
+                  }
+                >
+                  {filters.includes("audio") ? (
+                    <IonIcon icon={closeOutline} />
+                  ) : (
+                    <div />
+                  )}
+                  <IonLabel>Audio Available</IonLabel>
+                </IonChip>
+              </div>
+              <div className="h-6" />
             </div>
             <div className="mt-12 text-center">
               <div
-                className="my-12 flex justify-center md:justify-start"
+                className="my-12 flex justify-center md:justify-start items-center"
                 style={{
                   margin: "auto",
                   maxWidth: 1000,
                 }}
               >
                 <IonText className="mx-2">Select your voice</IonText>
-                {/* <IonButton size="small" color="warning" shape="round">
-                  <IonIcon icon={informationCircleOutline} />
-                </IonButton> */}
                 <IonButton
                   size="small"
                   color="success"
@@ -223,38 +397,175 @@ const Discover: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-wrap justify-center p-4">
-            {filteredArticles &&
-              filteredArticles.length > 0 &&
-              filteredArticles.map((article: any, index: number) => (
+          <div className="container mx-auto grid gap-5 auto-cols-fr sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr items-stretch justify-center p-4 center">
+            {pageArticles &&
+              pageArticles.length > 0 &&
+              pageArticles.map((article: any, index: number) => (
                 <div key={index}>
                   <IonicCard
                     id={article.id}
-                    title={article.attributes.title}
-                    body={article.attributes.body}
-                    author={article.attributes.author}
-                    tag={article.attributes.tag}
-                    image={""}
+                    title={article.title}
+                    body={article.video ? " " : article.body}
+                    author={article.author}
+                    tag={article.tag}
+                    image={
+                      article.imageURL !== null
+                        ? article.imageURL
+                        : images[article.id]
+                    }
                     voiceId={selectedVoiceId}
                     isExpanded={isExpandedArray[index]}
                     setIsExpandedArray={() => handleExpandCard(index)}
                     index={index}
-                    manual_id={article.attributes.manual_id}
-                    teaser={article.attributes.teasers}
-                    speech_generated={article.attributes.speech_generated}
-                    video={article.attributes.video}
-                    backgroundVideo={article.attributes.backgroundVideo}
+                    manual_id={article.manual_id}
+                    teaser={article.teaser}
+                    speech_generated={article.speech_generated}
+                    backgroundVideo={article.backgroundVideo}
+                    video={article.video}
                   />
                 </div>
               ))}
           </div>
           <div
             style={{
-              height: 100,
+              width: "fit-content",
+              borderRadius: "2rem",
+              margin: "auto",
+              paddingLeft: "1rem",
+              paddingRight: "1rem",
+              paddingTop: "1rem",
             }}
-          />
+          >
+            <div
+              className="container"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                margin: "auto",
+                width: "fit-content",
+              }}
+            >
+              <IonFabButton
+                onClick={() => {
+                  setPage(0);
+                  setFirstMount(true);
+                }}
+                color="transparent"
+                size="small"
+                style={{
+                  color: "white",
+                  "--box-shadow": "none",
+                  margin: "0.2rem",
+                }}
+              >
+                <IonIcon
+                  icon={chevronBackOutline}
+                  style={{ marginRight: "-0.75rem" }}
+                />
+                <IonIcon icon={chevronBackOutline} />
+              </IonFabButton>
+              <IonFabButton
+                onClick={() => {
+                  setPage(page - 1);
+                  setFirstMount(true);
+                }}
+                color="transparent"
+                size="small"
+                style={{
+                  color: "white",
+                  "--box-shadow": "none",
+                  margin: "0.2rem",
+                }}
+              >
+                <IonIcon icon={chevronBackOutline} />
+              </IonFabButton>
+              <IonButton
+                shape="round"
+                color="transparent"
+                size="small"
+                style={{
+                  color: "white",
+                  "--box-shadow": "none",
+                  margin: "0.2rem",
+                }}
+              >
+                <IonText>
+                  Page {page + 1} of {pages.length}
+                </IonText>
+              </IonButton>
+              <IonFabButton
+                onClick={() => {
+                  setPage(page + 1);
+                  setFirstMount(true);
+                }}
+                color="transparent"
+                size="small"
+                style={{
+                  color: "white",
+                  "--box-shadow": "none",
+                  margin: "0.2rem",
+                }}
+              >
+                <IonIcon icon={chevronForwardOutline} />
+              </IonFabButton>
+              <IonFabButton
+                onClick={() => {
+                  setPage(pages[pages.length - 1]);
+                  setFirstMount(true);
+                }}
+                color="transparent"
+                size="small"
+                style={{
+                  color: "white",
+                  "--box-shadow": "none",
+                  margin: "0.2rem",
+                }}
+              >
+                <IonIcon icon={chevronForwardOutline} />
+                <IonIcon
+                  icon={chevronForwardOutline}
+                  style={{ marginLeft: "-0.75rem" }}
+                />
+              </IonFabButton>
+            </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              padding: "0",
+              maxWidth: "fit-content",
+              margin: "auto",
+              borderRadius: "2rem",
+            }}
+          >
+            {pages.map((pageNumber) => (
+              <div>
+                <IonFabButton
+                  size="small"
+                  color={page === pageNumber ? "light" : "transparent"}
+                  onClick={() => {
+                    setPage(pageNumber);
+                    setFirstMount(true);
+                  }}
+                  style={{
+                    color: "white",
+                    "--box-shadow": "none",
+                    "--border-color": "white",
+                    "--border-style": "solid",
+                    "--border-width": "1px",
+                    margin: "0.2rem",
+                  }}
+                >
+                  {pageNumber + 1}
+                </IonFabButton>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
+      <div ref={messagesEnd}> </div>
     </>
   );
 };
