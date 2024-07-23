@@ -40,6 +40,7 @@ type ArticleComponent = {
   body?: string;
   date: Date;
   backgroundVideo: string | null;
+  pinned: boolean;
 };
 
 const Discover: React.FC = () => {
@@ -59,6 +60,7 @@ const Discover: React.FC = () => {
   ]);
   const [usedVoices, setUsedVoices] = useState<any>([]);
   const [filteredArticles, setFilteredArticles] = useState<any>([]);
+  const [pinnedOrderedArticles, setPinnedOrderedArticles] = useState<ArticleComponent[]>([]);
   const [searchText, setSearchText] = useState("");
   const [pages, setPages] = useState<number[]>([]);
   const [page, setPage] = useState(0);
@@ -84,24 +86,26 @@ const Discover: React.FC = () => {
         let resources: ArticleComponent[] = data.map((resource: any) => {
           return {
             id: resource.id,
-            video: false,
-            title: resource.attributes.title,
-            teaser: resource.attributes.teasers,
-            link: resource.attributes.link,
-            imageURL: resource.attributes.header_image.data
-              ? resource.attributes.header_image.data[0].attributes.name
-              : null,
-            backgroundVideo: resource.attributes.background_video
-              ? resource.attributes.background_video
-              : null,
-            tag: "article".concat(
-              resource.attributes.speech_generated === 1 ? " audio" : ""
-            ),
-            manual_id: resource.attributes.manual_id,
-            speech_generated: resource.attributes.speech_generated,
-            body: resource.attributes.body,
-            date: new Date(resource.attributes.published_date),
-          };
+                video: false,
+                title: resource.attributes.title,
+                teaser: resource.attributes.teasers,
+                link: resource.attributes.link,
+                imageURL: resource.attributes.header_image.data
+                  ? resource.attributes.header_image.data[0].attributes.name
+                  : null,
+                backgroundVideo: resource.attributes.background_video
+                  ? resource.attributes.background_video
+                  : null,
+                tag: "article".concat(
+                  resource.attributes.speech_generated === 1 ? " audio" : ""
+                ),
+                manual_id: resource.attributes.manual_id,
+                speech_generated: resource.attributes.speech_generated,
+                body: resource.attributes.body,
+                date: new Date(resource.attributes.published_date),
+                author: resource.attributes.author,
+                pinned: resource.attributes.pin_to_top,
+          }
         });
         fetch(`${import.meta.env.VITE_STRAPI_URL}/api/videos?populate=*`, {
           method: "GET",
@@ -114,7 +118,6 @@ const Discover: React.FC = () => {
           .then((response) => {
             const videoData = response.data;
             videoData.map((videoURL: any) => {
-              console.log(videoURL);
               const videoID = videoURL.attributes.url.split("v=")[1];
               fetch(
                 `https://www.googleapis.com/youtube/v3/videos?id=${videoID}&key=AIzaSyAi1dPx0fqC8EP9YoaNo1WPsykq_yVczCY&part=snippet,contentDetails,statistics,status&regionCode=us`,
@@ -151,6 +154,7 @@ const Discover: React.FC = () => {
                     date: videoURL.attributes.site_published_date
                       ? new Date(videoURL.attributes.site_published_date)
                       : new Date(resp.items[0].snippet.publishedAt),
+                    pinned: videoURL.attributes.pin_to_top,
                   });
                   resources = resources.sort(
                     (a, b) =>
@@ -211,20 +215,27 @@ const Discover: React.FC = () => {
     }
   }, [articles, isExpandedArray, filters]);
 
+  useEffect (() => {  
+    let pinned: ArticleComponent[] = filteredArticles.filter((article: any) => article.pinned === true).sort((a: ArticleComponent, b: ArticleComponent) => -1 * (new Date(a.date).getTime() - new Date(b.date).getTime()));
+    let unpinned: ArticleComponent[] = filteredArticles.filter((article: any) => article.pinned !== true);
+    unpinned.unshift(...pinned)
+    setPinnedOrderedArticles(unpinned);
+  }, [filteredArticles]);
+
   useEffect(() => {
     const numPages = Math.ceil(filteredArticles.length / entriesPerPage);
     setPages([...Array(numPages).keys()]);
     setPage(Math.max(0, Math.min(page, numPages - 1)));
     setPageArticles(
-      filteredArticles.slice(
+      pinnedOrderedArticles.slice(
         page * entriesPerPage,
         Math.min(
           page * entriesPerPage + entriesPerPage,
-          filteredArticles.length
+          pinnedOrderedArticles.length
         )
       )
     );
-  }, [page, filteredArticles]);
+  }, [page, pinnedOrderedArticles]);
 
   const scrollToBottom = () => {
     if (messagesEnd.current !== null) {
@@ -254,7 +265,7 @@ const Discover: React.FC = () => {
         setImages(imageUrls);
       });
   }, []);
-
+  
   const handleVoiceChange = (event: any) => {
     setSelectedVoiceId(event.target.value);
   };
@@ -414,14 +425,15 @@ const Discover: React.FC = () => {
                         : images[article.id]
                     }
                     voiceId={selectedVoiceId}
-                    isExpanded={isExpandedArray[index]}
-                    setIsExpandedArray={() => handleExpandCard(index)}
+                    isExpanded={isExpandedArray[article.id]}
+                    setIsExpandedArray={() => handleExpandCard(article.id)}
                     index={index}
                     manual_id={article.manual_id}
                     teaser={article.teaser}
                     speech_generated={article.speech_generated}
                     backgroundVideo={article.backgroundVideo}
                     video={article.video}
+                    pinned={article.pinned}
                   />
                 </div>
               ))}
