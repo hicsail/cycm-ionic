@@ -7,7 +7,7 @@ export default function AboutMissionSection() {
       <div className="flex flex-col justify-center items-center bg-[#FFE2E2] min-h-screen px-12 md:px-0">
         <div className="p-4 max-w-4xl w-full my-24">
           <h1 className="text-[#101066] font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-center leading-none mb-4">
-          Our mission
+            Our mission
           </h1>
           <br />
           <p className="text-[#101066] font-semibold text-base sm:text-lg md:text-xl lg:text-xl tracking-tight leading-tight mb-8">
@@ -51,7 +51,7 @@ export default function AboutMissionSection() {
                     Youth Empowerment
                   </h4>
                 </IonCardHeader>
-              </IonCard>   
+              </IonCard>
             </div>
           </div>
         </div>

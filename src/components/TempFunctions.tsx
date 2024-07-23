@@ -7,17 +7,22 @@ export default function TempFunctions() {
   const descriptions = [
     "Create educational content approved by mental health licensed clinicians and teens",
     "Build community partnerships to support youth through mental health programs and training",
-    "Partner with researchers to design youth mental health programs targetting needs of diverse youth"
-  ]
+    "Partner with researchers to design youth mental health programs targetting needs of diverse youth",
+  ];
 
   const nextSlide = () => {
-    setSlide(slide > descriptions.length - 2 ? 0 : slide + 1)
-  }
-  
+    setSlide(slide > descriptions.length - 2 ? 0 : slide + 1);
+  };
+
   return (
     <div className="flex flex-col max-w-7xl items-center mt-8 mx-auto gap-4 md:gap-14 px-8 z-[1] justify-center">
-        <TempFunction description= {descriptions[slide]} />
-        <IonButton className = "absolute mt-[25%] ml-[45%] justify-end align-" onClick = {nextSlide}>Next Slide</IonButton> 
+      <TempFunction description={descriptions[slide]} />
+      <IonButton
+        className="absolute mt-[25%] ml-[45%] justify-end align-"
+        onClick={nextSlide}
+      >
+        Next Slide
+      </IonButton>
     </div>
   );
 }

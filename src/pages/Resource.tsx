@@ -12,7 +12,7 @@ import {
   IonCardTitle,
   IonText,
 } from "@ionic/react";
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 const token = import.meta.env.VITE_STRAPY_TOKEN;
 
@@ -33,7 +33,6 @@ const Resource: React.FC = () => {
         setResources(resp.data);
       });
   }, []);
-
 
   return (
     <div className="">

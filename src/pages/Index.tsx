@@ -16,7 +16,7 @@ const Index: React.FC = () => {
       <NewHero />
       <div className="bg-gradient-to-b from-[#FFE2E2] to-[#FFFFFF]">
         <div className="h-12 md:h-64" />
-        <CenterDescriptionCards/>
+        <CenterDescriptionCards />
         <div className="relative max-w-5xl mx-auto my-16">
           <img className="w-full h-auto" alt="Vector" src="vector.svg" />
           <div className="absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -50,9 +50,7 @@ const Index: React.FC = () => {
         <img className="w-full h-auto z-[10]" alt="union-1" src="union-1.png" />
         <SocialInfographics />
         <Empower
-          
           description="Avoid misinformation provided on social media by accessing our mental health information for teens, reviewed by trusted mental health experts"
-
           bgColor="#FF6565"
           rounded
           textColor="white"

@@ -13,7 +13,7 @@ import {
 import { OverlayEventDetail } from "@ionic/core/components";
 import { useRef, useState } from "react";
 import { closeOutline } from "ionicons/icons";
-import './Profile.css';  
+import "./Profile.css";
 
 interface ProfileProps {
   avatar?: string;
@@ -59,7 +59,7 @@ const Profile = ({
   return (
     <div className="profile-container">
       <IonCard
-        style={{background: "#FFDBBB"}}
+        style={{ background: "#FFDBBB" }}
         button
         id={`open-modal${name.substring(0, 2)}`}
         className="profile-card"
