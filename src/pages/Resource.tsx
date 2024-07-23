@@ -12,13 +12,12 @@ import {
   IonCardTitle,
   IonText,
 } from "@ionic/react";
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 
 const token = import.meta.env.VITE_STRAPY_TOKEN;
 
 const Resource: React.FC = () => {
   const [resources, setResources] = useState<any>([]);
-
   useEffect(() => {
     // Fetch resources from API
     fetch(`${import.meta.env.VITE_STRAPI_URL}/api/resources?populate=*`, {
@@ -32,13 +31,12 @@ const Resource: React.FC = () => {
       .then((resp) => {
         setResources(resp.data);
       });
-
   }, []);
 
 
   return (
     <div className="">
-      <div className="pt-36 flex flex-col justify-center items-center bg-gradient-to-b from-[#ffffff] via-[#FFE2E2] to-[#FFBABA] min-h-screen px-12 md:px-0">
+      <div className="pt-36 flex flex-col justify-center items-center bg-[#FFE2E2] min-h-screen px-12 md:px-0">
         <div className="p-4 max-w-4xl w-full my-24">
           <h1 className="text-[#101066] font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-none mb-4">
             Mental Health Resources for Teenagers
