@@ -1,20 +1,17 @@
 interface ScrollProps {
-    btnElement?: JSX.Element;
-    rounded?: boolean;
-  }
-  
-  const FeaturedScroll = ({
-    btnElement,
-    rounded = false,
-  }: ScrollProps) => {
-    return (
-          <div className="flex flex-col items-start justify-center my-4">
-            <div className="flex mx-auto">{btnElement}</div>
-          </div>
-    );
-  };
-  
-  export default FeaturedScroll;
+  btnElement?: JSX.Element;
+  rounded?: boolean;
+}
+
+const FeaturedScroll = ({ btnElement, rounded = false }: ScrollProps) => {
+  return (
+    <div className="flex flex-col items-start justify-center my-4">
+      <div className="flex mx-auto">{btnElement}</div>
+    </div>
+  );
+};
+
+export default FeaturedScroll;
 
 /* 
 Belongs in Index

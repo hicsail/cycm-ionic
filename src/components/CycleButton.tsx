@@ -6,4 +6,5 @@ import { IonIcon, IonButton, IonTitle, IonToolbar } from "@ionic/react";
       <IonIcon slot="icon-only" name="chevron-forward"></IonIcon>
     </IonButton>
   </IonButton>
-  <IonTitle>Icon Buttons</IonTitle></IonToolbar>
+  <IonTitle>Icon Buttons</IonTitle>
+</IonToolbar>;

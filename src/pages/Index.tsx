@@ -2,10 +2,10 @@ import React from "react";
 import CenterDescriptionCards from "../components/CenterDescriptionCards";
 import Empower from "../components/Empower";
 import HelpInfographics from "../components/HelpInfographics";
-import FeaturedVideo from "../components/FeaturedVideo"
+import FeaturedVideo from "../components/FeaturedVideo";
 import NewHero from "../components/NewHero";
 import SocialInfographics from "../components/SocialInfographics";
-import { useHistory } from "react-router"; 
+import { useHistory } from "react-router";
 import FeaturedScroll from "../components/FeaturedScroll";
 import Button from "../components/Button";
 
@@ -28,12 +28,16 @@ const Index: React.FC = () => {
             </h1>
           </div>
         </div>
-        <FeaturedVideo 
-        id={"2nlSD0zD8Gk"} 
-        src={"https://www.youtube.com/embed/2nlSD0zD8Gk?si=agu4O16t3bzT7TlW"} 
-        title={"Imposter Syndrome: It's Not You, It's What Happened to You | Sheaba Chacko | TEDxChattanooga"} 
-        allow={"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"} 
-        referrerPolicy={"strict-origin-when-cross-oigin"}
+        <FeaturedVideo
+          id={"2nlSD0zD8Gk"}
+          src={"https://www.youtube.com/embed/2nlSD0zD8Gk?si=agu4O16t3bzT7TlW"}
+          title={
+            "Imposter Syndrome: It's Not You, It's What Happened to You | Sheaba Chacko | TEDxChattanooga"
+          }
+          allow={
+            "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+          }
+          referrerPolicy={"strict-origin-when-cross-oigin"}
         />
         <HelpInfographics />
         <Empower
