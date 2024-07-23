@@ -104,16 +104,18 @@ const Profile = ({
         trigger={`open-modal${name.substring(0, 2)}`}
         onWillDismiss={(ev) => onWillDismiss(ev)}
       >
-        <IonHeader>
-          <IonToolbar>
-            <IonButtons slot="end">
-              <IonButton onClick={() => modal.current?.dismiss()}>
-                <IonIcon icon={closeOutline} />
-              </IonButton>
-            </IonButtons>
-          </IonToolbar>
-        </IonHeader>
-        <IonContent className="ion-padding">
+        <IonContent className="ion-padding" style={{ width: "102.5%" }}>
+          <button
+            onClick={() => modal.current?.dismiss()}
+            style={{
+              width: "fit-content",
+              position: "absolute",
+              top: "2%",
+              right: "3.5%",
+            }}
+          >
+            <IonIcon icon={closeOutline} />
+          </button>
           <h2 className="modal-name">{name}</h2>
           <h4 className="modal-title">{title}</h4>
           <div className="modal-socials">
@@ -137,8 +139,25 @@ const Profile = ({
                 )
             )}
           </div>
-          <IonAvatar className="modal-avatar">
-            <img src={avatar} />
+          <div
+            style={{
+              height: 20,
+            }}
+          />
+          <IonAvatar
+            style={{
+              width: 200,
+              height: 200,
+              margin: "auto",
+            }}
+          >
+            <img
+              src={avatar}
+              style={{
+                width: 200,
+                height: 200,
+              }}
+            />
           </IonAvatar>
           <p className="modal-biography">{biography}</p>
         </IonContent>

@@ -4,6 +4,7 @@ interface EmpowerProps {
   bgColor?: string;
   btnElement?: JSX.Element;
   rounded?: boolean;
+  textColor?: string;
 }
 
 const Empower = ({
@@ -12,6 +13,7 @@ const Empower = ({
   bgColor,
   btnElement,
   rounded = false,
+  textColor,
 }: EmpowerProps) => {
   return (
     <div className="flex justify-center p-8">
@@ -27,7 +29,9 @@ const Empower = ({
           <h1 className="text-4xl font-bold font-sans md:text-4xl mb-4">
             {title}
           </h1>
-          <p className="text-md font-sans font-semibold text-center md:text-lg mb-4 text-white">
+          <p
+            className={`text-md font-sans font-semibold text-center md:text-lg mb-4 text-${textColor}`}
+          >
             {description}
           </p>
           <div className="flex mx-auto">{btnElement}</div>

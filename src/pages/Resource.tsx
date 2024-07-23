@@ -18,6 +18,7 @@ const token = import.meta.env.VITE_STRAPY_TOKEN;
 
 const Resource: React.FC = () => {
   const [resources, setResources] = useState<any>([]);
+
   useEffect(() => {
     // Fetch resources from API
     fetch(`${import.meta.env.VITE_STRAPI_URL}/api/resources?populate=*`, {
@@ -50,23 +51,44 @@ const Resource: React.FC = () => {
           </p>
         </div>
         <div className="max-w-6xl mx-auto mb-24">
-          <div className="grid gap-8 md:grid-cols-3 md:mb-16">
+          <div className="grid gap-1 xl:gap-24 lg:gap-12 md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 md:mb-16 m-24 sm:m-8">
             {resources.map((resource: any) => (
               <IonCard
                 button={true}
+                style={{
+                  "--background": "transparent",
+                  boxShadow: "none",
+                }}
                 onClick={() => {
                   window.open(resource.attributes.link, "_blank");
                 }}
               >
                 <img
-                  src={`${import.meta.env.VITE_STRAPI_URL}${resource.attributes.image.data.attributes.url}`}
+                  src={`${import.meta.env.VITE_STRAPI_URL}${
+                    resource.attributes.image.data.attributes.url
+                  }`}
                   alt={resource.attributes.title}
-                  className="mx-auto md:w-full"
+                  className="mx-auto lg:w-full sm:w-3/4"
                 />
-                <IonCardHeader>
-                  <IonCardTitle>{resource.attributes.name}</IonCardTitle>
+                <IonCardHeader style={{ paddingTop: "0rem" }}>
+                  <IonCardTitle
+                    style={{
+                      textAlign: "center",
+                      marginTop: "0rem",
+                      lineHeight: "1rem",
+                      paddingTop: "0rem",
+                    }}
+                  >
+                    {resource.attributes.name}
+                  </IonCardTitle>
                 </IonCardHeader>
-                <IonCardContent>
+                <IonCardContent
+                  style={{
+                    textAlign: "center",
+                    marginTop: "0rem",
+                    lineHeight: "1rem",
+                  }}
+                >
                   {resource.attributes.description}
                 </IonCardContent>
               </IonCard>

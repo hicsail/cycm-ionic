@@ -31,6 +31,12 @@ export default function NewHero() {
         <img
           src="pic4.png"
           className="absolute lg:block hidden w-[30%] h-auto z-0 left-[60rem] top-[-26rem]"
+          className="absolute lg:block hidden w-[45%] h-auto z-0 left-[70rem] top-[-15rem]"
+          alt="Rectangle"
+        />
+        <img
+          src="pic4.png"
+          className="absolute lg:block hidden w-[30%] h-auto z-0 left-[60rem] top-[-26rem]"
           alt="Rectangle"
         />
 
@@ -53,6 +59,11 @@ export default function NewHero() {
           <img
             src="pic4.png"
             className="absolute lg:hidden block w-[40%] h-auto z-0 left-[50%] sm: top-[22rem]"
+            alt="Rectangle"
+          />
+          <img
+            src="pic5.png"
+            className="absolute h-auto z-10 left-[-8rem] lg:left-[-13rem] w-[40%] lg:w-[30%] top-[15rem]"
             alt="Rectangle"
           />
           <img
