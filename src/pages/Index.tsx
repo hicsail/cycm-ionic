@@ -6,7 +6,6 @@ import FeaturedVideo from "../components/FeaturedVideo";
 import NewHero from "../components/NewHero";
 import SocialInfographics from "../components/SocialInfographics";
 import { useHistory } from "react-router";
-import FeaturedScroll from "../components/FeaturedScroll";
 import Button from "../components/Button";
 
 const Index: React.FC = () => {
@@ -27,7 +26,7 @@ const Index: React.FC = () => {
               mental health support
             </h1>
           </div>
-        </div>
+        </div> 
         <FeaturedVideo
           id={"2nlSD0zD8Gk"}
           src={"https://www.youtube.com/embed/2nlSD0zD8Gk?si=agu4O16t3bzT7TlW"}
@@ -38,7 +37,9 @@ const Index: React.FC = () => {
             "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
           }
           referrerPolicy={"strict-origin-when-cross-oigin"}
+          btnRounded = { true }
         />
+        {/* <FeaturedScroll/> */}
         <HelpInfographics />
         <Empower
           description="Discover helpful resources and articles to promote mental health awareness and support for teens. Together, we can create a safe and nurturing environment for their well-being."

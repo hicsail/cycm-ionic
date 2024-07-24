@@ -1,31 +1,28 @@
-interface ScrollProps {
-  btnElement?: JSX.Element;
-  rounded?: boolean;
-}
+// import React from 'react';
 
-const FeaturedScroll = ({ btnElement, rounded = false }: ScrollProps) => {
-  return (
-    <div className="flex flex-col items-start justify-center my-4">
-      <div className="flex mx-auto">{btnElement}</div>
-    </div>
-  );
-};
+// interface ScrollProps {
+//   btnElement?: JSX.Element;
+//   rounded?: boolean;
+// }
 
-export default FeaturedScroll;
+// const FeaturedScroll: React.FC<ScrollProps> = ({ btnElement, rounded = false }: ScrollProps) => {
+  
+//   return (
+    
+//   );
+// };
 
-/* 
-Belongs in Index
-Code for a button that takes you to another video through a popup
-<FeaturedScroll
-    btnElement={
-    <button
-      type='button'
-      className={`text-orange-600 hover:text-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-600 font-medium rounded-full text-md px-5 py-2.5`}
-      onClick={() => {
-        window.open('https://www.youtube.com/watch?v=X2DUpDxFJyg', 'youtube', 'popup');
-      }}
-    >
-      Next Video
-    </button>
-  }
-  /> */
+// function switchVideo(index: number): void {
+//   const vid: HTMLVideoElement | null = document.getElementById("vid") as HTMLVideoElement;
+//   if (!vid) return;
+
+//   const mp4: string | undefined = videos[index];
+//   if (!mp4) return;
+
+//   console.log('video: ' + mp4);
+//   vid.src = mp4;
+//   vid.load();
+//   vid.play();
+// }
+
+// export default FeaturedScroll;
