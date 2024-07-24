@@ -31,7 +31,6 @@ export default function NewHero() {
         <img
           src="pic4.png"
           className="absolute lg:block hidden w-[30%] h-auto z-0 left-[60rem] top-[-26rem]"
-          className="absolute lg:block hidden w-[45%] h-auto z-0 left-[70rem] top-[-15rem]"
           alt="Rectangle"
         />
         <img
