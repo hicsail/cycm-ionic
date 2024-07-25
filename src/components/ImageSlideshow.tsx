@@ -39,19 +39,23 @@ export default function ImageSlideshow() {
             </IonCardSubtitle>
           </IonCardContent>
           <IonButton
-              className="absolute top-[83%] right-[0.5rem] justify-end w-[4rem] h-[3rem] "
-              onClick={nextSlide}
-              color="light"
-              size="small"
-              shape="round"
-              style={{
-                "--box-shadow": "none",
-                "--ripple-color": "transparent",
-                "transition": "width 2s, height 4s"
-              }}
-            >
-              <IonIcon size="large" icon={arrowForwardOutline} style={{ color: "red" }} />
-            </IonButton>
+            className="absolute top-[83%] right-[0.5rem] justify-end w-[4rem] h-[3rem] "
+            onClick={nextSlide}
+            color="light"
+            size="small"
+            shape="round"
+            style={{
+              "--box-shadow": "none",
+              "--ripple-color": "transparent",
+              transition: "width 2s, height 4s",
+            }}
+          >
+            <IonIcon
+              size="large"
+              icon={arrowForwardOutline}
+              style={{ color: "red" }}
+            />
+          </IonButton>
         </IonCard>
       </div>
     </div>
