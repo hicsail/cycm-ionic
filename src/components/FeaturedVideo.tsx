@@ -1,5 +1,5 @@
-import { IonButton, IonIcon } from "@ionic/react";
-import { chevronForward, chevronForwardCircle } from "ionicons/icons";
+import { IonIcon } from "@ionic/react";
+import { chevronForward } from "ionicons/icons";
 import React, { useEffect, useState } from "react";
 
 const token = import.meta.env.VITE_STRAPY_TOKEN;
@@ -26,8 +26,8 @@ function FeaturedVideo({
   const [slide, setSlide] = useState(0);
 
   const [ videos, setVideos ] = useState<string[]>([
-    "https://www.youtube.com/watch?v=LDU_Txk06tM", 
-    "https://www.youtube.com/watch?v=2nlSD0zD8Gk"
+    "https://www.youtube.com/embed/=LDU_Txk06tM", 
+    "https://www.youtube.com/embed/=2nlSD0zD8Gk"
   ]);
 
   useEffect(() => {
@@ -47,12 +47,12 @@ function FeaturedVideo({
 
   useEffect(() => {
    setVideos(videos.map((video: string) => video.replace("watch?v=", "embed/")))
-  }, [])
+  }, [videos])
 
   useEffect(() => {
     if(slide > videos.length - 1) setSlide(0)
     if(slide < 0) setSlide(videos.length - 1)
-  })
+  }, [slide, videos])
 
   return (
     <div
@@ -82,14 +82,11 @@ function FeaturedVideo({
       }}
     >
     
-    <IonIcon icon = {chevronForward}
-    size="large" 
-    ></IonIcon>
+    <IonIcon icon = {chevronForward} size="large"/>
     </button>
     </div>
     </div>
-    </div>
-    
+    </div> 
   );
 }
 

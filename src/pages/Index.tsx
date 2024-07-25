@@ -33,13 +33,10 @@ const Index: React.FC = () => {
           title={
             "Imposter Syndrome: It's Not You, It's What Happened to You | Sheaba Chacko | TEDxChattanooga"
           }
-          allow={
-            "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-          }
+          allow={"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"}
           referrerPolicy={"strict-origin-when-cross-oigin"}
           btnRounded = { true }
         />
-        {/* <FeaturedScroll/> */}
         <HelpInfographics />
         <Empower
           description="Discover helpful resources and articles to promote mental health awareness and support for teens. Together, we can create a safe and nurturing environment for their well-being."
