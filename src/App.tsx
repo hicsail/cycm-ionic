@@ -5,7 +5,7 @@ import {
   setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { Redirect, Route } from "react-router-dom";
+import { BrowserRouter, Redirect, Route } from "react-router-dom";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -39,7 +39,7 @@ setupIonicReact();
 const App: React.FC = () => {
   return (
     <IonApp>
-      <IonReactRouter>
+      <BrowserRouter>
         <Navbar />
         <IonRouterOutlet id="main" style={{ height: "100%", overflow: "auto" }}>
           <IonContent>
@@ -61,7 +61,7 @@ const App: React.FC = () => {
             <Footer />
           </IonContent>
         </IonRouterOutlet>
-      </IonReactRouter>
+      </BrowserRouter>
     </IonApp>
   );
 };

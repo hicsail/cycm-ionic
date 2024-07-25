@@ -10,6 +10,7 @@ import {
   IonLabel,
 } from "@ionic/react";
 import React, { useEffect, useState } from "react";
+import { PiPushPinFill } from "react-icons/pi";
 import CardModal from "./CardModal";
 import { playCircle, playCircleOutline } from "ionicons/icons";
 import Button from "./Button";
@@ -30,6 +31,7 @@ interface CardProps {
   speech_generated: number;
   video: boolean;
   backgroundVideo: string | null;
+  pinned: boolean;
 }
 
 export default function IonicCard({
@@ -43,6 +45,7 @@ export default function IonicCard({
   video,
   image,
   backgroundVideo,
+  pinned,
 }: CardProps) {
   const [summary, setSummary] = useState<string>(body.split(".")[0]);
   const [sentences, setSentences] = useState<string[]>(body.split("."));
@@ -117,6 +120,19 @@ export default function IonicCard({
               alt="random"
             />
           </div>
+        )}
+        {pinned === true ? (
+          <PiPushPinFill
+            size="1.5em"
+            color="white"
+            style={{
+              position: "absolute",
+              top: "1%",
+              right: "2.5%",
+            }}
+          />
+        ) : (
+          <div></div>
         )}
         <IonCardHeader>
           <IonCardTitle
