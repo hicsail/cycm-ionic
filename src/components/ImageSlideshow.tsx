@@ -18,7 +18,7 @@ const token = import.meta.env.VITE_STRAPY_TOKEN;
 export default function ImageSlideshow() {
   const [slide, setSlide] = React.useState(0);
   const [slides, setSlides] = React.useState<SlideComponent[]>([]);
-  
+
   useEffect(() => {
     fetch(`${import.meta.env.VITE_STRAPI_URL}/api/slides?populate=*`, {
       method: "GET",
@@ -30,10 +30,10 @@ export default function ImageSlideshow() {
       .then((res) => res.json())
       .then((resp) => {
         const data = resp.data;
-        console.log(data)
+        console.log(data);
         let slides: SlideComponent[] = data.map((slide: any) => {
-          console.log(slide)
-          console.log(slide.attributes.background.data[0].attributes.name)
+          console.log(slide);
+          console.log(slide.attributes.background.data[0].attributes.name);
           return {
             background: slide.attributes.background.data[0].attributes.name,
             description: slide.attributes.description,
@@ -41,7 +41,7 @@ export default function ImageSlideshow() {
         });
         setSlides(slides);
       });
-    }, []);
+  }, []);
 
   const nextSlide = () => {
     setSlide(slide > slides.length - 2 ? 0 : slide + 1);
@@ -53,20 +53,25 @@ export default function ImageSlideshow() {
         <IonCard
           className={`flex flex-col items-center w-auto h-72 sm:h-96 md:h-[28rem] lg:h-[32rem] xl:h-[36rem] object-stretch mx-auto justify-center overflow-hidden`}
         >
-          <img src = {slides[slide].background} alt="slide" className="object-cover shrink-0 min-w-full min-h-[115%]" />
-            <IonCardSubtitle className = "md:text-lg lg:text-2xl xl:text-3xl text-md w-full md:w-3/4"
-              style={{
-                color: "white",
-                fontWeight: "bold",
-                textAlign: "center",
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-              }}
-            >
-              {slides[slide].description}
-            </IonCardSubtitle>
+          <img
+            src={slides[slide].background}
+            alt="slide"
+            className="object-cover shrink-0 min-w-full min-h-[115%]"
+          />
+          <IonCardSubtitle
+            className="md:text-lg lg:text-2xl xl:text-3xl text-md w-full md:w-3/4"
+            style={{
+              color: "white",
+              fontWeight: "bold",
+              textAlign: "center",
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+            }}
+          >
+            {slides[slide].description}
+          </IonCardSubtitle>
           <IonButton
             className="absolute bottom-[0.5rem] right-[0.5rem] justify-end w-[4rem] h-[3rem] "
             onClick={nextSlide}
