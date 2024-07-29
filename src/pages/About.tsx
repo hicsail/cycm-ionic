@@ -12,13 +12,11 @@ const About: React.FC = () => {
   return (
     <IonPage>
       <IonContent>
-        <div className="pt-36 md:pt-12 mb-48">
-          <PaddedHeaderText />
-          <AboutMissionSection />
-          <AboutTeamProfiles />
-          <AboutFutureVisionSections />
-        </div>
-        <Footer />
+        <PaddedHeaderText />
+        <AboutMissionSection />
+        <AboutTeamProfiles />
+        <AboutFutureVisionSections />
+        <Footer/>
       </IonContent>
     </IonPage>
   );

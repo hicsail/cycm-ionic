@@ -1,0 +1,7 @@
+.featured-card-3up--carousel .swiper-button-wrapper,.org-mission .swiper-button-wrapper,body.is-rc .post-carousel .swiper-button-wrapper {
+    background-color: rgb(219 213 255/var(--tw-bg-opacity));
+    --tw-bg-opacity: 0.8;
+    --tw-text-opacity: 1;
+    color: rgb(16 16 102/var(--tw-text-opacity));
+    --currentColor: #101066
+}

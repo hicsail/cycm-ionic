@@ -56,25 +56,25 @@ const Footer = () => {
                 </h5>
                 <div className="flex gap-3">
                   <a
-                    className="flex font-medium items-center text-white hoverIcon"
+                    className="flex font-medium items-center text-blue-800 hoverIcon"
                     href="https://www.facebook.com/"
                   >
                     <IonIcon icon={logoFacebook} size="large" />
                   </a>
                   <a
-                    className="flex font-medium items-center text-white hoverIcon"
+                    className="flex font-medium items-center text-red-400 hoverIcon"
                     href="https://www.instagram.com/"
                   >
                     <IonIcon icon={logoInstagram} size="large" />
                   </a>
                   <a
-                    className="flex font-medium items-center text-white hoverIcon"
+                    className="flex font-medium items-center text-blue-400 hoverIcon"
                     href="https://www.twitter.com/"
                   >
                     <IonIcon icon={logoTwitter} size="large" />
                   </a>
                   <a
-                    className="flex font-medium items-center text-white hoverIcon"
+                    className="flex font-medium items-center text-blue-700 hoverIcon"
                     href="https://www.linkedin.com/"
                   >
                     <IonIcon icon={logoLinkedin} size="large" />

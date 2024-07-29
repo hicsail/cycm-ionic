@@ -13,6 +13,7 @@ import {
 import { OverlayEventDetail } from "@ionic/core/components";
 import { useRef, useState } from "react";
 import { closeOutline } from "ionicons/icons";
+import "./Profile.css";
 
 interface ProfileProps {
   avatar?: string;
@@ -56,41 +57,30 @@ const Profile = ({
   }
 
   return (
-    <div className="flex justify-center">
+    <div className="profile-container">
       <IonCard
-        color={"warning"}
+        style={{ background: "#FFDBBB" }}
         button
         id={`open-modal${name.substring(0, 2)}`}
-        style={{
-          width: 240,
-          height: 360,
-        }}
+        className="profile-card"
       >
         <IonCardContent>
-          <div className="flex flex-col">
+          <div className="profile-content">
             <img
-              className="w-32 h-32 rounded-full mb-2 mx-auto"
+              className="profile-avatar"
               src={avatar ?? "/avatars/placeholder.gif"}
             />
-            <span className="text-lg font-bold font-sans">{name}</span>
-            <span className="text-md font-sans mb-2">{title}</span>
-            {/* <p className="text-md font-sans mb-2 md:text-sm">{description}</p> */}
+            <span className="profile-name">{name}</span>
+            <span className="profile-title">{title}</span>
           </div>
         </IonCardContent>
-        <div className="h-12" />
-        <div
-          className="flex bottom-5 absolute left-5"
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-        >
+        <div className="profile-socials">
           {socials.map(
             (social) =>
               social.link !== "#" && (
                 <a
                   key={social.name}
-                  className="flex font-medium items-center"
-                  // href={social.link}
+                  className="profile-social-link"
                   onClick={(e) => {
                     e.stopPropagation();
                     window.open(social.link);
@@ -98,7 +88,7 @@ const Profile = ({
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 mx-2 my-2"
+                    className="profile-social-icon"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -126,35 +116,20 @@ const Profile = ({
           >
             <IonIcon icon={closeOutline} />
           </button>
-          <h2 className="text-[#101066] font-bold text-xl">{name}</h2>
-          <div
-            style={{
-              height: 20,
-            }}
-          />
-          <h4 className="text-[#101066] font-bold">{title}</h4>
-          <div
-            style={{
-              height: 10,
-            }}
-          />
-          <div
-            className="flex"
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-          >
+          <h2 className="modal-name">{name}</h2>
+          <h4 className="modal-title">{title}</h4>
+          <div className="modal-socials">
             {socials.map(
               (social) =>
                 social.link !== "#" && (
                   <a
                     key={social.name}
-                    className="flex font-medium items-center"
+                    className="modal-social-link"
                     href={social.link}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4 mx-2 my-2"
+                      className="modal-social-icon"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -184,12 +159,7 @@ const Profile = ({
               }}
             />
           </IonAvatar>
-          <div
-            style={{
-              height: 20,
-            }}
-          />
-          <p className="text-[#101066]">{biography}</p>
+          <p className="modal-biography">{biography}</p>
         </IonContent>
       </IonModal>
     </div>

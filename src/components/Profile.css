@@ -1,0 +1,106 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  .profile-container {
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+  }
+  
+  .profile-card {
+    width: 240px;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  
+  .profile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .profile-name {
+    font-size: 1.2em;
+    color: #101066;
+    font-weight: bold;
+  }
+  
+  .profile-title {
+    font-size: 1em;
+    color: #101066;
+  }
+  
+  .profile-socials {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .profile-social-link {
+    margin: 0 5px;
+  }
+  
+  .profile-social-icon {
+    width: 20px;
+    height: 20px;
+    fill: #101066;
+  }
+  
+  .modal-name {
+    color: #101066;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .modal-title {
+    color: #101066;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .modal-socials {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .modal-social-link {
+    margin: 0 5px;
+  }
+  
+  .modal-social-icon {
+    width: 20px;
+    height: 20px;
+    fill: #101066;
+  }
+  
+  .modal-avatar {
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+  }
+  
+  .modal-biography {
+    color: #101066;
+    font-size: 1em;
+  }
+  
