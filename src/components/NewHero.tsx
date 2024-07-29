@@ -39,7 +39,7 @@ export default function NewHero() {
           alt="Rectangle"
         />
 
-        <div className="flex relative translate-x-[-50%] lg:left-2/3 left-[55%] lg:top-[-10rem] top-[-8rem]">
+        <div className="flex relative translate-x-[-50%] lg:left-2/3 left-[55%] lg:top-[-10rem] top-[-8rem] mb-40">
           <img
             src="pic1.png"
             className="absolute lg:w-auto w-[45%] h-auto z-0 lg:top-[5rem] top-[7rem]"
@@ -47,7 +47,7 @@ export default function NewHero() {
           />
           <img
             src="pic2.png"
-            className="absolute lg:w-auto w-[60%] h-auto z-10 lg:left-[19rem] left-[35%] lg:top-[14rem] top-[9rem]"
+            className="absolute lg:w-auto w-[60%] h-auto z-10 lg:left-[19rem] left-[35%] lg:top-[14rem] top-[8rem]"
             alt="Rectangle"
           />
           <img

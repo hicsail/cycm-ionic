@@ -16,7 +16,7 @@ const About: React.FC = () => {
         <AboutMissionSection />
         <AboutTeamProfiles />
         <AboutFutureVisionSections />
-        <Footer />
+        <Footer/>
       </IonContent>
     </IonPage>
   );
