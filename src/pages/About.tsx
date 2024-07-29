@@ -10,12 +10,12 @@ import Footer from "../components/Footer";
 
 const About: React.FC = () => {
   return (
-        <div className="pt-36 md:pt-12 mb-48">
-          <PaddedHeaderText />
-          <AboutMissionSection />
-          <AboutTeamProfiles />
-          <AboutFutureVisionSections />
-        </div>
+    <div className="pt-36 md:pt-12 mb-48">
+      <PaddedHeaderText />
+      <AboutMissionSection />
+      <AboutTeamProfiles />
+      <AboutFutureVisionSections />
+    </div>
   );
 };
 
