@@ -26,16 +26,18 @@ const Index: React.FC = () => {
               mental health support
             </h1>
           </div>
-        </div> 
+        </div>
         <FeaturedVideo
           id={"2nlSD0zD8Gk"}
           src={"https://www.youtube.com/embed/2nlSD0zD8Gk?si=agu4O16t3bzT7TlW"}
           title={
             "Imposter Syndrome: It's Not You, It's What Happened to You | Sheaba Chacko | TEDxChattanooga"
           }
-          allow={"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"}
+          allow={
+            "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+          }
           referrerPolicy={"strict-origin-when-cross-oigin"}
-          btnRounded = { true }
+          btnRounded={true}
         />
         <HelpInfographics />
         <Empower
