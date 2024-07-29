@@ -8,18 +8,21 @@ import {
 } from "@ionic/react";
 import { arrowForwardOutline } from "ionicons/icons";
 
+// Type definition for the slide component
 type SlideComponent = {
   background: string;
   description: string;
 };
 
+// Get the token from environment variables
 const token = import.meta.env.VITE_STRAPY_TOKEN;
 
 export default function ImageSlideshow() {
-  const [slide, setSlide] = React.useState(0);
-  const [slides, setSlides] = React.useState<SlideComponent[]>([]);
+  const [slide, setSlide] = React.useState(0); // State to keep track of the current slide
+  const [slides, setSlides] = React.useState<SlideComponent[]>([]); // State to store the slides
 
   useEffect(() => {
+    // Fetch the slides data from the Strapi API
     fetch(`${import.meta.env.VITE_STRAPI_URL}/api/slides?populate=*`, {
       method: "GET",
       headers: {
@@ -31,6 +34,7 @@ export default function ImageSlideshow() {
       .then((resp) => {
         const data = resp.data;
         console.log(data);
+        // Map the fetched data to the SlideComponent format
         let slides: SlideComponent[] = data.map((slide: any) => {
           console.log(slide);
           console.log(slide.attributes.background.data[0].attributes.name);
@@ -39,10 +43,11 @@ export default function ImageSlideshow() {
             description: slide.attributes.description,
           };
         });
-        setSlides(slides);
+        setSlides(slides); // Update the slides state
       });
   }, []);
 
+  // Function to move to the next slide
   const nextSlide = () => {
     setSlide(slide > slides.length - 2 ? 0 : slide + 1);
   };
