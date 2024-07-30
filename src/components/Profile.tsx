@@ -64,7 +64,8 @@ const Profile = ({
         style={{
           width: 240,
           height: 360,
-          "--background": "linear-gradient(180deg, #FFF 26.5%, #FD9390 87.5%, #FB4B45 100%)",
+          "--background":
+            "linear-gradient(180deg, #FFF 26.5%, #FD9390 87.5%, #FB4B45 100%)",
         }}
         className="flex flex-col"
       >
