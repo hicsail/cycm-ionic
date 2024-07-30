@@ -42,21 +42,21 @@ export default function AboutTeamProfiles() {
         {/* <img className="w-full h-auto z-[10]" alt="union-1" src="red-union.svg" /> */}
         <div className="p-4 max-w-6xl w-full pt-36">
           <div className="flex flex-col items-start justify-center">
-            <h1 className="text-[#101066] font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-none mb-4">
+            <h1 className="text-[#101066] font-bold text-4xl mx-auto lg:ml-0 sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-none mb-0 lg:mb-8">
               Meet our team
             </h1>
           </div>
-          <p className="text-[#101066] font-semibold text-base sm:text-lg md:text-xl lg:text-xl tracking-tight leading-tight mb-8">
+          <p className="text-[#101066] font-semibold text-base text-center lg:text-left sm:text-lg md:text-xl lg:text-xl tracking-tight leading-tight mb-0 lg:mb-8">
             The experts behind our mental health resources
           </p>
-          <p className="text-[#101066] font-semibold text-base sm:text-lg md:text-xl lg:text-xl tracking-tight leading-tight mb-8">
+          <p className="text-[#101066] font-semibold text-base text-center lg:text-left sm:text-lg md:text-xl lg:text-xl tracking-tight leading-tight mb-8">
             Email us at{" "}
             <a href="mailto:contact@cycminds.org">contact@cycminds.org</a>
           </p>
 
           <br />
           <div className="grid grid-cols-1 divide-y bg-white"></div>
-          <div className="grid gap-8 md:grid-cols-4 md:mb-16">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 md:mb-16 w-fit mx-auto">
             {profiles.map((profile: any, idx: any) => (
               <div key={idx}>
                 <Profile
