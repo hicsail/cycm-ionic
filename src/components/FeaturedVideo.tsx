@@ -36,10 +36,9 @@ function FeaturedVideo({
   referrerPolicy,
   btnRounded,
 }: VideoInputProps) {
+  const vid = "https://www.youtube.com/watch?v=2nlSD0zD8Gk"
   const [videoData, setVideoData] = useState<VideoData>();
-  const [videos, setVideos] = useState<string[]>([
-    "https://www.youtube.com/watch?v=2nlSD0zD8Gk",
-  ]);
+  const [videos, setVideos] = useState<string[]>([vid]);
 
   const limitSentences = (text: string, maxSentences: number): string => {
     const sentences = text.split(".");
@@ -84,7 +83,7 @@ function FeaturedVideo({
     );
   }, []);
 
-  const backgroundVideo = "https://www.youtube.com/watch?v=2nlSD0zD8Gk";
+  const backgroundVideo = vid;
   const videoID = backgroundVideo.split("v=")[1];
   const url = backgroundVideo.replace("watch?v=", "embed/");
 
