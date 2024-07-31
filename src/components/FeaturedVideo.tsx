@@ -91,13 +91,17 @@ function FeaturedVideo({
   const cardStyle: React.CSSProperties = {
     display: "flex",
     flexDirection: "column",
-    width: "30%",
+    alignItems: "center",
+    justifyContent: "center",
+    minWidth: "350px",
+    maxWidth: "350px",
     margin: "auto",
   };
 
   const iframeContainerStyler: React.CSSProperties = {
     position: "relative",
     width: "100%",
+    height: "200px",
   };
 
   const videoFrameStyle: React.CSSProperties = {
