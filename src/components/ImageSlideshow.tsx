@@ -56,17 +56,17 @@ export default function ImageSlideshow() {
     <div className="mt-8 mx-auto w-3/4 px-8 justify-center">
       <div>
         <IonCard
-          className={`flex flex-col items-center w-9/10 h-auto sm:h-96 md:h-[28rem] lg:h-[32rem] xl:h-[36rem] object-stretch mx-auto justify-center overflow-hidden`}
+          className={`testimonial-background slider-2 `}
         >
           {slides.length > 0 && (
             <>
               <img
                 src={slides[slide].background}
                 alt="slide"
-                className="object-cover shrink-0 min-w-full min-h-[115%]"
+                className="object-cover shrink-0 min-w-full blur-[2px] brightness-50 min-h-[115%] "
               />
               <IonCardSubtitle
-                className="md:text-lg lg:text-2xl xl:text-3xl text-md w-full md:w-3/4"
+                className="md:text-lg lg:text-2xl xl:text-3xl text-l w-full md:w-3/4"
                 style={{
                   color: "white",
                   fontWeight: "bold",
