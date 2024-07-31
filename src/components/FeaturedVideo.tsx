@@ -36,7 +36,7 @@ function FeaturedVideo({
   referrerPolicy,
   btnRounded,
 }: VideoInputProps) {
-  const vid = "https://www.youtube.com/watch?v=2nlSD0zD8Gk"
+  const vid = "https://www.youtube.com/watch?v=2nlSD0zD8Gk";
   const [videoData, setVideoData] = useState<VideoData>();
   const [videos, setVideos] = useState<string[]>([vid]);
 
