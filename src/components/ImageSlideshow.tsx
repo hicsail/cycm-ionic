@@ -55,9 +55,7 @@ export default function ImageSlideshow() {
   return (
     <div className="mt-8 mx-auto w-3/4 px-8 justify-center">
       <div>
-        <IonCard
-          className={`testimonial-background slider-2 `}
-        >
+        <IonCard className={`testimonial-background slider-2 `}>
           {slides.length > 0 && (
             <>
               <img
