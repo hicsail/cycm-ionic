@@ -36,7 +36,7 @@ function FeaturedVideo({
   referrerPolicy,
   btnRounded,
 }: VideoInputProps) {
-  const vid = "https://www.youtube.com/watch?v=2nlSD0zD8Gk";
+  const vid = "https://www.youtube.com/watch?v=u2zbcZBI0Do";
   const [videoData, setVideoData] = useState<VideoData>();
   const [videos, setVideos] = useState<string[]>([vid]);
 
@@ -46,9 +46,13 @@ function FeaturedVideo({
     return limitedSentences;
   };
 
+  const backgroundVideo = vid;
+  const videoID = backgroundVideo.split("v=")[1];
+  const url = backgroundVideo.replace("watch?v=", "embed/");
+
   useEffect(() => {
     fetch(
-      `https://www.googleapis.com/youtube/v3/videos?id=2nlSD0zD8Gk&key=AIzaSyAi1dPx0fqC8EP9YoaNo1WPsykq_yVczCY&part=snippet,contentDetails,statistics,status&regionCode=us`,
+      `https://www.googleapis.com/youtube/v3/videos?id=${videoID}&key=AIzaSyAi1dPx0fqC8EP9YoaNo1WPsykq_yVczCY&part=snippet,contentDetails,statistics,status&regionCode=us`,
       {
         method: "GET",
         headers: {
@@ -82,10 +86,6 @@ function FeaturedVideo({
       videos.map((video: string) => video.replace("watch?v=", "embed/"))
     );
   }, []);
-
-  const backgroundVideo = vid;
-  const videoID = backgroundVideo.split("v=")[1];
-  const url = backgroundVideo.replace("watch?v=", "embed/");
 
   const cardStyle: React.CSSProperties = {
     display: "flex",
