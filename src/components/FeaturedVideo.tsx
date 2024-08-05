@@ -1,152 +1,79 @@
-import React, { useEffect, useState } from "react";
+import { IonFabButton, IonIcon } from "@ionic/react";
 import {
-  IonCard,
-  IonCardContent,
-  IonCardHeader,
-  IonCardSubtitle,
-  IonCardTitle,
-  IonButton,
-} from "@ionic/react";
+  arrowBack,
+  arrowForward,
+  chevronCollapseOutline,
+  chevronForward,
+} from "ionicons/icons";
+import React, { useEffect, useState } from "react";
 
-const token = import.meta.env.VITE_STRAPY_TOKEN;
-const apiKey = import.meta.env.VITE_ELEVEN_LABS_API_KEY;
-
-interface VideoInputProps {
-  id: string;
-  src: string;
-  title: string;
-  allow: string;
-  referrerPolicy?: string;
-  btnRounded: boolean;
-}
-
-type VideoData = {
-  viewCount: number;
-  likeCount: number;
-  title: string;
-  description: string;
-  publishedAt: Date;
-};
-
-function FeaturedVideo({
-  id,
-  src,
-  title,
-  allow,
-  referrerPolicy,
-  btnRounded,
-}: VideoInputProps) {
-  const [videoData, setVideoData] = useState<VideoData>();
-  const [videos, setVideos] = useState<string[]>([
-    "https://www.youtube.com/watch?v=2nlSD0zD8Gk",
-  ]);
-
-  const limitSentences = (text: string, maxSentences: number): string => {
-    const sentences = text.split(".");
-    const limitedSentences = sentences.slice(0, maxSentences).join("");
-    return limitedSentences;
-  };
+function FeaturedVideo() {
+  const [videos, setVideos] = useState<string[]>([]);
+  const token = import.meta.env.VITE_STRAPY_TOKEN;
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     fetch(
-      `https://www.googleapis.com/youtube/v3/videos?id=2nlSD0zD8Gk&key=AIzaSyAi1dPx0fqC8EP9YoaNo1WPsykq_yVczCY&part=snippet,contentDetails,statistics,status&regionCode=us`,
+      `${import.meta.env.VITE_STRAPI_URL}/api/main-page-videos?populate=*`,
       {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
       }
     )
       .then((res) => res.json())
       .then((resp) => {
-        console.log(resp);
-        const maxSentences = 1;
-        const fullDescription = resp.items[0].snippet.description;
-        const limitedDescription = limitSentences(
-          fullDescription,
-          maxSentences
+        const data = resp.data;
+        const urls = data.map((video: any) => video.attributes.url);
+        const embedUrls: string[] = urls.map((video: string) =>
+          video.replace("watch?v=", "embed/")
         );
-        const data: VideoData = {
-          viewCount: parseInt(resp.items[0].statistics.viewCount),
-          likeCount: parseInt(resp.items[0].statistics.likeCount),
-          title: resp.items[0].snippet.title,
-          description: limitedDescription,
-          publishedAt: new Date(resp.items[0].snippet.publishedAt),
-        };
-        setVideoData(data);
-        console.log(resp.items[0].snippet.title);
+        setVideos(embedUrls);
+        console.log(videos);
       });
   }, []);
 
-  useEffect(() => {
-    setVideos(
-      videos.map((video: string) => video.replace("watch?v=", "embed/"))
-    );
-  }, []);
-
-  const backgroundVideo = "https://www.youtube.com/watch?v=2nlSD0zD8Gk";
-  const videoID = backgroundVideo.split("v=")[1];
-  const url = backgroundVideo.replace("watch?v=", "embed/");
-
-  const cardStyle: React.CSSProperties = {
-    display: "flex",
-    flexDirection: "column",
-    width: "30%",
-    margin: "auto",
-  };
-
-  const iframeContainerStyler: React.CSSProperties = {
-    position: "relative",
-    width: "100%",
-  };
-
-  const videoFrameStyle: React.CSSProperties = {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-  };
-
-  function shortNumber(value?: number): string {
-    if (value === undefined) return "N/A";
-
-    if (value >= 1_000_000_000) {
-      return `${Math.trunc(value / 1_000_000_000)}B`;
-    } else if (value >= 1_000_000) {
-      return `${Math.trunc(value / 1_000_000)}M`;
-    } else if (value >= 1_000) {
-      return `${Math.trunc(value / 1_000)}K`;
-    } else {
-      return value.toString();
-    }
-  }
-
   return (
-    <IonCard id={id} style={cardStyle}>
-      <div style={iframeContainerStyler}>
+    <div>
+      <div className="flex justify-center">
         <iframe
-          width="100%"
-          height="100%"
-          src={url}
+          src={videos[index]}
           title="Featured Videos"
-          className="video-frame"
           allowFullScreen={true}
-          style={{
-            border: "none",
-            margin: "auto",
-          }}
+          className="mx-0 rounded-lg w-10/12 md:w-9/12 lg:w-8/12 xl:w-6/12 2xl:w-5/12 mx-auto h-72 md:h-96"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; fullscreen;"
         ></iframe>
       </div>
-      <IonCardHeader>
-        <IonCardTitle>{videoData?.title}</IonCardTitle>
-        <IonCardSubtitle>
-          {shortNumber(videoData?.viewCount)} Views
-        </IonCardSubtitle>
-      </IonCardHeader>
-      <IonCardContent>{videoData?.description}.</IonCardContent>
-    </IonCard>
+      <div className="w-10/12 md:w-9/12 lg:w-8/12 xl:w-6/12 2xl:w-5/12 mx-auto flex justify-between">
+        {/* <IonFabButton
+          className="-mt-16 ml-2"
+          style={{ "--background": "orangered" }}
+        >
+          <IonIcon
+            icon={arrowBack}
+            onClick={() => {
+              console.log(index);
+              setIndex(index === 0 ? videos.length - 1 : index - 1);
+            }}
+          />
+        </IonFabButton> */}
+        <div></div>
+        <IonFabButton
+          className="-mt-16 mr-2"
+          style={{ "--background": "orangered" }}
+        >
+          <IonIcon
+            icon={arrowForward}
+            onClick={() => {
+              console.log(index);
+              setIndex(index === videos.length - 1 ? 0 : index + 1);
+            }}
+          />
+        </IonFabButton>
+      </div>
+    </div>
   );
 }
 
