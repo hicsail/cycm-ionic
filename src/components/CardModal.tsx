@@ -330,7 +330,15 @@ const CardModal: React.FC<Props> = ({
                 style={{ color: "black" }}
                 onClick={() => {
                   if (currentIndex > 0) {
+                    if (currentIndex < audios.length) {
+                      const currentAudio = audios[currentIndex];
+                      if (currentAudio) {
+                        currentAudio.pause();
+                        currentAudio.currentTime = 0; // Reset audio to start
+                      }
+                    }
                     setCurrentIndex(currentIndex - 1);
+                    setIsPlaying(true);
                   }
                 }}
               >
@@ -355,7 +363,15 @@ const CardModal: React.FC<Props> = ({
                 style={{ color: "black" }}
                 onClick={() => {
                   if (currentIndex < sentenceRefs.current.length - 1) {
+                    if (currentIndex < audios.length) {
+                      const currentAudio = audios[currentIndex];
+                      if (currentAudio) {
+                        currentAudio.pause();
+                        currentAudio.currentTime = 0; // Reset audio to start
+                      }
+                    }
                     setCurrentIndex(currentIndex + 1);
+                    setIsPlaying(true);
                   }
                 }}
               >
