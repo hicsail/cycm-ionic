@@ -31,7 +31,7 @@ const Footer = () => {
     <>
       <div
         id="footer"
-        className="flex flex-col items-center"
+        className="flex flex-col items-center overflow-hidden"
         style={{ background: bgColor }}
       >
         <IonAlert
