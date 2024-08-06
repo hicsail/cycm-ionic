@@ -59,7 +59,7 @@ function FeaturedVideo() {
             }}
           />
         </IonFabButton> */}
-        <div></div>
+        {/* <div></div>
         <IonFabButton
           className="-mt-16 mr-2"
           style={{ "--background": "orangered" }}
@@ -71,7 +71,7 @@ function FeaturedVideo() {
               setIndex(index === videos.length - 1 ? 0 : index + 1);
             }}
           />
-        </IonFabButton>
+        </IonFabButton> */}
       </div>
     </div>
   );
