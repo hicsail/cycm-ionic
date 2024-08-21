@@ -48,29 +48,29 @@ const Index: React.FC = () => {
             />
           }
         />
-      
-      <div className="relative pb-32">
-        {/* <img className="w-full h-auto z-[10]" alt="union-1" src="union-1.png" /> */}
-        <SocialInfographics />
-        <Empower
-          description="Learn more about the Center for Young Colorful Minds and efforts being undertaken to address the teen mental health crisis."
-          bgColor="#FF6565"
-          rounded
-          textColor="white"
-          btnElement={
-            <Button
-              text="Read More"
-              backgroundColor="darkorange"
-              px={"1em"}
-              py={"0.5em"}
-              onClick={() => {
-                history.push("/about-us");
-              }}
-            />
-          }
-        />
+
+        <div className="relative pb-32">
+          {/* <img className="w-full h-auto z-[10]" alt="union-1" src="union-1.png" /> */}
+          <SocialInfographics />
+          <Empower
+            description="Learn more about the Center for Young Colorful Minds and efforts being undertaken to address the teen mental health crisis."
+            bgColor="#FF6565"
+            rounded
+            textColor="white"
+            btnElement={
+              <Button
+                text="Read More"
+                backgroundColor="darkorange"
+                px={"1em"}
+                py={"0.5em"}
+                onClick={() => {
+                  history.push("/about-us");
+                }}
+              />
+            }
+          />
+        </div>
       </div>
-    </div>
     </div>
   );
 };
