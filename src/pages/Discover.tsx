@@ -393,7 +393,7 @@ const Discover: React.FC = () => {
                   maxWidth: 1000,
                 }}
               >
-                <IonText className="mx-2">Select your voice</IonText>
+                {/* <IonText className="mx-2">Select your voice</IonText>
                 <IonButton
                   size="small"
                   color="success"
@@ -413,7 +413,7 @@ const Discover: React.FC = () => {
                       {voice.name}
                     </option>
                   ))}
-                </select>
+                </select> */}
               </div>
             </div>
           </div>

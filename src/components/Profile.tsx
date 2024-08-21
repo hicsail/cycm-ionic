@@ -58,18 +58,21 @@ const Profile = ({
   return (
     <div className="flex justify-center">
       <IonCard
-        color={"warning"}
+        color={""}
         button
         id={`open-modal${name.substring(0, 2)}`}
         style={{
           width: 240,
           height: 360,
+          "--background":
+            "linear-gradient(180deg, #FFF 26.5%, #FD9390 87.5%, #FB4B45 100%)",
         }}
+        className="flex flex-col"
       >
-        <IonCardContent>
+        <IonCardContent className="absolute top-0 bottom-0 w-full">
           <div className="flex flex-col">
             <img
-              className="w-32 h-32 rounded-full mb-2 mx-auto"
+              className="w-32 h-32 rounded-full mb-2 mx-auto object-cover"
               src={avatar ?? "/avatars/placeholder.gif"}
             />
             <span className="text-lg font-bold font-sans">{name}</span>
@@ -77,9 +80,9 @@ const Profile = ({
             {/* <p className="text-md font-sans mb-2 md:text-sm">{description}</p> */}
           </div>
         </IonCardContent>
-        <div className="h-12" />
+        {/* <div className="h-12" /> */}
         <div
-          className="flex bottom-5 absolute left-5"
+          className="flex bottom-5 absolute left-5 bg-transparent"
           onClick={(e) => {
             e.stopPropagation();
           }}
@@ -98,7 +101,7 @@ const Profile = ({
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 mx-2 my-2"
+                    className="h-4 w-4 mx-2 my-2 hover:text-blue-500"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
