@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const slides = ["cycm.png", "cycm-empower.png", "pic1.png"];
+const slides = ["header1.jpeg", "header2.jpeg", "header3.jpeg", "header4.jpeg", "header5.jpeg"];
 
 const ImageSlideshow = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
