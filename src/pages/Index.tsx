@@ -2,6 +2,7 @@ import React from "react";
 import CenterDescriptionCards from "../components/CenterDescriptionCards";
 import Empower from "../components/Empower";
 import HelpInfographics from "../components/HelpInfographics";
+import FeaturedVideo from "../components/FeaturedVideo";
 import NewHero from "../components/NewHero";
 import SocialInfographics from "../components/SocialInfographics";
 import { useHistory } from "react-router";
@@ -26,6 +27,7 @@ const Index: React.FC = () => {
             </h1>
           </div>
         </div>
+        <FeaturedVideo />
         <HelpInfographics />
         <Empower
           description="Discover helpful resources and articles to promote mental health awareness and support for teens. Together, we can create a safe and nurturing environment for their well-being."
