@@ -1,6 +1,6 @@
 export default function SocialInfographics() {
   return (
-    <div className="flex flex-col md:flex-row justify-evenly max-w-7xl md:px-16 py-16 my-16 mx-auto gap-16 md:gap-0">
+    <div className="flex flex-col md:flex-row justify-evenly max-w-7xl md:px-16 py-16 pt-48 mb-16 mx-auto gap-16 md:gap-0">
       <div className="relative max-w-[70%] md:max-w-[50%] mx-auto md:mx-0">
         <img
           className="w-[25rem] md:w-[20rem] h-auto"
